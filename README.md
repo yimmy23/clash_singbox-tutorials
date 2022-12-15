@@ -29,8 +29,8 @@ proxy-groups:
     proxies:
       - [节点名称 1]
       - [节点名称 2]
-	  - [策略名称 1]
-	  - [策略名称 2]
+      - [策略名称 1]
+      - [策略名称 2]
 
   - name: [策略名称]
     type: [策略类型：url-test]
@@ -44,10 +44,10 @@ proxy-groups:
   - name: [策略名称]
     type: select
     proxies:
-	  - [节点名称]
+      - [节点名称]
       - [策略名称]
       - DIRECT
-	  - REJECT
+      - REJECT
 ```
 ### 3. 供应商
 ```
