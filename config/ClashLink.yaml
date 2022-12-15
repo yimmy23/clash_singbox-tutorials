@@ -1,0 +1,227 @@
+proxies:
+  - name: 1️⃣ 🎮 移动🔄️联通
+    type: ss
+    server: c57s1.jamjams3.net
+    port: 30732
+    password: avPyyJDsNBrhwTJA
+    cipher: aes-256-gcm
+    udp: true
+
+  - name: 2️⃣ 🎮 联通🔄️移动
+    type: ss
+    server: c57s2.jamjams3.net
+    port: 30732
+    password: avPyyJDsNBrhwTJA
+    cipher: aes-256-gcm
+    udp: true
+
+  - name: 3️⃣ 📶 电信
+    type: vmess
+    server: c57s3.jamjams3.net
+    port: 30732
+    uuid: ec0576a3-d218-44d3-8f81-25f827898e2b
+    alterId: 0
+    cipher: chacha20-poly1305
+
+  - name: 4️⃣ 🗻 日本大阪软银
+    type: vmess
+    server: c57s4.jamjams3.net
+    port: 30732
+    uuid: ec0576a3-d218-44d3-8f81-25f827898e2b
+    alterId: 0
+    cipher: chacha20-poly1305
+
+  - name: 5️⃣ 🏰 荷兰
+    type: vmess
+    server: c57s5.jamjams3.net
+    port: 30732
+    uuid: ec0576a3-d218-44d3-8f81-25f827898e2b
+    alterId: 0
+    cipher: chacha20-poly1305
+
+proxy-groups:
+  - name: 🚥 节点选择
+    type: select
+    proxies:
+      - ♻️ 自动选择
+      - 1️⃣ 🎮 移动🔄️联通
+      - 2️⃣ 🎮 联通🔄️移动
+      - 3️⃣ 📶 电信
+      - 4️⃣ 🗻 日本大阪软银
+      - 5️⃣ 🏰 荷兰
+
+  - name: ♻️ 自动选择
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    proxies:
+      - 1️⃣ 🎮 移动🔄️联通
+      - 2️⃣ 🎮 联通🔄️移动
+      - 3️⃣ 📶 电信
+      - 4️⃣ 🗻 日本大阪软银
+      - 5️⃣ 🏰 荷兰
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚥 节点选择
+      - DIRECT
+
+  - name: 📈 网络测速
+    type: select
+    proxies:
+      - DIRECT
+      - 🚥 节点选择
+
+  - name: 🚀 直连域名
+    type: select
+    proxies:
+      - DIRECT
+      - ♻️ 自动选择
+
+  - name: 🪜 代理域名
+    type: select
+    proxies:
+      - 🚥 节点选择
+
+  - name: 📱 常见软件
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🗽 Google 中国
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🍎 Apple 中国
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: ☁️ iCloud 中国
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: ✈️ Telegram 中国
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🏠 私有网络
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 💻 局域网和保留 IP 地址
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🚄 国内 IP 地址
+    type: select
+    proxies:
+      - DIRECT
+
+  - name: 🚫 广告域名
+    type: select
+    proxies:
+      - REJECT
+
+rule-providers:
+  applications:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    path: ./ruleset/applications.yaml
+    interval: 86400
+
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+  direct:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+  reject:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    path: ./ruleset/reject.yaml
+    interval: 86400
+
+  google:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    path: ./ruleset/google.yaml
+    interval: 86400
+
+  apple:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    path: ./ruleset/apple.yaml
+    interval: 86400
+
+  icloud:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    path: ./ruleset/icloud.yaml
+    interval: 86400
+
+  telegramcidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    path: ./ruleset/telegramcidr.yaml
+    interval: 86400
+
+  private:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    path: ./ruleset/private.yaml
+    interval: 86400
+
+  lancidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    path: ./ruleset/lancidr.yaml
+    interval: 86400
+
+  cncidr:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    path: ./ruleset/cncidr.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET,applications,📱 常见软件
+  - DOMAIN-KEYWORD,ipv6,DIRECT
+  - DOMAIN-KEYWORD,test,📈 网络测速
+  - DOMAIN-SUFFIX,googleapis.cn,♻️ 自动选择
+  - RULE-SET,private,🏠 私有网络
+  - RULE-SET,reject,🚫 广告域名
+  - RULE-SET,icloud,☁️ iCloud 中国
+  - RULE-SET,apple,🍎 Apple 中国
+  - RULE-SET,google,🗽 Google 中国
+  - RULE-SET,proxy,🪜 代理域名
+  - RULE-SET,direct,🚀 直连域名
+  - RULE-SET,lancidr,💻 局域网和保留 IP 地址
+  - RULE-SET,cncidr,🚄 国内 IP 地址
+  - RULE-SET,telegramcidr,✈️ Telegram 中国
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
+  - MATCH,🐟 漏网之鱼
