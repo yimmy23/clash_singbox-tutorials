@@ -19,7 +19,7 @@ proxies:
     port: [节点端口号]
     uuid: [节点服务密码]
     alterId: [额外 ID：0]
-    cipher: [节点服务加密方式：chacha20-poly1305]
+    cipher: [节点服务加密方式：auto 或 chacha20-poly1305]
 ```
 ### 2. 策略组
 ```
