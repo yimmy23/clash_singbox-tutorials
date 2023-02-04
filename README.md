@@ -9,7 +9,7 @@ proxy-providers:
     type: [节点类型：http]
     path: [节点下载路径：./proxies/myairplane.yaml]
     url: [订阅链接：https://example.com]
-    interval: [更新时间间隔（秒）：86400]
+    interval: [节点更新间隔（秒）：86400]
     filter: [过滤器："VIP|01"]
     health-check:
       enable: [启用：true]
