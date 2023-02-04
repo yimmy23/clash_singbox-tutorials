@@ -4,48 +4,39 @@
 ## Clash 配置文件格式
 ### 1. 节点
 ```
-proxies:
-  - name: [节点名称]
-    type: [节点类型：ss]
-    server: [节点服务地址]
-    port: [节点端口号]
-    password: [节点服务密码]
-    cipher: [节点服务加密方式：aes-256-gcm]
-    udp: [节点启用 UDP：true 或 false]
-
-  - name: [节点名称]
-    type: [节点类型：vmess]
-    server: [节点服务地址]
-    port: [节点端口号]
-    uuid: [节点服务密码]
-    alterId: [额外 ID：0]
-    cipher: [节点服务加密方式：auto 或 chacha20-poly1305]
+proxy-providers:
+  [节点名称 1]:
+    type: [节点类型：http]
+    path: [节点下载路径：./proxies/myairplane.yaml]
+    url: [订阅链接：https://example.com]
+    interval: [更新时间间隔（秒）：86400]
+    filter: [过滤器："VIP|01"]
+    health-check:
+      enable: [启用：true]
+      url: [策略延迟测试网址：http://www.gstatic.com/generate_204]
+      interval: [策略延迟测试间隔（毫秒）：300]
 ```
 ### 2. 策略组
 ```
 proxy-groups:
-  - name: [策略名称]
+  - name: [策略名称 1]
     type: [策略类型：select]
     proxies:
-      - [节点名称 1]
-      - [节点名称 2]
-      - [策略名称 1]
       - [策略名称 2]
+    use:
+      - [节点名称 1]
 
-  - name: [策略名称]
+  - name: [策略名称 2]
     type: [策略类型：url-test]
     url: [策略延迟测试网址：http://www.gstatic.com/generate_204]
     interval: [策略延迟测试间隔（毫秒）：300]
-    proxies:
+    use:
       - [节点名称 1]
-      - [节点名称 2]
-      - [节点名称 3]
 
-  - name: [策略名称]
+  - name: [策略名称 3]
     type: select
     proxies:
-      - [节点名称]
-      - [策略名称]
+      - [策略名称 1]
       - DIRECT
       - REJECT
 ```
