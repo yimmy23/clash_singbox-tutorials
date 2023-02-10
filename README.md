@@ -7,7 +7,7 @@
 proxy-providers:
   [节点名称 1]:
     type: [节点类型：http]
-    path: [节点下载路径：./proxies/myairplane.yaml]
+    path: [节点下载路径：./proxies/airplane.yaml]
     url: [订阅链接：https://example.com]
     interval: [节点更新间隔（秒）：86400]
     filter: [过滤器："VIP|01"]
@@ -53,9 +53,9 @@ rule-providers:
 ### 4. 规则
 ```
 rules:
-  - RULE-SET,[供应商名称],[策略名称、DIRECT 或 REJECT]
   - DOMAIN-KEYWORD,[域名关键字],[策略名称、DIRECT 或 REJECT]
   - DOMAIN-SUFFIX,[域名后缀],[策略名称、DIRECT 或 REJECT]
+  - RULE-SET,[供应商名称],[策略名称、DIRECT 或 REJECT]
   - GEOIP,LAN,[策略名称、DIRECT 或 REJECT],[是否进行 DNS 解析：no-resolve]
   - GEOIP,CN,[策略名称、DIRECT 或 REJECT],[是否进行 DNS 解析：no-resolve]
   - MATCH,[策略名称（漏网之鱼）]
