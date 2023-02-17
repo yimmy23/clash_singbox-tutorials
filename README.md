@@ -33,7 +33,9 @@
 删除地址栏中网址后面的一串随机码，如：  
 这是原地址：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/df770aae2001b2eab426a385ea10bbbb35a35c52/template_whitelist.yaml`  
-将后面的一串随机码（当前编辑该文件生成的随机码）“df770aae2001b2eab426a385ea10bbbb35a35c52”删除，变成：  
+将后面的一串随机码（当前编辑该文件生成的随机码）“df770aae2001b2eab426a385ea10bbbb35a35c52”删除  
+![QQ截图20230217215823](https://user-images.githubusercontent.com/45238096/219675516-894c1643-55c0-4bec-8d67-666a0ccb0ee6.png)
+变成：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
 之后的.yaml 文件链接就是最终生成的订阅链接  
 注：该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该.yaml 文件并提交了 n 次也不会改变
