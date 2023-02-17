@@ -65,8 +65,8 @@ proxy-groups:
 rule-providers:
   netflix:
     type: http
-    behavior: domain
-    url: "https://gist.githubusercontent.com/DustinWin/29cbc0e5af4bd7fa063e73d3ec1ca57e/raw/netflix.txt"
+    behavior: classical
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml"
     path: ./ruleset/netflix.yaml
     interval: 86400
 
