@@ -1,4 +1,4 @@
-点击 https://github.com/DustinWin/ClashLink/blob/main/README.md 查看可提升阅读效果
+进入 https://github.com/DustinWin/ClashLink/blob/main/README.md 链接查看可提升阅读效果
 ### 前言：
 1. 本教程可以生成扩展名为 yaml 的直链，可以一键导入 ShellClash（6-2） 和各平台的 Clash 客户端
 2. 生成的订阅链接地址不会改变，支持更新订阅，支持同步机场节点
