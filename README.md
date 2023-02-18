@@ -25,7 +25,59 @@
 ③ “proxy-providers”中的“filter”支持正则表达式，可以更加精确地筛选出机场中的国家或地区节点  
 例如：我想筛选出所有带有“香港”二字的节点，但节点名称结尾不能有“#”，“filter”可以这样写：
 `filter: "(香港).[^#]$"`  
-④ 在“proxy-groups”中“🔰 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以默认选择最稳定的节点
+④ 在“proxy-groups”中“🔰 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以默认选择最稳定的节点  
+⑤ 在“proxy-groups”中的国家或地区节点里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动去选择节点  
+举一个比较完整的例子：我的机场有 2 个节点，分别是香港节点和日本节点，规则是自动选择延迟最低的香港节点，手动选择日本节点，可以这样写：  
+```
+proxy-providers:
+  🇭🇰 香港:
+    type: http
+    # 筛选出香港节点
+    filter: "香港"
+    # 填入你的机场订阅链接（必须支持 Clash，详见《前言：5》）
+    url: https://example.com/xxx/clash
+    path: ./proxies/HongKong.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+
+  🇯🇵 日本:
+    type: http
+    # 筛选出日本节点
+    filter: "日本"
+    # 填入你的机场订阅链接（必须支持 Clash，详见《前言：5》）
+    url: https://example.com/xxx/clash
+    path: ./proxies/Japan.yaml
+    interval: 86400
+    health-check:
+      enable: true
+      url: http://www.gstatic.com/generate_204
+      interval: 300
+
+proxy-groups:
+  - name: 🔰 节点选择
+    type: select
+    proxies:
+      # 填写 proxy-providers 中的国家或地区名称，且下方添加相应的代理组
+      - 🇭🇰 香港节点
+      - 🇹🇼 台湾节点
+
+  # 自动选择延迟最低的香港节点
+  - name: 🇭🇰 香港节点
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    use:
+      - 🇭🇰 香港
+
+  # 手动选择日本节点
+  - name: 🇯🇵 日本节点
+    type: select
+    use:
+      - 🇯🇵 日本
+```
 ### 四、 生成.yaml 文件链接
 1. 生成链接  
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮
