@@ -65,6 +65,12 @@ proxy-groups:
       - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
 
+  - name: 🧱 自由啦
+    type: select
+    proxies:
+      - 🔰 节点选择
+      - DIRECT
+
   # 自动选择延迟最低的香港节点
   - name: 🇭🇰 香港节点
     type: url-test
@@ -78,6 +84,19 @@ proxy-groups:
     type: select
     use:
       - 🇯🇵 日本
+
+rule-providers:
+  # 代理域名，国内无法直接访问
+  proxy:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    path: ./ruleset/proxy.yaml
+    interval: 86400
+
+rules:
+  # 让代理域名选择“🧱 自由啦”，就可以访问代理域名里的网站了
+  - RULE-SET,proxy,🧱 自由啦
 ```
 ### 四、 生成.yaml 文件链接
 1. 生成链接  
