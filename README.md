@@ -1,4 +1,6 @@
-进入 https://github.com/DustinWin/ClashLink/blob/main/README.md 链接查看可提升阅读效果
+### 全网最详细的解锁 SSH ShellClash 搭配 AdGuardHome 安装和配置教程：https://www.right.com.cn/forum/thread-8267066-1-1.html
+### 快速安装：https://github.com/DustinWin/Router-Plugins/releases/tag/latest
+# 生成带有自定义规则和代理组的配置文件.yaml 直链
 ### 前言：
 1. 本教程可以生成扩展名为 yaml 的直链，可以一键导入 ShellClash（6-2） 和各平台的 Clash 客户端
 2. 生成的订阅链接地址不会改变，支持更新订阅，支持同步机场节点
