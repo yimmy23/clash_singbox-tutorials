@@ -102,6 +102,7 @@ proxy-groups:
 proxy-providers:
   🎥 奈飞:
     type: http
+    # 筛选出日本和新加坡节点
     filter: "日本|新加坡"
     url: https://example.com/xxx/clash
     path: ./proxies/netflix.yaml
@@ -112,6 +113,7 @@ proxy-providers:
       interval: 300
 
 proxy-groups:
+  # 打开奈飞后自动选择延迟最低的日本或新加坡节点（也可以改成手动选择 select）
   - name: 🎥 奈飞节点
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -120,6 +122,7 @@ proxy-groups:
       - 🎥 奈飞
 
 rule-providers:
+  # 奈飞所有域名和 IP 段
   netflix:
     type: http
     behavior: classical
