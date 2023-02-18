@@ -22,7 +22,7 @@
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
 [点击下载黑名单模式模板文件](https://gist.githubusercontent.com/DustinWin/cb01b32ce4463da29e22ec764815902a/raw/template_blacklist.yaml)，将模板文件中的所有内容复制到自己 Gist 新建的.yaml 文件中
 #### 2. 修改模板
-① 首先确定自己机场中有哪些国家或地区的节点，对模板文件中“proxy-providers”、“proxy-groups”和“proxy-groups”中“🔰 节点选择”下的“proxies”里面的国家和地区进行增删改  
+① 首先确定自己机场中有哪些国家或地区的节点，对模板文件中“**proxy-providers**”、“**proxy-groups**”和“proxy-groups”中“🔰 节点选择”下的“**proxies**”里面的国家和地区进行增删改  
 注：三者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）  
 ② 将“proxy-providers”中的所有“url”链接全部改成自己机场的订阅链接（必须支持 Clash，详见《前言：5》）  
 ③ “proxy-providers”中的“filter”支持[正则表达式](https://tool.oschina.net/regex)，可以更加精确地筛选出机场中的国家或地区节点  
