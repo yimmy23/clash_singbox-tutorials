@@ -153,7 +153,7 @@ rule-providers:
     type: http
     behavior: classical
     # 奈飞的分流规则下载地址
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml"
     path: ./ruleset/netflix.yaml
     interval: 86400
 
