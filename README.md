@@ -68,7 +68,7 @@ proxy-groups:
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
 
-  - name: 🧱 自由啦
+  - name: 🪜 代理域名
     type: select
     proxies:
       # 相当于调用“🔰 节点选择”内的代理组（默认选择）
@@ -100,8 +100,8 @@ rule-providers:
     interval: 86400
 
 rules:
-  # 让代理域名选择“🧱 自由啦”，就可以访问代理域名里的网站了
-  - RULE-SET,proxy,🧱 自由啦
+  # 让代理域名选择“🪜 代理域名”，就可以访问代理域名里的网站了
+  - RULE-SET,proxy,🪜 代理域名
 ```
 ### 四、 生成.yaml 文件链接
 #### 1. 生成链接
@@ -111,7 +111,7 @@ rules:
 删除地址栏中网址后面的一串随机码，如：  
 这是原地址：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/df770aae2001b2eab426a385ea10bbbb35a35c52/template_whitelist.yaml`  
-将后面的一串随机码（当前编辑该文件生成的随机码）“df770aae2001b2eab426a385ea10bbbb35a35c52”删除  
+将后面的一串随机码（为当前编辑该文件生成的随机码）“df770aae2001b2eab426a385ea10bbbb35a35c52”删除  
 ![QQ截图20230217215823](https://user-images.githubusercontent.com/45238096/219675516-894c1643-55c0-4bec-8d67-666a0ccb0ee6.png)
 删除后变成：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
@@ -122,7 +122,7 @@ rules:
 ### 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
 最常见的有：我购买的机场支持奈飞，但仅日本节点和新加坡节点支持，这个规则怎么写？  
-我们需要通过[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash)找到奈飞的分流规则，然后开始编写  
+首先我们需要通过[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash)找到奈飞的所有域名和 IP 段，然后开始编写：   
 注：以下只是节选，请酌情套用
 ```
 proxy-providers:
