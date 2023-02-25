@@ -2,7 +2,7 @@
 **[ShellClash 和 AdGuardHome 快速安装方法](https://github.com/DustinWin/Router-Plugins/wiki/ShellClash-%E5%92%8C-AdGuardHome-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95)**
 # 生成带有自定义规则和代理组的配置文件.yaml 直链
 ## 前言：
-1. 本教程可以生成扩展名为 yaml 的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash) 和各平台的 Clash 客户端（[Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases)、[Clash for Android](https://github.com/Kr328/ClashForAndroid/releases)、[Clash for Mac](https://github.com/yichengchen/clashX/releases) 和 [Clash for iOS](https://clashios.com/clash-for-ios-tutorial)）**
+1. 本教程可以生成扩展名为 yaml 的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash) 和各平台的 Clash 客户端（[Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg)、[Clash for Android](https://github.com/Kr328/ClashForAndroid)、[Clash for Mac](https://github.com/yichengchen/clashX) 和 [Clash for iOS](https://clashios.com/clash-for-ios-tutorial)）**
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持同步机场节点**
 3. 生成的订阅链接带有规则集，规则集参考 https://github.com/Loyalsoldier/clash-rules
 4. 强烈建议生成订阅链接后先导入 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 进行测试，测试通过后再导入 ShellClash 内（不过也有 Clash for Windows 测试不通过，但导入 ShellClash 成功的情况，请仔细斟酌）
