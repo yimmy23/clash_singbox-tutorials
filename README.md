@@ -2,7 +2,7 @@
 **[ShellClash 和 AdGuardHome 快速安装方法](https://github.com/DustinWin/Router-Plugins/wiki/ShellClash-%E5%92%8C-AdGuardHome-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95)**
 # 生成带有自定义规则和代理组的配置文件.yaml 直链
 ## 前言：
-1. 本教程可以生成扩展名为 yaml 的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash)（6-2） 和各平台的 Clash 客户端（[Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases)、[Clash for Android](https://github.com/Kr328/ClashForAndroid/releases)、[Clash for Mac](https://github.com/yichengchen/clashX/releases) 和 [Clash for iOS](https://clashios.com/clash-for-ios-tutorial)）**
+1. 本教程可以生成扩展名为 yaml 的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash) 和各平台的 Clash 客户端（[Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases)、[Clash for Android](https://github.com/Kr328/ClashForAndroid/releases)、[Clash for Mac](https://github.com/yichengchen/clashX/releases) 和 [Clash for iOS](https://clashios.com/clash-for-ios-tutorial)）**
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持同步机场节点**
 3. 生成的订阅链接带有规则集，规则集参考 https://github.com/Loyalsoldier/clash-rules
 4. 强烈建议生成订阅链接后先导入 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 进行测试，测试通过后再进入 ShellClash-6-2 导入（不过也有 Clash for Windows 测试不通过，但导入 ShellClash 成功的情况，请仔细斟酌）
@@ -117,9 +117,22 @@ rules:
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
 **该.yaml 文件直链就是最终生成的订阅链接**  
 注：该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该.yaml 文件并提交了 n 次也不会改变
-### 五、 机场订阅链接改变或者更换了机场
-可直接编辑该.yaml 文件，**重复《三、 2》中的步骤**即可，然后在 ShellClash（进入 6-4 手动更新或 5-5 添加自动更新）和各个平台的 Clash 客户端中更新订阅就可以了（记得一并更新 proxy-providers）
-### 六、 私人定制
+### 五、 导入订阅链接
+#### 1. 在 ShellClash 中导入订阅链接  
+进入 ShellClash 配置脚本，选择 6-2，直接粘贴最终生成的订阅链接即可
+#### 2. 在各个平台的 Clash 客户端中导入订阅链接  
+粘贴最终生成的订阅链接，直接下载即可
+### 六、 机场订阅链接改变或者更换了机场
+#### 1. 修改.yaml 文件
+直接编辑该.yaml 文件并**重复《三、 2》中的步骤**
+#### 2. 更新订阅
+① 在 ShellClash 中更新订阅  
+进入 ShellClash 配置脚本，选择 6-4 手动更新或 5-5 添加定时更新  
+② 在各个平台的 Clash 客户端中更新订阅  
+一般右击订阅配置，然后点击“更新”（Update）即可
+#### 3. 更新机场节点
+在 ShellClash Dashboard 面板（进入“代理” Proxies）和各个平台的 Clash 客户端中更新 Proxy Provider 即可
+### 七、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
 最常见的有：我购买的机场支持奈飞，但仅日本节点和新加坡节点支持，这个规则怎么写？  
 首先我们需要通过[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash)找到奈飞的所有域名和 IP 段，然后开始编写：   
