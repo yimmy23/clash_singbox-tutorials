@@ -2,16 +2,16 @@
 **[ShellClash 和 AdGuardHome 快速安装方法](https://github.com/DustinWin/Router-Plugins/wiki/ShellClash-%E5%92%8C-AdGuardHome-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95)**
 # 生成带有自定义规则和代理组的配置文件.yaml 直链
 ## 前言：
-1. 本教程可以生成扩展名为 yaml 的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash) 和各平台的 Clash 客户端（[Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg)、[Clash for Android](https://github.com/Kr328/ClashForAndroid)、[Clash for Mac](https://github.com/yichengchen/clashX) 和 [Clash for iOS](https://clashios.com/clash-for-ios-tutorial)）**
+1. 本教程可以生成扩展名为.yaml 文件的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash) 和各平台的 Clash 客户端（[Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg)、[Clash for Android](https://github.com/Kr328/ClashForAndroid)、[Clash for Mac](https://github.com/yichengchen/clashX) 和 [Clash for iOS](https://clashios.com/clash-for-ios-tutorial)）**
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持同步机场节点**
-3. 生成的订阅链接带有规则集，规则集参考 https://github.com/Loyalsoldier/clash-rules
-4. 强烈建议生成订阅链接后先导入 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 进行测试，测试通过后再导入 ShellClash 内（不过也有 Clash for Windows 测试不通过，但导入 ShellClash 成功的情况，请仔细斟酌）
+3. 生成的订阅链接**自带规则集**，规则集参考 https://github.com/Loyalsoldier/clash-rules
+4. 强烈建议生成订阅链接后先导入 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 进行测试，**测试通过后再导入 ShellClash 内**（不过也有测试不通过，但导入成功的情况，请仔细斟酌）
 5. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，再将生成后的订阅链接添加到.yaml 文件中
 ### 一、 注册 Gist
 进入 https://gist.github.com 网站并注册
 ### 二、 准备编辑.yaml 文件
 #### 1. 打开编辑页面
-登录并打开 [Gist](https://gist.github.com) 可以直接编辑文件，或者鼠标点击页面右上角头像左边的“+”图标
+登录并打开 [Gist](https://gist.github.com) 可以直接编辑文件，或者鼠标点击页面右上角头像左边的“+”图标新建文件
 #### 2. 输入描述和完整文件名
 “Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 clashlink.yaml
 ![QQ截图20230217162956](https://user-images.githubusercontent.com/45238096/219593234-64833fcd-5200-4bea-849f-a1865d341fd2.png)
@@ -28,6 +28,7 @@
 ③ “proxy-providers”中的“filter”支持[正则表达式](https://tool.oschina.net/regex)，可以更加精确地筛选出机场中的国家或地区节点  
 例如：我想筛选出“香港 IPLC”节点，“filter”可以这样写：
 `filter: "香港.*IPLC|IPLC.*香港"`  
+小窍门：使用 [ChatGPT](https://chat.openai.com/chat) 查询符合自己要求的正则表达式  
 ④ 在“proxy-groups”中“🔰 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以默认选择最稳定的节点  
 ⑤ 在“proxy-groups”中的国家或地区节点里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动去选择节点  
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想自动选择延迟最低的香港节点，手动选择日本节点，这个需求怎么写？   
