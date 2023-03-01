@@ -7,7 +7,7 @@
 3. 生成的订阅链接**自带规则集**，规则集参考 https://github.com/Loyalsoldier/clash-rules
 4. 强烈建议生成订阅链接后先导入 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 进行测试，**测试通过后再导入 ShellClash 内**（不过也有测试不通过，但导入成功的情况，请仔细斟酌）
 5. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，再将生成后的订阅链接添加到.yaml 文件中
-6. 请优先使用 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核，避免兼容性问题
+6. 请**优先使用 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核**，避免兼容性问题
 ### 一、 注册 Gist
 进入 https://gist.github.com 网站并注册
 ### 二、 准备编辑.yaml 文件
