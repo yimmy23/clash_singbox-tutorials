@@ -123,8 +123,8 @@ rules:
 在 ShellClash Dashboard 面板（进入“代理” Proxies）和各个平台的 Clash 客户端中更新 Proxy Provider 即可
 ### 七、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
-最常见的有：我购买的机场支持奈飞，但仅日本节点和新加坡节点支持，这个规则怎么写？  
-首先我们需要通过[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash)找到奈飞的所有域名和 IP 段，然后开始编写：   
+最常见的有：我购买的机场支持奈飞和亚马逊，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，，这个规则怎么写？  
+首先我们需要通过[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash)找到奈飞和亚马逊的所有域名和 IP 段，然后开始编写：   
 注：以下只是节选，请酌情套用
 ```
 proxy-providers:
@@ -141,15 +141,25 @@ proxy-providers:
       interval: 300
 
 proxy-groups:
-  # 打开奈飞后自动选择延迟最低的日本或新加坡节点（也可以改成手动选择 select）
+  # 打开奈飞后手动选择日本或韩国节点
   - name: 🎥 奈飞节点
+    type: select
+    use:
+      # 使用 proxy-providers 中的节点名称
+      - 🛩️ 我的机场
+    # 筛选出日本和韩国节点
+    filter: "日本|韩国"
+
+  # 打开亚马逊后自动选择延迟最低的新加坡节点
+  - name: 🎞️ 亚马逊节点
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
+      # 使用 proxy-providers 中的节点名称
       - 🛩️ 我的机场
-    # 筛选出日本和新加坡节点
-    filter: "日本|新加坡"
+    # 筛选出新加坡节点
+    filter: "新加坡"
 
 rule-providers:
   # 奈飞所有域名和 IP 段
@@ -161,9 +171,19 @@ rule-providers:
     path: ./ruleset/netflix.yaml
     interval: 86400
 
+  # 亚马逊所有域名
+  amazonprimevideo:
+    type: http
+    behavior: classical
+    # 亚马逊的分流规则下载地址
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AmazonPrimeVideo/AmazonPrimeVideo.yaml"
+    path: ./ruleset/amazonprimevideo.yaml
+    interval: 86400
+
 rules:
-  # 此条写在 rules 最前面
+  # 两条都写在 rules 最前面
   - RULE-SET,netflix,🎥 奈飞节点
+  - RULE-SET,amazonprimevideo,🎞️ 亚马逊节点
 ```
 ### 给作者加鸡腿：
 #### 支付宝  
