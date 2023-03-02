@@ -99,15 +99,13 @@ rules:
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮
 ![QQ截图20230217171809](https://user-images.githubusercontent.com/45238096/219603714-534fe617-35b2-4f5d-acea-b2e691c50bed.png)
 #### 2. 修改链接
-删除地址栏中网址后面的一串随机码，如：  
-这是原地址：  
+删除地址栏中网址后面的一串随机码，删除后**该.yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该.yaml 文件并提交了 n 次也不会改变  
+举例，这是原地址：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/df770aae2001b2eab426a385ea10bbbb35a35c52/template_whitelist.yaml`  
 将后面的一串随机码（为当前编辑该文件生成的随机码）“df770aae2001b2eab426a385ea10bbbb35a35c52”删除  
 ![QQ截图20230217215823](https://user-images.githubusercontent.com/45238096/219675516-894c1643-55c0-4bec-8d67-666a0ccb0ee6.png)
 删除后变成：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
-**该.yaml 文件直链就是最终生成的订阅链接**  
-注：该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该.yaml 文件并提交了 n 次也不会改变
 ### 五、 导入订阅链接
 #### 1. 在 ShellClash 中导入订阅链接  
 进入 ShellClash 配置脚本，选择 6-2，直接粘贴最终生成的订阅链接即可
