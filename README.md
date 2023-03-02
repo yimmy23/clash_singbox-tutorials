@@ -2,12 +2,12 @@
 **[ShellClash 和 AdGuardHome 快速安装方法](https://github.com/DustinWin/Router-Plugins/wiki/ShellClash-%E5%92%8C-AdGuardHome-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95)**
 # 生成带有自定义规则和代理组的配置文件.yaml 直链
 ## 前言：
-1. 本教程可以生成扩展名为.yaml 文件的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash) 和各平台的 Clash 客户端（[Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg)、[Clash for Android](https://github.com/Kr328/ClashForAndroid)、[Clash for Mac](https://github.com/yichengchen/clashX) 和 [Clash for iOS](https://clashios.com/clash-for-ios-tutorial)）**
-2. 生成的订阅链接地址不会改变，支持更新订阅，**支持同步机场节点**
-3. 生成的订阅链接**自带规则集**，规则集参考 https://github.com/Loyalsoldier/clash-rules
-4. 强烈建议生成订阅链接后先导入 [Clash for Windows](https://github.com/Fndroid/clash_for_windows_pkg/releases) 进行测试，**测试通过后再导入 ShellClash 内**（不过也有测试不通过，但导入成功的情况，请仔细斟酌）
-5. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，再将生成后的订阅链接添加到.yaml 文件中
-6. 请**优先使用 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核**，避免兼容性问题
+1. 本教程可以生成扩展名为.yaml 文件的直链，可以**一键导入 [ShellClash](https://github.com/juewuy/ShellClash) 和各平台的 Clash 客户端（[Clash Verge](https://github.com/zzzgydi/clash-verge) 和 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid)）**
+2. **仅 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)支持该方法生成的订阅链接**
+3. 生成的订阅链接地址不会改变，支持更新订阅，**支持同步机场节点**
+4. 生成的订阅链接**自带规则集**，规则集参考 https://github.com/Loyalsoldier/clash-rules
+5. 强烈建议生成订阅链接后先导入 [Clash Verge](https://github.com/zzzgydi/clash-verge/releases) 进行测试，**测试通过后再导入 ShellClash 内**
+6. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，再将生成后的订阅链接添加到.yaml 文件中
 ### 一、 注册 Gist
 进入 https://gist.github.com 网站并注册
 ### 二、 准备编辑.yaml 文件
@@ -23,39 +23,25 @@
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
 [点击下载黑名单模式模板文件](https://gist.githubusercontent.com/DustinWin/cb01b32ce4463da29e22ec764815902a/raw/template_blacklist.yaml)，将模板文件中的所有内容复制到自己 Gist 新建的.yaml 文件中
 #### 2. 修改模板
-① 首先确定自己机场中有哪些国家或地区的节点，对模板文件中“**proxy-providers**”、“**proxy-groups**”和“proxy-groups”中“🔰 节点选择”下的“**proxies**”里面的国家或地区进行增删改  
+① 首先确定自己机场中有哪些国家或地区的节点，对模板文件中“**proxy-groups**”和“proxy-groups”中“🔰 节点选择”下的“**proxies**”里面的国家或地区进行增删改  
 注：三者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）  
-② 将“proxy-providers”中的所有“url”链接全部改成自己机场的订阅链接（必须支持 Clash，详见《前言：5》）  
-③ “proxy-providers”中的“filter”支持[正则表达式](https://tool.oschina.net/regex)，可以更加精确地筛选出机场中的国家或地区节点  
+② 将“proxy-providers”中的“url”链接改成自己机场的订阅链接（必须支持 Clash，详见《前言：6》）  
+③ “proxy-groups”中的“filter”支持[正则表达式](https://tool.oschina.net/regex)，可以精确地筛选出指定的国家或地区节点  
 例如：我想筛选出“香港 IPLC”节点，“filter”可以这样写：
 `filter: "香港.*IPLC|IPLC.*香港"`  
 小窍门：使用 [ChatGPT](https://chat.openai.com/chat) 查询符合自己要求的正则表达式  
-④ 在“proxy-groups”中“🔰 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以默认选择最稳定的节点  
-⑤ 在“proxy-groups”中的国家或地区节点里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动去选择节点  
+④ 在“proxy-groups”中“🔰 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以自动选择最稳定的节点  
+⑤ 在“proxy-groups”中的国家或地区节点里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动选择节点  
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想自动选择延迟最低的香港节点，手动选择日本节点，这个需求怎么写？   
 注：以下只是节选，请酌情套用  
 ```
 proxy-providers:
-  🇭🇰 香港:
+  # 获取机场订阅链接内的所有节点
+  🛩️ 我的机场:
     type: http
-    # 筛选出香港节点
-    filter: "香港"
-    # 填入你的机场订阅链接（必须支持 Clash，详见《前言：5》）
+    # 机场订阅链接，使用 Clash 链接
     url: https://example.com/xxx/clash
-    path: ./proxies/HongKong.yaml
-    interval: 86400
-    health-check:
-      enable: true
-      url: http://www.gstatic.com/generate_204
-      interval: 300
-
-  🇯🇵 日本:
-    type: http
-    # 筛选出日本节点
-    filter: "日本"
-    # 填入你的机场订阅链接（必须支持 Clash，详见《前言：5》）
-    url: https://example.com/xxx/clash
-    path: ./proxies/Japan.yaml
+    path: ./proxies/airport.yaml
     interval: 86400
     health-check:
       enable: true
@@ -66,7 +52,7 @@ proxy-groups:
   - name: 🔰 节点选择
     type: select
     proxies:
-      # 填写 proxy-providers 中的国家或地区名称，且下方添加相应的代理组
+      # 根据 proxy-groups 中（下方）国家或地区的节点名称进行增删改，一一对应
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
 
@@ -84,16 +70,19 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - 🇭🇰 香港
+      - 🛩️ 我的机场
+    # 筛选出“香港”节点，支持正则表达式
+    filter: "香港"
 
   # 手动选择日本节点
   - name: 🇯🇵 日本节点
     type: select
     use:
-      - 🇯🇵 日本
+      - 🛩️ 我的机场
+    filter: "日本"
 
 rule-providers:
-  # 代理域名，国内无法直接访问
+  # 需要代理的域名
   proxy:
     type: http
     behavior: domain
@@ -102,7 +91,7 @@ rule-providers:
     interval: 86400
 
 rules:
-  # 让代理域名选择“🪜 代理域名”，就可以访问代理域名里的网站了
+  # 让需要代理的域名选择“🪜 代理域名”，就可以访问了
   - RULE-SET,proxy,🪜 代理域名
 ```
 ### 四、 生成.yaml 文件链接
@@ -141,12 +130,12 @@ rules:
 注：以下只是节选，请酌情套用
 ```
 proxy-providers:
-  🎥 奈飞:
+  # 获取机场订阅链接内的所有节点
+  🛩️ 我的机场:
     type: http
-    # 筛选出日本和新加坡节点
-    filter: "日本|新加坡"
+    # 机场订阅链接，使用 Clash 链接
     url: https://example.com/xxx/clash
-    path: ./proxies/netflix.yaml
+    path: ./proxies/airport.yaml
     interval: 86400
     health-check:
       enable: true
@@ -160,7 +149,9 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - 🎥 奈飞
+      - 🛩️ 我的机场
+    # 筛选出日本和新加坡节点
+    filter: "日本|新加坡"
 
 rule-providers:
   # 奈飞所有域名和 IP 段
