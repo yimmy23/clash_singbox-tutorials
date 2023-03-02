@@ -118,7 +118,7 @@ rules:
 ① 在 ShellClash 中更新订阅  
 进入 ShellClash 配置脚本，选择 6-4 手动更新或 5-5 添加定时更新  
 ② 在各个平台的 Clash 客户端中更新订阅  
-一般右击订阅配置，然后点击“更新”（Update）即可
+一般进入“配置”（Profiles），然后点击“更新”（Update）即可
 #### 3. 更新机场节点
 在 ShellClash Dashboard 面板（进入“代理” Proxies）和各个平台的 Clash 客户端中更新 Proxy Provider 即可
 ### 七、 私人定制
