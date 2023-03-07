@@ -126,7 +126,7 @@ $clashdir/start.sh getyaml
 在 ShellClash Dashboard 面板（进入“代理” Proxies）和各个平台的 Clash 客户端中更新 Proxy Provider 即可
 ### 七、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
-最常见的有：我购买的机场支持奈飞和亚马逊，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，，这个规则怎么写？  
+最常见的有：我购买的机场支持奈飞和亚马逊，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？  
 首先我们需要通过[分流规则](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash)找到奈飞和亚马逊的所有域名和 IP 段，然后开始编写：   
 注：以下只是节选，请酌情套用
 ```
