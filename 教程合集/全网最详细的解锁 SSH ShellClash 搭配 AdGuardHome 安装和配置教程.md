@@ -106,7 +106,7 @@ reboot
 [![QQ-20221208192756.png](https://i.postimg.cc/X74PL5z3/QQ-20221208192756.png)](https://postimg.cc/rzZgFDTY)
 ## 2. 连接 Telnet
 用户名为：root，密码为第 1 步中计算出的 Telnet 登录密码  
-![QQ-20230109163338.png](https://i.postimg.cc/L5BbR4hr/QQ-20230109163338.png)  
+![QQ截图20230109163338](https://user-images.githubusercontent.com/45238096/224110394-e61c7373-f944-49b7-95d2-af18e31809ce.png)  
 直接粘贴如下所有命令：
 - 注：最后一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
 ```
@@ -126,10 +126,10 @@ passwd root
 ## 1. 给 Windows 操作系统添加 SSH 支持（任选一）
 ① 启用 Telnet 客户端  
 进入控制面板-->程序和功能-->启用或关闭 Windows 功能，勾选“Telnet 客户端”  
-[![QQ-20221208170832.png](https://i.postimg.cc/QdMyG3Dy/QQ-20221208170832.png)](https://postimg.cc/mt0wCKtY)  
+![QQ截图20221208170832](https://user-images.githubusercontent.com/45238096/224110758-b3f85378-39dc-407d-82ba-7b1faaf12753.png)  
 ② 启用 OpenSSH 服务器  
 进入设置-->应用-->可选功能-->查看功能-->搜索“ssh”，勾选“OpenSSH 服务器”并安装  
-[![QQ-20221208171519.png](https://i.postimg.cc/Dy6MMz9G/QQ-20221208171519.png)](https://postimg.cc/dL767JtQ)  
+![QQ截图20221208171519](https://user-images.githubusercontent.com/45238096/224110859-c869fed4-05bb-495b-a13c-aa3f78bb0ef7.png)  
 重启系统  
 ③ 连接 Telnet  
 成功解锁或恢复 SSH 后，以管理员身份运行 PowerShell 或 CMD，执行如下命令：
@@ -157,15 +157,15 @@ ssh root@192.168.31.1
 [![Snipaste-2022-12-23-13-29-06.png](https://i.postimg.cc/wTYzp34b/Snipaste-2022-12-23-13-29-06.png)](https://postimg.cc/XXLmKNbw)  
 ② 添加 Host  
 依次点击 ADD-->New Host  
-[![Snipaste-2022-12-23-13-29-30.png](https://i.postimg.cc/xTG2TYWj/Snipaste-2022-12-23-13-29-30.png)](https://postimg.cc/MvG49k6g)  
+![Snipaste_2022-12-23_13-29-30](https://user-images.githubusercontent.com/45238096/224111075-edf1f8a5-d30a-4c95-823f-0a756d2a9565.png)  
 ③ 添加 Telnet  
 按图输入，选中“Telnet”，点击右上角的“→|”图标
 - 注：首次登录不需要用户名和密码，解锁或恢复 SSH 后用户名为 root，密码为 SSH 登录密码
 
-[![Snipaste-2022-12-23-13-30-26.png](https://i.postimg.cc/pLqMzCWg/Snipaste-2022-12-23-13-30-26.png)](https://postimg.cc/XrGP0wy8)  
+![Snipaste_2022-12-23_13-30-26](https://user-images.githubusercontent.com/45238096/224111315-e5d6caa3-962d-4b1e-9b2d-2a917bb527c2.png)  
 ④ 添加 SSH  
 同样先按照第②步操作，然后按图输入，选中“SSH”，“Password”为解锁或恢复 SSH 时设置的密码，最后一步点击右上角的“→|”图标  
-[![Snipaste-2022-12-23-13-31-56.png](https://i.postimg.cc/pVFv4KCF/Snipaste-2022-12-23-13-31-56.png)](https://postimg.cc/23rgBbPk)  
+![Snipaste_2022-12-23_13-31-56](https://user-images.githubusercontent.com/45238096/224111529-4eab34c8-4c28-41d3-8a20-bb62ad61ab84.png)  
 ⑤ 连接 Telnet 或 SSH  
 按需双击添加的项即可  
 [![Snipaste_2022-12-23_13-32-27.png](https://i.postimg.cc/pXK2hKnH/Snipaste_2022-12-23_13-32-27.png)](https://postimg.cc/w7TKnyVf)
@@ -197,7 +197,7 @@ cd C:\Users\[用户名]\Desktop\upx
 .\upx --best clash.meta-linux-arm64
 ```
 ⑦ 将压缩完成的 clash.meta-linux-arm64 重命名为 clash-linux-arm64 并移动到路由器的 */tmp* 目录中  
-[![QQ-20230204145346.png](https://i.postimg.cc/7Z1pDVJ5/QQ-20230204145346.png)](https://postimg.cc/k24jvWcC)  
+![QQ截图20230204145346](https://user-images.githubusercontent.com/45238096/224111734-7454beb0-56e1-4474-b8db-64855582319e.png)  
 ⑧ 连接 SSH，进入 ShellClash 配置脚本可执行命令 `clash`，此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
 [![QQ-20230204145144.png](https://i.postimg.cc/YC1w07Zq/QQ-20230204145144.png)](https://postimg.cc/mP2npvT0)  
 **ShellClash 安装成功！**
@@ -234,7 +234,7 @@ cd C:\Users\[用户名]\Desktop\upx
 进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
 - 注：fake-ip 模式不支持 CNIP 绕过内核
 
-[![QQ-20230228135450.png](https://i.postimg.cc/6qmBrhfW/QQ-20230228135450.png)](https://postimg.cc/jnyVKP1m)  
+![QQ截图20230228135450](https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png)  
 返回到 7 clash 进阶设置，选择 4 启用域名嗅探  
 进入 6 配置内置 DNS 服务  
 选择 7 禁用 DNS 劫持  
@@ -256,7 +256,7 @@ cd C:\Users\[用户名]\Desktop\upx
 ⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
 [![QQ-20230202140107.png](https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png)](https://postimg.cc/7fgDyr8h)  
 ⑥ 返回到 9 更新/卸载，进入 3 更新 GeoIP/CN-IP，选择 1 由 alecthw 提供的全球版 GeoIP 数据库，等待下载完成（可能需要较长时间）  
-[![QQ-20230108141334.png](https://i.postimg.cc/SRTxZ4kp/QQ-20230108141334.png)](https://postimg.cc/tn6bTLsr)  
+![QQ截图20230108141334](https://user-images.githubusercontent.com/45238096/224112224-79dd1617-ea3e-4def-b6c0-238d208f60b7.png)  
 ⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
 [![QQ-20230306203324.png](https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png)](https://postimg.cc/yWDYtG83)  
 ⑧ 返回到主菜单，进入 6 导入配置文件
@@ -324,7 +324,7 @@ cd C:\Users\[用户名]\Desktop\upx
 .\upx --best AdGuardHome
 ```
 等待压缩完成，完成后“AdGuardHome”文件大小：  
-[![QQ-20221216151914.png](https://i.postimg.cc/HWQ06Pq8/QQ-20221216151914.png)](https://postimg.cc/z3GRBpXq)  
+![QQ截图20221216151914](https://user-images.githubusercontent.com/45238096/224112398-45ce73d6-1c9c-4707-9d01-0ac57eb26c43.png)  
 ⑤ 将压缩后的“AdGuardHome”文件移动到路由器的 */data/AdGuardHome* 目录（没有此目录就新建）中  
 [![QQ-20230130144006.png](https://i.postimg.cc/qvZ2tf3S/QQ-20230130144006.png)](https://postimg.cc/LJLJ7bv3)  
 ⑥ 进入路由器文件管理的 */data/auto_ssh* 目录，右击“auto_ssh.sh”文件  
@@ -389,9 +389,9 @@ https://doh.opendns.com/dns-query
 继续点击“测试上游 DNS”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器通了，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
 [![QQ-20230228140830.png](https://i.postimg.cc/8CjBwkGT/QQ-20230228140830.png)](https://postimg.cc/DW3XwTmN)  
 点击“应用”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器设置没问题，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-[![QQ-20230228140903.png](https://i.postimg.cc/HkWtc4Pc/QQ-20230228140903.png)](https://postimg.cc/HVKMF5md)  
+![QQ截图20230228140903](https://user-images.githubusercontent.com/45238096/224112577-e99ed24d-bd8c-45a9-b05e-1d1c68140813.png)  
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
-[![QQ-20230228141159.png](https://i.postimg.cc/Wpr8Q4k3/QQ-20230228141159.png)](https://postimg.cc/XXj954xS)  
+![QQ截图20230228141159](https://user-images.githubusercontent.com/45238096/224112771-5b2d2c4b-dcc3-4520-9c16-5954228bea40.png)  
 勾选“乐观缓存”，并点击“保存”  
 [![QQ-20230115234616.png](https://i.postimg.cc/CMfrSNWw/QQ-20230115234616.png)](https://postimg.cc/pyRJBDWS)  
 ⑤ 进入过滤器-->DNS 黑名单，推荐如下列表：
@@ -405,7 +405,7 @@ https://doh.opendns.com/dns-query
 
 - 注：添加后两个（较大）规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功
 
-[![QQ-20230225210000.png](https://i.postimg.cc/yYmfSN15/QQ-20230225210000.png)](https://postimg.cc/jLj6ptJQ)  
+![QQ截图20230225210000](https://user-images.githubusercontent.com/45238096/224112940-b6c367e0-1ee7-470a-b370-9226c825ffad.png)  
 ⑥ 进入过滤器-->DNS 白名单，添加如下列表：
 |名称|URL|
 |-----|-----|
@@ -471,12 +471,12 @@ rm -rf /data/AdGuardHome
 
 # 七、 效果图
 ## 1. IPv6 效果
-[![QQ-20230228143446.png](https://i.postimg.cc/ZqKDmhhQ/QQ-20230228143446.png)](https://postimg.cc/QFwqgwCg)
+![QQ截图20230228143446](https://user-images.githubusercontent.com/45238096/224113189-e20e0b89-6dfc-40c5-b2cf-9abeb8525cdb.png)
 ## 2. BT 下载效果
 UDP 连接正常，使用的是移动 500M 带宽  
-[![QQ-20221213012832.png](https://i.postimg.cc/Jh6Y4drz/QQ-20221213012832.png)](https://postimg.cc/GBDxXKTW)
+![QQ截图20221213012832](https://user-images.githubusercontent.com/45238096/224113233-4d76dec2-495c-4790-a00e-538fc1469639.png)
 ## 3 ShellClash 效果
 使用的是移动 500M 带宽  
 [![QQ-20221213022922.png](https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png)](https://postimg.cc/3dL1NdHc)
 ## 4. AdGuardHome 效果
-[![QQ-20230120190927.png](https://i.postimg.cc/RZGXXbnL/QQ-20230120190927.png)](https://postimg.cc/sMQY2mmM)
+![QQ截图20230120190927](https://user-images.githubusercontent.com/45238096/224113288-a84dd015-bb75-402d-82c1-9d71d0c5d7e2.png)
