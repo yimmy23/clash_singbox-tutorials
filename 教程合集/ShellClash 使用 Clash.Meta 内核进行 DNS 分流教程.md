@@ -3,7 +3,7 @@ DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主�
 ```
 nameserver-policy: {"geosite: cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]}
 ```
-
+---
 # user.yaml 文件下载：
 下载地址：https://dustinwinvip.lanzoum.com/b01qhffhc
 密码：flwj
