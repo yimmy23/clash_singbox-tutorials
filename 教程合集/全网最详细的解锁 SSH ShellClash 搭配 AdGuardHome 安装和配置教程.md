@@ -175,6 +175,7 @@ ssh root@192.168.31.1
 <img src="https://i.postimg.cc/Jny81XWS/Snipaste_2022-12-23_13-32-54.png" width="60%"/>  
 显示“ARE U OK”表示成功登录 SSH  
 <img src="https://i.postimg.cc/Bv7s9gRx/QQ-20230102102435.png" width="60%"/>
+
 ## 3. 通过 WinSCP 连接路由器文件管理
 将下载的 WinSCP-xxx-Portable.zip 文件解压，路径随意，打开 WinSCP，“文件协议”选择“SCP”，其它按图输入，“密码”为 SSH 登录密码，完成后点击登录  
 <img src="https://i.postimg.cc/vT1Jsw5y/QQ-20221208160309.png" width="60%"/>  
