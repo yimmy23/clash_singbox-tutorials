@@ -1,4 +1,3 @@
-- 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Router-Plugins/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B.md)》
 # 前言：
 1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
@@ -222,6 +221,7 @@ cd C:\Users\[用户名]\Desktop\upx
 注：
 - 1. 此功能须重启路由器后生效，作用是使当前路由器的 ShellClash 也走代理，受影响的有生成配置文件（订阅转换）、导入（更新）配置文件、更新脚本和更新 GeoIP/CN-IP 等
 - 2. 若生成配置文件（订阅转换）、导入（更新）配置文件、更新脚本和更新 GeoIP/CN-IP 等出现问题，请关闭此功能，并重启路由器后重试
+- 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Router-Plugins/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B.md)》
 
 <img src="https://i.postimg.cc/6qyXpvJD/QQ-20230116193308.png" width="60%"/>
 启用 7 屏蔽 QUIC 流量  
