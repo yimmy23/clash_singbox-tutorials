@@ -243,7 +243,8 @@ cd C:\Users\[用户名]\Desktop\upx
 - 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，并强烈建议设置 4 一键配置加密 DNS
 - 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Router-Plugins/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B.md)》
 
-<img src="https://i.postimg.cc/8kKkg1Q2/QQ-20230115213642.png" width="60%"/>  
+<img src="https://i.postimg.cc/8kKkg1Q2/QQ-20230115213642.png" width="60%"/>
+
 返回到 7 clash 进阶设置，进入 8 手动指定相关端口、秘钥及本机 host  
 选择 4 修改 DNS 监听端口，默认即可（此处我修改为：56252）  
 选择 5 修改面板访问端口，默认即可（此处我修改为：56253）  
@@ -378,7 +379,8 @@ https://doh.opendns.com/dns-query
 选中“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
-<img src="https://i.postimg.cc/FRSb5P1q/QQ-20230228160938.png" width="60%"/>  
+<img src="https://i.postimg.cc/FRSb5P1q/QQ-20230228160938.png" width="60%"/>
+
 “Bootstrap DNS 服务器”设置为：
 ```
 223.5.5.5
@@ -405,13 +407,15 @@ https://doh.opendns.com/dns-query
 
 - 注：添加后两个（较大）规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功
 
-<img src="https://user-images.githubusercontent.com/45238096/224112940-b6c367e0-1ee7-470a-b370-9226c825ffad.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/224112940-b6c367e0-1ee7-470a-b370-9226c825ffad.png" width="60%"/>
+
 ⑥ 进入过滤器-->DNS 白名单，添加如下列表：
 |名称|URL|
 |-----|-----|
 |`AdRules Allow List`|`https://adrules.top/allow-domains-list.txt`|
 
-<img src="https://i.postimg.cc/YqKn9FHY/Snipaste_2023-03-05_19-22-25.png" width="60%"/>  
+<img src="https://i.postimg.cc/YqKn9FHY/Snipaste_2023-03-05_19-22-25.png" width="60%"/>
+
 ⑦ 进入过滤器-->DNS 重写，推荐如下搭配：
 |域|IP 地址|
 |-----|-----|
@@ -421,7 +425,8 @@ https://doh.opendns.com/dns-query
 |`dns.cloudflare.com`|`1.1.1.1`|
 |`doh.opendns.com`|`208.67.222.222`|
 
-<img src="https://user-images.githubusercontent.com/45238096/224114271-01bb270f-d753-4e30-af55-61a805387bdc.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/224114271-01bb270f-d753-4e30-af55-61a805387bdc.png" width="60%"/>
+
 **AdGuardHome 配置成功！**
 ### 拓展：
 **AdGuardHome 常用命令**
