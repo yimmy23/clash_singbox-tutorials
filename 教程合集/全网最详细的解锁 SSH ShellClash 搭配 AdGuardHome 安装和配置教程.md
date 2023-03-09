@@ -421,6 +421,7 @@ https://doh.opendns.com/dns-query
 |`dns.cloudflare.com`|`1.1.1.1`|
 |`doh.opendns.com`|`208.67.222.222`|
 
+![QQ截图20230228141608](https://user-images.githubusercontent.com/45238096/224114271-01bb270f-d753-4e30-af55-61a805387bdc.png)  
 **AdGuardHome 配置成功！**
 ### 拓展：
 **AdGuardHome 常用命令**
