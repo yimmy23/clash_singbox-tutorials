@@ -36,7 +36,7 @@
 
 # 二、 解锁 SSH
 ## 1. 复制 stok 值
-进入路由器管理页面 http://192.168.31.1， 登录后复制地址栏中的 stok 值  
+进入路由器管理页面 http://192.168.31.1 ，登录后复制地址栏中的 stok 值  
 [![QQ-20230109171055.png](https://i.postimg.cc/nLjSrGCK/QQ-20230109171055.png)](https://postimg.cc/v1ytS97D)
 ## 2. 开启调试模式
 将复制的 stok 值替换如下网址的{stok}并访问：
