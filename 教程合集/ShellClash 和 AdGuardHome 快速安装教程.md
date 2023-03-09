@@ -12,7 +12,7 @@ curl -o /tmp/ShellClash.tar.gz -L https://ghproxy.com/https://raw.githubusercont
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 选择 1 安装到/data 目录（推荐，支持软固化功能）
-# 二、 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核
+# 二、 安装 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
 - 注：如果使用的是搭载非 ARMv8 架构 CPU 的路由器，需要修改一下链接后缀，其余部分不需要任何修改就可以正常识别  
 比如搭载的是 ARMv7 架构的 CPU，就修改为：  
 `https://ghproxy.com/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/clash.meta/clash-linux-armv7`  
