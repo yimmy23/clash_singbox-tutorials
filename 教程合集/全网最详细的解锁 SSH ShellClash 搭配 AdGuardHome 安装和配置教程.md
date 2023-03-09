@@ -490,7 +490,7 @@ AdGuardHome 常用命令
 chmod +x /data/AdGuardHome/AdGuardHome
 reboot
 ```
-## 4 AdGuardHome 卸载
+## 4. AdGuardHome 卸载
 ① 删除开机启动项  
 执行《六、 1. ⑥》的操作步骤，删除最下方添加的内容：
 ```
@@ -517,7 +517,7 @@ rm -rf /data/AdGuardHome
 ## 2. BT 下载效果
 UDP 连接正常，使用的是移动 500M 带宽  
 ![QQ截图20221213012832](https://user-images.githubusercontent.com/45238096/224113233-4d76dec2-495c-4790-a00e-538fc1469639.png)
-## 3 ShellClash 效果
+## 3. ShellClash 效果
 使用的是移动 500M 带宽  
 [![QQ-20221213022922.png](https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png)](https://postimg.cc/3dL1NdHc)
 ## 4. AdGuardHome 效果
