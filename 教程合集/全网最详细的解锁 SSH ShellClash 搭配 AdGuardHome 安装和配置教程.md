@@ -169,9 +169,10 @@ ssh root@192.168.31.1
 ⑤ 连接 Telnet 或 SSH  
 按需双击添加的项即可  
 <img src="https://i.postimg.cc/pXK2hKnH/Snipaste_2022-12-23_13-32-27.png" width="60%"/>
-- 注：首次连接 SSH 需要点击“Add and continue”
-<img src="https://i.postimg.cc/Jny81XWS/Snipaste_2022-12-23_13-32-54.png" width="60%"/>
 
+- 注：首次连接 SSH 需要点击“Add and continue”
+
+<img src="https://i.postimg.cc/Jny81XWS/Snipaste_2022-12-23_13-32-54.png" width="60%"/>  
 显示“ARE U OK”表示成功登录 SSH  
 <img src="https://i.postimg.cc/Bv7s9gRx/QQ-20230102102435.png" width="60%"/>
 ## 3. 通过 WinSCP 连接路由器文件管理
