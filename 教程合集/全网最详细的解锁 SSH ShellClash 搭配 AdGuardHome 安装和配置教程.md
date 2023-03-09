@@ -1,3 +1,8 @@
+# 前排提示：
+本教程内容比较长，记得点开目录后查看  
+<img src="https://user-images.githubusercontent.com/45238096/224132504-d3431fa0-c6db-4e0c-8ab2-ef6f4c99dbec.png" width="60%"/>
+
+---
 # 前言：
 1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
