@@ -95,7 +95,8 @@ uci commit
 mtd erase crash
 reboot
 ```
-<img src="https://i.postimg.cc/Wzj59RSS/QQ-20230102102002.png" width="60%"/>  
+<img src="https://i.postimg.cc/Wzj59RSS/QQ-20230102102002.png" width="60%"/>
+
 最后一行 reboot 命令需要手动回车（下同），回车后路由器会重启  
 **SSH 解锁成功！**
 
