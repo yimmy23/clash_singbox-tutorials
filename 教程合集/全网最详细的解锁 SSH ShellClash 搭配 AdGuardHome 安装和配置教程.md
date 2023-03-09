@@ -231,19 +231,20 @@ cd C:\Users\[用户名]\Desktop\upx
 ③ 返回到主菜单，进入 4 clash 启动设置  
 选择 1 允许 clash 开机启动  
 选择 3 设置自启延时，推荐设置成 90 秒（其它型号路由器请自测）  
-<img src="https://i.postimg.cc/02h8rcNZ/QQ-20230219114132.png" width="60%"/>  
+<img src="https://i.postimg.cc/02h8rcNZ/QQ-20230219114132.png" width="60%"/>
+
 ④ 返回到主菜单，进入 7 clash 进阶设置  
 进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
 - 注：fake-ip 模式不支持 CNIP 绕过内核
 
-<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>
+
 返回到 7 clash 进阶设置，选择 4 启用域名嗅探  
 进入 6 配置内置 DNS 服务  
 选择 7 禁用 DNS 劫持  
 注：
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
 - 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，并强烈建议设置 4 一键配置加密 DNS
-
 
 <img src="https://i.postimg.cc/8kKkg1Q2/QQ-20230115213642.png" width="60%"/>
 
@@ -261,9 +262,12 @@ cd C:\Users\[用户名]\Desktop\upx
 ⑥ 返回到 9 更新/卸载，进入 3 更新 GeoIP/CN-IP，选择 1 由 alecthw 提供的全球版 GeoIP 数据库，等待下载完成（可能需要较长时间）  
 <img src="https://user-images.githubusercontent.com/45238096/224112224-79dd1617-ea3e-4def-b6c0-238d208f60b7.png" width="60%"/>  
 ⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
-<img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
-⑧ 返回到主菜单，进入 6 导入配置文件
-- 注：选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，也可以选择 1 在线生成 Clash 配置文件，可直接转换订阅链接，此处具体方法省略
+<img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>
+
+⑧ 返回到主菜单，进入 6 导入配置文件  
+注：
+- 1. 选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件.yaml 直链](https://github.com/DustinWin/Router-Plugins/blob/main/README.md)》
+- 2. 选择 1 在线生成 Clash 配置文件，可直接转换订阅链接，此处具体方法省略
 
 导入配置文件完成后，根据需要是否选择 1 立即启动 clash 服务，可以选择 1 立即启动，也可以返回到主菜单，输入 0 回车退出脚本并执行如下命令：
 ```
