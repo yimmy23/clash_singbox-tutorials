@@ -106,7 +106,7 @@ reboot
 [![QQ-20221208192756.png](https://i.postimg.cc/X74PL5z3/QQ-20221208192756.png)](https://postimg.cc/rzZgFDTY)
 ## 2. 连接 Telnet
 用户名为：root，密码为第 1 步中计算出的 Telnet 登录密码  
-![QQ截图20230109163338](https://user-images.githubusercontent.com/45238096/224110394-e61c7373-f944-49b7-95d2-af18e31809ce.png =100x100)  
+![QQ截图20230109163338](https://user-images.githubusercontent.com/45238096/224110394-e61c7373-f944-49b7-95d2-af18e31809ce.png)  
 直接粘贴如下所有命令：
 - 注：最后一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
 ```
