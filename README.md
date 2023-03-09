@@ -1,5 +1,5 @@
 **[全网最详细的解锁 SSH ShellClash 搭配 AdGuardHome 安装和配置教程](https://www.right.com.cn/forum/thread-8267066-1-1.html)**  
-**[ShellClash 和 AdGuardHome 快速安装方法](https://github.com/DustinWin/Router-Plugins/wiki/ShellClash-%E5%92%8C-AdGuardHome-%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95)**
+**[ShellClash 和 AdGuardHome 快速安装方法](https://github.com/DustinWin/Router-Plugins/blob/main/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95.md)**
 # 生成带有自定义规则和代理组的配置文件.yaml 直链
 ## 前言：
 1. 本教程可以生成扩展名为.yaml 文件的直链，可以**一键导入使用了 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核的 Clash 客户端**  
