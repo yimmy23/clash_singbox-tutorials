@@ -102,7 +102,7 @@ reboot
 # 三、 恢复 SSH
 若已解锁并固化过 SSH 的路由器在升级固件或恢复出厂设置后 SSH 丢失，可快速再次解锁 SSH
 ## 1. 计算 Telnet 登录密码
-打开网站 https://miwifi.dev/ssh，在 SN 处输入路由器背面的 SN 号，点击“Calc”按钮  
+打开网站 https://miwifi.dev/ssh ，在 SN 处输入路由器背面的 SN 号，点击“Calc”按钮  
 [![QQ-20221208192756.png](https://i.postimg.cc/X74PL5z3/QQ-20221208192756.png)](https://postimg.cc/rzZgFDTY)
 ## 2. 连接 Telnet
 用户名为：root，密码为第 1 步中计算出的 Telnet 登录密码  
