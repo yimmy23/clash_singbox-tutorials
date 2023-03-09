@@ -1,3 +1,4 @@
+- 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Router-Plugins/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B.md)》
 # 前言：
 1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
