@@ -1,5 +1,5 @@
 # 前排提示
-本教程内容比较长，记得点开目录后查看  
+本教程内容较长，记得点开目录后查看  
 <img src="https://user-images.githubusercontent.com/45238096/224132504-d3431fa0-c6db-4e0c-8ab2-ef6f4c99dbec.png" width="60%"/>
 
 ---
