@@ -295,7 +295,7 @@ cd C:\Users\[用户名]\Desktop\upx
 ```
 $clashdir/start.sh start
 ```
-ShellClash 配置成功！
+**ShellClash 配置成功！**  
 **拓展：**  
 ShellClash 常用命令
 - 1. 打开配置：
@@ -463,7 +463,7 @@ https://doh.opendns.com/dns-query
 
 <img src="https://user-images.githubusercontent.com/45238096/224114271-01bb270f-d753-4e30-af55-61a805387bdc.png" width="60%"/>
 
-**AdGuardHome 配置成功！**
+**AdGuardHome 配置成功！**  
 **拓展：**  
 AdGuardHome 常用命令
 - 1. 启动服务：
