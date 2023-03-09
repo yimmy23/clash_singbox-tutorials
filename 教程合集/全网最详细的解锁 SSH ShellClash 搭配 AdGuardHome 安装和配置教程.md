@@ -5,7 +5,7 @@
 `uname -ms | tr ' ' '_' | tr '[A-Z]' '[a-z]'`  
 若执行结果是 linux_aarch64，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
 4. ShellClash 和 AdGuardHome 中所有没有提到的配置保持默认即可
-5. ShellClash 和 AdGuardHome 快速安装方法请看《[ShellClash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/Router-Plugins/blob/main/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95.md)》
+5. ShellClash 和 AdGuardHome 快速安装方法请看《[ShellClash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/Router-Plugins/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
 ---
 # 一、 资源下载
 打包下载：https://dustinwinvip.lanzoum.com/b01qd6p3a  
@@ -241,7 +241,7 @@ cd C:\Users\[用户名]\Desktop\upx
 注：
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
 - 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，并强烈建议设置 4 一键配置加密 DNS
-- 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Router-Plugins/blob/main/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95.md#2-%E8%AE%BE%E7%BD%AE-dns-%E5%88%86%E6%B5%81)》
+- 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Router-Plugins/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B.md)》
 
 [![QQ-20230115213642.png](https://i.postimg.cc/8kKkg1Q2/QQ-20230115213642.png)](https://postimg.cc/rz42S2pj)  
 返回到 7 clash 进阶设置，进入 8 手动指定相关端口、秘钥及本机 host  
@@ -249,7 +249,7 @@ cd C:\Users\[用户名]\Desktop\upx
 选择 5 修改面板访问端口，默认即可（此处我修改为：56253）  
 注：
 - 1. 修改后访问 ShellClash Dashboard 面板网址变成 http://192.168.31.1:56253/ui
-- 2. 首次访问 ShellClash Dashboard 面板需要输入 http://192.168.31.1:56253，点击“Add”按钮，添加成功后，点击下方添加成功的网址即可
+- 2. 首次访问 ShellClash Dashboard 面板需要输入 http://192.168.31.1:56253 ，点击“Add”按钮，添加成功后，点击下方添加成功的网址即可
 [![QQ-20230102114351.png](https://i.postimg.cc/LXm425sp/QQ-20230102114351.png)](https://postimg.cc/rdY298Wn)
 
 [![QQ-20230115224601.png](https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png)](https://postimg.cc/k2smBN5d)  
