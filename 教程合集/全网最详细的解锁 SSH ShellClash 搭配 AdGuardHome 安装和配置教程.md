@@ -66,7 +66,7 @@ http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone
 网页内容显示{"code":0}，此时路由器会再次重启
 ## 7. 连接 Telnet
 显示“ARE U OK”表示成功解锁 SSH  
-[![QQ-20230102101630.png](https://i.postimg.cc/DZ1CdfQ8/QQ-20230102101630.png)](https://postimg.cc/ygYX7HbH)
+[![QQ-20230102101630.png](https://i.postimg.cc/DZ1CdfQ8/QQ-20230102101630.png)](https://postimg.cc/ygYX7HbH =100x100)
 ## 8. 永久开启并固化 SSH
 直接粘贴如下所有命令：
 - 注：第一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
