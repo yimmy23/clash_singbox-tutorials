@@ -437,7 +437,7 @@ https://doh.opendns.com/dns-query
 
 |名称|URL|
 |-----|-----|
-|`乘风视频`|`https://cdn.jsdelivr.net/gh/xinggsf/Adblock-Plus-Rule@master/mv.txt`|
+|`乘风视频过滤`|`https://cdn.jsdelivr.net/gh/xinggsf/Adblock-Plus-Rule@master/mv.txt`|
 |`AdGuard DNS filter`|`https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt`|
 |`CHN: AdRules DNS List`|`https://adrules.top/dns.txt`|
 
