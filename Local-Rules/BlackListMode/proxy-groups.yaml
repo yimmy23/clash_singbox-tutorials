@@ -1,0 +1,49 @@
+proxy-groups:
+  - name: 📈 网络测速
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+
+  - name: 🌎 非中国域名
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+
+  - name: 🧱 GFWList 域名
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+
+  - name: 🪜 GreatFire 域名
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+
+  - name: 📱 常见软件
+    type: select
+    proxies:
+      - 🎯 全球直连
+
+  - name: ✈️ Telegram IP 地址
+    type: select
+    proxies:
+      - 🚀 节点选择
+
+  - name: 🏠 私有网络
+    type: select
+    proxies:
+      - 🎯 全球直连
+
+  - name: ⛔️ 广告域名
+    type: select
+    proxies:
+      - 🛑 全球拦截
+
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
