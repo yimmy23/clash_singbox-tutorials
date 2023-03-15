@@ -8,14 +8,14 @@
 # 一、 安装 [ShellClash](https://github.com/juewuy/ShellClash)
 执行如下命令：
 ```
-curl -o /tmp/ShellClash.tar.gz -L https://ghproxy.com/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/ShellClash.tar.gz
+curl -o /tmp/ShellClash.tar.gz -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/ShellClash.tar.gz
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 选择 1 安装到/data 目录（推荐，支持软固化功能）
 # 二、 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核
 - 注：如果使用的是搭载非 ARMv8 架构 CPU 的路由器，需要修改一下链接后缀，其余部分不需要任何修改就可以正常识别  
 比如搭载的是 ARMv7 架构的 CPU，就修改为：  
-`https://ghproxy.com/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/clash.meta/clash-linux-armv7`  
+`https://gh.api.99988866.xyz/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/clash.meta/clash-linux-armv7`  
 其它架构 CPU 的链接后缀对应如下：
 
 |CPU 架构|链接后缀|
@@ -30,13 +30,13 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 执行如下命令：
 ```
-curl -o /tmp/clash-linux-armv8 -L https://ghproxy.com/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/clash.meta/clash-linux-armv8
+curl -o /tmp/clash-linux-armv8 -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/clash.meta/clash-linux-armv8
 clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
 或者执行如下命令：
 ```
-curl -o $clashdir/clash -L https://ghproxy.com/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/clash.meta/clash-linux-armv8
+curl -o $clashdir/clash -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/clash.meta/clash-linux-armv8
 chmod +x $clashdir/clash
 $clashdir/start.sh restart
 ```
@@ -47,7 +47,7 @@ $clashdir/start.sh restart
 执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
-curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
+curl -o /data/AdGuardHome/AdGuardHome -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
@@ -71,7 +71,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 # 四、 升级 AdGuardHome
 执行如下命令：
 ```
-curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
+curl -o /data/AdGuardHome/AdGuardHome -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
 chmod +x /data/AdGuardHome/AdGuardHome
 reboot
 ```
