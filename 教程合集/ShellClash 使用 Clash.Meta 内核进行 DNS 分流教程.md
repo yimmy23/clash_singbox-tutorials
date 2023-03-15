@@ -22,12 +22,12 @@ nameserver-policy: {"geosite: cn": [https://dns.alidns.com/dns-query, https://do
 
 ① 使用 fake-ip 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/DNS-Bypass/fake-ip-mode/user.yaml
+curl -o $clashdir/user.yaml -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/DNS-Bypass/fake-ip-mode/user.yaml
 $clashdir/start.sh restart
 ```
 ② 使用 redir-host 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/DNS-Bypass/redir-host-mode/user.yaml
+curl -o $clashdir/user.yaml -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/DNS-Bypass/redir-host-mode/user.yaml
 $clashdir/start.sh restart
 ```
 ## 三、 重启 Clash 服务
