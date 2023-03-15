@@ -1,0 +1,15 @@
+- DOMAIN-SUFFIX,googleapis.cn,🚀 节点选择
+- RULE-SET,applications,📱 常见软件
+- RULE-SET,private,🏠 私有网络
+- RULE-SET,reject,⛔️ 广告域名
+- RULE-SET,speedtest,📈 网络测速
+- RULE-SET,icloud,☁️ iCloud 中国
+- RULE-SET,apple,🍎 Apple 中国
+- RULE-SET,google,🗽 Google 中国
+- RULE-SET,proxy,🪜 代理域名
+- RULE-SET,direct,🚄 直连域名
+- RULE-SET,lancidr,💻 局域网和保留 IP 地址
+- RULE-SET,cncidr,🀄 国内 IP 地址
+- RULE-SET,telegramcidr,✈️ Telegram IP 地址
+- GEOIP,LAN,🎯 全球直连,no-resolve
+- GEOIP,CN,🎯 全球直连,no-resolve
