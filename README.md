@@ -26,7 +26,7 @@
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
 [点击下载黑名单模式模板文件](https://gh.api.99988866.xyz/https://gist.githubusercontent.com/DustinWin/76178eff45a43ca8cb740a8afcc833bd/raw/template_blacklist.yaml)，将模板文件中的所有内容复制到自己 Gist 新建的.yaml 文件中
 ## 2. 修改模板
-① 首先确定自己机场中有哪些国家或地区的节点，对模板文件中“**proxy-groups**”和“proxy-groups”中“🔰 节点选择”下的“**proxies**”里面的国家或地区进行增删改
+① 首先确定自己机场中有哪些国家或地区的节点，对模板文件中“**proxy-groups**”和“proxy-groups”中“🚀 节点选择”下的“**proxies**”里面的国家或地区进行增删改
 - 注：两者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）
 
 ② 将“proxy-providers”中的“url”链接改成自己机场的订阅链接（必须支持 Clash，详见《前言：5》）  
@@ -37,7 +37,7 @@
 - 使用 [ChatGPT](https://chat.openai.com/chat) 查询符合自己要求的正则表达式
 - 使用 [New Bing](https://www.bing.com/new) 查询符合自己要求的正则表达式
 
-④ 在“proxy-groups”中“🔰 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以自动选择最稳定的节点  
+④ 在“proxy-groups”中“🚀 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以自动选择最稳定的节点  
 ⑤ 在“proxy-groups”中的国家或地区节点里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动选择节点  
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想自动选择延迟最低的香港节点，手动选择日本节点，这个需求怎么写？ 
 - 注：以下只是节选，请酌情套用
@@ -57,7 +57,7 @@ proxy-providers:
       interval: 300
 
 proxy-groups:
-  - name: 🔰 节点选择
+  - name: 🚀 节点选择
     type: select
     proxies:
       # 根据 proxy-groups 中（下方）国家或地区的节点名称进行增删改，一一对应
@@ -67,8 +67,8 @@ proxy-groups:
   - name: 🪜 代理域名
     type: select
     proxies:
-      # 相当于调用“🔰 节点选择”内的代理组（默认选择）
-      - 🔰 节点选择
+      # 相当于调用“🚀 节点选择”内的代理组（默认选择）
+      - 🚀 节点选择
       # 直连的意思，不想科学上网了就选择这个
       - DIRECT
 
