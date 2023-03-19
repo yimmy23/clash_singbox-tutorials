@@ -101,6 +101,7 @@ mtd erase crash
 reboot
 ```
 <img src="https://user-images.githubusercontent.com/45238096/226167831-8900620e-7cf9-45aa-a9c9-40d161fb8d65.png" width="60%"/>  
+
 最后一行 reboot 命令需要手动回车（下同），回车后路由器会重启  
 **SSH 解锁成功！**
 # 三、 恢复 SSH
