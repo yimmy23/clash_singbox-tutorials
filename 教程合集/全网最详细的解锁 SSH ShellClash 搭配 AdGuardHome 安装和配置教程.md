@@ -1,7 +1,6 @@
 # 前排提示
 本教程内容较长，记得点开目录后查看  
-<img src="https://user-images.githubusercontent.com/45238096/224132504-d3431fa0-c6db-4e0c-8ab2-ef6f4c99dbec.png" width="60%"/>
-
+<img src="https://user-images.githubusercontent.com/45238096/224132504-d3431fa0-c6db-4e0c-8ab2-ef6f4c99dbec.png" width="60%"/>  
 ---
 # 前言
 1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
@@ -274,14 +273,11 @@ cd C:\Users\[用户名]\Desktop\upx
 <img src="https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png" width="60%"/>
 
 ⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
-<img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>
-
-⑥ 返回到 9 更新/卸载，进入 3 更新 GeoIP/CN-IP，选择 1 由 alecthw 提供的全球版 GeoIP 数据库，等待下载完成（可能需要较长时间）  
-<img src="https://user-images.githubusercontent.com/45238096/224112224-79dd1617-ea3e-4def-b6c0-238d208f60b7.png" width="60%"/>
-
+<img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
+⑥ 返回到 9 更新/卸载，进入 3 更新 GeoIP/CN-IP，选择 2 由 Hackl0us 提供的精简版 CN-IP 数据库，等待下载完成  
+<img src="https://user-images.githubusercontent.com/45238096/226166313-d2350764-45b4-4471-8705-1d1664eee786.png" width="60%"/>  
 ⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
-<img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>
-
+<img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 ⑧ 返回到主菜单，进入 6 导入配置文件  
 注：
 - 1. 选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件.yaml 直链](https://github.com/DustinWin/Router-Plugins/blob/main/README.md)》
