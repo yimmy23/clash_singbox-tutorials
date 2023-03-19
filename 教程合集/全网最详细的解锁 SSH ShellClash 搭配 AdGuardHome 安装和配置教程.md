@@ -74,6 +74,7 @@ http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone
 ## 8. 永久开启并固化 SSH
 直接粘贴如下所有命令：
 - 注：第一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
+
 ```
 echo -e '12345678\n12345678' | passwd root
 nvram set ssh_en=1
@@ -99,10 +100,9 @@ uci commit
 mtd erase crash
 reboot
 ```
-<img src="https://i.postimg.cc/Wzj59RSS/QQ-20230102102002.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/226167831-8900620e-7cf9-45aa-a9c9-40d161fb8d65.png" width="60%"/>  
 最后一行 reboot 命令需要手动回车（下同），回车后路由器会重启  
 **SSH 解锁成功！**
-
 # 三、 恢复 SSH
 若已解锁并固化过 SSH 的路由器在升级固件或恢复出厂设置后 SSH 丢失，可快速再次解锁 SSH
 ## 1. 计算 Telnet 登录密码
@@ -113,6 +113,7 @@ reboot
 <img src="https://user-images.githubusercontent.com/45238096/224110394-e61c7373-f944-49b7-95d2-af18e31809ce.png" width="60%"/>  
 直接粘贴如下所有命令：
 - 注：最后一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
+
 ```
 sed -i 's/channel=.*/channel="debug"/g' /etc/init.d/dropbear
 /etc/init.d/dropbear restart
@@ -125,7 +126,6 @@ passwd root
 ```
 输入密码如：12341234，回车后输入同样的密码，再次回车即可  
 **SSH 恢复成功！**
-
 # 四、 连接 SSH
 ## 1. 给 Windows 操作系统添加 SSH 支持（任选一）
 ① 启用 Telnet 客户端  
@@ -251,7 +251,8 @@ cd C:\Users\[用户名]\Desktop\upx
 - 1. 修改后访问 ShellClash Dashboard 面板网址变成 http://192.168.31.1:56253/ui
 - 2. 首次访问 ShellClash Dashboard 面板需要输入 http://192.168.31.1:56253 ，点击“Add”按钮，添加成功后，点击下方添加成功的网址即可
 <img src="https://i.postimg.cc/LXm425sp/QQ-20230102114351.png" width="60%"/>  
-<img src="https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png" width="60%"/>  
+<img src="https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png" width="60%"/>
+
 ⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
 <img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 ⑥ 返回到 9 更新/卸载，进入 3 更新 GeoIP/CN-IP，选择 2 由 Hackl0us 提供的精简版 CN-IP 数据库，等待下载完成  
@@ -294,6 +295,7 @@ $clashdir/start.sh getyaml
 ```
 clash -h
 ```
+
 ## 3. ShellClash 升级
 进入 ShellClash 配置主菜单，选择 9 更新/卸载，进入后查看“管理脚本”、“clash 核心”和“GeoIP/CN-IP”有无新版本，有则选择对应的数字进行升级即可  
 <img src="https://i.postimg.cc/R0HJNW9J/QQ-20221223141923.png" width="60%"/>
@@ -332,6 +334,7 @@ cd C:\Users\[用户名]\Desktop\upx
 注：
 - 1. 若没有此目录和文件，可新建
 - 2. 新建后连接 SSH，直接粘贴如下所有命令：
+
 ```
 chmod +x /data/auto_ssh
 chmod +x /data/auto_ssh/auto_ssh.sh
@@ -340,6 +343,7 @@ chmod +x /data/auto_ssh/auto_ssh.sh
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
 ⑦ 在最下方输入如下内容并保存：
 - 注：DNS 服务器监听端口须与命令中的端口保持一致，此处设为 5625（重要）
+
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
@@ -350,6 +354,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ```
 ⑧ 连接 SSH，直接粘贴如下所有命令：
 - 注：DNS 服务器监听端口须与命令中的端口保持一致，此处设为 5625（重要）
+
 ```
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
