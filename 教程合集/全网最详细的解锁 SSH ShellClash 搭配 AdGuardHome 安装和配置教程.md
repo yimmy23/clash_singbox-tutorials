@@ -1,6 +1,6 @@
 # 前排提示
 本教程内容较长，记得点开目录后查看  
-<img src="https://user-images.githubusercontent.com/45238096/224132504-d3431fa0-c6db-4e0c-8ab2-ef6f4c99dbec.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224132504-d3431fa0-c6db-4e0c-8ab2-ef6f4c99dbec.png" width="60%"/>  
 
 ---
 # 前言
@@ -42,7 +42,7 @@
 # 二、 解锁 SSH
 ## 1. 复制 stok 值
 进入路由器管理页面 http://192.168.31.1 ，登录后复制地址栏中的 stok 值  
-<img src="https://i.postimg.cc/nLjSrGCK/QQ-20230109171055.png" width="60%"/>
+<img src="https://i.postimg.cc/nLjSrGCK/QQ-20230109171055.png" width="60%"/>  
 
 ## 2. 开启调试模式
 将复制的 stok 值替换如下网址的{stok}并访问：
@@ -72,7 +72,7 @@ http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone
 网页内容显示{"code":0}，此时路由器会再次重启
 ## 7. 连接 Telnet
 显示“ARE U OK”表示成功解锁 SSH  
-<img src="https://i.postimg.cc/DZ1CdfQ8/QQ-20230102101630.png" width="60%"/>
+<img src="https://i.postimg.cc/DZ1CdfQ8/QQ-20230102101630.png" width="60%"/>  
 
 ## 8. 永久开启并固化 SSH
 直接粘贴如下所有命令：
@@ -103,7 +103,7 @@ uci commit
 mtd erase crash
 reboot
 ```
-<img src="https://user-images.githubusercontent.com/45238096/226167831-8900620e-7cf9-45aa-a9c9-40d161fb8d65.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/226167831-8900620e-7cf9-45aa-a9c9-40d161fb8d65.png" width="60%"/>  
 
 最后一行 reboot 命令需要手动回车（下同），回车后路由器会重启  
 **SSH 解锁成功！**
@@ -111,11 +111,11 @@ reboot
 若已解锁并固化过 SSH 的路由器在升级固件或恢复出厂设置后 SSH 丢失，可快速再次解锁 SSH
 ## 1. 计算 Telnet 登录密码
 打开网站 https://miwifi.dev/ssh ，在 SN 处输入路由器背面的 SN 号，点击“Calc”按钮  
-<img src="https://i.postimg.cc/X74PL5z3/QQ-20221208192756.png" width="60%"/>
+<img src="https://i.postimg.cc/X74PL5z3/QQ-20221208192756.png" width="60%"/>  
 
 ## 2. 连接 Telnet
 用户名为：root，密码为第 1 步中计算出的 Telnet 登录密码  
-<img src="https://user-images.githubusercontent.com/45238096/224110394-e61c7373-f944-49b7-95d2-af18e31809ce.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224110394-e61c7373-f944-49b7-95d2-af18e31809ce.png" width="60%"/>  
 
 直接粘贴如下所有命令：
 - 注：最后一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
@@ -136,11 +136,11 @@ passwd root
 ## 1. 给 Windows 操作系统添加 SSH 支持（任选一）
 ① 启用 Telnet 客户端  
 进入控制面板-->程序和功能-->启用或关闭 Windows 功能，勾选“Telnet 客户端”  
-<img src="https://user-images.githubusercontent.com/45238096/224110758-b3f85378-39dc-407d-82ba-7b1faaf12753.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224110758-b3f85378-39dc-407d-82ba-7b1faaf12753.png" width="60%"/>  
 
 ② 启用 OpenSSH 服务器  
 进入设置-->应用-->可选功能-->查看功能-->搜索“ssh”，勾选“OpenSSH 服务器”并安装  
-<img src="https://user-images.githubusercontent.com/45238096/224110859-c869fed4-05bb-495b-a13c-aa3f78bb0ef7.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224110859-c869fed4-05bb-495b-a13c-aa3f78bb0ef7.png" width="60%"/>  
 
 重启系统  
 ③ 连接 Telnet  
@@ -158,55 +158,55 @@ ssh root@192.168.31.1
 - 注：若当前电脑登录过 SSH，后路由器经过重新解锁或恢复 SSH，需要进入 *C:\Users\[用户名]\.ssh* 文件夹，删除“known_hosts”文件，否则登录会报错
 
 首次登录需要手动输入“yes”，然后回车  
-<img src="https://i.postimg.cc/pVD7KCkq/QQ-20221208153543.png" width="60%"/>
+<img src="https://i.postimg.cc/pVD7KCkq/QQ-20221208153543.png" width="60%"/>  
 
 输入 SSH 登录密码（输入过程中不会显示任何字符），回车  
-<img src="https://i.postimg.cc/3RGqSFhr/QQ-20221208153627.png" width="60%"/>
+<img src="https://i.postimg.cc/3RGqSFhr/QQ-20221208153627.png" width="60%"/>  
 
 显示“ARE U OK”表示成功登录 SSH  
-<img src="https://i.postimg.cc/9frKTjN7/QQ-20221208153736.png" width="60%"/>
+<img src="https://i.postimg.cc/9frKTjN7/QQ-20221208153736.png" width="60%"/>  
 
 ## 2. 通过 SSH 工具添加 SSH 支持（任选一）
 ① 打开 Termius  
 安装 Termius 并打开（登录后可一直免费试用），现暂时点击“l don't want a free trial”  
-<img src="https://i.postimg.cc/wTYzp34b/Snipaste-2022-12-23-13-29-06.png" width="60%"/>
+<img src="https://i.postimg.cc/wTYzp34b/Snipaste-2022-12-23-13-29-06.png" width="60%"/>  
 
 ② 添加 Host  
 依次点击 ADD-->New Host  
-<img src="https://user-images.githubusercontent.com/45238096/224111075-edf1f8a5-d30a-4c95-823f-0a756d2a9565.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224111075-edf1f8a5-d30a-4c95-823f-0a756d2a9565.png" width="60%"/>  
 
 ③ 添加 Telnet  
 按图输入，选中“Telnet”，点击右上角的“→|”图标
 - 注：首次登录不需要用户名和密码，解锁或恢复 SSH 后用户名为 root，密码为 SSH 登录密码
 
-<img src="https://user-images.githubusercontent.com/45238096/224111315-e5d6caa3-962d-4b1e-9b2d-2a917bb527c2.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224111315-e5d6caa3-962d-4b1e-9b2d-2a917bb527c2.png" width="60%"/>  
 
 ④ 添加 SSH  
 同样先按照第②步操作，然后按图输入，选中“SSH”，“Password”为解锁或恢复 SSH 时设置的密码，最后一步点击右上角的“→|”图标  
-<img src="https://user-images.githubusercontent.com/45238096/224111529-4eab34c8-4c28-41d3-8a20-bb62ad61ab84.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224111529-4eab34c8-4c28-41d3-8a20-bb62ad61ab84.png" width="60%"/>  
 
 ⑤ 连接 Telnet 或 SSH  
 按需双击添加的项即可  
-<img src="https://i.postimg.cc/pXK2hKnH/Snipaste_2022-12-23_13-32-27.png" width="60%"/>
+<img src="https://i.postimg.cc/pXK2hKnH/Snipaste_2022-12-23_13-32-27.png" width="60%"/>  
 
 - 注：首次连接 SSH 需要点击“Add and continue”
 
-<img src="https://i.postimg.cc/Jny81XWS/Snipaste_2022-12-23_13-32-54.png" width="60%"/>
+<img src="https://i.postimg.cc/Jny81XWS/Snipaste_2022-12-23_13-32-54.png" width="60%"/>  
 
 显示“ARE U OK”表示成功登录 SSH  
-<img src="https://i.postimg.cc/Bv7s9gRx/QQ-20230102102435.png" width="60%"/>
+<img src="https://i.postimg.cc/Bv7s9gRx/QQ-20230102102435.png" width="60%"/>  
 
 ## 3. 通过 WinSCP 连接路由器文件管理
 将下载的 WinSCP-xxx-Portable.zip 文件解压，路径随意，打开 WinSCP，“文件协议”选择“SCP”，其它按图输入，“密码”为 SSH 登录密码，完成后点击登录  
-<img src="https://i.postimg.cc/vT1Jsw5y/QQ-20221208160309.png" width="60%"/>
+<img src="https://i.postimg.cc/vT1Jsw5y/QQ-20221208160309.png" width="60%"/>  
 
 左侧为电脑本地文件，右侧为路由器文件  
-<img src="https://i.postimg.cc/YCkt1j1m/QQ-20230130134908.png" width="60%"/>
+<img src="https://i.postimg.cc/YCkt1j1m/QQ-20230130134908.png" width="60%"/>  
 
 # 五、 ShellClash 安装和配置
 ## 1. ShellClash 安装
 ① 打开 WinSCP，将下载的 ShellClash.tar.gz 文件移动到路由器的 */tmp* 目录中  
-<img src="https://i.postimg.cc/hjYYMZ65/QQ-20230130141719.png" width="60%"/>
+<img src="https://i.postimg.cc/hjYYMZ65/QQ-20230130141719.png" width="60%"/>  
 
 ② 连接 SSH，执行如下命令：
 ```
@@ -221,10 +221,10 @@ cd C:\Users\[用户名]\Desktop\upx
 .\upx --best clash.meta-linux-arm64
 ```
 ⑦ 将压缩完成的 clash.meta-linux-arm64 重命名为 clash-linux-arm64 并移动到路由器的 */tmp* 目录中  
-<img src="https://user-images.githubusercontent.com/45238096/224111734-7454beb0-56e1-4474-b8db-64855582319e.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224111734-7454beb0-56e1-4474-b8db-64855582319e.png" width="60%"/>  
 
 ⑧ 连接 SSH，进入 ShellClash 配置脚本可执行命令 `clash`，此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
-<img src="https://i.postimg.cc/YC1w07Zq/QQ-20230204145144.png" width="60%"/>
+<img src="https://i.postimg.cc/YC1w07Zq/QQ-20230204145144.png" width="60%"/>  
 
 **ShellClash 安装成功！**
 ## 2. ShellClash 配置
@@ -247,21 +247,21 @@ cd C:\Users\[用户名]\Desktop\upx
 - 2. 若生成配置文件（订阅转换）、导入（更新）配置文件、更新脚本和更新 GeoIP/CN-IP 等出现问题，请关闭此功能，并重启路由器后重试
 - 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Router-Plugins/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B.md)》
 
-<img src="https://user-images.githubusercontent.com/45238096/226165858-fac37651-9f0c-45a0-9a82-9aade5e04e31.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/226165858-fac37651-9f0c-45a0-9a82-9aade5e04e31.png" width="60%"/>  
 
 启用 7 屏蔽 QUIC 流量  
-<img src="https://i.postimg.cc/RFCm2YPC/QQ-20230218202031.png" width="60%"/>
+<img src="https://i.postimg.cc/RFCm2YPC/QQ-20230218202031.png" width="60%"/>  
 
 ③ 返回到主菜单，进入 4 clash 启动设置  
 选择 1 允许 clash 开机启动  
 选择 3 设置自启延时，推荐设置成 90 秒（其它型号路由器请自测）  
-<img src="https://i.postimg.cc/02h8rcNZ/QQ-20230219114132.png" width="60%"/>
+<img src="https://i.postimg.cc/02h8rcNZ/QQ-20230219114132.png" width="60%"/>  
 
 ④ 返回到主菜单，进入 7 clash 进阶设置  
 进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
 - 注：fake-ip 模式不支持 CNIP 绕过内核
 
-<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 
 返回到 7 clash 进阶设置，选择 4 启用域名嗅探  
 进入 6 配置内置 DNS 服务  
@@ -270,7 +270,7 @@ cd C:\Users\[用户名]\Desktop\upx
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
 - 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，并强烈建议设置 4 一键配置加密 DNS
 
-<img src="https://i.postimg.cc/8kKkg1Q2/QQ-20230115213642.png" width="60%"/>
+<img src="https://i.postimg.cc/8kKkg1Q2/QQ-20230115213642.png" width="60%"/>  
 
 返回到 7 clash 进阶设置，进入 8 手动指定相关端口、秘钥及本机 host  
 选择 4 修改 DNS 监听端口，默认即可（此处我修改为：56252）  
@@ -278,18 +278,19 @@ cd C:\Users\[用户名]\Desktop\upx
 注：
 - 1. 修改后访问 ShellClash Dashboard 面板网址变成 http://192.168.31.1:56253/ui
 - 2. 首次访问 ShellClash Dashboard 面板需要输入 http://192.168.31.1:56253 ，点击“Add”按钮，添加成功后，点击下方添加成功的网址即可
-<img src="https://i.postimg.cc/LXm425sp/QQ-20230102114351.png" width="60%"/>
 
-<img src="https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png" width="60%"/>
+<img src="https://i.postimg.cc/LXm425sp/QQ-20230102114351.png" width="60%"/>  
+
+<img src="https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png" width="60%"/>  
 
 ⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
-<img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>
+<img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 
 ⑥ 返回到 9 更新/卸载，进入 3 更新 GeoIP/CN-IP，选择 2 由 Hackl0us 提供的精简版 CN-IP 数据库，等待下载完成  
-<img src="https://user-images.githubusercontent.com/45238096/226166467-23c19291-a2bd-4889-a468-ebf8f8da2c9f.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/226166467-23c19291-a2bd-4889-a468-ebf8f8da2c9f.png" width="60%"/>  
 
 ⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
-<img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>
+<img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 
 ⑧ 返回到主菜单，进入 6 导入配置文件  
 注：
@@ -330,7 +331,7 @@ clash -h
 
 ## 3. ShellClash 升级
 进入 ShellClash 配置主菜单，选择 9 更新/卸载，进入后查看“管理脚本”、“clash 核心”和“GeoIP/CN-IP”有无新版本，有则选择对应的数字进行升级即可  
-<img src="https://i.postimg.cc/R0HJNW9J/QQ-20221223141923.png" width="60%"/>
+<img src="https://i.postimg.cc/R0HJNW9J/QQ-20221223141923.png" width="60%"/>  
 
 ## 4. ShellClash 卸载
 ① 通过脚本命令进行卸载（任选一）  
@@ -353,7 +354,7 @@ tar -zxvf AdGuardHome_linux_arm64.tar.gz
 .tar.gz 压缩文件成功解压到桌面的 *AdGuardHome* 文件夹内，目录结构为 *C:\Users\[用户名]\Desktop\AdGuardHome*  
 ③ 进入 *AdGuardHome* 文件夹，将里面的“AdGuardHome”文件移动到 *C:\Users\[用户名]\Desktop\upx* 文件夹中  
 此时“AdGuardHome”文件大小：  
-<img src="https://i.postimg.cc/8cBhsjRm/QQ-20221216151642.png" width="60%"/>
+<img src="https://i.postimg.cc/8cBhsjRm/QQ-20221216151642.png" width="60%"/>  
 
 ④ 依次执行如下命令：
 ```
@@ -361,10 +362,10 @@ cd C:\Users\[用户名]\Desktop\upx
 .\upx --best AdGuardHome
 ```
 等待压缩完成，完成后“AdGuardHome”文件大小：  
-<img src="https://user-images.githubusercontent.com/45238096/224112398-45ce73d6-1c9c-4707-9d01-0ac57eb26c43.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224112398-45ce73d6-1c9c-4707-9d01-0ac57eb26c43.png" width="60%"/>  
 
 ⑤ 将压缩后的“AdGuardHome”文件移动到路由器的 */data/AdGuardHome* 目录（没有此目录就新建）中  
-<img src="https://i.postimg.cc/qvZ2tf3S/QQ-20230130144006.png" width="60%"/>
+<img src="https://i.postimg.cc/qvZ2tf3S/QQ-20230130144006.png" width="60%"/>  
 
 ⑥ 进入路由器文件管理的 */data/auto_ssh* 目录，右击“auto_ssh.sh”文件  
 注：
@@ -376,7 +377,7 @@ chmod +x /data/auto_ssh
 chmod +x /data/auto_ssh/auto_ssh.sh
 ```
 并编辑  
-<img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>
+<img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
 
 ⑦ 在最下方输入如下内容并保存：
 - 注：DNS 服务器监听端口须与命令中的端口保持一致，此处设为 5625（重要）
@@ -421,7 +422,7 @@ https://doh.opendns.com/dns-query
 选中“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
-<img src="https://i.postimg.cc/FRSb5P1q/QQ-20230228160938.png" width="60%"/>
+<img src="https://i.postimg.cc/FRSb5P1q/QQ-20230228160938.png" width="60%"/>  
 
 “Bootstrap DNS 服务器”设置为：
 ```
@@ -431,16 +432,16 @@ https://doh.opendns.com/dns-query
 1.1.1.1
 ```
 继续点击“测试上游 DNS”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器通了，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://i.postimg.cc/8CjBwkGT/QQ-20230228140830.png" width="60%"/>
+<img src="https://i.postimg.cc/8CjBwkGT/QQ-20230228140830.png" width="60%"/>  
 
 点击“应用”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器设置没问题，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://user-images.githubusercontent.com/45238096/224112577-e99ed24d-bd8c-45a9-b05e-1d1c68140813.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224112577-e99ed24d-bd8c-45a9-b05e-1d1c68140813.png" width="60%"/>  
 
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
-<img src="https://user-images.githubusercontent.com/45238096/224112771-5b2d2c4b-dcc3-4520-9c16-5954228bea40.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224112771-5b2d2c4b-dcc3-4520-9c16-5954228bea40.png" width="60%"/>  
 
 勾选“乐观缓存”，并点击“保存”  
-<img src="https://i.postimg.cc/CMfrSNWw/QQ-20230115234616.png" width="60%"/>
+<img src="https://i.postimg.cc/CMfrSNWw/QQ-20230115234616.png" width="60%"/>  
 
 ⑤ 进入过滤器-->DNS 黑名单，推荐如下列表：
 - 注：强烈建议删除自带黑名单并通过“添加黑名单”-->“添加一个自定义列表”进行手动添加，通过“添加黑名单”-->“从列表中选择”进行选择添加容易报错
@@ -453,14 +454,14 @@ https://doh.opendns.com/dns-query
 
 - 注：添加后两个（较大）规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功
 
-<img src="https://user-images.githubusercontent.com/45238096/224112940-b6c367e0-1ee7-470a-b370-9226c825ffad.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224112940-b6c367e0-1ee7-470a-b370-9226c825ffad.png" width="60%"/>  
 
 ⑥ 进入过滤器-->DNS 白名单，添加如下列表：
 |名称|URL|
 |-----|-----|
 |`AdRules Allow List`|`https://adrules.top/allow-domains-list.txt`|
 
-<img src="https://i.postimg.cc/YqKn9FHY/Snipaste_2023-03-05_19-22-25.png" width="60%"/>
+<img src="https://i.postimg.cc/YqKn9FHY/Snipaste_2023-03-05_19-22-25.png" width="60%"/>  
 
 ⑦ 进入过滤器-->DNS 重写，推荐如下搭配：
 |域|IP 地址|
@@ -471,7 +472,7 @@ https://doh.opendns.com/dns-query
 |`dns.cloudflare.com`|`1.1.1.1`|
 |`doh.opendns.com`|`208.67.222.222`|
 
-<img src="https://user-images.githubusercontent.com/45238096/224114271-01bb270f-d753-4e30-af55-61a805387bdc.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224114271-01bb270f-d753-4e30-af55-61a805387bdc.png" width="60%"/>  
 
 **AdGuardHome 配置成功！**  
 **拓展：**  
