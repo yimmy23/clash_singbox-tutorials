@@ -1,8 +1,5 @@
-- RULE-SET,applications,📱 常见软件
-- RULE-SET,private,🏠 私有网络
-- RULE-SET,reject,⛔️ 广告域名
-- RULE-SET,speedtest,📈 网络测速
-- RULE-SET,tld-not-cn,🌎 非中国域名
-- RULE-SET,gfw,🧱 GFWList 域名
-- RULE-SET,greatfire,🪜 GreatFire 域名
-- RULE-SET,telegramcidr,✈️ Telegram IP 地址
+- GEOSITE,category-ads-all,⛔️ 广告域名
+- GEOSITE,ookla-speedtest,📈 网络测速
+- GEOSITE,gfw,🧱 GFWList 域名
+- GEOSITE,greatfire,🪜 GreatFire 域名
+- GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
