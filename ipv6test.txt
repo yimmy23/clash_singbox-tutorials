@@ -1,3 +1,0 @@
-payload:
-  - DOMAIN-KEYWORD,test-ipv6
-  - DOMAIN-KEYWORD,ipv6-test
