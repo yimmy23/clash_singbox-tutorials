@@ -1,7 +1,8 @@
 # 黑名单模式
+
 proxy-providers:
   # 获取机场订阅链接内的所有节点
-  🛩️ 我的机场:
+  🛫 我的机场:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: https://example.com/xxx/clash
@@ -14,6 +15,7 @@ proxy-providers:
 
 proxy-groups:
   - name: 🚀 节点选择
+    # 手动选择节点（下同）
     type: select
     proxies:
       # 根据 proxy-groups 中（下方）国家或地区的节点名称进行增删改，一一对应
@@ -38,12 +40,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: 🌎 非中国域名
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-
   - name: 🧱 GFWList 域名
     type: select
     proxies:
@@ -56,20 +52,10 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: 📱 常见软件
-    type: select
-    proxies:
-      - 🎯 全球直连
-
   - name: ✈️ Telegram IP 地址
     type: select
     proxies:
       - 🚀 节点选择
-
-  - name: 🏠 私有网络
-    type: select
-    proxies:
-      - 🎯 全球直连
 
   - name: ⛔️ 广告域名
     type: select
@@ -86,13 +72,14 @@ proxy-groups:
     proxies:
       - REJECT
 
-- name: 🇭🇰 香港节点
+  - name: 🇭🇰 香港节点
+    # 自动选择延迟最低的节点（下同）
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
       # 使用 proxy-providers 中的节点名称（下同）
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     # 筛选出“香港”节点，支持正则表达式（下同）
     filter: "香港"
 
@@ -101,7 +88,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     filter: "台湾"
 
   - name: 🇰🇷 韩国节点
@@ -109,7 +96,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     filter: "韩国"
 
   - name: 🇯🇵 日本节点
@@ -117,7 +104,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     filter: "日本"
 
   - name: 🇸🇬 新加坡节点
@@ -125,75 +112,14 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     filter: "新加坡"
-
-rule-providers:
-  # 收集 Speedtest 测速网站所有域名
-  speedtest:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Speedtest/Speedtest.yaml"
-    path: ./ruleset/speedtest.yaml
-    interval: 86400
-
-  reject:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
-    path: ./ruleset/reject.yaml
-    interval: 86400
-
-  private:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
-    path: ./ruleset/private.yaml
-    interval: 86400
-
-  gfw:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
-    path: ./ruleset/gfw.yaml
-    interval: 86400
-
-  greatfire:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/greatfire.txt"
-    path: ./ruleset/greatfire.yaml
-    interval: 86400
-
-  tld-not-cn:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
-    path: ./ruleset/tld-not-cn.yaml
-    interval: 86400
-
-  telegramcidr:
-    type: http
-    behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
-    path: ./ruleset/telegramcidr.yaml
-    interval: 86400
-
-  applications:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
-    path: ./ruleset/applications.yaml
-    interval: 86400
 
 rules:
   # 自定义规则优先放前面
-  - RULE-SET,applications,📱 常见软件
-  - RULE-SET,private,🏠 私有网络
-  - RULE-SET,reject,⛔️ 广告域名
-  - RULE-SET,speedtest,📈 网络测速
-  - RULE-SET,tld-not-cn,🌎 非中国域名
-  - RULE-SET,gfw,🧱 GFWList 域名
-  - RULE-SET,greatfire,🪜 GreatFire 域名
-  - RULE-SET,telegramcidr,✈️ Telegram IP 地址
+  - GEOSITE,category-ads-all,⛔️ 广告域名
+  - GEOSITE,ookla-speedtest,📈 网络测速
+  - GEOSITE,gfw,🧱 GFWList 域名
+  - GEOSITE,greatfire,🪜 GreatFire 域名
+  - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
   - MATCH,🐟 漏网之鱼
