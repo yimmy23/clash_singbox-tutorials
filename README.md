@@ -45,7 +45,7 @@
 ```
 proxy-providers:
   # 获取机场订阅链接内的所有节点
-  🛩️ 我的机场:
+  🛫 我的机场:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: https://example.com/xxx/clash
@@ -78,7 +78,7 @@ proxy-groups:
     url: http://www.gstatic.com/generate_204
     interval: 300
     use:
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     # 筛选出“香港”节点，支持正则表达式
     filter: "香港"
 
@@ -86,21 +86,12 @@ proxy-groups:
   - name: 🇯🇵 日本节点
     type: select
     use:
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     filter: "日本"
-
-rule-providers:
-  # 需要代理的域名
-  proxy:
-    type: http
-    behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
-    path: ./ruleset/proxy.yaml
-    interval: 86400
 
 rules:
   # 让需要代理的域名选择“🪜 代理域名”，就可以访问了
-  - RULE-SET,proxy,🪜 代理域名
+  - GEOSITE,gfw,🪜 代理域名
 ```
 # 四、 生成.yaml 文件链接
 ## 1. 生成链接
@@ -141,7 +132,7 @@ $clashdir/start.sh getyaml
 ```
 proxy-providers:
   # 获取机场订阅链接内的所有节点
-  🛩️ 我的机场:
+  🛫 我的机场:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: https://example.com/xxx/clash
@@ -158,7 +149,7 @@ proxy-groups:
     type: select
     use:
       # 使用 proxy-providers 中的节点名称
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     # 筛选出日本和韩国节点
     filter: "日本|韩国"
 
@@ -169,7 +160,7 @@ proxy-groups:
     interval: 300
     use:
       # 使用 proxy-providers 中的节点名称
-      - 🛩️ 我的机场
+      - 🛫 我的机场
     # 筛选出新加坡节点
     filter: "新加坡"
 
