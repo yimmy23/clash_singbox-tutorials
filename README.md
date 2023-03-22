@@ -39,7 +39,8 @@
 
 ④ 在“proxy-groups”中“🚀 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以自动选择最稳定的节点  
 ⑤ 在“proxy-groups”中的国家或地区节点里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动选择节点  
-举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想自动选择延迟最低的香港节点，手动选择日本节点，这个需求怎么写？ 
+举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让哔哩哔哩（B 站）自动选择延迟最低的香港节点，AcFun（A 站）手动选择日本节点，这个需求怎么写？
+我们可以进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键查询“bilibili”和“acfun”，若能成功搜索到结果，就可以这样编写：
 - 注：以下只是节选，请酌情套用
 
 ```
@@ -57,19 +58,19 @@ proxy-providers:
       interval: 300
 
 proxy-groups:
-  - name: 🚀 节点选择
+  - name: 🎥 哔哩哔哩
     type: select
     proxies:
-      # 根据 proxy-groups 中（下方）国家或地区的节点名称进行增删改，一一对应
+      # 选择香港节点
       - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
+      # 直连的意思，不走代理就选择这个（下同）
+      - DIRECT
 
-  - name: 🪜 代理域名
+  - name: 📽️ AcFun
     type: select
     proxies:
-      # 相当于调用“🚀 节点选择”内的代理组（默认选择）
-      - 🚀 节点选择
-      # 直连的意思，不想科学上网了就选择这个
+      # 选择日本节点
+      - 🇯🇵 日本节点
       - DIRECT
 
   # 自动选择延迟最低的香港节点
@@ -90,8 +91,9 @@ proxy-groups:
     filter: "日本"
 
 rules:
-  # 让需要代理的域名选择“🪜 代理域名”，就可以访问了
-  - GEOSITE,gfw,🪜 代理域名
+  # 自定义规则优先放前面
+  - GEOSITE,bilibili,🎥 哔哩哔哩
+  - GEOSITE,acfun,📽️ AcFun
 ```
 # 四、 生成.yaml 文件链接
 ## 1. 生成链接
