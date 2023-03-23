@@ -110,7 +110,7 @@ rules:
 ## 1. 在 ShellClash 中导入订阅链接  
 进入 ShellClash 配置脚本，选择 6-2，直接粘贴最终生成的订阅链接即可
 ## 2. 在各个平台的 Clash 客户端中导入订阅链接  
-粘贴最终生成的订阅链接，直接下载即可
+粘贴最终生成的订阅链接，直接“导入”（Import）即可
 # 六、 机场订阅链接改变或者更换了机场
 ## 1. 修改.yaml 文件
 直接编辑该.yaml 文件并**重复《三、 2》中的步骤**
@@ -171,7 +171,6 @@ rules:
   - GEOSITE,netflix,🎥 奈飞节点
   - GEOIP,netflix,🎥 奈飞节点
   - GEOSITE,primevideo,🎞️ 亚马逊节点
-  - RULE-SET,amazonprimevideo,🎞️ 亚马逊节点
 ```
 # 给作者加鸡腿：
 ## 支付宝  
