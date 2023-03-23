@@ -54,8 +54,10 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
       interval: 300
+      # 未选择到当前策略组时，不会进行测试
+      lazy: true
+      url: https://www.gstatic.com/generate_204
 
 proxy-groups:
   - name: 🎥 哔哩哔哩
@@ -76,6 +78,8 @@ proxy-groups:
   # 自动选择延迟最低的香港节点
   - name: 🇭🇰 香港节点
     type: url-test
+    # 容差大于 50ms 就会切换到延迟低的那个节点
+    tolerance: 50
     use:
       - 🛫 我的机场
     # 筛选出“香港”节点，支持正则表达式
@@ -144,8 +148,10 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
       interval: 300
+      # 未选择到当前策略组时，不会进行测试
+      lazy: true
+      url: https://www.gstatic.com/generate_204
 
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
@@ -160,6 +166,8 @@ proxy-groups:
   # 打开亚马逊后自动选择延迟最低的新加坡节点
   - name: 🎞️ 亚马逊节点
     type: url-test
+    # 容差大于 50ms 就会切换到延迟低的那个节点
+    tolerance: 50
     use:
       # 使用 proxy-providers 中的节点名称
       - 🛫 我的机场
