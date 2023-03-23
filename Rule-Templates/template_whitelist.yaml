@@ -10,7 +10,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 300
 
 proxy-groups:
@@ -114,10 +114,8 @@ proxy-groups:
       - REJECT
 
   - name: 🇭🇰 香港节点
-    # 自动选择延迟最低的节点（下同）
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
+    # 自动回退，即 url 测试超时时,按照节点顺序选择（下同）
+    type: fallback
     use:
       # 使用 proxy-providers 中的节点名称（下同）
       - 🛫 我的机场
@@ -125,33 +123,25 @@ proxy-groups:
     filter: "香港"
 
   - name: 🇹🇼 台湾节点
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
+    type: fallback
     use:
       - 🛫 我的机场
     filter: "台湾"
 
   - name: 🇰🇷 韩国节点
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
+    type: fallback
     use:
       - 🛫 我的机场
     filter: "韩国"
 
   - name: 🇯🇵 日本节点
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
+    type: fallback
     use:
       - 🛫 我的机场
     filter: "日本"
 
   - name: 🇸🇬 新加坡节点
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
+    type: fallback
     use:
       - 🛫 我的机场
     filter: "新加坡"
