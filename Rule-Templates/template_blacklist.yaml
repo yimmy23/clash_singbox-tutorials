@@ -7,11 +7,12 @@ proxy-providers:
     # 机场订阅链接，使用 Clash 链接
     url: https://example.com/xxx/clash
     path: ./proxies/airport.yaml
-    interval: 86400
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
       interval: 300
+      # 未选择到当前策略组时，不会进行测试
+      lazy: true
+      url: https://www.gstatic.com/generate_204
 
 proxy-groups:
   - name: 🚀 节点选择
@@ -73,8 +74,10 @@ proxy-groups:
       - REJECT
 
   - name: 🇭🇰 香港节点
-    # 自动回退，即 url 测试超时时,按照节点顺序选择（下同）
-    type: fallback
+    # 自动选择，即按照 url 测试结果使用延迟最低的节点（下同）
+    type: url-test
+    # 容差大于 50ms 就会切换到延迟低的那个节点
+    tolerance: 50
     use:
       # 使用 proxy-providers 中的节点名称（下同）
       - 🛫 我的机场
@@ -82,25 +85,29 @@ proxy-groups:
     filter: "香港"
 
   - name: 🇹🇼 台湾节点
-    type: fallback
+    type: url-test
+    tolerance: 50
     use:
       - 🛫 我的机场
     filter: "台湾"
 
   - name: 🇰🇷 韩国节点
-    type: fallback
+    type: url-test
+    tolerance: 50
     use:
       - 🛫 我的机场
     filter: "韩国"
 
   - name: 🇯🇵 日本节点
-    type: fallback
+    type: url-test
+    tolerance: 50
     use:
       - 🛫 我的机场
     filter: "日本"
 
   - name: 🇸🇬 新加坡节点
-    type: fallback
+    type: url-test
+    tolerance: 50
     use:
       - 🛫 我的机场
     filter: "新加坡"
