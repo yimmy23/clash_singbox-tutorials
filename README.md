@@ -175,7 +175,7 @@ proxy-groups:
     filter: "新加坡"
 
 rules:
-  # 两条都写在 rules 最前面
+  # 自定义规则优先放前面
   - GEOSITE,netflix,🎥 奈飞节点
   - GEOIP,netflix,🎥 奈飞节点
   - GEOSITE,primevideo,🎞️ 亚马逊节点
