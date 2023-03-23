@@ -40,7 +40,7 @@
 ④ 在“proxy-groups”中“🚀 节点选择”下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以自动选择最稳定的节点  
 ⑤ 在“proxy-groups”中的国家或地区节点里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动选择节点  
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让[哔哩哔哩](https://www.bilibili.com)（B 站）自动选择延迟最低的香港节点，[AcFun](https://www.acfun.cn)（A 站）手动选择日本节点，这个需求怎么写？
-我们可以进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键查询“bilibili”和“acfun”，若能成功搜索到结果，就可以这样编写：
+我们可以进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“bilibili”和“acfun”，若能成功搜索到结果，就可以这样编写：
 - 注：以下只是节选，请酌情套用
 
 ```
@@ -54,7 +54,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 300
 
 proxy-groups:
@@ -76,8 +76,6 @@ proxy-groups:
   # 自动选择延迟最低的香港节点
   - name: 🇭🇰 香港节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
     use:
       - 🛫 我的机场
     # 筛选出“香港”节点，支持正则表达式
@@ -100,13 +98,14 @@ rules:
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮
 ![QQ截图20230217171809](https://user-images.githubusercontent.com/45238096/219603714-534fe617-35b2-4f5d-acea-b2e691c50bed.png)
 ## 2. 修改链接
-取出地址栏中的网址，添加前缀“https://gh.api.99988866.xyz/ ”并删除后面的一串随机码，**完成后该.yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该.yaml 文件并提交了 n 次也不会改变  
+取出地址栏中的网址，删除后面的一串随机码，**完成后该.yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该.yaml 文件并提交了 n 次也不会改变  
 举例，这是原地址：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/df770aae2001b2eab426a385ea10bbbb35a35c52/template_whitelist.yaml`  
-添加前缀“https://gh.api.99988866.xyz/ ”并删除后面的一串随机码（为当前编辑该文件生成的随机码“df770aae2001b2eab426a385ea10bbbb35a35c52”）  
-![QQ截图20230316002904](https://user-images.githubusercontent.com/45238096/225376444-a476e09f-2c2d-496d-8319-a8afa2c382f4.png)  
+删除后面的一串随机码（当前编辑该文件生成的随机码“df770aae2001b2eab426a385ea10bbbb35a35c52”）  
+![QQ截图20230323121300](https://user-images.githubusercontent.com/45238096/227101230-83e6ee64-ebde-4045-acdc-1dc1eb5d9b4d.png)  
+
 修改后变成：  
-`https://gh.api.99988866.xyz/https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
+`https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
 # 五、 导入订阅链接
 ## 1. 在 ShellClash 中导入订阅链接  
 进入 ShellClash 配置脚本，选择 6-2，直接粘贴最终生成的订阅链接即可
@@ -128,8 +127,10 @@ $clashdir/start.sh restart
 在 ShellClash Dashboard 面板（进入“代理” Proxies）和各个平台的 Clash 客户端中更新 Proxy Provider 即可
 # 七、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
-最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？  
-首先我们需要通过 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 找到奈飞和亚马逊的所有域名和 IP 段，然后开始编写：
+最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
+1. 进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“netflix”和“primevideo”
+2. 进入 [Loyalsoldier/geoip/text](https://github.com/Loyalsoldier/geoip/tree/release/text) 后按 Ctrl+F 组合键搜索“netflix”和“primevideo”
+3. 根据搜索结果进行编写：
 - 注：以下只是节选，请酌情套用
 
 ```
@@ -143,7 +144,7 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      url: http://www.gstatic.com/generate_204
+      url: https://www.gstatic.com/generate_204
       interval: 300
 
 proxy-groups:
@@ -159,36 +160,17 @@ proxy-groups:
   # 打开亚马逊后自动选择延迟最低的新加坡节点
   - name: 🎞️ 亚马逊节点
     type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
     use:
       # 使用 proxy-providers 中的节点名称
       - 🛫 我的机场
     # 筛选出新加坡节点
     filter: "新加坡"
 
-rule-providers:
-  # 奈飞所有域名和 IP 段
-  netflix:
-    type: http
-    behavior: classical
-    # 奈飞的分流规则下载地址
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml"
-    path: ./ruleset/netflix.yaml
-    interval: 86400
-
-  # 亚马逊所有域名
-  amazonprimevideo:
-    type: http
-    behavior: classical
-    # 亚马逊的分流规则下载地址
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AmazonPrimeVideo/AmazonPrimeVideo.yaml"
-    path: ./ruleset/amazonprimevideo.yaml
-    interval: 86400
-
 rules:
   # 两条都写在 rules 最前面
-  - RULE-SET,netflix,🎥 奈飞节点
+  - GEOSITE,netflix,🎥 奈飞节点
+  - GEOIP,netflix,🎥 奈飞节点
+  - GEOSITE,primevideo,🎞️ 亚马逊节点
   - RULE-SET,amazonprimevideo,🎞️ 亚马逊节点
 ```
 # 给作者加鸡腿：
