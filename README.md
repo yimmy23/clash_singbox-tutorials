@@ -104,7 +104,7 @@ rules:
 删除后面的一串随机码（当前编辑该文件生成的随机码“df770aae2001b2eab426a385ea10bbbb35a35c52”）  
 ![QQ截图20230323121300](https://user-images.githubusercontent.com/45238096/227101230-83e6ee64-ebde-4045-acdc-1dc1eb5d9b4d.png)  
 
-修改后变成：  
+删除后变成：  
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
 # 五、 导入订阅链接
 ## 1. 在 ShellClash 中导入订阅链接  
