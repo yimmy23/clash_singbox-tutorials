@@ -206,7 +206,7 @@ ssh root@192.168.31.1
 # 五、 ShellClash 安装和配置
 ## 1. ShellClash 安装
 ① 打开 WinSCP，将下载的 ShellClash.tar.gz 文件移动到路由器的 */tmp* 目录中  
-<img src="https://i.postimg.cc/hjYYMZ65/QQ-20230130141719.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/227115154-1aa926a7-ba65-4d5a-ae5c-5af37e0ed85e.png" width="60%"/>  
 
 ② 连接 SSH，执行如下命令：
 ```
