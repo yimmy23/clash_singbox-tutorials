@@ -11,6 +11,7 @@ proxy-providers:
     health-check:
       enable: true
       interval: 300
+      # 未选择到当前策略组时，不会进行测试
       lazy: true
       url: https://www.gstatic.com/generate_204
 
