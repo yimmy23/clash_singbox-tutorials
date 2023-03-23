@@ -10,7 +10,7 @@ nameserver-policy: {'geosite:cn': [https://dns.alidns.com/dns-query, https://doh
 
 # 二、 方法
 注：
-- 1. 若更改过 DNS 监听端口，请进入 [ShellClash](https://github.com/juewuy/ShellClash) 配置->7->8->5，更改为默认的 1053
+- 1. 若更改过 DNS 监听端口，请进入 [ShellClash](https://github.com/juewuy/ShellClash) 配置->7->8->4，更改为默认的 1053
 - 2. 搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 时不要使用该方法
 
 ## 1. 安装并升级内核
@@ -18,7 +18,7 @@ nameserver-policy: {'geosite:cn': [https://dns.alidns.com/dns-query, https://doh
 ## 2. 导入 user.yaml 文件
 将 user.yaml 文件移动到 ShellClash 安装目录（如 */data/clash*）  
 或者使用快速导入方法（使用此方法可略过第“三”步）：
-- 注：若更改过 DNS 监听端口，请进入 ShellClash 配置->7->8->5，更改为默认的 1053
+- 注：若更改过 DNS 监听端口，请进入 ShellClash 配置->7->8->4，更改为默认的 1053
 
 ① 使用 fake-ip 模式，连接 SSH 后执行如下命令：
 ```
