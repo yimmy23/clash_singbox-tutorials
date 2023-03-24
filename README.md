@@ -122,8 +122,7 @@ rules:
 ① 在 ShellClash 中更新订阅  
 进入 ShellClash 配置脚本，选择 6-4 手动更新或 5-5 添加定时更新，也可连接 SSH 后执行如下命令进行更新：
 ```
-$clashdir/start.sh getyaml
-$clashdir/start.sh restart
+$clashdir/start.sh getyaml && $clashdir/start.sh restart
 ```
 ② 在各个平台的 Clash 客户端中更新订阅  
 一般进入“配置”（Profiles），然后点击“更新”（Update）即可
