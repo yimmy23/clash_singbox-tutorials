@@ -263,7 +263,8 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 
-返回到 7 clash 进阶设置，选择 4 启用域名嗅探  
+返回到 7 clash 进阶设置，选择 3 启用节点绕过
+选择 4 启用域名嗅探  
 进入 6 配置内置 DNS 服务  
 选择 7 禁用 DNS 劫持  
 注：
@@ -337,8 +338,7 @@ clash -h
 ① 通过脚本命令进行卸载（任选一）  
 连接 SSH 后，直接粘贴如下所有命令：
 ```
-$clashdir/start.sh stop
-clash -u
+$clashdir/start.sh stop && clash -u
 ```
 ② 通过 ShellClash 配置进行卸载（任选一）  
 进入 ShellClash 配置主菜单，进入 9 更新/卸载，选择 9 卸载 ShellClash
@@ -373,8 +373,7 @@ cd C:\Users\[用户名]\Desktop\upx
 - 2. 新建后连接 SSH，直接粘贴如下所有命令：
 
 ```
-chmod +x /data/auto_ssh
-chmod +x /data/auto_ssh/auto_ssh.sh
+chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 ```
 并编辑  
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
@@ -498,8 +497,7 @@ AdGuardHome 常用命令
 ① 执行《六、 1. ① ② ③ ④ ⑤（替换）》的操作步骤  
 ② 连接 SSH，直接粘贴如下所有命令：
 ```
-chmod +x /data/AdGuardHome/AdGuardHome
-reboot
+chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
 ## 4. AdGuardHome 卸载
 ① 删除开机启动项  
@@ -516,9 +514,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ② 卸载 AdGuardHome  
 连接 SSH，直接粘贴如下所有命令：
 ```
-/data/AdGuardHome/AdGuardHome -s stop
-/data/AdGuardHome/AdGuardHome -s uninstall
-rm -rf /data/AdGuardHome
+/data/AdGuardHome/AdGuardHome -s stop && /data/AdGuardHome/AdGuardHome -s uninstall && rm -rf /data/AdGuardHome
 ```
 ③ 重启路由器
 
