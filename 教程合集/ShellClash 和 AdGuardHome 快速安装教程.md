@@ -30,15 +30,13 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 执行如下命令：
 ```
-curl -o /tmp/clash-linux-armv8 -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/clash.meta/clash-linux-armv8
-clash
+curl -o /tmp/clash-linux-armv8 -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/clash.meta/clash-linux-armv8 && clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
 或者执行如下命令：
 ```
 curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/clash.meta/clash-linux-armv8
-chmod +x $clashdir/clash
-$clashdir/start.sh restart
+chmod +x $clashdir/clash && $clashdir/start.sh restart
 ```
 
 # 三、 安装 AdGuardHome
@@ -72,6 +70,5 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 执行如下命令：
 ```
 curl -o /data/AdGuardHome/AdGuardHome -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
-chmod +x /data/AdGuardHome/AdGuardHome
-reboot
+chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
