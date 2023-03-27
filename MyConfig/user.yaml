@@ -29,6 +29,11 @@ dns:
     - https://dns.cloudflare.com/dns-query
   nameserver-policy:
     "geosite:cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    "geosite:microsoft@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    "geosite:icloud@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    "geosite:apple-cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    "geosite:google-cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    "geosite:category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 geodata-mode: true
 geox-url:
