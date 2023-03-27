@@ -7,6 +7,7 @@ dns:
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
   fake-ip-filter:
+    - '+.komect.com'
     - '+.qq.com'
     - '+.cn'
     - '+.lan'
