@@ -25,8 +25,11 @@ dns:
     - tls://8.8.8.8:853
     - tls://1.1.1.1:853
   nameserver:
-    - tls://dns.google,
-    - https://dns.cloudflare.com/dns-query
+    - 'https://dns.google/dns-query#🪜 国外域名'
+    - 'https://dns.cloudflare.com/dns-query#🪜 国外域名'
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     "geosite:cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
