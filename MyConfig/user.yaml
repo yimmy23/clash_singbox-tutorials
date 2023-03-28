@@ -35,7 +35,6 @@ dns:
   nameserver-policy:
     "geosite:ookla-speedtest": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:test-ipv6": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-    "geosite:tracker": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:microsoft@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:icloud@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:apple-cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
