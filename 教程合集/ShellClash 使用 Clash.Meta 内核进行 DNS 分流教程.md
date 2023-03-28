@@ -5,7 +5,7 @@ nameserver-policy:
   "geosite:cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 ---
-# 一、 方法
+# 方法：
 注：
 - 1. 若更改过 DNS 监听端口，请进入 [ShellClash](https://github.com/juewuy/ShellClash) 配置->7->8->4，更改为默认的 1053
 - 2. 搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 时不要使用该方法
@@ -25,7 +25,7 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Router-Plug
 ```
 curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Router-Plugins@main/DNS-Bypass/redir-host-mode/user.yaml && $clashdir/start.sh restart
 ```
-## 二、 重启 Clash 服务
+## 3. 重启 Clash 服务
 连接 SSH 后，执行如下命令：
 ```
 $clashdir/start.sh restart
