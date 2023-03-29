@@ -26,8 +26,8 @@ dns:
     - tls://1.1.1.1:853
   nameserver:
     - 'https://dns.google/dns-query#🪜 国外域名'
-    - 'https://dns.cloudflare.com/dns-query#🪜 国外域名'
-    - 'https://doh.opendns.com/dns-query#🪜 国外域名'
+    - https://dns.cloudflare.com/dns-query
+    - https://doh.opendns.com/dns-query
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
