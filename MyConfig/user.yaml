@@ -27,8 +27,7 @@ dns:
   nameserver:
     - 'https://dns.google/dns-query#🪜 国外域名'
     - 'https://dns.cloudflare.com/dns-query#🪜 国外域名'
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
+    - 'https://doh.opendns.com/dns-query#🪜 国外域名'
   proxy-server-nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
