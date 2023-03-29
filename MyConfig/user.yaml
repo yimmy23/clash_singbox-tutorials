@@ -37,6 +37,6 @@ dns:
     "geosite:microsoft@cn,icloud@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:cn,private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 geox-url:
-  geosite: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  mmdb: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  geosite: "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb"
 tcp-concurrent: true
