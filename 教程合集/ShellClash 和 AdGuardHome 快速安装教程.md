@@ -69,6 +69,6 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 # 四、 升级 AdGuardHome
 执行如下命令：
 ```
-curl -o /data/AdGuardHome/AdGuardHome -L https://gh.api.99988866.xyz/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
+curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
 chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
