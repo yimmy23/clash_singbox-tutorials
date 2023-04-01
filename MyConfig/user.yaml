@@ -11,10 +11,6 @@ dns:
     - '+.qq.com'
     - '+.cn'
     - '+.lan'
-    - 'tracker.*.*'
-    - 'tracker.*.*.*'
-    - '+.tracker.*'
-    - '+.tracker.*.*'
     - 'time.*.*'
     - '+.time.*'
     - '+.time.*.*'
@@ -38,9 +34,10 @@ dns:
   nameserver-policy:
     "geosite:ookla-speedtest,test-ipv6": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:microsoft@cn,icloud@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-    "geosite:cn,private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    "geosite:cn,private,tracker": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 geodata-mode: true
 geox-url:
   geosite: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  geoip: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geoip: "https://cdn.jsdelivr.net/gh/DustinWin/geoip@release/geoip.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/DustinWin/geoip@release/Country.mmdb"
 tcp-concurrent: true
