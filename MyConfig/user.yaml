@@ -37,7 +37,7 @@ dns:
     "geosite:cn,private,tracker": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 geodata-mode: true
 geox-url:
-  geosite: "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  geoip: "https://cdn.jsdelivr.net/gh/DustinWin/geoip@release/geoip.dat"
-  mmdb: "https://cdn.jsdelivr.net/gh/DustinWin/geoip@release/Country.mmdb"
+  geosite: "https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat"
+  geoip: "https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat"
+  mmdb: "https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb"
 tcp-concurrent: true
