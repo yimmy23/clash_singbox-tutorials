@@ -1,3 +1,11 @@
+sniffer:
+  enable: true
+  sniff:
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
 dns:
   enable: true
   prefer-h3: true
@@ -9,8 +17,14 @@ dns:
   fake-ip-filter:
     - '+.komect.com'
     - '+.qq.com'
+    - '*'
     - '+.cn'
     - '+.lan'
+    - 'open.*.*'
+    - 'tracker.*.*'
+    - 'tracker.*.*.*'
+    - '+.tracker.*'
+    - '+.tracker.*.*'
     - 'time.*.*'
     - '+.time.*'
     - '+.time.*.*'
