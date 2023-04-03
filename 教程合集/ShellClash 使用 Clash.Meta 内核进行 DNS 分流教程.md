@@ -5,7 +5,7 @@ nameserver-policy:
   "geosite:cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 ---
-# 方法：
+# 一、 方法
 注：
 - 1. 若更改过 DNS 监听端口，请进入 [ShellClash](https://github.com/juewuy/ShellClash) 配置->7->8->4，更改为默认的 1053
 - 2. 搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 时不要使用该方法
@@ -29,4 +29,34 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Router-Plug
 连接 SSH 后，执行如下命令：
 ```
 $clashdir/start.sh restart
+```
+# 二、 诀窍
+若 ShellClash 规则选择的是[白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Router-Plugins@main/Rule-Templates/template_whitelist.yaml)，需要将走直连的所有域名都设置为走国内 DNS 解析，比如我的白名单模式如下：
+```
+rules:
+  - GEOSITE,category-ads-all,⛔️ 广告域名
+  - DOMAIN-SUFFIX,googleapis.cn,🚀 节点选择
+  - DOMAIN-KEYWORD,test-ipv6,🌐 IPv6 测试
+  - GEOSITE,ookla-speedtest,📈 网络测速
+  - GEOSITE,private,🏠 私有网络
+  - GEOSITE,microsoft@cn,Ⓜ️ 微软中国
+  - GEOSITE,icloud@cn,☁️ iCloud 中国
+  - GEOSITE,apple-cn,🍎 Apple 中国
+  - GEOSITE,google-cn,🗽 Google 中国
+  - GEOSITE,category-games@cn,🎮 国区游戏
+  - GEOSITE,geolocation-!cn,🪜 国外域名
+  - GEOSITE,cn,🚄 国内域名
+  - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
+  - GEOIP,private,🏠 私有网络,no-resolve
+  - GEOIP,cn,🀄 国内 IP 地址
+  - MATCH,🐟 漏网之鱼
+```
+那么需要增加 user.yaml 中的内容：
+- 注：兼容 geosite 整合编写功能需要将 Clash.Meta 内核升级到 v1.14.3+版本
+
+```
+nameserver-policy:
+  "geosite:ookla-speedtest,test-ipv6": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  "geosite:microsoft@cn,icloud@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  "geosite:cn,private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
