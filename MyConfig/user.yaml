@@ -41,9 +41,3 @@ dns:
     "geosite:ookla-speedtest,test-ipv6": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:microsoft@cn,icloud@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     "geosite:cn,private,tracker": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-geodata-mode: true
-geox-url:
-  geosite: "https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat"
-  geoip: "https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat"
-  mmdb: "https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb"
-tcp-concurrent: true
