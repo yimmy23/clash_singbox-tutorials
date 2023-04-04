@@ -2,7 +2,7 @@ name: Download text from website
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   download:
