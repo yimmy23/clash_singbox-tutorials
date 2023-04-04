@@ -1,8 +1,17 @@
-name: Download File
-on: [push]
+name: Download and upload file
+on: push
 jobs:
-  build:
+  download-and-upload:
     runs-on: ubuntu-latest
     steps:
-      - name: Download File
-        run: curl -o /MyConfig/user.yaml https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Download file
+        run: curl https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt --output user.yaml
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: ./user.yaml
