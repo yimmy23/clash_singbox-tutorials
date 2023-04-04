@@ -1,7 +1,7 @@
 - GEOSITE,category-ads-all,⛔️ 广告域名
 - DOMAIN-SUFFIX,googleapis.cn,🚀 节点选择
 - GEOSITE,ookla-speedtest,📈 网络测速
-- GEOSITE,private,🏠 私有网络域名
+- GEOSITE,private,🏠 私有网络
 - GEOSITE,microsoft@cn,Ⓜ️ 微软中国
 - GEOSITE,icloud@cn,☁️ iCloud 中国
 - GEOSITE,apple-cn,🍎 Apple 中国
@@ -10,5 +10,5 @@
 - GEOSITE,geolocation-!cn,🪜 国外域名
 - GEOSITE,cn,🚄 国内域名
 - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
-- GEOIP,private,🏠 私有网络域名,no-resolve
+- GEOIP,private,🏠 私有网络,no-resolve
 - GEOIP,cn,🀄 国内 IP 地址
