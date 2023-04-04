@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download File
-        run: curl -o /path/user.yaml https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt
+        run: curl -o /MyConfig/user.yaml https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt
