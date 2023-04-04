@@ -8,7 +8,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Download file
-        run: curl https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt --output user.yaml
+        run: curl https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt --output /MyConfig/user.yaml
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
