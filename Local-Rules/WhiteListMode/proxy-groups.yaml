@@ -58,7 +58,7 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
 
-  - name: 🏠 私有网络域名
+  - name: 🏠 私有网络
     type: select
     proxies:
       - 🎯 全球直连
