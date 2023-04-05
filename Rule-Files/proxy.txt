@@ -1,2 +1,1 @@
-googleapis.cn
-services.googleapis.cn
+DOMAIN-SUFFIX,googleapis.cn
