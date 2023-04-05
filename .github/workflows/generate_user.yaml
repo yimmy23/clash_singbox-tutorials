@@ -1,17 +1,18 @@
-name: Download and upload file
-on: push
+name: Add Domain
+
+on:
+  push:
+    branches:
+      - master
+
 jobs:
-  download-and-upload:
+  add_domain:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Download file
-        run: curl https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt --output /MyConfig/user.yaml
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
+      - name: Create YAML file
+        run: echo "domain: baidu.com" > domain.yaml
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          name: my-artifact
-          path: ./user.yaml
+          commit_message: Add domain file
+          file_pattern: domain.yaml
