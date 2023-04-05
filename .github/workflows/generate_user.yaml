@@ -1,21 +1,13 @@
-name: Add Domain
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 22 * * *"
-  push:
-    branches:
-      - master
-
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
 jobs:
-  add_domain:
+  check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - name: Create YAML file
-        run: echo "domain:baidu.com" > domain.yaml
-      - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          commit_message: Add domain file
-          file_pattern: domain.yaml
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
