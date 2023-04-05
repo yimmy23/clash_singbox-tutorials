@@ -1,2 +1,2 @@
-domain:googleapis.cn
-domain:services.googleapis.cn
+googleapis.cn
+services.googleapis.cn
