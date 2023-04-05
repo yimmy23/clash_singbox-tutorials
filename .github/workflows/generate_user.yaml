@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create YAML file
-        run: echo "domain: baidu.com" > domain.yaml
+        run: echo "domain:baidu.com" > domain.yaml
       - name: Commit and push changes
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
