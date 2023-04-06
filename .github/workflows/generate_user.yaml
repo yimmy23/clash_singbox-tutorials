@@ -13,14 +13,6 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v3
 
-      - name: Delete old user.yaml
-        run: rm -f MyConfig/user.yaml
-      - name: Commit Changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Delete User YAML"
-          commit_options: '--author "GitHub Actions <actions@github.com>"'
-
       - name: Put together user.yaml
         run: |
           curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/front-user.yaml > temp-fakeip.txt
@@ -31,9 +23,10 @@ jobs:
         run: |
           cat temp-fakeip.txt > user.yaml
 
-      - name: Push to MyConfig
-        uses: ad-m/github-push-action@master
+      - name: Copy User YAML to MyConfig Directory
+        run: cp user.yaml MyConfig/user.yaml
+      - name: Commit Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          branch: master
-          directory: DustinWin/Router-Plugins/MyConfig
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: "Update User YAML"
+          commit_options: '--author "GitHub Actions <actions@github.com>"'
