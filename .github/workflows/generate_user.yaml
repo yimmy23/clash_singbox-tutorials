@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Remove Field from File
-        run: sed -i '/fake-ip-filter/d' user.yaml
-      - name: Commit files
-        uses: EndBug/add-and-commit@v7
-        with:
-          author_name: "GitHub Actions"
-          author_email: "actions@github.com"
-          message: "Remove field from file"
-          add: "user.yaml"
+      - name: Remove Text between Strings in YAML file
+        run: |
+          perl -pi -e 's/fake-ip-filter:.*?default-nameserver//g' user.yaml
+      - name: Commit changes
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git commit -am "Remove text between strings in user.yaml file"
+          git push
