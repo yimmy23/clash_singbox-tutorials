@@ -14,6 +14,10 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v3
 
+      - name: Delete old `user.yaml`
+        run: |
+          rm -f ./MyConfig/user.yaml
+
       - name: Put together user.yaml
         run: |
           mkdir -p ./MyConfig/temp
@@ -24,10 +28,6 @@ jobs:
       - name: Create user.yaml
         run: |
           cat ./MyConfig/temp/temp-user.txt > ./MyConfig/temp/user.yaml
-
-      - name: Delete old `user.yaml`
-        run: |
-          rm -f ./MyConfig/user.yaml
 
       - name: Copy `User.yaml` to `MyConfig` directory
         run: |
