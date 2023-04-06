@@ -1,7 +1,8 @@
-name: Create Domain Test File
-
+name: Generate user.yaml
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "0 22 * * *"
   push:
     branches:
       - master
@@ -21,9 +22,16 @@ jobs:
 
       - name: Create user.yaml
         run: |
-          cat temp-fakeip.txt > user.yaml
+          cat temp-fakeip.txt > ./temp/user.yaml
 
       - name: Copy User YAML to MyConfig Directory
         run: cp user.yaml MyConfig/user.yaml
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
+
+      - name: Purge jsdelivr CDN
+        run: |
+          cd temp || exit 1
+          for file in $(ls); do
+            curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@release/${file}"
+          done
