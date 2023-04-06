@@ -5,7 +5,7 @@ on:
     - cron: "0 22 * * *"
   push:
     branches:
-      - master
+      - main
 
 jobs:
   create-test-file:
@@ -25,7 +25,7 @@ jobs:
           cat temp-fakeip.txt > ./temp/user.yaml
 
       - name: Copy User YAML to MyConfig Directory
-        run: cp user.yaml MyConfig/user.yaml
+        run: cp "./temp/user.yaml" "MyConfig/user.yaml"
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
 
