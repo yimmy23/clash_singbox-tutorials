@@ -1,6 +1,7 @@
 name: Create Domain Test File
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
