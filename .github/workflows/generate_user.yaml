@@ -26,7 +26,9 @@ jobs:
           cat ./MyConfig/temp/temp-user.txt > ./MyConfig/temp/user.yaml
 
       - name: Copy `User.yaml` to `MyConfig` directory
-        run: cp ./MyConfig/temp/user.yaml MyConfig/
+        run: |
+          rm -f ./MyConfig/user.yaml
+          cp ./MyConfig/temp/user.yaml MyConfig/
 
       - name: Delete temp directory
         run: rm -rf ./MyConfig/temp
