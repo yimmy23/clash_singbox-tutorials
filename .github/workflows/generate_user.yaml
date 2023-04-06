@@ -27,6 +27,3 @@ jobs:
         run: cp user.yaml MyConfig/user.yaml
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Update User YAML"
-          commit_options: '--author "GitHub Actions <actions@github.com>"'
