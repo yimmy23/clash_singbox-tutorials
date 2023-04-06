@@ -23,14 +23,18 @@ jobs:
 
       - name: Create user.yaml
         run: |
-          cat ./MyConfig/temp/temp-user.txt > ./MyConfig/user.yaml
+          cat ./MyConfig/temp/temp-user.txt > ./MyConfig/temp/user.yaml
 
       - name: Copy `User.yaml` to `MyConfig` directory
         run: |
+          cp -f ./MyConfig/temp/user.yaml MyConfig/
           rm -rf ./MyConfig/temp
 
-      - name: Commit Changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Commit and push
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com" && git config --global user.name "github-actions[bot]"
+          git add . && git commit -m "更新 TrackersList_$(date +%Y%m%d%H%M)" || exit 0
+          git push
 
       - name: Purge jsdelivr CDN
         run: |
