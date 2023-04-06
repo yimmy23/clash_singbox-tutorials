@@ -16,17 +16,21 @@ jobs:
 
       - name: Put together user.yaml
         run: |
-          curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/front-user.yaml > temp-fakeip.txt
-          curl -sSL https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt | grep -i "\.[A-Z]" | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' | sed "s/^/    - '/;s/$/'/" >> temp-fakeip.txt
-          curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/later-user.yaml >> temp-fakeip.txt
+          mkdir -p ./MyConfig/temp
+          curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/front-user.yaml > ./MyConfig/temp/temp-fakeip.txt
+          curl -sSL https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt | grep -i "\.[A-Z]" | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' | sed "s/^/    - '/;s/$/'/" >> ./MyConfig/temp/temp-fakeip.txt
+          curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/later-user.yaml >> ./MyConfig/temp/temp-fakeip.txt
 
       - name: Create user.yaml
         run: |
-          mkdir -p ./temp/
-          cat temp-fakeip.txt > ./temp/user.yaml
+          cat ./MyConfig/temp/temp-fakeip.txt > ./MyConfig/temp/user.yaml
 
-      - name: Copy User YAML to MyConfig Directory
-        run: cp "./temp/user.yaml" "MyConfig/user.yaml"
+      - name: Copy `User.yaml` to `MyConfig` directory
+        run: cp "./MyConfig/temp/user.yaml" "MyConfig/user.yaml"
+
+      - name: Delete temp directory
+        run: rm -rf ./MyConfig/temp
+
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
 
