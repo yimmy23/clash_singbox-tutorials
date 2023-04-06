@@ -25,10 +25,16 @@ jobs:
         run: |
           cat ./MyConfig/temp/temp-user.txt > ./MyConfig/temp/user.yaml
 
-      - name: Copy `User.yaml` to `MyConfig` directory
+      - name: Delete old `user.yaml`
         run: |
           rm -f ./MyConfig/user.yaml
-          cp ./MyConfig/temp/* ./MyConfig/
+
+      - name: Copy `User.yaml` to `MyConfig` directory
+        run: |
+          cp -f ./MyConfig/temp/user.yaml ./MyConfig/
+
+      - name: Delete `temp` directory
+        run: |
           rm -rf ./MyConfig/temp
 
       - name: Commit and push
