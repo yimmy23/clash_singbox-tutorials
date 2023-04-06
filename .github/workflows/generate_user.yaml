@@ -27,11 +27,9 @@ jobs:
         run: |
           cat temp-fakeip.txt > user.yaml
 
-      - name: Commit changes
-        uses: elstudio/actions-git@v2.3.0
+      - name: Push to MyConfig
+        uses: ad-m/github-push-action@master
         with:
-          commit_message: Update user.yaml
-          files: MyConfig/user.yaml
-          author_name: "github-actions[bot]"
-          author_email: "41898282+github-actions[bot]@users.noreply.github.com"
-          push: true
+          branch: master
+          directory: MyConfig
+          github_token: ${{ secrets.GITHUB_TOKEN }}
