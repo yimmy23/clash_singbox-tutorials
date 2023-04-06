@@ -27,11 +27,8 @@ jobs:
 
       - name: Copy `User.yaml` to `MyConfig` directory
         run: |
-          rm -f ./MyConfig/user.yaml
           cp ./MyConfig/temp/user.yaml MyConfig/
-
-      - name: Delete temp directory
-        run: rm -rf ./MyConfig/temp
+          rm -rf ./MyConfig/temp
 
       - name: Commit Changes
         uses: stefanzweifel/git-auto-commit-action@v4
