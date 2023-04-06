@@ -10,12 +10,13 @@ jobs:
   create-test-file:
     runs-on: ubuntu-latest
     steps:
-      - name: Create Domain Test File
-        run: echo "domain:test.com" > domain_test.yaml
+      - uses: actions/checkout@v3
+      - name: Remove Field from File
+        run: sed -i 's/fake-ip-filter//g' user.yaml
       - name: Commit files
         uses: EndBug/add-and-commit@v7
         with:
           author_name: "GitHub Actions"
           author_email: "actions@github.com"
-          message: "Create domain_test.yaml file"
-          add: "domain_test.yaml"
+          message: "Remove field from file"
+          add: "user.yaml"
