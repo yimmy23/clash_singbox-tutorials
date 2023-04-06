@@ -15,7 +15,7 @@ jobs:
 
       - name: Delete old user.yaml
         run: |
-          rm master/MyConfig/user.yaml
+          rm MyConfig/user.yaml
 
       - name: Put together user.yaml
         run: |
