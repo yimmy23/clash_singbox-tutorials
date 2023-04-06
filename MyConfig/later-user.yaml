@@ -2,7 +2,7 @@
     - tls://1.12.12.12:853
     - tls://223.5.5.5:853
     - tls://8.8.8.8:853
-    - tls://1.1.1.1:853
+    - tls://1.0.0.1:853
   nameserver:
     - 'https://dns.google/dns-query#🪜 国外域名'
     - https://dns.cloudflare.com/dns-query
