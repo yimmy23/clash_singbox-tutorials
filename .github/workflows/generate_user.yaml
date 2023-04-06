@@ -27,8 +27,7 @@ jobs:
 
       - name: Copy `User.yaml` to `MyConfig` directory
         run: |
-          rm -f ./MyConfig/user.yaml
-          sudo cp -f ./MyConfig/temp/user.yaml ./MyConfig/
+          cp -f ./MyConfig/temp/user.yaml ./MyConfig/
           rm -rf ./MyConfig/temp
 
       - name: Commit and push
