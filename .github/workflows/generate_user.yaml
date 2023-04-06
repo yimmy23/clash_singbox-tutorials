@@ -14,13 +14,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Delete old user.yaml
-        run: |
-          rm MyConfig/user.yaml
+        uses: JesseTG/rm@v1.0.0
+        with:
+          path: /MyConfig/user.yaml
 
       - name: Put together user.yaml
         run: |
           curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/front-user.yaml > temp-fakeip.txt
-          curl -sSL https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt | grep -i "\.[A-Z]" | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' | sed "s/^/- '/;s/$/'/" >> temp-fakeip.txt
+          curl -sSL https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt | grep -i "\.[A-Z]" | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' | sed "s/^/    - '/;s/$/'/" >> temp-fakeip.txt
           curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/later-user.yaml >> temp-fakeip.txt
 
       - name: Create user.yaml
