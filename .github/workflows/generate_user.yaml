@@ -22,6 +22,7 @@ jobs:
 
       - name: Create user.yaml
         run: |
+          mkdir -p ./temp/
           cat temp-fakeip.txt > ./temp/user.yaml
 
       - name: Copy User YAML to MyConfig Directory
