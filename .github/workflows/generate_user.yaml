@@ -13,16 +13,25 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v3
 
-      - name: get trackerslist
+      - name: Delete old user.yaml
         run: |
-          curl -sSL https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt | grep -i "\.[A-Z]" | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' | sed "s/^/- '/;s/$/'/" > temp-fakeip.txt
-      - name: Remove Field from File
+          rm master/MyConfig/user.yaml
+
+      - name: Put together user.yaml
         run: |
-          perl -pi -e 's/fake-ip-filter:.*?default-nameserver//g' user.yaml
-      - name: Commit files
-        uses: EndBug/add-and-commit@v7
+          curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/front-user.yaml > temp-fakeip.txt
+          curl -sSL https://gitea.com/XIU2/TrackersListCollection/raw/branch/master/all.txt | grep -i "\.[A-Z]" | sed 's/^.*\/\///g' | sed 's/:.*\/.*//g' | sed "s/^/- '/;s/$/'/" >> temp-fakeip.txt
+          curl -sSL https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/MyConfig/later-user.yaml >> temp-fakeip.txt
+
+      - name: Create user.yaml
+        run: |
+          cat temp-fakeip.txt > user.yaml
+
+      - name: Commit changes
+        uses: elstudio/actions-git@v2.3.0
         with:
-          author_name: "GitHub Actions"
-          author_email: "actions@github.com"
-          message: "Remove field from file"
-          add: "user.yaml"
+          commit_message: Update user.yaml
+          files: MyConfig/user.yaml
+          author_name: "github-actions[bot]"
+          author_email: "41898282+github-actions[bot]@users.noreply.github.com"
+          push: true
