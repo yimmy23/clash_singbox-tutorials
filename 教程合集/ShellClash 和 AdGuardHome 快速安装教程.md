@@ -45,7 +45,7 @@ chmod +x $clashdir/clash && $clashdir/start.sh restart
 执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
-curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/Router-Plugins@main/AdGuardHome
+curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/AdGuardHome
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
@@ -69,6 +69,6 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 # 四、 升级 AdGuardHome
 执行如下命令：
 ```
-curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Router-Plugins/main/AdGuardHome
+curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Clash-Tutorials/main/AdGuardHome
 chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
