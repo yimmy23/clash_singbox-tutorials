@@ -29,7 +29,7 @@ jobs:
         run: |
           rm -f ./MyConfig/user.yaml
           cp -f ./MyConfig/temp/user.yaml MyConfig/
-
+          rm -f ./MyConfig/temp/user.yaml
 
       - name: Commit and push
         run: |
