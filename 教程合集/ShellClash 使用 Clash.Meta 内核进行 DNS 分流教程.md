@@ -40,7 +40,6 @@ rules:
   - GEOSITE,ookla-speedtest,📈 网络测速
   - GEOSITE,private,🏠 私有网络
   - GEOSITE,microsoft@cn,Ⓜ️ 微软中国
-  - GEOSITE,icloud@cn,☁️ iCloud 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,category-games@cn,🎮 国区游戏
@@ -57,6 +56,6 @@ rules:
 ```
 nameserver-policy:
   "geosite:ookla-speedtest,test-ipv6": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-  "geosite:microsoft@cn,icloud@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  "geosite:microsoft@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
   "geosite:cn,private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
