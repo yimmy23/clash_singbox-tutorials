@@ -41,12 +41,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: ☁️ iCloud 中国
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
-
   - name: 🀄 国内 IP 地址
     type: select
     proxies:
