@@ -78,12 +78,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: ☁️ iCloud 中国
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
-
   - name: 🀄 国内 IP 地址
     type: select
     proxies:
@@ -161,7 +155,6 @@ rules:
   - GEOSITE,ookla-speedtest,📈 网络测速
   - GEOSITE,private,🏠 私有网络
   - GEOSITE,microsoft@cn,Ⓜ️ 微软中国
-  - GEOSITE,icloud@cn,☁️ iCloud 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,category-games@cn,🎮 国区游戏
