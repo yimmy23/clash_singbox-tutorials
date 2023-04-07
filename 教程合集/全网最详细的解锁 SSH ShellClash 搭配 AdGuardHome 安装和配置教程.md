@@ -38,7 +38,6 @@
 - 注：中文绿色版请下载打包文件
 
 下载 WinSCP-xxx-Portable.zip 文件
-
 # 二、 解锁 SSH
 ## 1. 复制 stok 值
 进入路由器管理页面 http://192.168.31.1 ，登录后复制地址栏中的 stok 值  
@@ -220,11 +219,11 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 cd C:\Users\[用户名]\Desktop\upx
 .\upx --best clash.meta-linux-arm64
 ```
-⑦ 将压缩完成的 clash.meta-linux-arm64 重命名为 clash-linux-arm64 并移动到路由器的 */tmp* 目录中  
-<img src="https://user-images.githubusercontent.com/45238096/224111734-7454beb0-56e1-4474-b8db-64855582319e.png" width="60%"/>  
+⑦ 将压缩完成的 clash.meta-linux-arm64 移动到路由器的 */tmp* 目录中  
+<img src="https://user-images.githubusercontent.com/45238096/230613949-da4d28e2-0654-4dd4-b781-f7e5b8910b98.png" width="60%"/>  
 
 ⑧ 连接 SSH，进入 ShellClash 配置脚本可执行命令 `clash`，此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
-<img src="https://i.postimg.cc/YC1w07Zq/QQ-20230204145144.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/230614112-29704e1a-00f0-463a-88cf-f1391ba4a0f0.png" width="60%"/>  
 
 **ShellClash 安装成功！**
 ## 2. ShellClash 配置
@@ -264,7 +263,7 @@ cd C:\Users\[用户名]\Desktop\upx
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 
 返回到 7 clash 进阶设置，选择 3 启用节点绕过
-选择 4 启用域名嗅探  
+选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
 进入 6 配置内置 DNS 服务  
 选择 7 禁用 DNS 劫持  
 注：
@@ -284,16 +283,13 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png" width="60%"/>  
 
-⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
+⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定，须设置本机代理服务）  
 <img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 
-⑥ 返回到 9 更新/卸载，进入 3 更新 GeoIP/CN-IP，选择 2 由 Hackl0us 提供的精简版 CN-IP 数据库，等待下载完成  
-<img src="https://user-images.githubusercontent.com/45238096/226166467-23c19291-a2bd-4889-a468-ebf8f8da2c9f.png" width="60%"/>  
-
-⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
+⑥ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
 <img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 
-⑧ 返回到主菜单，进入 6 导入配置文件  
+⑦ 返回到主菜单，进入 6 导入配置文件  
 注：
 - 1. 选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件.yaml 直链](https://github.com/DustinWin/Clash-Tutorials/blob/main/README.md)》
 - 2. 选择 1 在线生成 Clash 配置文件，可直接转换订阅链接，此处具体方法省略
@@ -329,7 +325,6 @@ $clashdir/start.sh getyaml
 ```
 clash -h
 ```
-
 ## 3. ShellClash 升级
 进入 ShellClash 配置主菜单，选择 9 更新/卸载，进入后查看“管理脚本”、“clash 核心”和“GeoIP/CN-IP”有无新版本，有则选择对应的数字进行升级即可  
 <img src="https://i.postimg.cc/R0HJNW9J/QQ-20221223141923.png" width="60%"/>  
@@ -342,7 +337,6 @@ $clashdir/start.sh stop && clash -u
 ```
 ② 通过 ShellClash 配置进行卸载（任选一）  
 进入 ShellClash 配置主菜单，进入 9 更新/卸载，选择 9 卸载 ShellClash
-
 # 六 、 AdGuardHome 安装和配置
 ## 1. AdGuardHome 安装
 ① 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\[用户名]\Desktop\upx*  
@@ -517,7 +511,6 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 /data/AdGuardHome/AdGuardHome -s stop && /data/AdGuardHome/AdGuardHome -s uninstall && rm -rf /data/AdGuardHome
 ```
 ③ 重启路由器
-
 # 七、 效果图
 ## 1. IPv6 效果
 ![QQ截图20230228143446](https://user-images.githubusercontent.com/45238096/224113189-e20e0b89-6dfc-40c5-b2cf-9abeb8525cdb.png)
