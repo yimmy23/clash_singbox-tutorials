@@ -31,7 +31,8 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutor
 $clashdir/start.sh restart
 ```
 # 二、 诀窍
-若 ShellClash 规则选择的是[白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/template_whitelist.yaml)，需要将走直连的所有域名都设置为走国内 DNS 解析，比如我的白名单模式如下：
+## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/template_whitelist.yaml)
+若 ShellClash 规则选择的是白名单模式，需要将走直连的所有域名都设置为走国内 DNS 解析，比如我的白名单模式如下：
 ```
 rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
@@ -54,8 +55,34 @@ rules:
 - 注：兼容 geosite 整合编写功能需要将 Clash.Meta 内核升级到 v1.14.3+版本
 
 ```
+nameserver:
+  - tls://dns.google
+  - https://dns.cloudflare.com/dns-query
+
 nameserver-policy:
   "geosite:ookla-speedtest,test-ipv6": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
   "geosite:microsoft@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
   "geosite:cn,private": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+```
+## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/template_blacklist.yaml)
+若 ShellClash 规则选择的是黑名单模式，需要将走代理的所有域名都设置为走国外 DNS 解析，比如我的黑名单模式如下：
+```
+rules:
+  - GEOSITE,category-ads-all,⛔️ 广告域名
+  - GEOSITE,ookla-speedtest,📈 网络测速
+  - GEOSITE,gfw,🧱 GFWList 域名
+  - GEOSITE,greatfire,🪜 GreatFire 域名
+  - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
+  - MATCH,🐟 漏网之鱼
+```
+那么需要增加 user.yaml 中的内容：
+- 注：兼容 geosite 整合编写功能需要将 Clash.Meta 内核升级到 v1.14.3+版本
+
+```
+nameserver:
+  - https://doh.pub/dns-query
+  - https://dns.alidns.com/dns-query
+
+nameserver-policy:
+  "geosite:gfw,greatfire": [tls://dns.google, https://dns.cloudflare.com/dns-query]
 ```
