@@ -168,7 +168,7 @@ ssh root@192.168.31.1
 ## 2. 通过 SSH 工具添加 SSH 支持（任选一）
 ① 打开 Termius  
 安装 Termius 并打开（登录后可一直免费试用），现暂时点击“l don't want a free trial”  
-<img src="https://i.postimg.cc/wTYzp34b/Snipaste-2022-12-23-13-29-06.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/231961082-1fb3b895-e42d-46d5-98a6-e7a15cdaa2cc.png" width="60%"/>  
 
 ② 添加 Host  
 依次点击 ADD-->New Host  
@@ -270,7 +270,7 @@ cd C:\Users\[用户名]\Desktop\upx
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
 - 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，并强烈建议设置 4 一键配置加密 DNS
 
-<img src="https://i.postimg.cc/8kKkg1Q2/QQ-20230115213642.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/231961325-f5d3d714-10c7-40b4-bff9-e7832ae9b907.png" width="60%"/>  
 
 返回到 7 clash 进阶设置，进入 8 手动指定相关端口、秘钥及本机 host  
 选择 4 修改 DNS 监听端口，默认即可（此处我修改为：56252）  
