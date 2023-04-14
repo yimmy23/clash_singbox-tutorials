@@ -305,3 +305,4 @@ curl -o $clashdir/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Fi
 <img src="https://user-images.githubusercontent.com/45238096/231973537-f2f507d0-2af1-422b-81b5-51f9d7c83790.png" width="60%"/>  
 
 9. 返回到主菜单，选择 6 导入配置文件，进入 2 导入Clash配置文件链接，粘贴第一步中生成的配置文件.yaml 文件直链，启动 clash 服务即可
+面板 Dashboard 打开链接为 http://192.168.31.1:56253/ui
