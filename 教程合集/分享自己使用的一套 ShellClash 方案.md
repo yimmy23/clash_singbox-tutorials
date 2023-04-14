@@ -254,6 +254,7 @@ curl -o /tmp/clash.meta-linux-arm64 -L  https://fastly.jsdelivr.net/gh/DustinWin
 - 3. geoip.dat 来源于 [DustinWin/clash-geoip](https://github.com/DustinWin/clash-geoip)
 - 4. user.yaml 来源于 [DustinWin/Clash-Files](https://github.com/DustinWin/Clash-Files)
 
+连接 SSH 后运行如下命令：
 ```
 curl -o $clashdir/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat
 curl -o $clashdir/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat
@@ -269,6 +270,11 @@ curl -o $clashdir/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Fi
 30 3 * * 1,3,5 curl -o /data/clash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 3 点半更新路由规则文件
 0 4 * * 1,3,5 curl -o /data/clash/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@release/user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点更新 user.yaml
 30 4 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新订阅并重启 Clash 服务
+```
+按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车  
+继续运行如下命令：
+```
+/etc/init.d/cron restart
 ```
 # 三、 设置部分
 1. 连接 SSH 后运行 `clash` 命令并加载 Clash.Meta 内核
