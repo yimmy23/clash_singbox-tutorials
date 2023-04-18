@@ -89,7 +89,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: Ⓜ️ 微软中国
+  - name: Ⓜ️ Microsoft 中国
     type: select
     proxies:
       - 🎯 全球直连
@@ -220,7 +220,7 @@ rules:
   - GEOSITE,private,🏠 私有网络
   - GEOSITE,tracker,⛓️ BT 下载
   - GEOSITE,network,📈 网络测试
-  - GEOSITE,microsoft-cn,Ⓜ️ 微软中国
+  - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,games-cn,🎮 国区游戏
