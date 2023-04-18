@@ -276,7 +276,9 @@ cd C:\Users\[用户名]\Desktop\upx
 <img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 
 ⑥ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
-- 注：启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
+- 注：
+- 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
+- 2. 初次打开需要添加链接：http://192.168.31.1:9999
 
 <img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 
