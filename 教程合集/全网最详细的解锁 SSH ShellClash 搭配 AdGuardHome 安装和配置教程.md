@@ -263,7 +263,8 @@ cd C:\Users\[用户名]\Desktop\upx
 
 返回到 7 clash 进阶设置，选择 3 启用节点绕过
 选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
-进入 6 配置内置 DNS 服务  
+进入 6 配置内置 DNS 服务，选择 1 修改基础 DNS，输入 `null` 并回车  
+选择 2 修改 Fallback_DNS，输入 `null` 并回车  
 选择 7 禁用 DNS 劫持  
 注：
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
