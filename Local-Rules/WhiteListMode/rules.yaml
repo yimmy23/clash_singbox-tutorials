@@ -11,4 +11,3 @@
 - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
 - GEOIP,private,🏠 私有网络,no-resolve
 - GEOIP,cn,🀄 国内 IP 地址
-- MATCH,🐟 漏网之鱼
