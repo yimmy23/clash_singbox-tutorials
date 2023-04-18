@@ -279,7 +279,7 @@ curl -o $clashdir/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Fi
 ```
 # 三、 设置部分
 1. 连接 SSH 后运行 `clash` 命令并加载 Clash.Meta 内核
-2. 进入 8 其他工具，选择 2 ShellClash 新手引导
+2. 进入 8 其他工具，选择 2 ShellClash 新手引导  
 选择 1 路由设备配置局域网透明代理  
 选择 1 在 */data/clash/ui* 目录安装  
 选择 1 确认启用软固化 SSH  
