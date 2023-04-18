@@ -261,8 +261,8 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 
-返回到 7 clash 进阶设置，选择 3 启用节点绕过
-选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
+返回到 7 clash 进阶设置，根据自身需要选择 3 启用节点绕过（设备较多可开启）  
+根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
 进入 6 配置内置 DNS 服务，选择 1 修改基础 DNS，输入 `null` 并回车  
 选择 2 修改 Fallback_DNS，输入 `null` 并回车  
 选择 7 禁用 DNS 劫持  
