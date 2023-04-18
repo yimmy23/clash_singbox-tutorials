@@ -55,9 +55,9 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      interval: 300
+      interval: 600
       # 未选择到当前策略组时，不会进行测试
-      lazy: true
+      # lazy: true
       url: https://www.gstatic.com/generate_204
 
 proxy-groups:
@@ -79,8 +79,8 @@ proxy-groups:
   # 自动选择延迟最低的香港节点
   - name: 🇭🇰 香港节点
     type: url-test
-    # 容差大于 50ms 就会切换到延迟低的那个节点
-    tolerance: 50
+    # 容差大于 100ms 就会切换到延迟低的那个节点
+    tolerance: 100
     use:
       - 🛫 我的机场
     # 筛选出“香港”节点，支持正则表达式
@@ -148,9 +148,9 @@ proxy-providers:
     interval: 86400
     health-check:
       enable: true
-      interval: 300
+      interval: 600
       # 未选择到当前策略组时，不会进行测试
-      lazy: true
+      # lazy: true
       url: https://www.gstatic.com/generate_204
 
 proxy-groups:
@@ -166,8 +166,8 @@ proxy-groups:
   # 打开亚马逊后自动选择延迟最低的新加坡节点
   - name: 🎞️ 亚马逊节点
     type: url-test
-    # 容差大于 50ms 就会切换到延迟低的那个节点
-    tolerance: 50
+    # 容差大于 100ms 就会切换到延迟低的那个节点
+    tolerance: 100
     use:
       # 使用 proxy-providers 中的节点名称
       - 🛫 我的机场
@@ -184,20 +184,20 @@ rules:
 ## 1. ShellClash
 ① 若配置文件内含有 `geodata-mode: true` 这一项，连接 SSH 后，执行如下命令：
 ```
-curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
-curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
+curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat
 ```
 ② 若配置文件内没有 `geodata-mode: true` 这一项或含有 `geodata-mode: false`，连接 SSH 后，执行如下命令：
 ```
-curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
-curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
 ```
 ## 2. Clash Verge（Windows 客户端）
 编辑文本文档，添加如下内容：
 ```
-curl -o %USERPROFILE%\.config\clash-verge\geosite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
-curl -o %USERPROFILE%\.config\clash-verge\geoip.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat
-curl -o %USERPROFILE%\.config\clash-verge\Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
+curl -o %USERPROFILE%\.config\clash-verge\geosite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
+curl -o %USERPROFILE%\.config\clash-verge\geoip.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat
+curl -o %USERPROFILE%\.config\clash-verge\Country.mmdb -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
 pause
 ```
 另存为.bat 文件，右击该文件，选择以管理员身份运行
