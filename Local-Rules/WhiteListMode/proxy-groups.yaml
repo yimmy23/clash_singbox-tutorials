@@ -1,11 +1,17 @@
 proxy-groups:
-  - name: 📈 网络测速
+  - name: 📈 网络测试
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: 🚄 国内域名
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🚀 节点选择
+      - 🎯 全球直连
+
+  - name: 🇨🇳 国内域名
     type: select
     proxies:
       - 🎯 全球直连
@@ -23,7 +29,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: Ⓜ️ 微软中国
+  - name: Ⓜ️ Microsoft 中国
     type: select
     proxies:
       - 🎯 全球直连
@@ -51,6 +57,11 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 节点选择
+
+  - name: ⛓️ BT 下载
+    type: select
+    proxies:
+      - 🎯 全球直连
 
   - name: 🏠 私有网络
     type: select
