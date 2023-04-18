@@ -28,7 +28,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
 
   # Speedtest 测速网站
-  - name: 📈 网络测速
+  - name: 📈 网络测试
     type: select
     proxies:
       # 测试本地网络速度（运营商网络速度）
@@ -42,7 +42,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: 🚄 国内域名
+  - name: 🇨🇳 国内域名
     type: select
     proxies:
       - 🎯 全球直连
@@ -60,7 +60,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: Ⓜ️ 微软中国
+  - name: Ⓜ️ Microsoft 中国
     type: select
     proxies:
       - 🎯 全球直连
@@ -89,6 +89,11 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
 
+  - name: ⛓️ BT 下载
+    type: select
+    proxies:
+      - 🎯 全球直连
+
   - name: 🏠 私有网络
     type: select
     proxies:
@@ -109,6 +114,7 @@ proxy-groups:
     proxies:
       - REJECT
 
+  # 国家或地区节点
   - name: 🇭🇰 香港节点
     # 自动选择，即按照 url 测试结果使用延迟最低的节点（下同）
     type: url-test
@@ -149,17 +155,16 @@ proxy-groups:
     filter: "新加坡"
 
 rules:
-  # 自定义规则优先放前面
   - GEOSITE,category-ads-all,⛔️ 广告域名
-  - DOMAIN-SUFFIX,googleapis.cn,🚀 节点选择
-  - GEOSITE,ookla-speedtest,📈 网络测速
   - GEOSITE,private,🏠 私有网络
-  - GEOSITE,microsoft@cn,Ⓜ️ 微软中国
+  - GEOSITE,category-public-tracker,⛓️ BT 下载
+  - GEOSITE,speedtest,📈 网络测试
+  - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,category-games@cn,🎮 国区游戏
   - GEOSITE,geolocation-!cn,🪜 国外域名
-  - GEOSITE,cn,🚄 国内域名
+  - GEOSITE,cn,🇨🇳 国内域名
   - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
   - GEOIP,private,🏠 私有网络,no-resolve
   - GEOIP,cn,🀄 国内 IP 地址
