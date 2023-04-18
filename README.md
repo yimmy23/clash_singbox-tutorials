@@ -208,5 +208,5 @@ pause
 ## 支付宝  
 ![167673823486183](https://user-images.githubusercontent.com/45238096/219877760-b385af34-ebbd-438e-a31f-cd2b985047bb.png)
 # 机场推荐（薯条 CNIX，自用，感觉还不错）：  
-## [邀请链接 1](https://increasingthroughputhpcandaiworkloads.analytics-networking-security-storage-highperformance-computing.inspur-microsoft-azure-nvidia-oracle-ovhcloud-redhat-supermicro.aws-cisco-delltechnologies-fujitsu-hewlettpackardenterprise-ibm.com/auth/register?code=wkqp)  
-## [邀请链接 2](https://increasingthroughputhpcandaiworkloads.analytics-networking-security-storage-highperformance-computing.inspur-microsoft-azure-nvidia-oracle-ovhcloud-redhat-supermicro.aws-cisco-delltechnologies-fujitsu-hewlettpackardenterprise-ibm.com/#/auth/register?code=wkqp)
+## [邀请链接 1](https://increasingthroughputhpcandaiworkloads.analytics-networking-security-storage-highperformance-computing.inspur-microsoft-azure-nvidia-oracle-ovhcloud-redhat-supermicro.aws-cisco-delltechnologies-fujitsu-hewlettpackardenterprise-ibm.com/auth/register?code=iImZ)  
+## [邀请链接 2](https://increasingthroughputhpcandaiworkloads.analytics-networking-security-storage-highperformance-computing.inspur-microsoft-azure-nvidia-oracle-ovhcloud-redhat-supermicro.aws-cisco-delltechnologies-fujitsu-hewlettpackardenterprise-ibm.com/#/auth/register?code=iImZ)
