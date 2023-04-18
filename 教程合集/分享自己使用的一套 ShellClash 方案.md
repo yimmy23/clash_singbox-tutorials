@@ -247,7 +247,7 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://fastly.jsdelivr.net/gh/DustinWin/
 ② Alpha 版（每天早上 3 点更新）  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L  https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64
+curl -o /tmp/clash.meta-linux-arm64 -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64
 ```
 ## 3. 导入路由规则文件和 user.yaml
 - 注：
