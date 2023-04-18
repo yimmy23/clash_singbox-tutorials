@@ -218,12 +218,12 @@ proxy-groups:
 rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,private,🏠 私有网络
-  - GEOSITE,tracker,⛓️ BT 下载
-  - GEOSITE,network,📈 网络测试
-  - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
+  - GEOSITE,category-public-tracker,⛓️ BT 下载
+  - GEOSITE,speedtest,📈 网络测试
+  - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
-  - GEOSITE,games-cn,🎮 国区游戏
+  - GEOSITE,category-games@cn,🎮 国区游戏
   - GEOSITE,geolocation-!cn,🪜 国外域名
   - GEOSITE,cn,🇨🇳 国内域名
   - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
