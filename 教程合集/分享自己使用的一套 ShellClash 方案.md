@@ -279,8 +279,7 @@ curl -o $clashdir/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Fi
 ```
 # 三、 设置部分
 1. 连接 SSH 后运行 `clash` 命令并加载 Clash.Meta 内核
-2. 进入 8 其他工具，选择 2 ShellClash 新手引导  
-选择 1 路由设备配置局域网透明代理  
+2. 在新手引导中，选择 1 路由设备配置局域网透明代理  
 选择 1 在 */data/clash/ui* 目录安装  
 选择 1 确认启用软固化 SSH  
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
@@ -301,10 +300,10 @@ curl -o $clashdir/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Fi
 <img src="https://user-images.githubusercontent.com/45238096/231972436-9db17647-2cae-48ca-bbb3-9f4825d124d9.png" width="60%"/>  
 
 8. 返回到主菜单，选择 7 clash 进阶设置，进入 6 配置内置 DNS 服务，设置如下：
-<img src="https://user-images.githubusercontent.com/45238096/231972994-37f9e9a1-5376-4f02-8bfe-d8a4930a2888.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/232890411-b717ddae-1af2-4b20-9829-792f02c3e77e.png" width="60%"/>  
 
 返回到 7 clash 进阶设置，进入 8 手动指定相关端口、秘钥及本机 host，设置如下：  
-<img src="https://user-images.githubusercontent.com/45238096/231973537-f2f507d0-2af1-422b-81b5-51f9d7c83790.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/232890495-69f31bc0-360f-468b-89e8-10ec1ae771dc.png" width="60%"/>  
 
 9. 返回到主菜单，选择 6 导入配置文件，进入 2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件.yaml 文件直链，启动 clash 服务即可  
-面板 Dashboard 打开链接为 http://192.168.31.1:56253/ui
+面板 Dashboard 打开链接为 http://192.168.31.1:9999/ui
