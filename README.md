@@ -198,6 +198,9 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip
 curl -o %USERPROFILE%\.config\clash-verge\geosite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
 curl -o %USERPROFILE%\.config\clash-verge\geoip.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/geoip.dat
 curl -o %USERPROFILE%\.config\clash-verge\Country.mmdb -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
+copy /y "%USERPROFILE%\.config\clash-verge\geosite.dat" "%PROGRAMFILES%\Clash Verge\resources"
+copy /y "%USERPROFILE%\.config\clash-verge\geoip.dat" "%PROGRAMFILES%\Clash Verge\resources"
+copy /y "%USERPROFILE%\.config\clash-verge\Country.mmdb" "%PROGRAMFILES%\Clash Verge\resources"
 pause
 ```
 另存为.bat 文件，右击该文件，选择以管理员身份运行
