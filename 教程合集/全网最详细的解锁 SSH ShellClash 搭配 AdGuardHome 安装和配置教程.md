@@ -4,11 +4,11 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.4 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.5 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
-`uname -ms | tr ' ' '_' | tr '[A-Z]' '[a-z]'`  
-若执行结果是 linux_aarch64，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
+`uname -ms`  
+若执行结果是“linux aarch64”，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
 4. ShellClash 和 AdGuardHome 中所有没有提到的配置保持默认即可
 5. ShellClash 和 AdGuardHome 快速安装方法请看《[ShellClash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/Clash-Tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
 ---
@@ -227,8 +227,7 @@ cd C:\Users\[用户名]\Desktop\upx
 
 **ShellClash 安装成功！**
 ## 2. ShellClash 配置
-① 进入 8 其他工具，选择 2 ShellClash 新手引导  
-选择 1 路由设备配置局域网透明代理  
+① 在新手引导中，选择 1 路由设备配置局域网透明代理  
 选择 1 在 */data/clash/ui* 目录安装  
 选择 1 确认启用软固化 SSH  
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
@@ -242,7 +241,7 @@ cd C:\Users\[用户名]\Desktop\upx
 
 返回到 2 clash 功能设置，进入 6 设置本机代理服务，根据自身需要选择 1 使用 iptables 增强模式配置（支持 docker 推荐！）（不推荐开启）  
 注：
-- 1. 此功能须重启路由器后生效，作用是使当前路由器的 ShellClash 也走代理，受影响的有生成配置文件（订阅转换）、导入（更新）配置文件、更新脚本和更新 GeoIP/CN-IP 等
+- 1. 此功能须断开 SSH 再重连才会生效，作用是使当前路由器的 ShellClash 也走代理，受影响的有生成配置文件（订阅转换）、导入（更新）配置文件、更新脚本和更新 GeoIP/CN-IP 等
 - 2. 若生成配置文件（订阅转换）、导入（更新）配置文件、更新脚本和更新 GeoIP/CN-IP 等出现问题，请关闭此功能，并重启路由器后重试
 - 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/Clash-Tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B.md)》
 
@@ -270,23 +269,14 @@ cd C:\Users\[用户名]\Desktop\upx
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
 - 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，并强烈建议设置 4 一键配置加密 DNS
 
-<img src="https://user-images.githubusercontent.com/45238096/231961325-f5d3d714-10c7-40b4-bff9-e7832ae9b907.png" width="60%"/>  
-
-返回到 7 clash 进阶设置，进入 8 手动指定相关端口、秘钥及本机 host  
-选择 4 修改 DNS 监听端口，默认即可（此处我修改为：56252）  
-选择 5 修改面板访问端口，默认即可（此处我修改为：56253）  
-注：
-- 1. 修改后访问 ShellClash Dashboard 面板网址变成 http://192.168.31.1:56253/ui
-- 2. 首次访问 ShellClash Dashboard 面板需要输入 http://192.168.31.1:56253 ，点击“Add”按钮，添加成功后，点击下方添加成功的网址即可
-
-<img src="https://i.postimg.cc/LXm425sp/QQ-20230102114351.png" width="60%"/>  
-
-<img src="https://i.postimg.cc/0NR2XcRr/QQ-20230115224601.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/232899733-3d51da3a-2121-4e70-a27d-f08feefba8d7.png" width="60%"/>  
 
 ⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定，须设置本机代理服务）  
 <img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 
 ⑥ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
+- 注：启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
+
 <img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 
 ⑦ 返回到主菜单，进入 6 导入配置文件  
