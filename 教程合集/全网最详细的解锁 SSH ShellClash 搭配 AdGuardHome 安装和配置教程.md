@@ -253,7 +253,7 @@ cd C:\Users\[用户名]\Desktop\upx
 ③ 返回到主菜单，进入 4 clash 启动设置  
 选择 1 允许 clash 开机启动  
 选择 3 设置自启延时，推荐设置成 90 秒（其它型号路由器请自测）  
-<img src="https://i.postimg.cc/02h8rcNZ/QQ-20230219114132.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/232901589-46fbf61f-11bf-472d-8432-35a291d31e41.png" width="60%"/>  
 
 ④ 返回到主菜单，进入 7 clash 进阶设置  
 进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
