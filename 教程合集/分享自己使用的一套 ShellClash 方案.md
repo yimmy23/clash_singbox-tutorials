@@ -71,7 +71,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: 🚄 直连域名
+  - name: 🇨🇳 国内域名
     type: select
     proxies:
       - 🎯 全球直连
@@ -225,7 +225,7 @@ rules:
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,games-cn,🎮 国区游戏
   - GEOSITE,proxy,🪜 代理域名
-  - GEOSITE,cn,🚄 直连域名
+  - GEOSITE,cn,🇨🇳 国内域名
   - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
   - GEOIP,private,🏠 私有网络,no-resolve
   - GEOIP,cn,🀄 国内 IP 地址
