@@ -222,19 +222,20 @@ cd C:\Users\[用户名]\Desktop\upx
 ⑦ 将压缩完成的 clash.meta-linux-arm64 移动到路由器的 */tmp* 目录中  
 <img src="https://user-images.githubusercontent.com/45238096/230613949-da4d28e2-0654-4dd4-b781-f7e5b8910b98.png" width="60%"/>  
 
-⑧ 连接 SSH，进入 ShellClash 配置脚本可执行命令 `clash`，此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
-<img src="https://user-images.githubusercontent.com/45238096/230614112-29704e1a-00f0-463a-88cf-f1391ba4a0f0.png" width="60%"/>  
-
 **ShellClash 安装成功！**
 ## 2. ShellClash 配置
-① 在新手引导中，选择 1 路由设备配置局域网透明代理  
+① 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
+首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 选择 1 在 */data/clash/ui* 目录安装  
 选择 1 确认启用软固化 SSH  
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
 
-② 输入 0 回车可返回到上级菜单（下同），返回到主菜单  
+② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
+<img src="https://user-images.githubusercontent.com/45238096/230614112-29704e1a-00f0-463a-88cf-f1391ba4a0f0.png" width="60%"/>  
+
+③ 输入 0 回车可返回到上级菜单（下同），返回到主菜单  
 进入 2->1 切换 Clash 运行模式，选择 5 Tproxy 模式（部分型号路由器不显示该模式，保持默认即可）  
 进入 2 切换 DNS 运行模式，选择 1 fake-ip 模式（经实测，现兼容性已大大增强，如仍有问题请选择 2 redir_host 模式）
 - 注：fake-ip 模式不支持 CN_IP 绕过内核
@@ -250,12 +251,12 @@ cd C:\Users\[用户名]\Desktop\upx
 启用 7 屏蔽 QUIC 流量  
 <img src="https://i.postimg.cc/RFCm2YPC/QQ-20230218202031.png" width="60%"/>  
 
-③ 返回到主菜单，进入 4 clash 启动设置  
+④ 返回到主菜单，进入 4 clash 启动设置  
 选择 1 允许 clash 开机启动  
 选择 3 设置自启延时，推荐设置成 90 秒（其它型号路由器请自测）  
 <img src="https://user-images.githubusercontent.com/45238096/232901589-46fbf61f-11bf-472d-8432-35a291d31e41.png" width="60%"/>  
 
-④ 返回到主菜单，进入 7 clash 进阶设置  
+⑤ 返回到主菜单，进入 7 clash 进阶设置  
 进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
 - 注：fake-ip 模式不支持 CNIP 绕过内核
 
@@ -272,17 +273,17 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://user-images.githubusercontent.com/45238096/232899733-3d51da3a-2121-4e70-a27d-f08feefba8d7.png" width="60%"/>  
 
-⑤ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定，须设置本机代理服务）  
+⑥ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定，须设置本机代理服务）  
 <img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 
-⑥ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
+⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
 - 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
 - 2. 初次打开需要添加链接：http://192.168.31.1:9999
 
 <img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 
-⑦ 返回到主菜单，进入 6 导入配置文件  
+⑧ 返回到主菜单，进入 6 导入配置文件  
 注：
 - 1. 选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件.yaml 直链](https://github.com/DustinWin/Clash-Tutorials/blob/main/README.md)》
 - 2. 选择 1 在线生成 Clash 配置文件，可直接转换订阅链接，此处具体方法省略
