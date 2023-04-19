@@ -251,7 +251,7 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://fastly.jsdelivr.net/gh/DustinWin/
 ```
 ## 3. 导入路由规则文件和 user.yaml
 - 注：
-- 1. **路由规则文件和 user.yaml 都属高度定制，牵一发而动全身**（若无特殊需求，可以照搬）
+- 1. **路由规则文件和 user.yaml 都属高度定制，牵一发而动全身**
 - 2. geosite.dat 来源于 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
 - 3. geoip.dat 来源于 [DustinWin/clash-geoip](https://github.com/DustinWin/clash-geoip)
 - 4. user.yaml 来源于 [DustinWin/Clash-Files](https://github.com/DustinWin/Clash-Files)
