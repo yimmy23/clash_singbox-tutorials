@@ -1,5 +1,5 @@
 # 声明
-1. 此方案属高度定制，仅供参考，请根据自身情况进行修改，**适合自己的方案才是最好的方案**
+1. 此方案属高度定制，仅供参考，请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 2. 此方案适用于 [ShellClash](https://github.com/juewuy/ShellClash)（arm64 架构），以及其它使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)并能自由导入[路由规则文件](https://github.com/Loyalsoldier/v2ray-rules-dat)的平台，如 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等
 3. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
 # 一、 生成配置文件.yaml 文件直链
@@ -71,13 +71,13 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: 🇨🇳 国内域名
+  - name: 🚄 直连域名
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: 🪜 国外域名
+  - name: 🪜 代理域名
     type: select
     proxies:
       - 🚀 节点选择
@@ -216,16 +216,16 @@ proxy-groups:
     filter: "美国"
 
 rules:
-  - GEOSITE,category-ads-all,⛔️ 广告域名
-  - GEOSITE,private,🏠 私有网络
-  - GEOSITE,category-public-tracker,⛓️ BT 下载
-  - GEOSITE,speedtest,📈 网络测试
-  - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
+  - GEOSITE,advertising,⛔️ 广告域名
+  - GEOSITE,lan,🏠 私有网络
+  - GEOSITE,tracker,⛓️ BT 下载
+  - GEOSITE,networktest,📈 网络测试
+  - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
-  - GEOSITE,category-games@cn,🎮 国区游戏
-  - GEOSITE,geolocation-!cn,🪜 国外域名
-  - GEOSITE,cn,🇨🇳 国内域名
+  - GEOSITE,games-cn,🎮 国区游戏
+  - GEOSITE,proxy,🪜 代理域名
+  - GEOSITE,cn,🚄 直连域名
   - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
   - GEOIP,private,🏠 私有网络,no-resolve
   - GEOIP,cn,🀄 国内 IP 地址
@@ -278,13 +278,14 @@ curl -o $clashdir/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Fi
 /etc/init.d/cron restart
 ```
 # 三、 设置部分
-1. 连接 SSH 后运行 `clash` 命令并加载 Clash.Meta 内核
-2. 在新手引导中，选择 1 路由设备配置局域网透明代理  
+1. 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
+首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 选择 1 在 */data/clash/ui* 目录安装  
 选择 1 确认启用软固化 SSH  
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）  
-输入 0 回车可返回到上级菜单（下同）
+输入 0 回车可返回到上级菜单（下同）  
+2. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
 3. 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐）
 4. 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板
 5. 返回到主菜单，选择 2 clash功能设置，设置如下：
