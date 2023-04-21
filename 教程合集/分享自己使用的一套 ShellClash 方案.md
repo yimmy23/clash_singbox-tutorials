@@ -27,9 +27,9 @@ global-client-fingerprint: chrome
 
 geodata-mode: true
 geox-url:
-  geosite: "https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat"
-  geoip: "https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat"
-  mmdb: "https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb"
+  geosite: 'https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat'
+  geoip: 'https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat'
+  mmdb: 'https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb'
 
 profile:
   store-selected: false
@@ -41,7 +41,7 @@ tun:
   # 若虚拟网卡不支持 system，可以改为 gvisor
   stack: system
   dns-hijack:
-    - 'any:53'
+    - any:53
   auto-route: true
   auto-detect-interface: true
 
