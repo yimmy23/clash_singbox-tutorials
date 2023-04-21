@@ -2,7 +2,7 @@
 DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主要是这个配置：
 ```
 nameserver-policy:
-  "geosite:cn": [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  'geosite:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 ---
 # 一、 方法
@@ -56,8 +56,8 @@ nameserver:
   - https://doh.opendns.com/dns-query
 
 nameserver-policy:
-  "geosite:speedtest,microsoft@cn,apple-cn,google-cn,category-games@cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-  "geosite:cn,private,category-public-tracker": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  'geosite:speedtest,microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  'geosite:cn,private,category-public-tracker': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 ## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/template_blacklist.yaml)
 若 ShellClash 规则选择的是黑名单模式，需要将走代理的所有域名都设置为走国外 DNS 解析，比如我的黑名单模式如下：
@@ -79,5 +79,5 @@ nameserver:
   - https://dns.alidns.com/dns-query
 
 nameserver-policy:
-  "geosite:gfw,greatfire": [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
+  'geosite:gfw,greatfire': [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
 ```
