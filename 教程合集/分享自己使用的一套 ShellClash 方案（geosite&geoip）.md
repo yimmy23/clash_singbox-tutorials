@@ -14,7 +14,7 @@ proxy-providers:
     type: http
     # 修改为你的 Clash 订阅链接
     url: https://example.com/xxxxx/clash
-    path: ./proxies/myairport.yaml
+    path: ./proxies/airport.yaml
     interval: 86400
     health-check:
       enable: true
