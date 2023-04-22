@@ -200,7 +200,7 @@ rule-providers:
   advertising:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/advertising.yaml"
     path: ./ruleset/advertising.yaml
     interval: 86400
 
