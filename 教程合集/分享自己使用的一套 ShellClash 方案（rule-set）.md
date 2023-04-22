@@ -200,28 +200,28 @@ rule-providers:
   advertising:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AdvertisingLite/AdvertisingLite_Classical.yaml"
     path: ./ruleset/advertising.yaml
     interval: 86400
 
   lan:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
     path: ./ruleset/lan.yaml
     interval: 86400
 
   tracker:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/tracker.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/tracker.yaml"
     path: ./ruleset/tracker.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
@@ -242,7 +242,7 @@ rule-providers:
   google-cn:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
@@ -256,14 +256,14 @@ rule-providers:
   proxy:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   direct:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
     path: ./ruleset/direct.yaml
     interval: 86400
 
@@ -284,34 +284,34 @@ rules:
 ## 1. 安装 ShellClash
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/ShellClash.tar.gz -L https://fastly.jsdelivr.net/gh/juewuy/ShellClash@master/bin/ShellClash.tar.gz
+curl -o /tmp/ShellClash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/ShellClash.tar.gz
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 ## 2. 导入 Clash.Meta 内核
 ① Release 版  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@main/Clash.Meta-Release/clash.meta-linux-arm64
+curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@main/Clash.Meta-Release/clash.meta-linux-arm64
 ```
 ② Alpha 版（每天早上 3 点更新）  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64
+curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64
 ```
 ## 3. user.yaml
-- 注：user.yaml 来源于 [DustinWin/Clash-Files](https://github.com/DustinWin/Clash-Files)
+- 注：user.yaml 来源于 [DustinWin/Clash-Files](https://github.com/DustinWin/clash-ruleset)
 
 连接 SSH 后运行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@release/user.yaml
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml
 ```
 ## 4. 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 - 注：我更新的是 Clash.Meta 内核 Alpha 版
 
 ```
-30 3 * * *  curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
-0 4 * * * curl -o /data/clash/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/Clash-Files@release/user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新 user.yaml
+30 3 * * *  curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
+0 4 * * * curl -o /data/clash/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新 user.yaml
 30 4 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新订阅并重启 Clash 服务
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
