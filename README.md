@@ -103,7 +103,7 @@ rules:
 # 四、 生成.yaml 文件链接
 ## 1. 生成链接
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
-![686059188618367a7c9be0166b738bd4b21ce59b](https://user-images.githubusercontent.com/45238096/233839315-1dc60a15-1135-4d33-86f3-2b3d90445b14.jpg)  
+![微信截图_20230423201617](https://user-images.githubusercontent.com/45238096/233839417-51d1ab65-3e6b-4ae8-bf01-9d342029b423.png)  
 
 ## 2. 修改链接
 取出地址栏中的网址，删除后面的一串随机码，**完成后该.yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该.yaml 文件并提交了 n 次也不会改变  
