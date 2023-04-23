@@ -91,4 +91,4 @@ dns:
     - https://doh.opendns.com/dns-query
 
   nameserver-policy:
-    "geosite:cn": [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'geosite:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
