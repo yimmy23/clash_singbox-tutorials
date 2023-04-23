@@ -11,13 +11,13 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 修改为你的 Clash 订阅链接
-    url: https://example.com/xxxxx/clash
+    url: 'https://example.com/xxxxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
     health-check:
       enable: true
       interval: 600
-      url: https://www.gstatic.com/generate_204
+      url: 'https://www.gstatic.com/generate_204'
 
 unified-delay: false
 tcp-concurrent: true
@@ -33,7 +33,7 @@ tun:
   # 若虚拟网卡不支持 system，可以改为 gvisor
   stack: system
   dns-hijack:
-    - any:53
+    - 'any:53'
   auto-route: true
   auto-detect-interface: true
 
@@ -197,78 +197,78 @@ proxy-groups:
     filter: "美国"
 
 rule-providers:
-  advertising:
+  reject:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/advertising.yaml"
-    path: ./ruleset/advertising.yaml
+    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/advertising.yaml'
+    path: ./ruleset/reject.yaml
     interval: 86400
 
   lan:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml"
+    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml'
     path: ./ruleset/lan.yaml
     interval: 86400
 
   tracker:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/tracker.yaml"
+    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/tracker.yaml'
     path: ./ruleset/tracker.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
+    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: "https://rules.kr328.app/microsoft@cn.yaml"
+    url: 'https://rules.kr328.app/microsoft@cn.yaml'
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: "https://rules.kr328.app/apple@cn.yaml"
+    url: 'https://rules.kr328.app/apple@cn.yaml'
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
+    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml'
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: "https://rules.kr328.app/category-games@cn.yaml"
+    url: 'https://rules.kr328.app/category-games@cn.yaml'
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml"
+    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml'
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   direct:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
+    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml'
     path: ./ruleset/direct.yaml
     interval: 86400
 
 rules:
-  - RULE-SET,advertising,⛔️ 广告域名
+  - RULE-SET,reject,⛔️ 广告域名
   - RULE-SET,lan,🏠 私有网络
   - RULE-SET,tracker,⛓️ BT 下载
   - RULE-SET,networktest,📈 网络测试
