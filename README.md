@@ -51,7 +51,7 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 机场订阅链接，使用 Clash 链接
-    url: https://example.com/xxx/clash
+    url: 'https://example.com/xxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
     health-check:
@@ -59,7 +59,7 @@ proxy-providers:
       interval: 600
       # 未选择到当前策略组时，不会进行测试
       # lazy: true
-      url: https://www.gstatic.com/generate_204
+      url: 'https://www.gstatic.com/generate_204'
 
 proxy-groups:
   - name: 🎥 哔哩哔哩
@@ -144,7 +144,7 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 机场订阅链接，使用 Clash 链接
-    url: https://example.com/xxx/clash
+    url: 'https://example.com/xxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
     health-check:
@@ -152,7 +152,7 @@ proxy-providers:
       interval: 600
       # 未选择到当前策略组时，不会进行测试
       # lazy: true
-      url: https://www.gstatic.com/generate_204
+      url: 'https://www.gstatic.com/generate_204'
 
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
