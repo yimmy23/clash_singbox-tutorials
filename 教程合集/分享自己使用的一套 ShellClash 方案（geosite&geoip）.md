@@ -13,13 +13,13 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 修改为你的 Clash 订阅链接
-    url: https://example.com/xxxxx/clash
+    url: 'https://example.com/xxxxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
     health-check:
       enable: true
       interval: 600
-      url: https://www.gstatic.com/generate_204
+      url: 'https://www.gstatic.com/generate_204'
 
 unified-delay: false
 tcp-concurrent: true
@@ -41,7 +41,7 @@ tun:
   # 若虚拟网卡不支持 system，可以改为 gvisor
   stack: system
   dns-hijack:
-    - any:53
+    - 'any:53'
   auto-route: true
   auto-detect-interface: true
 
