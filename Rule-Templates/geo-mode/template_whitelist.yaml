@@ -48,6 +48,12 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
+  - name: 🇨🇳 国内顶级域名
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🚀 节点选择
+
   - name: 🪜 国外域名
     type: select
     proxies:
@@ -156,6 +162,7 @@ rules:
   - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
+  - GEOSITE,tld-cn,🇨🇳 国内顶级域名
   - GEOSITE,category-games@cn,🎮 国区游戏
   - GEOSITE,geolocation-!cn,🪜 国外域名
   - GEOSITE,cn,🇨🇳 国内域名
