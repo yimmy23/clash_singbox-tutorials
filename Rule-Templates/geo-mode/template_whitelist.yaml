@@ -28,7 +28,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
 
   # Speedtest 测速网站
-  - name: 📈 网络测试
+  - name: 📈 网络测速
     type: select
     proxies:
       # 测试本地网络速度（运营商网络速度）
@@ -88,11 +88,6 @@ proxy-groups:
     type: select
     proxies:
       - 🚀 节点选择
-
-  - name: ⛓️ BT 下载
-    type: select
-    proxies:
-      - 🎯 全球直连
 
   - name: 🏠 私有网络
     type: select
@@ -157,8 +152,7 @@ proxy-groups:
 rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,private,🏠 私有网络
-  - GEOSITE,category-public-tracker,⛓️ BT 下载
-  - GEOSITE,speedtest,📈 网络测试
+  - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
