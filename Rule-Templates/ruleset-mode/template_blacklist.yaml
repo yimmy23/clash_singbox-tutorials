@@ -120,11 +120,8 @@ rule-providers:
     type: http
     # 行为：[domain]-只包含域名 [ipcidr]-只包含 IP 地址 [classical]-全部包含（下同）
     behavior: domain
-    # 下载链接（下同）
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Speedtest/Speedtest.yaml"
-    # 保存地址（下同）
     path: ./ruleset/speedtest.yaml
-    # 更新间隔（单位：秒）（下同）
     interval: 86400
 
   reject:
