@@ -252,6 +252,4 @@ rules:
   - RULE-SET,lancidr,🏠 私有网络
   - RULE-SET,cncidr,🀄 国内 IP 地址
   - RULE-SET,telegramcidr,✈️ Telegram IP 地址
-  - GEOIP,LAN,🏠 私有网络
-  - GEOIP,CN,🀄 国内 IP 地址
   - MATCH,🐟 漏网之鱼
