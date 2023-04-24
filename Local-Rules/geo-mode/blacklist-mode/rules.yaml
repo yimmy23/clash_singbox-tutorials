@@ -1,5 +1,5 @@
+# 自定义规则优先放前面
 - GEOSITE,category-ads-all,⛔️ 广告域名
-- GEOSITE,speedtest,📈 网络测试
+- GEOSITE,speedtest,📈 网络测速
 - GEOSITE,gfw,🧱 GFWList 域名
-- GEOSITE,greatfire,🪜 GreatFire 域名
 - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
