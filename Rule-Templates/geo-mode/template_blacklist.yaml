@@ -27,7 +27,7 @@ proxy-groups:
       - 🇸🇬 新加坡节点
 
   # Speedtest 测速网站
-  - name: 📈 网络测试
+  - name: 📈 网络测速
     type: select
     proxies:
       # 测试本地网络速度（运营商网络速度）
@@ -116,7 +116,7 @@ proxy-groups:
 rules:
   # 自定义规则优先放前面
   - GEOSITE,category-ads-all,⛔️ 广告域名
-  - GEOSITE,speedtest,📈 网络测试
+  - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
   - GEOSITE,greatfire,🪜 GreatFire 域名
   - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
