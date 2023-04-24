@@ -1,4 +1,5 @@
 # 解释：
+此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件  
 DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主要是这个配置：
 ```
 nameserver-policy:
@@ -15,11 +16,11 @@ nameserver-policy:
 或者使用快速导入方法（使用此方法可略过第“三”步）：  
 ① 使用 fake-ip 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/DNS-Bypass/fake-ip-mode/user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/DNS-Bypass/geo-mode/fake-ip-mode/user.yaml && $clashdir/start.sh restart
 ```
 ② 使用 redir-host 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/DNS-Bypass/redir-host-mode/user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/DNS-Bypass/geo-mode/redir-host-mode/user.yaml && $clashdir/start.sh restart
 ```
 ## 3. 重启 Clash 服务
 连接 SSH 后，执行如下命令：
@@ -27,17 +28,17 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutor
 $clashdir/start.sh restart
 ```
 # 二、 诀窍
-## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/template_whitelist.yaml)
+## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/geo-mode/template_whitelist.yaml)
 若 ShellClash 规则选择的是白名单模式，需要将走直连的所有域名都设置为走国内 DNS 解析，比如我的白名单模式如下：
 ```
 rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,private,🏠 私有网络
-  - GEOSITE,category-public-tracker,⛓️ BT 下载
-  - GEOSITE,speedtest,📈 网络测试
+  - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
+  - GEOSITE,tld-cn,🇨🇳 国内顶级域名
   - GEOSITE,category-games@cn,🎮 国区游戏
   - GEOSITE,geolocation-!cn,🪜 国外域名
   - GEOSITE,cn,🇨🇳 国内域名
@@ -56,17 +57,17 @@ nameserver:
   - https://doh.opendns.com/dns-query
 
 nameserver-policy:
-  'geosite:speedtest,microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-  'geosite:cn,private,category-public-tracker': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  'geosite:speedtest,microsoft@cn,apple-cn,google-cn,tld-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
-## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/template_blacklist.yaml)
+## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/geo-mode/template_blacklist.yaml)
 若 ShellClash 规则选择的是黑名单模式，需要将走代理的所有域名都设置为走国外 DNS 解析，比如我的黑名单模式如下：
 ```
 rules:
+  # 自定义规则优先放前面
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
-  - GEOSITE,greatfire,🪜 GreatFire 域名
   - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
   - MATCH,🐟 漏网之鱼
 ```
@@ -79,5 +80,5 @@ nameserver:
   - https://dns.alidns.com/dns-query
 
 nameserver-policy:
-  'geosite:gfw,greatfire': [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
+  'geosite:gfw': [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
 ```
