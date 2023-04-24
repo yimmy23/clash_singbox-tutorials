@@ -1,4 +1,5 @@
 # 本地配置自定义规则和代理组
+此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
 # 前言
 1. 本教程只适用于 [ShellClash](https://github.com/juewuy/ShellClash)
 2. 不支持节点筛选，可使用 ShellClash 脚本配置->6->1->2 或 3 进行筛选
@@ -13,16 +14,16 @@
 没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户  
 运行如下命令：
 ```
-curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/WhiteListMode/proxy-groups.yaml
-curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/WhiteListMode/rules.yaml
+curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/geo-mode/whitelist-mode/proxy-groups.yaml
+curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/geo-mode/whitelist-mode/rules.yaml
 $clashdir/start.sh restart
 ```
 ## 2. 黑名单模式
 只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式  
 运行如下命令：
 ```
-curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/BlackListMode/proxy-groups.yaml
-curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/BlackListMode/rules.yaml
+curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/geo-mode/blacklist-mode/proxy-groups.yaml
+curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/geo-mode/blacklist-mode/rules.yaml
 $clashdir/start.sh restart
 ```
 # 三、 修改规则或代理组
@@ -43,15 +44,15 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 机场订阅链接，使用 Clash 链接
-    url: https://example.com/xxx/clash
+    url: 'https://example.com/xxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
     health-check:
       enable: true
       interval: 600
       # 未选择到当前策略组时，不会进行测试
-      lazy: true
-      url: https://www.gstatic.com/generate_204
+      # lazy: true
+      url: 'https://www.gstatic.com/generate_204'
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 2. 修改 proxy-groups.yaml 文件
