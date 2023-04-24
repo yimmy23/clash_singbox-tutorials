@@ -1,0 +1,21 @@
+dns:
+  enable: true
+  prefer-h3: true
+  ipv6: true
+  listen: 0.0.0.0:1053
+  use-hosts: true
+  enhanced-mode: redir-host
+
+  default-nameserver:
+    - tls://1.12.12.12:853
+    - tls://223.5.5.5:853
+    - tls://8.8.8.8:853
+    - tls://1.1.1.1:853
+
+  nameserver:
+    - tls://dns.google
+    - https://dns.cloudflare.com/dns-query
+    - https://doh.opendns.com/dns-query
+
+  nameserver-policy:
+    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
