@@ -10,17 +10,17 @@ nameserver-policy:
 - 注：搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 时不要使用该方法
 
 ## 1. 安装并升级内核
-安装 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)并升级到 Alpha 版本，方法请看[安装 Clash.Meta 内核](https://github.com/DustinWin/Clash-Tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md#%E4%BA%8C-%E5%AE%89%E8%A3%85-clashmeta-%E5%86%85%E6%A0%B8)
+安装 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)并升级到 Alpha 版本，方法请看[安装 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md#%E4%BA%8C-%E5%AE%89%E8%A3%85-clashmeta-%E5%86%85%E6%A0%B8)
 ## 2. 导入 user.yaml 文件
 将 user.yaml 文件移动到 ShellClash 安装目录（如 */data/clash*）  
 或者使用快速导入方法（使用此方法可略过第“三”步）：  
 ① 使用 fake-ip 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/DNS-Bypass/ruleset-mode/fake-ip-mode/user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/ruleset-mode/fake-ip-mode/user.yaml && $clashdir/start.sh restart
 ```
 ② 使用 redir-host 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/DNS-Bypass/ruleset-mode/redir-host-mode/user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/ruleset-mode/redir-host-mode/user.yaml && $clashdir/start.sh restart
 ```
 ## 3. 重启 Clash 服务
 连接 SSH 后，执行如下命令：
@@ -28,7 +28,7 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutor
 $clashdir/start.sh restart
 ```
 # 二、 诀窍
-## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/ruleset-mode/template_whitelist.yaml)
+## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/ruleset-mode/template_whitelist.yaml)
 若 ShellClash 规则选择的是白名单模式，需要将走直连的所有域名都设置为走国内 DNS 解析，比如我的白名单模式如下：
 ```
 rules:
@@ -59,7 +59,7 @@ nameserver-policy:
   'rule-set:speedtest,microsoft,apple,google,games': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
   'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
-## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/ruleset-mode/template_blacklist.yaml)
+## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/ruleset-mode/template_blacklist.yaml)
 若 ShellClash 规则选择的是黑名单模式，需要将走代理的所有域名都设置为走国外 DNS 解析，比如我的黑名单模式如下：
 ```
 rules:
