@@ -1,8 +1,8 @@
 # 说明：
 1. 本教程中 **[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 安装目录为`/data/AdGuardHome`**
 2. 本教程中 AdGuardHome 安装仅适用于**搭载 ARMv8 架构 CPU** 的路由器，查看 CPU 架构可连接 SSH 后执行如下命令：  
-`uname -ms | tr ' ' '_' | tr '[A-Z]' '[a-z]'`  
-若执行结果是 linux_aarch64，就是搭载的 ARMv8 架构  
+`uname -ms`  
+若执行结果是“linux aarch64”，就是搭载的 ARMv8 架构  
 3. 以下所有命令均可全部复制后直接粘贴执行
 ---
 # 一、 安装 [ShellClash](https://github.com/juewuy/ShellClash)
