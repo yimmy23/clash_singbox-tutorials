@@ -156,6 +156,7 @@ proxy-groups:
     filter: "新加坡"
 
 rules:
+  # 自定义规则优先放前面
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,private,🏠 私有网络
   - GEOSITE,speedtest,📈 网络测速
