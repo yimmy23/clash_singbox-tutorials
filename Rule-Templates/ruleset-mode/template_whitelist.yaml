@@ -237,6 +237,7 @@ rule-providers:
     interval: 86400
 
 rules:
+  # 自定义规则优先放前面
   - RULE-SET,reject,⛔️ 广告域名
   - RULE-SET,private,🏠 私有网络
   - RULE-SET,speedtest,📈 网络测速
