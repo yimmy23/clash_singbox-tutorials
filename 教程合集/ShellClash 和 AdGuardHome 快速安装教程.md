@@ -28,12 +28,12 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 执行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@main/Clash.Meta-Release/clash.meta-linux-arm64 && clash
+curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-arm64 && clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
 或者执行如下命令：
 ```
-curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@main/Clash.Meta-Release/clash.meta-linux-arm64
+curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-arm64
 chmod +x $clashdir/clash && $clashdir/start.sh restart
 ```
 
@@ -43,7 +43,7 @@ chmod +x $clashdir/clash && $clashdir/start.sh restart
 执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
-curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@main/AdGuardHome/AdGuardHome
+curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome/AdGuardHome
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
@@ -67,6 +67,6 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 # 四、 升级 AdGuardHome
 执行如下命令：
 ```
-curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/Clash-Files/main/AdGuardHome/AdGuardHome
+curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome/AdGuardHome
 chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
