@@ -4,7 +4,7 @@
 3. 此方案适用于 [ShellClash](https://github.com/juewuy/ShellClash)（arm64 架构），以及其它使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)并能自由导入[路由规则文件](https://github.com/Loyalsoldier/v2ray-rules-dat)的平台，如 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等
 4. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
 # 一、 生成配置文件.yaml 文件直链
-具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件.yaml 直链](https://github.com/DustinWin/Clash-Tutorials/blob/main/README.md)》，贴一下我使用的配置：
+具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：
 - 注：
 - 1. `rules` 部分的 `geosite` 和 `geoip` 内容须与 `geox-url` 中的路由规则文件相匹配
 - 2. 若不使用 TUN 模式，请删除 `tun` 部分
@@ -243,19 +243,18 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 ① Release 版  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@main/Clash.Meta-Release/clash.meta-linux-arm64
+curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-arm64
 ```
 ② Alpha 版（每天早上 3 点更新）  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64
+curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64
 ```
 ## 3. 导入路由规则文件和 user.yaml
 - 注：
 - 1. **路由规则文件和 user.yaml 都属高度定制，牵一发而动全身**
-- 2. geosite.dat 来源于 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
+- 2. geosite.dat 和 user.yaml 来源于 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
 - 3. geoip.dat 来源于 [DustinWin/clash-geoip](https://github.com/DustinWin/clash-geoip)
-- 4. user.yaml 来源于 [DustinWin/Clash-Files](https://github.com/DustinWin/Clash-Files)
 
 连接 SSH 后运行如下命令：
 ```
@@ -269,7 +268,7 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosi
 - 注：我更新的是 Clash.Meta 内核 Alpha 版
 
 ```
-30 3 * * *  curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Files@release/clash.meta-linux-arm64 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
+30 3 * * *  curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
 0 4 * * 1,3,5 curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点更新路由规则文件
 30 4 * * * curl -o /data/clash/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点半更新 user.yaml
 0 5 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 5 点更新订阅并重启 Clash 服务
