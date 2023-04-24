@@ -1,5 +1,5 @@
 # 本地配置自定义规则和代理组
-此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
+此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
 # 前言
 1. 本教程只适用于 [ShellClash](https://github.com/juewuy/ShellClash)
 2. 不支持节点筛选，可使用 ShellClash 脚本配置->6->1->2 或 3 进行筛选
