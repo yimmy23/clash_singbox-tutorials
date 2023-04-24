@@ -1,5 +1,5 @@
 # 声明
-1. 此方案使用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件，属高度定制，仅供参考
+1. 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件，属高度定制，仅供参考
 2. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 3. 此方案适用于 [ShellClash](https://github.com/juewuy/ShellClash)（arm64 架构），以及其它使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)并能自由导入[路由规则文件](https://github.com/Loyalsoldier/v2ray-rules-dat)的平台，如 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等
 4. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
