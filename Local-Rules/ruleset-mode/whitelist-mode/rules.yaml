@@ -1,0 +1,13 @@
+# 自定义规则优先放前面
+- RULE-SET,reject,⛔️ 广告域名
+- RULE-SET,private,🏠 私有网络
+- RULE-SET,speedtest,📈 网络测速
+- RULE-SET,microsoft,Ⓜ️ Microsoft 中国
+- RULE-SET,apple,🍎 Apple 中国
+- RULE-SET,google,🗽 Google 中国
+- RULE-SET,games,🎮 国区游戏
+- RULE-SET,proxy,🪜 国外域名
+- RULE-SET,direct,🇨🇳 国内域名
+- RULE-SET,lancidr,🏠 私有网络
+- RULE-SET,cncidr,🀄 国内 IP 地址
+- RULE-SET,telegramcidr,✈️ Telegram IP 地址
