@@ -10,22 +10,22 @@
 ![QQ截图20230315130212](https://user-images.githubusercontent.com/45238096/225292060-270091da-324b-4c84-8f94-74c2fcb2dc75.png)  
 然后在线生成 [Clash](https://github.com/Dreamacro/clash/wiki) 配置文件
 # 二、 选择模式
-## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/geo-mode/template_whitelist.yaml)
+## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_whitelist.yaml)
 没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户  
 运行如下命令：
 ```
-curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/ruleset-mode/whitelist-mode/proxy-groups.yaml
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/ruleset-mode/whitelist-mode/user.yaml
-curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/ruleset-mode/whitelist-mode/rules.yaml
+curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-Tutorials@main/local-rules/ruleset-mode/whitelist-mode/proxy-groups.yaml
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-Tutorials@main/local-rules/ruleset-mode/whitelist-mode/user.yaml
+curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-Tutorials@main/local-rules/ruleset-mode/whitelist-mode/rules.yaml
 $clashdir/start.sh restart
 ```
-## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Rule-Templates/geo-mode/template_blacklist.yaml)
+## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_blacklist.yaml)
 只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式  
 运行如下命令：
 ```
-curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/ruleset-mode/blacklist-mode/proxy-groups.yaml
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/ruleset-mode/blacklist-mode/user.yaml
-curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/Clash-Tutorials@main/Local-Rules/ruleset-mode/blacklist-mode/rules.yaml
+curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-Tutorials@main/local-rules/ruleset-mode/blacklist-mode/proxy-groups.yaml
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-Tutorials@main/local-rules/ruleset-mode/blacklist-mode/user.yaml
+curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-Tutorials@main/local-rules/ruleset-mode/blacklist-mode/rules.yaml
 $clashdir/start.sh restart
 ```
 # 三、 修改规则或代理组
