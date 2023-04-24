@@ -1,17 +1,14 @@
 proxy-groups:
-  - name: 📈 网络测试
+  # Speedtest 测速网站
+  - name: 📈 网络测速
     type: select
     proxies:
+      # 测试本地网络速度（运营商网络速度）
       - 🎯 全球直连
+      # 测试机场速度（翻墙后网络速度）
       - 🚀 节点选择
 
   - name: 🧱 GFWList 域名
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-
-  - name: 🪜 GreatFire 域名
     type: select
     proxies:
       - 🚀 节点选择
