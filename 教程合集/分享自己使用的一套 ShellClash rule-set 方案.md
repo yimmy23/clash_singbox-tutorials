@@ -3,7 +3,7 @@
 2. 此方案适用于 [ShellClash](https://github.com/juewuy/ShellClash)（arm64 架构），以及其它使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)的平台，如 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等
 3. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
 # 一、 生成配置文件.yaml 文件直链
-具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件.yaml 直链](https://github.com/DustinWin/Clash-Tutorials/blob/main/README.md)》，贴一下我使用的配置：
+具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件.yaml 直链](https://github.com/DustinWin/Clash-Tutorials/blob/main/README.md)》，贴一下我使用的配置，此配置参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 - 注：若不使用 TUN 模式，请删除 `tun` 部分
 
 ```
