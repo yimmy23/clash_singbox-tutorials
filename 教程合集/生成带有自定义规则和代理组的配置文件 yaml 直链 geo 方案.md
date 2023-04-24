@@ -1,5 +1,5 @@
 # 生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案
-`geosite` 和 `geoip` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
+`GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
 # 前言：
 1. 本教程可以生成扩展名为.yaml 文件的直链，可以**一键导入使用了 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核的 Clash 客户端**  
 如：[ShellClash](https://github.com/juewuy/ShellClash)、[OpenClash](https://github.com/vernesong/OpenClash)、[Clash Verge](https://github.com/zzzgydi/clash-verge) 和 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid) 等
