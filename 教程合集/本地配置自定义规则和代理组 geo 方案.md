@@ -58,15 +58,15 @@ proxy-providers:
 ## 2. 修改 proxy-groups.yaml 文件
 连接 SSH，执行命令 `vi $clashdir/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-- name: 🎥 奈飞节点
-  type: url-test
-  # 容差大于 100ms 就会切换到延迟低的那个节点
-  tolerance: 100
-  use:
-    # 使用 proxy-providers 中的节点名称
-    - 🛫 我的机场
-  # 筛选出日本和新加坡节点
-  filter: "日本|新加坡"
+  - name: 🎥 奈飞节点
+    type: url-test
+    # 容差大于 100ms 就会切换到延迟低的那个节点
+    tolerance: 100
+    use:
+      # 使用 proxy-providers 中的节点名称
+      - 🛫 我的机场
+    # 筛选出日本和新加坡节点
+    filter: "日本|新加坡"
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 3. 修改 rules.yaml 文件
