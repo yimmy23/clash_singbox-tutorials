@@ -1,4 +1,4 @@
-# 本地配置自定义规则和代理组
+# 本地配置自定义规则和代理组 geo 方案
 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
 # 前言
 1. 本教程只适用于 [ShellClash](https://github.com/juewuy/ShellClash)
