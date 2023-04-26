@@ -287,7 +287,7 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64
 ```
 ## 3. user.yaml
-- 注：user.yaml 来源于 [DustinWin/Clash-Files](https://github.com/DustinWin/clash-ruleset)
+- 注：user.yaml 来源于 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 
 连接 SSH 后运行如下命令：
 ```
