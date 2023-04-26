@@ -100,11 +100,6 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: ⛓️ BT 下载
-    type: select
-    proxies:
-      - 🎯 全球直连
-
   - name: 🏠 私有网络
     type: select
     proxies:
@@ -212,13 +207,6 @@ rule-providers:
     path: ./ruleset/lan.yaml
     interval: 86400
 
-  tracker:
-    type: http
-    behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/tracker.yaml'
-    path: ./ruleset/tracker.yaml
-    interval: 86400
-
   networktest:
     type: http
     behavior: classical
@@ -271,7 +259,6 @@ rule-providers:
 rules:
   - RULE-SET,reject,⛔️ 广告域名
   - RULE-SET,lan,🏠 私有网络
-  - RULE-SET,tracker,⛓️ BT 下载
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
   - RULE-SET,apple-cn,🍎 Apple 中国
@@ -304,7 +291,7 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 
 连接 SSH 后运行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user-shellclash.yaml
 ```
 ## 4. 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
@@ -312,7 +299,7 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-rules
 
 ```
 30 3 * * *  curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
-0 4 * * * curl -o /data/clash/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新 user.yaml
+0 4 * * * curl -o /data/clash/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user-shellclash.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新 user.yaml
 30 4 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新订阅并重启 Clash 服务
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
