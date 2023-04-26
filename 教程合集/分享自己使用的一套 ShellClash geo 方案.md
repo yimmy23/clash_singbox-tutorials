@@ -119,11 +119,6 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
 
-  - name: ⛓️ BT 下载
-    type: select
-    proxies:
-      - 🎯 全球直连
-
   - name: 🏠 私有网络
     type: select
     proxies:
@@ -219,7 +214,6 @@ proxy-groups:
 rules:
   - GEOSITE,advertising,⛔️ 广告域名
   - GEOSITE,lan,🏠 私有网络
-  - GEOSITE,tracker,⛓️ BT 下载
   - GEOSITE,networktest,📈 网络测试
   - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
