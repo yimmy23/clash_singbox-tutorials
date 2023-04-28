@@ -7,10 +7,12 @@ nameserver-policy:
 ```
 ---
 # 一、 方法
-- 注：搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 时不要使用该方法
+注：
+- 1. 搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 时不要使用该方法
+- 2. 须将 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)升级至 v1.14.3+版本才可兼容该方法
 
 ## 1. 安装并升级内核
-安装 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)并升级到 v1.14.2+版本，方法请看[安装 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md#%E4%BA%8C-%E5%AE%89%E8%A3%85-clashmeta-%E5%86%85%E6%A0%B8)
+方法请看[安装 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md#%E4%BA%8C-%E5%AE%89%E8%A3%85-clashmeta-%E5%86%85%E6%A0%B8)
 ## 2. 导入 user.yaml 文件
 将 user.yaml 文件移动到 ShellClash 安装目录（如 */data/clash*）  
 或者使用快速导入方法（使用此方法可略过第“三”步）：  
@@ -48,8 +50,6 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 那么需要增加 user.yaml 中的内容：
-- 注：兼容 geosite 整合编写功能需要将 Clash.Meta 内核升级到 v1.14.3+版本
-
 ```
 nameserver:
   - tls://dns.google
@@ -71,8 +71,6 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 那么需要增加 user.yaml 中的内容：
-- 注：兼容 geosite 整合编写功能需要将 Clash.Meta 内核升级到 v1.14.3+版本
-
 ```
 nameserver:
   - https://doh.pub/dns-query
