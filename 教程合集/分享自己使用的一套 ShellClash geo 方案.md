@@ -296,7 +296,7 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosi
 <img src="https://user-images.githubusercontent.com/45238096/231971112-73956e69-ae25-44cb-842e-6f32084de34f.png" width="60%"/>  
 
 5. 返回到主菜单，选择 5 设置定时任务，查看定时任务是否添加成功
-<img src="https://user-images.githubusercontent.com/45238096/231972436-9db17647-2cae-48ca-bbb3-9f4825d124d9.png" width="60%"/>  
+<img src="https://user-images.githubusercontent.com/45238096/235355005-23d41336-4f77-4a5e-a6c2-3e4dc8e0afa1.png" width="60%"/>  
 
 6. 返回到主菜单，选择 7 clash 进阶设置，进入 6 配置内置 DNS 服务，设置如下：
 <img src="https://user-images.githubusercontent.com/45238096/232890411-b717ddae-1af2-4b20-9829-792f02c3e77e.png" width="60%"/>  
