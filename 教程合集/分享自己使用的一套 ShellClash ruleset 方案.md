@@ -281,24 +281,32 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 ```
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-arm64
 ```
-② Alpha 版（每天早上 3 点更新）  
+② Alpha 版  
 连接 SSH 后运行如下命令：
 ```
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64
 ```
-## 3. user.yaml
+## 3. 导入 Yacd-meta 面板
+连接 SSH 后运行如下命令：
+```
+curl -o /tmp/Yacd-meta.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Yacd-meta/Yacd-meta.tar.gz
+mkdir -p $clashdir/ui && chmod +x $clashdir/ui
+tar -zxf /tmp/Yacd-meta.tar.gz -C $clashdir/ui && rm -f /tmp/Yacd-meta.tar.gz
+```
+## 4. user.yaml
 连接 SSH 后运行如下命令：
 ```
 curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml
 ```
-## 4. 添加定时任务
+## 5. 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 - 注：我更新的是 Clash.Meta 内核 Alpha 版
 
 ```
 30 3 * * *  curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
 0 4 * * * curl -o /data/clash/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新 user.yaml
-30 4 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新订阅并重启 Clash 服务
+30 4 * * 1,3,5 curl -o /tmp/Yacd-meta.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Yacd-meta/Yacd-meta.tar.gz && rm -rf /data/clash/ui/* && tar -zxf /tmp/Yacd-meta.tar.gz -C $clashdir/ui && rm -f /tmp/Yacd-meta.tar.gz && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新 Yacd-meta 面板
+30 4 * * 2,4,6 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周二、四、六早上 4 点半更新订阅并重启 Clash 服务
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
 ```
@@ -308,7 +316,6 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-rules
 1. 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 选择 1 在 */data/clash/ui* 目录安装  
-选择 1 确认启用软固化 SSH  
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）  
 输入 0 回车可返回到上级菜单（下同）  
