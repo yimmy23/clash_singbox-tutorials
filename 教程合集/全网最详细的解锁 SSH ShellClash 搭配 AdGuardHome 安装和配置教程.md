@@ -4,7 +4,7 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.5 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.6 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
@@ -227,7 +227,6 @@ cd C:\Users\[用户名]\Desktop\upx
 ① 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 选择 1 在 */data/clash/ui* 目录安装  
-选择 1 确认启用软固化 SSH  
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
