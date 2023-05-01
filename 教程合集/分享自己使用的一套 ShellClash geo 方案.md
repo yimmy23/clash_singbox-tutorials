@@ -302,9 +302,9 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosi
 <img src="https://user-images.githubusercontent.com/45238096/232890495-69f31bc0-360f-468b-89e8-10ec1ae771dc.png" width="60%"/>  
 
 7. 返回到主菜单，选择 6 导入配置文件，进入 2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件.yaml 文件直链，启动 clash 服务即可  
-推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one  
-注：
-- 1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 chrome://settings/content/insecureContent 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`
-<img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>
-- 2. 首次进入 https://yacd.metacubex.one 需要添加“API Base URL”，输入 `http://192.168.31.1:9999` 并点击“Add”，最后点击下方新增的 http://192.168.31.1:9999 即可访问 Dashboard 面板
+8. 推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one  
+① 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 chrome://settings/content/insecureContent 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
+<img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>  
+
+② 首次进入 https://yacd.metacubex.one 需要添加“API Base URL”，输入 `http://192.168.31.1:9999` 并点击“Add”，最后点击下方新增的 http://192.168.31.1:9999 即可访问 Dashboard 面板  
 <img src="https://user-images.githubusercontent.com/45238096/235449312-5e046b33-bcd1-4019-a0f7-4f9c224db2c8.png" width="60%"/>
