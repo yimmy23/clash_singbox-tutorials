@@ -17,6 +17,7 @@ proxy-providers:
     url: 'https://example.com/xxxxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
+    filter: "VIP|IPV6|中港专线|台湾 IEPL|台湾 IPLC|沪日IEPL|沪日IPLC|韩国 IEPL|新加坡|美国"
     health-check:
       enable: true
       interval: 600
@@ -53,7 +54,6 @@ proxy-groups:
       - 👑 VIP 节点
       - 🌐 IPv6 节点
       - 🇭🇰 中港专线节点
-      - 🇭🇰 香港节点
       - 🇹🇼 台湾节点
       - 🇯🇵 日本节点
       - 🇰🇷 韩国节点
@@ -163,21 +163,13 @@ proxy-groups:
       - 🛫 我的机场
     filter: "中港专线"
 
-  - name: 🇭🇰 香港节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "香港 IEPL"
-
   - name: 🇹🇼 台湾节点
     type: url-test
     tolerance: 100
     lazy: true
     use:
       - 🛫 我的机场
-    filter: "台湾 IEPL|台湾 IPLC"
+    filter: "台湾"
 
   - name: 🇯🇵 日本节点
     type: url-test
@@ -185,7 +177,7 @@ proxy-groups:
     lazy: true
     use:
       - 🛫 我的机场
-    filter: "沪日IEPL|沪日IPLC"
+    filter: "沪日"
 
   - name: 🇰🇷 韩国节点
     type: url-test
@@ -193,7 +185,7 @@ proxy-groups:
     lazy: true
     use:
       - 🛫 我的机场
-    filter: "韩国 IEPL"
+    filter: "韩国"
 
   - name: 🇸🇬 新加坡节点
     type: url-test
