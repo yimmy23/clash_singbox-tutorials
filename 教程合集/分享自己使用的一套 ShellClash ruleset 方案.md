@@ -207,11 +207,11 @@ rule-providers:
     path: ./ruleset/lan.yaml
     interval: 86400
 
-  networktest:
+  speedtest:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
-    path: ./ruleset/networktest.yaml
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Speedtest/Speedtest.yaml'
+    path: ./ruleset/speedtest.yaml
     interval: 86400
 
   microsoft-cn:
@@ -231,7 +231,7 @@ rule-providers:
   google-cn:
     type: http
     behavior: domain
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml'
+    url: 'https://rules.kr328.app/google@cn.yaml'
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
@@ -259,10 +259,10 @@ rule-providers:
 rules:
   - RULE-SET,reject,⛔️ 广告域名
   - RULE-SET,lan,🏠 私有网络
-  - RULE-SET,networktest,📈 网络测试
+  - OR,((RULE-SET,speedtest),(DOMAIN-KEYWORD,test-ipv6),(DOMAIN-KEYWORD,testipv6)),📈 网络测试
   - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
   - RULE-SET,apple-cn,🍎 Apple 中国
-  - RULE-SET,google-cn,🗽 Google 中国
+  - AND,((RULE-SET,google-cn),(NOT,((DOMAIN-SUFFIX,googleapis.cn)))),🗽 Google 中国
   - RULE-SET,games-cn,🎮 国区游戏
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,direct,🇨🇳 国内域名
@@ -286,19 +286,12 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 ```
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64
 ```
-## 3. 导入 Yacd-meta 面板
-连接 SSH 后运行如下命令：
-```
-curl -o /tmp/Yacd-meta.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Yacd-meta/Yacd-meta.tar.gz
-mkdir -p $clashdir/ui && chmod +x $clashdir/ui
-tar -zxf /tmp/Yacd-meta.tar.gz -C $clashdir/ui && rm -f /tmp/Yacd-meta.tar.gz
-```
-## 4. user.yaml
+## 3. user.yaml
 连接 SSH 后运行如下命令：
 ```
 curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml
 ```
-## 5. 添加定时任务
+## 4. 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 - 注：我更新的是 Clash.Meta 内核 Alpha 版
 
