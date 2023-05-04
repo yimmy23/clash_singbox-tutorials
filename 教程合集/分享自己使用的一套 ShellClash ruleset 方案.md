@@ -188,7 +188,7 @@ rule-providers:
   reject:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/reject.yaml'
+    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Classical.yaml'
     path: ./ruleset/reject.yaml
     interval: 86400
 
