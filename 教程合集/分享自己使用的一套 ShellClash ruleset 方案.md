@@ -188,7 +188,7 @@ rule-providers:
   reject:
     type: http
     behavior: domain
-    url: 'https://fastly.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml'
+    url: 'https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml'
     path: ./ruleset/reject.yaml
     interval: 86400
 
