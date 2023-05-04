@@ -187,8 +187,8 @@ proxy-groups:
 rule-providers:
   reject:
     type: http
-    behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Classical.yaml'
+    behavior: domain
+    url: 'https://fastly.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml'
     path: ./ruleset/reject.yaml
     interval: 86400
 
