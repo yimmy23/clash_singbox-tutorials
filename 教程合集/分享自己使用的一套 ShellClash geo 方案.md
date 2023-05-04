@@ -204,7 +204,7 @@ proxy-groups:
     filter: "美国"
 
 rules:
-  - GEOSITE,advertising,⛔️ 广告域名
+  - GEOSITE,ads,⛔️ 广告域名
   - GEOSITE,lan,🏠 私有网络
   - GEOSITE,networktest,📈 网络测试
   - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
