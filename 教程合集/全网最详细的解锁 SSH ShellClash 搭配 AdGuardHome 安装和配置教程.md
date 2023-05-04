@@ -4,7 +4,7 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.6 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.7 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
@@ -250,11 +250,7 @@ cd C:\Users\[用户名]\Desktop\upx
 启用 7 屏蔽 QUIC 流量  
 <img src="https://i.postimg.cc/RFCm2YPC/QQ-20230218202031.png" width="60%"/>  
 
-④ 返回到主菜单，进入 4 clash 启动设置  
-选择 1 允许 clash 开机启动  
-选择 3 设置自启延时，推荐设置成 90 秒（其它型号路由器请自测）  
-<img src="https://user-images.githubusercontent.com/45238096/232901589-46fbf61f-11bf-472d-8432-35a291d31e41.png" width="60%"/>  
-
+④ 返回到主菜单，进入 4 clash 启动设置，选择 1 允许 clash 开机启动  
 ⑤ 返回到主菜单，进入 7 clash 进阶设置  
 进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
 - 注：fake-ip 模式不支持 CNIP 绕过内核
