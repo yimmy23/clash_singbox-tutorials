@@ -108,13 +108,13 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: 🀄 国内 IP 地址
+  - name: 🀄 国内 IP
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: ✈️ Telegram IP 地址
+  - name: ✈️ Telegram IP
     type: select
     proxies:
       - 🚀 节点选择
@@ -213,9 +213,9 @@ rules:
   - GEOSITE,games-cn,🎮 国区游戏
   - GEOSITE,proxy,🪜 代理域名
   - GEOSITE,cn,🇨🇳 国内域名
-  - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
+  - GEOIP,telegram,✈️ Telegram IP,no-resolve
   - GEOIP,private,🏠 私有网络,no-resolve
-  - GEOIP,cn,🀄 国内 IP 地址
+  - GEOIP,cn,🀄 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 安装和导入
