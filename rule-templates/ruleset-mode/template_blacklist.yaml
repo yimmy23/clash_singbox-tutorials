@@ -54,7 +54,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: ✈️ Telegram IP 地址
+  - name: ✈️ Telegram IP
     type: select
     proxies:
       - 🚀 节点选择
@@ -166,5 +166,5 @@ rules:
   - RULE-SET,speedtest,📈 网络测速
   - RULE-SET,tld-not-cn,🪜 国外顶级域名
   - RULE-SET,gfw,🧱 GFWList 域名
-  - RULE-SET,telegramcidr,✈️ Telegram IP 地址
+  - RULE-SET,telegramcidr,✈️ Telegram IP
   - MATCH,🐟 漏网之鱼
