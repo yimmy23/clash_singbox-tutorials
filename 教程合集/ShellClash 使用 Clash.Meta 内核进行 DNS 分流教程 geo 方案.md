@@ -40,13 +40,12 @@ rules:
   - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
-  - GEOSITE,tld-cn,🇨🇳 国内顶级域名
   - GEOSITE,category-games@cn,🎮 国区游戏
-  - GEOSITE,geolocation-!cn,🪜 国外域名
-  - GEOSITE,cn,🇨🇳 国内域名
-  - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
+  - GEOSITE,geolocation-!cn,🪜 代理域名
+  - GEOSITE,cn,⚡ 直连域名
+  - GEOIP,telegram,✈️ Telegram IP,no-resolve
   - GEOIP,private,🏠 私有网络,no-resolve
-  - GEOIP,cn,🀄 国内 IP 地址
+  - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 那么需要增加 user.yaml 中的内容：
@@ -57,7 +56,7 @@ nameserver:
   - https://doh.opendns.com/dns-query
 
 nameserver-policy:
-  'geosite:speedtest,microsoft@cn,apple-cn,google-cn,tld-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  'geosite:speedtest,microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
   'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 ## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_blacklist.yaml)
@@ -67,7 +66,7 @@ rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
-  - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
+  - GEOIP,telegram,✈️ Telegram IP,no-resolve
   - MATCH,🐟 漏网之鱼
 ```
 那么需要增加 user.yaml 中的内容：
