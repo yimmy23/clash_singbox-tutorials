@@ -64,7 +64,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: 🇨🇳 国内域名
+  - name: ⚡ 直连域名
     type: select
     proxies:
       - 🎯 全球直连
@@ -257,7 +257,7 @@ rules:
   - RULE-SET,google-cn,🗽 Google 中国
   - RULE-SET,games-cn,🎮 国区游戏
   - RULE-SET,proxy,🪜 代理域名
-  - RULE-SET,direct,🇨🇳 国内域名
+  - RULE-SET,direct,⚡ 直连域名
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 安装和导入
