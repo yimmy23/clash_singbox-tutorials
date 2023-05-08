@@ -8,13 +8,13 @@ proxy-groups:
       # 测试机场速度（翻墙后网络速度）
       - 🚀 节点选择
 
-  - name: 🇨🇳 国内域名
+  - name: ⚡ 直连域名
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: 🪜 国外域名
+  - name: 🪜 代理域名
     type: select
     proxies:
       - 🚀 节点选择
@@ -44,13 +44,13 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: 🀄 国内 IP 地址
+  - name: 🇨🇳 国内 IP
     type: select
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: ✈️ Telegram IP 地址
+  - name: ✈️ Telegram IP
     type: select
     proxies:
       - 🚀 节点选择
