@@ -53,7 +53,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: ✈️ Telegram IP 地址
+  - name: ✈️ Telegram IP
     type: select
     proxies:
       - 🚀 节点选择
