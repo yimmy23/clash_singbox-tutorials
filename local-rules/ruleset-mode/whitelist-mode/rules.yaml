@@ -6,8 +6,8 @@
 - RULE-SET,apple,🍎 Apple 中国
 - RULE-SET,google,🗽 Google 中国
 - RULE-SET,games,🎮 国区游戏
-- RULE-SET,proxy,🪜 国外域名
-- RULE-SET,direct,🇨🇳 国内域名
+- RULE-SET,proxy,🪜 代理域名
+- RULE-SET,direct,⚡ 直连域名
+- RULE-SET,telegramcidr,✈️ Telegram IP
 - RULE-SET,lancidr,🏠 私有网络
-- RULE-SET,cncidr,🀄 国内 IP 地址
-- RULE-SET,telegramcidr,✈️ Telegram IP 地址
+- RULE-SET,cncidr,🇨🇳 国内 IP
