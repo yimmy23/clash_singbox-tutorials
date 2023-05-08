@@ -14,7 +14,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: ✈️ Telegram IP 地址
+  - name: ✈️ Telegram IP
     type: select
     proxies:
       - 🚀 节点选择
