@@ -48,7 +48,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: ✈️ Telegram IP 地址
+  - name: ✈️ Telegram IP
     type: select
     proxies:
       - 🚀 节点选择
@@ -113,5 +113,5 @@ rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
-  - GEOIP,telegram,✈️ Telegram IP 地址,no-resolve
+  - GEOIP,telegram,✈️ Telegram IP,no-resolve
   - MATCH,🐟 漏网之鱼
