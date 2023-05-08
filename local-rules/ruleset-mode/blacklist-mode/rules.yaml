@@ -5,4 +5,3 @@
 - RULE-SET,tld-not-cn,🪜 国外顶级域名
 - RULE-SET,gfw,🧱 GFWList 域名
 - RULE-SET,telegramcidr,✈️ Telegram IP
-- MATCH,🐟 漏网之鱼
