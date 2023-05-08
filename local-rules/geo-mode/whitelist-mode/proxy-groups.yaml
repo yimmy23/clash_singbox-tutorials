@@ -1,5 +1,5 @@
 proxy-groups:
-  - name: 📈 网络测试
+  - name: 📈 网络测速
     type: select
     proxies:
       - 🎯 全球直连
