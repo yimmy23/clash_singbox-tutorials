@@ -2,6 +2,5 @@
 - RULE-SET,reject,⛔️ 广告域名
 - RULE-SET,private,🏠 私有网络
 - RULE-SET,speedtest,📈 网络测速
-- RULE-SET,tld-not-cn,🪜 国外顶级域名
 - RULE-SET,gfw,🧱 GFWList 域名
 - RULE-SET,telegramcidr,✈️ Telegram IP
