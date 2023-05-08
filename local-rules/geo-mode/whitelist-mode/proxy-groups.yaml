@@ -58,11 +58,6 @@ proxy-groups:
     proxies:
       - 🚀 节点选择
 
-  - name: ⛓️ BT 下载
-    type: select
-    proxies:
-      - 🎯 全球直连
-
   - name: 🏠 私有网络
     type: select
     proxies:
