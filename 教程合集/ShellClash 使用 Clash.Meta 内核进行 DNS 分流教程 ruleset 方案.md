@@ -41,11 +41,11 @@ rules:
   - RULE-SET,apple,🍎 Apple 中国
   - RULE-SET,google,🗽 Google 中国
   - RULE-SET,games,🎮 国区游戏
-  - RULE-SET,proxy,🪜 国外域名
-  - RULE-SET,direct,🇨🇳 国内域名
+  - RULE-SET,proxy,🪜 代理域名
+  - RULE-SET,direct,⚡ 直连域名
   - RULE-SET,lancidr,🏠 私有网络
-  - RULE-SET,cncidr,🀄 国内 IP 地址
-  - RULE-SET,telegramcidr,✈️ Telegram IP 地址
+  - RULE-SET,cncidr,🇨🇳 国内 IP
+  - RULE-SET,telegramcidr,✈️ Telegram IP
   - MATCH,🐟 漏网之鱼
 ```
 那么需要增加 user.yaml 中的内容：
@@ -66,9 +66,8 @@ rules:
   - RULE-SET,reject,⛔️ 广告域名
   - RULE-SET,private,🏠 私有网络
   - RULE-SET,speedtest,📈 网络测速
-  - RULE-SET,tld-not-cn,🪜 国外顶级域名
   - RULE-SET,gfw,🧱 GFWList 域名
-  - RULE-SET,telegramcidr,✈️ Telegram IP 地址
+  - RULE-SET,telegramcidr,✈️ Telegram IP
   - MATCH,🐟 漏网之鱼
 ```
 那么需要增加 user.yaml 中的内容：
@@ -78,5 +77,5 @@ nameserver:
   - https://dns.alidns.com/dns-query
 
 nameserver-policy:
-  'rule-set:tld-not-cn,gfw': [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
+  'rule-set:gfw': [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
 ```
