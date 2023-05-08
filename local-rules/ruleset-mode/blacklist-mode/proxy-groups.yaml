@@ -14,12 +14,6 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: 🪜 国外顶级域名
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
-
   - name: ✈️ Telegram IP
     type: select
     proxies:
