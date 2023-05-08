@@ -72,7 +72,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
 
-  - name: 🇨🇳 国内域名
+  - name: ⚡ 直连域名
     type: select
     proxies:
       - 🎯 全球直连
@@ -108,7 +108,7 @@ proxy-groups:
       - 🎯 全球直连
       - 🚀 节点选择
 
-  - name: 🀄 国内 IP
+  - name: 🇨🇳 国内 IP
     type: select
     proxies:
       - 🎯 全球直连
@@ -212,10 +212,10 @@ rules:
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,games-cn,🎮 国区游戏
   - GEOSITE,proxy,🪜 代理域名
-  - GEOSITE,cn,🇨🇳 国内域名
+  - GEOSITE,cn,⚡ 直连域名
   - GEOIP,telegram,✈️ Telegram IP,no-resolve
   - GEOIP,lan,🏠 私有网络,no-resolve
-  - GEOIP,cn,🀄 国内 IP
+  - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 安装和导入
