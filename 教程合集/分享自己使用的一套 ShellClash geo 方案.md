@@ -205,17 +205,17 @@ proxy-groups:
 
 rules:
   - GEOSITE,ads,⛔️ 广告域名
-  - GEOSITE,lan-site,🏠 私有网络
+  - GEOSITE,lan,🏠 私有网络
   - GEOSITE,networktest,📈 网络测试
   - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,games-cn,🎮 国区游戏
   - GEOSITE,proxy,🪜 代理域名
-  - GEOSITE,cn-site,⚡ 直连域名
+  - GEOSITE,cn,⚡ 直连域名
   - GEOIP,telegram,✈️ Telegram IP,no-resolve
-  - GEOIP,lan-ip,🏠 私有网络,no-resolve
-  - GEOIP,cn-ip,🇨🇳 国内 IP
+  - GEOIP,lanip,🏠 私有网络,no-resolve
+  - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 安装和导入
