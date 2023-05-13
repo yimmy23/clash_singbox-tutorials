@@ -240,8 +240,7 @@ cd C:\Users\[用户名]\Desktop\upx
 
 ④ 返回到主菜单，进入 4 clash 启动设置，选择 1 允许 clash 开机启动  
 ⑤ 返回到主菜单，进入 6 导入配置文件，选择 6 配置文件覆写  
-选择 2 配置内置DNS服务，选择 1 修改基础 DNS，输入 `null` 并回车  
-选择 2 修改 Fallback_DNS，输入 `null` 并回车  
+选择 2 配置内置DNS服务，选择 1 修改基础 DNS，输入 `null` 并回车，选择 2 修改 Fallback_DNS，输入 `null` 并回车  
 选择 7 禁用 DNS 劫持  
 注：
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
