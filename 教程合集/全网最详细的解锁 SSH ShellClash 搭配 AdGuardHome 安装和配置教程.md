@@ -4,7 +4,7 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.7 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.8 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
@@ -244,37 +244,39 @@ cd C:\Users\[用户名]\Desktop\upx
 <img src="https://user-images.githubusercontent.com/45238096/226165858-fac37651-9f0c-45a0-9a82-9aade5e04e31.png" width="60%"/>  
 
 启用 7 屏蔽 QUIC 流量  
-<img src="https://i.postimg.cc/RFCm2YPC/QQ-20230218202031.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a6416c9e-7ba9-44c0-8f95-adc1982e23d3" width="60%"/>  
 
 ④ 返回到主菜单，进入 4 clash 启动设置，选择 1 允许 clash 开机启动  
-⑤ 返回到主菜单，进入 7 clash 进阶设置  
-进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
-- 注：fake-ip 模式不支持 CNIP 绕过内核
-
-<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
-
-返回到 7 clash 进阶设置，根据自身需要选择 3 启用节点绕过（设备较多可开启）  
-根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
-进入 6 配置内置 DNS 服务，选择 1 修改基础 DNS，输入 `null` 并回车  
+⑤ 返回到主菜单，进入 6 导入配置文件，选择 6 配置文件覆写  
+选择 2 配置内置DNS服务，选择 1 修改基础 DNS，输入 `null` 并回车  
 选择 2 修改 Fallback_DNS，输入 `null` 并回车  
 选择 7 禁用 DNS 劫持  
 注：
 - 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
 - 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，并强烈建议设置 4 一键配置加密 DNS
+- 3. 若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》
 
 <img src="https://user-images.githubusercontent.com/45238096/232899733-3d51da3a-2121-4e70-a27d-f08feefba8d7.png" width="60%"/>  
 
-⑥ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定，须设置本机代理服务）  
+⑥ 返回到主菜单，进入 7 clash 进阶设置  
+进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
+- 注：fake-ip 模式不支持 CNIP 绕过内核
+
+<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
+
+返回到 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
+根据自身需要选择 5 启用节点绕过（设备较多可开启）  
+⑦ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
 <img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 
-⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
+⑧ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
 - 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
 - 2. 初次打开需要添加链接：http://192.168.31.1:9999
 
 <img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 
-⑧ 返回到主菜单，进入 6 导入配置文件  
+⑨ 返回到主菜单，再次进入 6 导入配置文件  
 注：
 - 1. 选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 - 2. 选择 1 在线生成 Clash 配置文件，可直接转换订阅链接，此处具体方法省略
