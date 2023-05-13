@@ -89,6 +89,11 @@ mkdir -p /data/auto_ssh
 curl -o /data/auto_ssh/auto_ssh.sh -L https://fastly.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.sh
 chmod +x /data/auto_ssh/auto_ssh.sh
 /data/auto_ssh/auto_ssh.sh install
+uci set system.@system[0].timezone='CST-8'
+uci set system.@system[0].webtimezone='CST-8'
+uci set system.@system[0].timezoneindex='2.84'
+uci commit
+mtd erase crash
 reboot
 ```
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/6b3af81b-94ac-4905-b05b-b6fd98a513a2" width="60%"/>  
