@@ -202,7 +202,7 @@ rule-providers:
   networktest:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
+    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
     path: ./ruleset/networktest.yaml
     interval: 86400
 
