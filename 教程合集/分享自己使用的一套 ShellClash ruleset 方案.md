@@ -223,7 +223,7 @@ rule-providers:
   google-cn:
     type: http
     behavior: domain
-    url: 'https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml'
+    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml'
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
