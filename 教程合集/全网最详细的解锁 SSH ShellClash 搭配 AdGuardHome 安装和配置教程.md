@@ -11,6 +11,7 @@
 若执行结果是“linux aarch64”，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
 4. ShellClash 和 AdGuardHome 中所有没有提到的配置保持默认即可
 5. ShellClash 和 AdGuardHome 快速安装方法请看《[ShellClash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
+6. ShellClash 单独使用时设置 DNS 分流请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》
 ---
 # 一、 资源下载
 打包下载：https://dustinwinvip.lanzoum.com/b01qd6p3a  
@@ -222,33 +223,25 @@ cd C:\Users\[用户名]\Desktop\upx
 ## 2. ShellClash 配置
 ① 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
-选择 1 在 */data/clash/ui* 目录安装  
+根据需要是否启用软固化（此处选择 0）
+- 注：解锁 SSH 时已成功启用软固化
+
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
 
 ② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
-<img src="https://user-images.githubusercontent.com/45238096/230614112-29704e1a-00f0-463a-88cf-f1391ba4a0f0.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e88587df-785c-459f-88ac-940e3d858a7c" width="60%"/>  
 
-③ 输入 0 回车可返回到上级菜单（下同），返回到主菜单  
-进入 2->1 切换 Clash 运行模式，选择 5 Tproxy 模式（部分型号路由器不显示该模式，保持默认即可）  
+③ 进入 2->1 切换 Clash 运行模式，选择 5 Tproxy 模式（若部分型号路由器不显示该模式，保持默认即可）  
 进入 2 切换 DNS 运行模式，选择 1 fake-ip 模式（经实测，现兼容性已大大增强，如仍有问题请选择 2 redir_host 模式）
 - 注：fake-ip 模式不支持 CN_IP 绕过内核
 
-返回到 2 clash 功能设置，启用 7 屏蔽 QUIC 流量  
+输入 0 回车可返回到上级菜单（下同），返回到 2 clash 功能设置，启用 7 屏蔽 QUIC 流量  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a6416c9e-7ba9-44c0-8f95-adc1982e23d3" width="60%"/>  
 
 ④ 返回到主菜单，进入 4 clash 启动设置，选择 1 允许 clash 开机启动  
-⑤ 返回到主菜单，进入 6 导入配置文件，选择 6 配置文件覆写  
-选择 2 配置内置DNS服务，选择 1 修改基础 DNS，输入 `null` 并回车，选择 2 修改 Fallback_DNS，输入 `null` 并回车  
-选择 7 禁用 DNS 劫持  
-注：
-- 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
-- 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
-
-<img src="https://user-images.githubusercontent.com/45238096/232899733-3d51da3a-2121-4e70-a27d-f08feefba8d7.png" width="60%"/>  
-
-⑥ 返回到主菜单，进入 7 clash 进阶设置  
+⑤ 返回到主菜单，进入 7 clash 进阶设置  
 进入 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
 - 注：fake-ip 模式不支持 CNIP 绕过内核
 
@@ -256,17 +249,25 @@ cd C:\Users\[用户名]\Desktop\upx
 
 返回到 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
 根据自身需要选择 5 启用节点绕过（设备较多可开启）  
-⑦ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
+选择 6 配置内置 DNS 服务，选择 1 修改基础 DNS，输入 `null` 并回车，选择 2 修改 Fallback_DNS，输入 `null` 并回车  
+选择 7 禁用 DNS 劫持  
+注：
+- 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
+- 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
+
+<img src="https://user-images.githubusercontent.com/45238096/232899733-3d51da3a-2121-4e70-a27d-f08feefba8d7.png" width="60%"/>  
+
+⑥ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
 <img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
 
-⑧ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
+⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
 - 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
 - 2. 初次打开需要添加链接：http://192.168.31.1:9999
 
 <img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>  
 
-⑨ 返回到主菜单，再次进入 6 导入配置文件  
+⑧ 返回到主菜单，再次进入 6 导入配置文件  
 注：
 - 1. 选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 - 2. 选择 1 在线生成 Clash 配置文件，可直接转换订阅链接，此处具体方法省略
