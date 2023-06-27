@@ -24,11 +24,6 @@ curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutor
 ```
 curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/geo-mode/redir-host-mode/user.yaml && $clashdir/start.sh restart
 ```
-## 3. 重启 Clash 服务
-连接 SSH 后，执行如下命令：
-```
-$clashdir/start.sh restart
-```
 # 二、 诀窍
 ## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_whitelist.yaml)
 若 ShellClash 规则选择的是白名单模式，需要将走直连的所有域名都设置为走国内 DNS 解析，比如我的白名单模式如下：
