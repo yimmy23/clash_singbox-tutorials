@@ -15,7 +15,7 @@ nameserver-policy:
 方法请看[安装 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md#%E4%BA%8C-%E5%AE%89%E8%A3%85-clashmeta-%E5%86%85%E6%A0%B8)
 ## 2. 导入 user.yaml 文件
 将 user.yaml 文件移动到 ShellClash 安装目录（如 */data/clash*）  
-或者使用快速导入方法（使用此方法可略过第“三”步）：  
+或者使用快速导入方法：  
 ① 使用 fake-ip 模式，连接 SSH 后执行如下命令：
 ```
 curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/ruleset-mode/fake-ip-mode/user.yaml && $clashdir/start.sh restart
