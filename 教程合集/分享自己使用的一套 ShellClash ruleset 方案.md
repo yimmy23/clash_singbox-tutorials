@@ -26,7 +26,7 @@ tcp-concurrent: true
 global-client-fingerprint: chrome
 
 profile:
-  store-selected: false
+  store-selected: true
   store-fake-ip: true
 
 # 若不使用 TUN 模式，请删除此部分
