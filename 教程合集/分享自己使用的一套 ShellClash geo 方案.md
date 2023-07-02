@@ -51,6 +51,7 @@ proxy-groups:
     proxies:
       - 🎯 全球直连
       - 🚀 节点选择
+      - 🌐 IPv6 节点
 
   - name: 🐟 漏网之鱼
     type: select
