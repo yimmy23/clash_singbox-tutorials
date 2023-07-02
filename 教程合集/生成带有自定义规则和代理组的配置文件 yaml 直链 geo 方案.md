@@ -6,7 +6,7 @@
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
 4. 强烈建议生成订阅链接后先导入 [Clash Verge](https://github.com/zzzgydi/clash-verge/releases) 进行测试，**测试通过后再导入 ShellClash 内**
-5. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，再将生成后的订阅链接添加到.yaml 文件中
+5. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，生成后的订阅链接需要在末尾添加`&flag=clash`，然后添加到.yaml 文件中
 ---
 # 一、 注册 Gist
 进入 https://gist.github.com 网站并注册
