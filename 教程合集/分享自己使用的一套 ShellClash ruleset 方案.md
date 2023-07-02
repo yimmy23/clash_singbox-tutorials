@@ -252,7 +252,7 @@ rule-providers:
 rules:
   - RULE-SET,reject,⛔️ 广告域名
   - RULE-SET,lan,🏠 私有网络
-  - RULE-SET,speedtest,📈 网络测试
+  - RULE-SET,networktest,📈 网络测试
   - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
   - RULE-SET,apple-cn,🍎 Apple 中国
   - RULE-SET,google-cn,🗽 Google 中国
