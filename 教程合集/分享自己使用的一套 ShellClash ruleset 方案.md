@@ -1,7 +1,7 @@
 # 声明
 1. 此方案采用 `RULE-SET` 规则，属高度定制，仅供参考
 2. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
-3. 此方案适用于 [ShellClash](https://github.com/juewuy/ShellClash)（arm64 架构），以及其它使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)的平台，如 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等
+3. 此方案适用于 [Clash Verge](https://github.com/zzzgydi/clash-verge)
 4. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
 # 一、 生成配置文件.yaml 文件直链
 具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置，此配置参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
@@ -21,15 +21,14 @@ proxy-providers:
       interval: 600
       url: 'https://www.gstatic.com/generate_204'
 
-# 若不使用 TUN 模式，请删除此部分
-tun:
-  enable: true
-  # 若虚拟网卡不支持 system，可以改为 gvisor
-  stack: system
-  dns-hijack:
-    - 'any:53'
-  auto-route: true
-  auto-detect-interface: true
+mode: rule
+ipv6: true
+log-level: silent
+allow-lan: true
+mixed-port: 19925
+unified-delay: false
+tcp-concurrent: true
+external-controller: 0.0.0.0:9090
 
 proxy-groups:
   - name: 🚀 节点选择
@@ -253,71 +252,46 @@ rules:
   - RULE-SET,direct,⚡ 直连域名
   - MATCH,🐟 漏网之鱼
 ```
-# 二、 安装和导入
-## 1. 安装 ShellClash
-连接 SSH 后运行如下命令：
+# 二、 安装
+## 1. 安装 ShellClash（以 Windows 客户端为例）
+打开 [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge/releases) 并点击版本号，后点击 Clash.Verge_xxx_x64_zh-CN.msi 下载并安装
+## 2. 更新 Clash.Meta 内核
+① Release 版 
+以管理员身份运行 CMD，执行如下命令：
 ```
-curl -o /tmp/ShellClash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/ShellClash.tar.gz
-mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
-```
-## 2. 导入 Clash.Meta 内核
-① Release 版  
-连接 SSH 后运行如下命令：
-```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-arm64
+taskkill /f /t /im "Clash Verge*"
+taskkill /f /t /im clash-meta*
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash-meta.exe
 ```
 ② Alpha 版  
-连接 SSH 后运行如下命令：
+以管理员身份运行 CMD，执行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-arm64
+taskkill /f /t /im "Clash Verge*"
+taskkill /f /t /im clash-meta*
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://github.com/DustinWin/clash-tools/releases/download/latest/clash-meta.exe
 ```
-## 3. user.yaml
-连接 SSH 后运行如下命令：
-```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml
-```
-## 4. 添加定时任务
-连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
-- 注：我更新的是 Clash.Meta 内核 Alpha 版
+# 三、 配置
+## 1. 客户端配置
+进入设置->Verge 设置->语言设置，可设置为“中文”  
+进入 Clash 设置->Clash 内核，切换到 Clash Meta  
+进入系统设置->服务模式，“INSTALL”安装并打开
+## 2. 导入和新建配置文件
+② 进入配置，在“配置文件链接”输入框中粘贴第一步生成的配置文件.yaml 文件直链，点击“导入”  
+点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”
+- 注：进入文件夹 *%USERPROFILE%\.config\clash-verge\profiles*，找到新建的 Merge 文件并记住其文件名，如我的是 m9Goiod4vnbY.yaml
 
+以管理员身份运行 CMD，执行如下命令：
 ```
-30 3 * * 1,3,5 curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-arm64 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 3 点半更新 Clash.Meta 内核
-0 4 * * * curl -o /data/clash/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新 user.yaml
-30 4 * * 2,4,6 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周二、四、六早上 4 点半更新订阅并重启 Clash 服务
+taskkill /f /t /im "Clash Verge*"
+taskkill /f /t /im clash-meta*
+curl -o %USERPROFILE%\.config\clash-verge\profiles\[Merge 文件名] -L https://github.com/DustinWin/clash-ruleset/releases/download/latest/user.yaml
 ```
-按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
-```
-/etc/init.d/cron restart
-```
-# 三、 设置部分
-1. 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
-首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
-选择 1 在 */data/clash/ui* 目录安装  
-根据需要是否选择 1 确认导入配置文件（此处选择 0）  
-根据需要是否选择 1 立即启动 clash 服务（此处选择 0）  
-输入 0 回车可返回到上级菜单（下同）  
-2. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
-3. 进入主菜单后，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐）
-4. 返回到主菜单，选择 2 clash功能设置，设置如下：
-<img src="https://user-images.githubusercontent.com/45238096/231971374-f0b7e674-1e88-4b2e-987a-39667bc5d127.png" width="60%"/>  
-
-特别说明：“5 过滤局域网设备”建议将“过滤方式”切换为“白名单模式”，然后添加需要代理的设备，以此减轻路由器压力  
-<img src="https://user-images.githubusercontent.com/45238096/231971027-159c6549-4282-458a-b973-0919739de1f0.png" width="60%"/>  
-
-5. 返回到主菜单，进入 4 clash 启动设置，选择 1 允许 clash 开机启动
-6. 返回到主菜单，选择 5 设置定时任务，查看定时任务是否添加成功
-<img src="https://user-images.githubusercontent.com/45238096/235452184-3ba22a23-0b3f-4855-95a4-babec8326201.png" width="60%"/>  
-
-7. 返回到主菜单，选择 7 clash 进阶设置，进入 6 配置内置 DNS 服务，设置如下：
-<img src="https://user-images.githubusercontent.com/45238096/232890411-b717ddae-1af2-4b20-9829-792f02c3e77e.png" width="60%"/>  
-
-返回到 7 clash 进阶设置，进入 8 手动指定相关端口、秘钥及本机 host，设置如下：  
-<img src="https://user-images.githubusercontent.com/45238096/232890495-69f31bc0-360f-468b-89e8-10ec1ae771dc.png" width="60%"/>  
-
-8. 返回到主菜单，选择 6 导入配置文件，进入 2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件.yaml 文件直链，启动 clash 服务即可  
-9. 推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one  
+## 3. 开启 Tun 模式
+进入设置->系统设置->Tun 模式，打开即可
+## 4. 面板控制（可选）
+推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one  
 ① 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 chrome://settings/content/insecureContent 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
 <img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>  
 
-② 首次进入 https://yacd.metacubex.one 需要添加“API Base URL”，输入 `http://192.168.31.1:9999` 并点击“Add”，最后点击下方新增的 http://192.168.31.1:9999 即可访问 Dashboard 面板  
-<img src="https://user-images.githubusercontent.com/45238096/235449312-5e046b33-bcd1-4019-a0f7-4f9c224db2c8.png" width="60%"/>
+② 首次进入 https://yacd.metacubex.one 需要添加“API Base URL”，输入 `http://127.0.0.1:9090` 并点击“Add”，最后点击下方新增的 http://127.0.0.1:9090 即可访问 Dashboard 面板  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/c58333d6-1ebf-4bad-8fad-8d734abbf59a" width="60%"/>
