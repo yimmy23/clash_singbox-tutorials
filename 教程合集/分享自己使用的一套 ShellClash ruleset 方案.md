@@ -274,7 +274,7 @@ curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://github.com/Dustin
 进入 Clash 设置->Clash 内核，切换到 Clash Meta  
 进入系统设置->服务模式，“INSTALL”安装并打开
 ## 2. 导入和新建配置文件
-② 进入配置，在“配置文件链接”输入框中粘贴第一步生成的配置文件.yaml 文件直链，点击“导入”  
+进入配置，在“配置文件链接”输入框中粘贴第一步生成的配置文件.yaml 文件直链，点击“导入”  
 点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”
 - 注：进入文件夹 *%USERPROFILE%\.config\clash-verge\profiles*，找到新建的 Merge 文件并记住其文件名，如我的是 m9Goiod4vnbY.yaml
 
