@@ -185,7 +185,7 @@ rule-providers:
   lan:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml'
+    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml'
     path: ./ruleset/lan.yaml
     interval: 86400
 
