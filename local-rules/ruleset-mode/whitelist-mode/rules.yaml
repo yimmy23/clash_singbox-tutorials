@@ -9,5 +9,5 @@
 - RULE-SET,proxy,🪜 代理域名
 - RULE-SET,direct,⚡ 直连域名
 - RULE-SET,telegramcidr,✈️ Telegram IP
-- RULE-SET,lancidr,🏠 私有网络
+- RULE-SET,lancidr,🏠 私有网络,no-resolve
 - RULE-SET,cncidr,🇨🇳 国内 IP
