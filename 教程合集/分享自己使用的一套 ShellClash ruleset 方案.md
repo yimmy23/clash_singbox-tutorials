@@ -21,14 +21,6 @@ proxy-providers:
       interval: 600
       url: 'https://www.gstatic.com/generate_204'
 
-unified-delay: false
-tcp-concurrent: true
-global-client-fingerprint: chrome
-
-profile:
-  store-selected: true
-  store-fake-ip: true
-
 # 若不使用 TUN 模式，请删除此部分
 tun:
   enable: true
