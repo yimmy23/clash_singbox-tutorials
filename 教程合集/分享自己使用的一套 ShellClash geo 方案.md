@@ -201,7 +201,7 @@ rules:
   - GEOSITE,proxy,🪜 代理域名
   - GEOSITE,cn,⚡ 直连域名
   - GEOIP,telegram,✈️ Telegram IP
-  - GEOIP,lanip,🏠 私有网络
+  - GEOIP,lanip,🏠 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
