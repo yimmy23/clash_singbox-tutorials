@@ -276,13 +276,13 @@ curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://github.com/Dustin
 ## 2. 导入和新建配置文件
 进入配置，在“配置文件链接”输入框中粘贴第一步生成的配置文件.yaml 文件直链，点击“导入”  
 点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”
-- 注：进入文件夹 *%USERPROFILE%\.config\clash-verge\profiles*，找到新建的 Merge 文件并记住其文件名，如我的是 m9Goiod4vnbY.yaml
+- 注：进入文件夹 *%USERPROFILE%\.config\clash-verge\profiles*，复制新建的{Merge 文件名}，如我的是 m9Goiod4vnbY.yaml
 
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\[Merge 文件名] -L https://github.com/DustinWin/clash-ruleset/releases/download/latest/user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://github.com/DustinWin/clash-ruleset/releases/download/latest/user.yaml
 ```
 ## 3. 开启 Tun 模式
 进入设置->系统设置->Tun 模式，打开即可
