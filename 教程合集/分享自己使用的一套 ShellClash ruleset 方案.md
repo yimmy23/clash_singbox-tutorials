@@ -284,6 +284,7 @@ taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
 curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://github.com/DustinWin/clash-ruleset/releases/download/latest/user.yaml
 ```
+打开 Clash Verge，进入设置->Clash 设置->Clash 字段，将所有带有黄色感叹号的项打勾并“保存”
 ## 3. 开启 Tun 模式
 进入设置->系统设置->Tun 模式，打开即可
 ## 4. 面板控制（可选）
