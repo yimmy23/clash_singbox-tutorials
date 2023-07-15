@@ -256,7 +256,7 @@ rules:
 ## 1. 安装 ShellClash（以 Windows 客户端为例）
 打开 [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge/releases) 并点击版本号，后点击 Clash.Verge_xxx_x64_zh-CN.msi 下载并安装
 ## 2. 更新 Clash.Meta 内核
-① Release 版 
+① Release 版  
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
