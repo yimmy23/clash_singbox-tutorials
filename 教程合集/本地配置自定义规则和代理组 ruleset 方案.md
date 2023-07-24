@@ -50,12 +50,14 @@ proxy-providers:
     url: 'https://example.com/xxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
+    # 筛选出需要的节点，支持正则表达式，不筛选可删除此配置项
+    filter: "日本|新加坡"
     health-check:
       enable: true
-      interval: 600
       # 未选择到当前策略组时，不会进行测试
       # lazy: true
       url: 'https://www.gstatic.com/generate_204'
+      interval: 600
 ```
 ③ 在 `rule-providers` 内粘贴如下内容：
 ```
@@ -70,15 +72,8 @@ proxy-providers:
 ## 2. 修改 proxy-groups.yaml 文件
 连接 SSH，执行命令 `vi $clashdir/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-  - name: 🎥 奈飞节点
-    type: url-test
-    # 容差大于 100ms 就会切换到延迟低的那个节点
-    tolerance: 100
-    use:
-      # 使用 proxy-providers 中的节点名称
-      - 🛫 我的机场
-    # 筛选出日本和新加坡节点
-    filter: "日本|新加坡"
+  # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
+  - {name: 🎥 奈飞节点, type: url-test, tolerance: 100, use:[ 🛫 我的机场], filter: "日本|新加坡"}
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 3. 修改 rules.yaml 文件
