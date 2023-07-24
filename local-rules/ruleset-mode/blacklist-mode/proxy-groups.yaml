@@ -6,6 +6,8 @@ proxy-groups:
 
   - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
 
+  - {name: 🏠 私有网络, type: select, proxies: [DIRECT]}
+
   - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
 
   - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
