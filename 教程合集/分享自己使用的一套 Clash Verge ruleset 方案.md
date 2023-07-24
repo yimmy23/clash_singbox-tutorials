@@ -28,6 +28,15 @@ unified-delay: false
 tcp-concurrent: true
 external-controller: 0.0.0.0:9090
 
+# 若不使用 TUN 模式，请删除此部分
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - 'any:53'
+  auto-route: true
+  auto-detect-interface: true
+
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🛜 IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
