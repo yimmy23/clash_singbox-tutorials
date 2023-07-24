@@ -1,4 +1,5 @@
 proxy-groups:
+  # Speedtest 测速网站
   - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
