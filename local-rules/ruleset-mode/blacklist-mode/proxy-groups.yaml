@@ -1,5 +1,5 @@
 proxy-groups:
-  # Speedtest 测速网站
+  # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），选择“节点选择”为测试机场速度（翻墙后网络速度）
   - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🧱 GFWList 域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
