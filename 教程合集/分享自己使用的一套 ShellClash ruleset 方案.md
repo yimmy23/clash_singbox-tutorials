@@ -55,19 +55,19 @@ proxy-groups:
 
   - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
-  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 bitz], filter: "香港"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "香港"}
 
-  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 bitz], filter: "台湾"}
+  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "台湾"}
 
-  - {name: 🛜 IPv6 节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 cnix], filter: "IPV6"}
+  - {name: 🛜 IPv6 节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "IPV6"}
 
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 bitz], filter: "日本"}
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "日本"}
 
-  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 bitz], filter: "韩国"}
+  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "韩国"}
 
-  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 bitz], filter: "新加坡"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "新加坡"}
 
-  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 bitz], filter: "美国"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "美国"}
 
 rule-providers:
   reject:
