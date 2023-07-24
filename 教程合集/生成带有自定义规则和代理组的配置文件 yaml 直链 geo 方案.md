@@ -70,7 +70,7 @@ proxy-groups:
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "香港"}
 
   # 手动选择日本节点
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "日本"}
+  - {name: 🇯🇵 日本节点, type: select, use: [🛫 我的机场], filter: "日本"}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
