@@ -17,11 +17,11 @@ proxy-providers:
     url: 'https://example.com/xxxxx/clash'
     path: ./proxies/airport.yaml
     interval: 86400
-    filter: "VIP|IPV6|中港专线|台湾 IEPL|台湾 IPLC|沪日IEPL|沪日IPLC|韩国 IEPL|新加坡|美国"
+    filter: "香港|台湾|IPV6|日本|韩国|新加坡|美国"
     health-check:
       enable: true
-      interval: 600
       url: 'https://www.gstatic.com/generate_204'
+      interval: 600
 
 # 若不使用 TUN 模式，请删除此部分
 tun:
@@ -34,161 +34,49 @@ tun:
   auto-detect-interface: true
 
 proxy-groups:
-  - name: 🚀 节点选择
-    type: select
-    proxies:
-      - 👑 VIP 节点
-      - 🌐 IPv6 节点
-      - 🇭🇰 中港专线节点
-      - 🇹🇼 台湾节点
-      - 🇯🇵 日本节点
-      - 🇰🇷 韩国节点
-      - 🇸🇬 新加坡节点
-      - 🇺🇸 美国节点
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🛜 IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  - name: 📈 网络测试
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
-      - 🌐 IPv6 节点
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🚀 节点选择, 🛜 IPv6 节点]}
 
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - name: ⚡ 直连域名
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+  - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - name: 🪜 代理域名
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - 🎯 全球直连
+  - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - name: 🎮 国区游戏
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+  - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - name: Ⓜ️ Microsoft 中国
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - name: 🗽 Google 中国
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+  - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - name: 🍎 Apple 中国
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+  - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - name: 🇨🇳 国内 IP
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🚀 节点选择
+  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - name: ✈️ Telegram IP
-    type: select
-    proxies:
-      - 🚀 节点选择
+  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
 
-  - name: 🏠 私有网络
-    type: select
-    proxies:
-      - 🎯 全球直连
+  - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
 
-  - name: ⛔️ 广告域名
-    type: select
-    proxies:
-      - 🛑 全球拦截
+  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
 
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
+  - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
-  - name: 🛑 全球拦截
-    type: select
-    proxies:
-      - REJECT
+  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
-  - name: 👑 VIP 节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "VIP"
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "香港"}
 
-  - name: 🌐 IPv6 节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "IPV6"
+  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "台湾"}
 
-  - name: 🇭🇰 中港专线节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "中港专线"
+  - {name: 🛜 IPv6 节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "IPV6"}
 
-  - name: 🇹🇼 台湾节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "台湾"
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "日本"}
 
-  - name: 🇯🇵 日本节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "沪日"
+  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "韩国"}
 
-  - name: 🇰🇷 韩国节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "韩国"
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "新加坡"}
 
-  - name: 🇸🇬 新加坡节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "新加坡"
-
-  - name: 🇺🇸 美国节点
-    type: url-test
-    tolerance: 100
-    lazy: true
-    use:
-      - 🛫 我的机场
-    filter: "美国"
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "美国"}
 
 rules:
   - GEOSITE,ads,⛔️ 广告域名
