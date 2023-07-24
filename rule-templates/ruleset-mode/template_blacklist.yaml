@@ -28,9 +28,9 @@ proxy-groups:
 
   - {name: 🧱 GFWList 域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: 🪜 国外顶级域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
-
   - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+
+  - {name: 🏠 私有网络, type: select, proxies: [DIRECT]}
 
   - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
 
@@ -84,13 +84,6 @@ rule-providers:
     path: ./ruleset/gfw.yaml
     interval: 86400
 
-  tld-not-cn:
-    type: http
-    behavior: domain
-    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt'
-    path: ./ruleset/tld-not-cn.yaml
-    interval: 86400
-
   telegramcidr:
     type: http
     behavior: ipcidr
@@ -103,7 +96,6 @@ rules:
   - RULE-SET,reject,⛔️ 广告域名
   - RULE-SET,private,🏠 私有网络
   - RULE-SET,speedtest,📈 网络测速
-  - RULE-SET,tld-not-cn,🪜 国外顶级域名
   - RULE-SET,gfw,🧱 GFWList 域名
   - RULE-SET,telegramcidr,✈️ Telegram IP
   - MATCH,🐟 漏网之鱼
