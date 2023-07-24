@@ -46,27 +46,22 @@ proxy-providers:
     # 机场订阅链接，使用 Clash 链接
     url: 'https://example.com/xxx/clash'
     path: ./proxies/airport.yaml
+    # 筛选出需要的节点，支持正则表达式，不筛选可删除此配置项
+    filter: "日本|新加坡"
     interval: 86400
     health-check:
       enable: true
-      interval: 600
       # 未选择到当前策略组时，不会进行测试
       # lazy: true
       url: 'https://www.gstatic.com/generate_204'
+      interval: 600
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 2. 修改 proxy-groups.yaml 文件
 连接 SSH，执行命令 `vi $clashdir/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-  - name: 🎥 奈飞节点
-    type: url-test
-    # 容差大于 100ms 就会切换到延迟低的那个节点
-    tolerance: 100
-    use:
-      # 使用 proxy-providers 中的节点名称
-      - 🛫 我的机场
-    # 筛选出日本和新加坡节点
-    filter: "日本|新加坡"
+  # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
+  - {name: 🎥 奈飞节点, type: url-test, tolerance: 100, use:[ 🛫 我的机场], filter: "日本|新加坡"}
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 3. 修改 rules.yaml 文件
@@ -104,9 +99,11 @@ $clashdir/start.sh restart
 ```
 curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
 curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
+$clashdir/start.sh restart
 ```
 2. 若配置文件内没有 `geodata-mode: true` 这一项或含有 `geodata-mode: false`，连接 SSH 后，执行如下命令：
 ```
 curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
 curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
+$clashdir/start.sh restart
 ```
