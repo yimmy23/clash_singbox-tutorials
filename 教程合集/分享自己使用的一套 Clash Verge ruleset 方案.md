@@ -186,7 +186,7 @@ curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://github.com/Dustin
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://github.com/DustinWin/clash-ruleset/releases/download/latest/user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://github.com/DustinWin/clash-ruleset/releases/download/latest/fake-ip-user.yaml
 ```
 打开 Clash Verge，进入设置->Clash 设置->Clash 字段，将所有带有黄色感叹号的项打勾并“保存”
 ## 3. 开启 Tun 模式
