@@ -16,13 +16,14 @@ nameserver-policy:
 ## 2. 导入 user.yaml 文件
 将 user.yaml 文件移动到 ShellClash 安装目录（如 */data/clash*）  
 或者使用快速导入方法：  
-① 使用 fake-ip 模式，连接 SSH 后执行如下命令：
+① 使用 fake-ip 模式不需要使用 DNS 分流，仅配置 default-nameserver 和 nameserver 这两个参数即可  
+此处分享一配置，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/ruleset-mode/fake-ip-mode/user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/user.yaml && $clashdir/start.sh restart
 ```
 ② 使用 redir-host 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/ruleset-mode/redir-host-mode/user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/ruleset-mode/user.yaml && $clashdir/start.sh restart
 ```
 # 二、 诀窍
 ## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/ruleset-mode/template_whitelist.yaml)
