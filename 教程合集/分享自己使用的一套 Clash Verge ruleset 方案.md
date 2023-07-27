@@ -155,7 +155,7 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 安装
-## 1. 安装 ShellClash（以 Windows 客户端为例）
+## 1. 安装 Clash Verge（以 Windows 客户端为例）
 打开 [zzzgydi/clash-verge](https://github.com/zzzgydi/clash-verge/releases) 并点击版本号，后点击 Clash.Verge_xxx_x64_zh-CN.msi 下载并安装
 ## 2. 更新 Clash.Meta 内核
 ① Release 版  
