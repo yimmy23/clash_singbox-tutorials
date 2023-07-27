@@ -38,9 +38,9 @@ tun:
   auto-detect-interface: true
 
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🛜 IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🚀 节点选择, 🛜 IPv6 节点]}
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🚀 节点选择, 6️⃣ IPv6 节点]}
 
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
@@ -68,7 +68,7 @@ proxy-groups:
 
   - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "台湾"}
 
-  - {name: 🛜 IPv6 节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "IPV6"}
+  - {name: 6️⃣ IPv6 节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "IPV6"}
 
   - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "日本"}
 
