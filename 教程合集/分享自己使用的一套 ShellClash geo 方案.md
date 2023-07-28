@@ -16,7 +16,7 @@ proxy-providers:
     # 修改为你的 Clash 订阅链接
     url: 'https://example.com/xxxxx/clash'
     path: ./proxies/airport.yaml
-    interval: 86400
+    interval: 43200
     filter: "香港|台湾|IPV6|日本|韩国|新加坡|美国"
     health-check:
       enable: true
