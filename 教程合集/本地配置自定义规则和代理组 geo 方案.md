@@ -46,7 +46,7 @@ proxy-providers:
     # 机场订阅链接，使用 Clash 链接
     url: 'https://example.com/xxx/clash'
     path: ./proxies/airport.yaml
-    interval: 86400
+    interval: 43200
     # 筛选出需要的节点，支持正则表达式，不筛选可删除此配置项
     filter: "日本|新加坡"
     health-check:
