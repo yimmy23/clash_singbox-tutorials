@@ -62,7 +62,7 @@ rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
-  - GEOIP,telegram,✈️ Telegram IP,no-resolve
+  - GEOIP,telegram,✈️ Telegram IP
   - MATCH,🐟 漏网之鱼
 ```
 那么需要增加 user.yaml 中的内容：
