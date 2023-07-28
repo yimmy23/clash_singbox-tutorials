@@ -39,7 +39,7 @@ rules:
   - RULE-SET,games,🎮 国区游戏
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,direct,⚡ 直连域名
-  - RULE-SET,lancidr,🏠 私有网络
+  - RULE-SET,lancidr,🏠 私有网络,no-resolve
   - RULE-SET,cncidr,🇨🇳 国内 IP
   - RULE-SET,telegramcidr,✈️ Telegram IP
   - MATCH,🐟 漏网之鱼
