@@ -39,7 +39,7 @@ rules:
   - GEOSITE,category-games@cn,🎮 国区游戏
   - GEOSITE,geolocation-!cn,🪜 代理域名
   - GEOSITE,cn,⚡ 直连域名
-  - GEOIP,telegram,✈️ Telegram IP,no-resolve
+  - GEOIP,telegram,✈️ Telegram IP
   - GEOIP,private,🏠 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
