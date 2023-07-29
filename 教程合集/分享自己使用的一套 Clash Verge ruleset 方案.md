@@ -28,6 +28,9 @@ unified-delay: false
 tcp-concurrent: true
 external-controller: 0.0.0.0:9090
 
+find-process-mode: strict
+global-client-fingerprint: chrome
+
 # 若不使用 TUN 模式，请删除此部分
 tun:
   enable: true
@@ -170,7 +173,7 @@ curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://ghproxy.com/https
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://github.com/DustinWin/clash-tools/releases/download/latest/clash-meta.exe
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash-meta.exe
 ```
 # 三、 配置
 ## 1. 客户端配置
@@ -186,7 +189,7 @@ curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://github.com/Dustin
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://github.com/DustinWin/clash-ruleset/releases/download/latest/fake-ip-user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
 ```
 打开 Clash Verge，进入设置->Clash 设置->Clash 字段，将所有带有黄色感叹号的项打勾并“保存”
 ## 3. 开启 Tun 模式
