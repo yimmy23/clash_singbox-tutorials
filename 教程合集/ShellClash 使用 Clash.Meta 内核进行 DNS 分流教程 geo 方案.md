@@ -14,7 +14,7 @@ nameserver-policy:
 ## 1. 安装并升级内核
 方法请看[安装 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md#%E4%BA%8C-%E5%AE%89%E8%A3%85-clashmeta-%E5%86%85%E6%A0%B8)
 ## 2. 导入 user.yaml 文件
-将 user.yaml 文件移动到 ShellClash 安装目录（如 */data/clash*）  
+将 user.yaml 文件移动到 ShellClash 的指定目录（如 */data/clash/yamls*）  
 或者使用快速导入方法：  
 ① 使用 fake-ip 模式不需要使用 DNS 分流，仅配置 `default-nameserver` 和 `nameserver` 这两个参数即可  
 此处分享一配置，连接 SSH 后执行如下命令：
