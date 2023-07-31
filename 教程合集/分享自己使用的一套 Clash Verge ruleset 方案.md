@@ -1,8 +1,7 @@
 # 声明
 1. 此方案采用 `RULE-SET` 规则，属高度定制，仅供参考
 2. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
-3. 此方案适用于 [Clash Verge](https://github.com/zzzgydi/clash-verge)
-4. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
+3. 此方案适用于 [Clash Verge](https://github.com/zzzgydi/clash-verge) Windows 版
 # 一、 生成配置文件.yaml 文件直链
 具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置，此配置参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 ```
@@ -170,14 +169,14 @@ rules:
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash-meta.exe
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 ```
 ② Alpha 版  
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash-meta.exe
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-windows-amd64.exe
 ```
 # 三、 配置
 ## 1. 客户端配置
