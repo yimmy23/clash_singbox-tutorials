@@ -11,7 +11,8 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 ```
 选择 1 安装到/data 目录（推荐，支持软固化功能）
 # 二、 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核
-- 注：如果使用的是搭载非 ARMv8 架构 CPU 的路由器，需要修改一下链接后缀，其余部分不需要任何修改就可以正常识别  
+- 注：如果使用的是搭载非 ARMv8 架构 CPU 的路由器，需要修改一下链接后缀，其余部分不需要任何修改就可以正常识别
+
 比如搭载的是 ARMv7 架构的 CPU，就修改为：  
 `https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv7`  
 其它架构 CPU 的链接后缀对应如下：
