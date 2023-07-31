@@ -19,11 +19,11 @@ nameserver-policy:
 ① 使用 fake-ip 模式不需要使用 DNS 分流，仅配置 `default-nameserver` 和 `nameserver` 这两个参数即可  
 此处分享一配置，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/fake-ip-user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/fake-ip-user.yaml && $clashdir/start.sh restart
 ```
 ② 使用 redir-host 模式，连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/geo-mode/redir-host-user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/geo-mode/redir-host-user.yaml && $clashdir/start.sh restart
 ```
 # 二、 诀窍
 ## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_whitelist.yaml)
