@@ -1,4 +1,4 @@
-name: Update user.yaml
+name: Update fake-ip-user.yaml
 on:
   workflow_dispatch:
   schedule:
@@ -8,6 +8,7 @@ on:
       - main
     paths-ignore:
       - "README.md"
+      - ".github/workflows/delete-old-workflows.yml"
 
 jobs:
   Update:
