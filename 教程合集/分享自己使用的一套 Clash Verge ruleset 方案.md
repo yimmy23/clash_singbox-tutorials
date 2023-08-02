@@ -30,10 +30,6 @@ external-controller: 0.0.0.0:9090
 find-process-mode: strict
 global-client-fingerprint: chrome
 
-profile:
-  store-selected: true
-  store-fake-ip: true
-
 # 若不使用 TUN 模式，请删除此部分
 tun:
   enable: true
