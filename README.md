@@ -20,5 +20,5 @@
 ## 支付宝
 ![167673823486183](https://user-images.githubusercontent.com/45238096/219877760-b385af34-ebbd-438e-a31f-cd2b985047bb.png)
 # 机场推荐（薯条 CNIX，自用，我愿称之为打不死的小强）：  
-## [邀请链接 1](https://av1.wtf/auth/register?code=a5yy)  
-## [邀请链接 2](https://av1.wtf/#/auth/register?code=a5yy)
+## [邀请链接 1](https://av1.wtf/auth/register?code=nPLT)  
+## [邀请链接 2](https://av1.wtf/#/auth/register?code=nPLT)
