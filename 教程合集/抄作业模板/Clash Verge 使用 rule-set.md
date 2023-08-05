@@ -70,7 +70,7 @@ proxy-groups:
   - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
   # 精准筛选出香港节点，支持正则表达式
-  - {name: 🇭🇰 香港游戏节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "香港"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "香港"}
 
   - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "台湾"}
 
