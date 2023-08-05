@@ -98,11 +98,11 @@ rules:
  - MATCH,🐟 漏网之鱼
 ```
 # 四、 添加定时任务
-连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
+连接 SSH 后执行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 ```
 0 4 * * * curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && curl -o /data/clash/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件和 user.yaml
 ```
-按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
+按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，执行如下命令：
 ```
 /etc/init.d/cron restart
 ```
