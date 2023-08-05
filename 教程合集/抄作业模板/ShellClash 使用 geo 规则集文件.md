@@ -7,20 +7,20 @@
 # 一、 导入 geo 规则集文件
 连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/GeoSite.dat -L https://github.com/DustinWin/clash-geosite/releases/download/latest/geosite.dat
-curl -o $clashdir/GeoIP.dat -L https://github.com/DustinWin/clash-geoip/releases/download/latest/geoip.dat
-curl -o $clashdir/Country.mmdb -L https://github.com/DustinWin/clash-geoip/releases/download/latest/Country.mmdb
+curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat
+curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geoip.dat
+curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/Country.mmdb
 ```
 # 二、 导入 user.yaml 文件
 ## 1. DNS 模式为 fake-ip
 连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/yamls/user.yaml -L https://github.com/DustinWin/clash-geosite/releases/download/latest/fake-ip-user.yaml
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
 ```
 ## 2. DNS 模式为 redir-host
 连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/yamls/user.yaml -L https://github.com/DustinWin/clash-geosite/releases/download/latest/redir-host-user.yaml
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/redir-host-user.yaml
 ```
 # 三、 导入配置文件
 ```
