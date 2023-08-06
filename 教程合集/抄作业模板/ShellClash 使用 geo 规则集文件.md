@@ -97,19 +97,19 @@ proxy-groups:
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "美国"}
 
 rules:
- - GEOSITE,ads,⛔️ 广告域名
- - GEOSITE,lan,🏠 私有网络
- - GEOSITE,networktest,📈 网络测试
- - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
- - GEOSITE,apple-cn,🍎 Apple 中国
- - GEOSITE,google-cn,🗽 Google 中国
- - GEOSITE,games-cn,🎮 国区游戏
- - GEOSITE,proxy,🪜 代理域名
- - GEOSITE,cn,⚡ 直连域名
- - GEOIP,telegram,✈️ Telegram IP
- - GEOIP,lanip,🏠 私有网络,no-resolve
- - GEOIP,cn,🇨🇳 国内 IP
- - MATCH,🐟 漏网之鱼
+  - GEOSITE,ads,⛔️ 广告域名
+  - GEOSITE,lan,🏠 私有网络
+  - GEOSITE,networktest,📈 网络测试
+  - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
+  - GEOSITE,apple-cn,🍎 Apple 中国
+  - GEOSITE,google-cn,🗽 Google 中国
+  - GEOSITE,games-cn,🎮 国区游戏
+  - GEOSITE,proxy,🪜 代理域名
+  - GEOSITE,cn,⚡ 直连域名
+  - GEOIP,telegram,✈️ Telegram IP
+  - GEOIP,lanip,🏠 私有网络,no-resolve
+  - GEOIP,cn,🇨🇳 国内 IP
+  - MATCH,🐟 漏网之鱼
 ```
 # 五、 添加定时任务
 连接 SSH 后执行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
