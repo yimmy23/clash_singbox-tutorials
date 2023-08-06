@@ -40,7 +40,7 @@ copy /y "%USERPROFILE%\.config\clash-verge\Country.mmdb" "%PROGRAMFILES%\Clash V
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@master/shellclash-userconfig/{DNS 模式}-user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@master/clashverge-userconfig/{DNS 模式}-user.yaml
 ```
 # 四、 导入配置文件
 ```
