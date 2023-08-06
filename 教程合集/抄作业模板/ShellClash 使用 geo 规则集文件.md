@@ -1,17 +1,31 @@
 ## 前言：
 1. 本模板可以满足 90% 以上的科学上网需求，可以直接套用
 2. 本模板适用于 [ShellClash](https://github.com/juewuy/ShellClash) 使用 geo 规则集文件（geosite.dat、geoip.dat 和 Country.mmdb）的模式
-3. 本模板的配置文件请通过 ShellClash-6-2 的方式导入（可参考《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》生成 .yaml 文件直链）
-4. 请根据自身选择的 DNS 模式导入相应的 user.yaml 文件
+3. 本模板仅适配 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核
+4. 本模板的配置文件请通过 ShellClash-6-2 的方式导入（可参考《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》生成 .yaml 文件直链）
+5. 请根据自身选择的 DNS 模式导入相应的 user.yaml 文件
 ---
-# 一、 导入 geo 规则集文件
+# 一、 导入 Clash.Meta 内核（以 ARMv8 架构为例）
+## 1. Release 版
+连接 SSH 后执行如下命令：
+```
+curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
+chmod +x $clashdir/clash && $clashdir/start.sh restart
+```
+## 2. Alpha 版
+连接 SSH 后执行如下命令：
+```
+curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8
+chmod +x $clashdir/clash && $clashdir/start.sh restart
+```
+# 二、 导入 geo 规则集文件
 连接 SSH 后执行如下命令：
 ```
 curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat
 curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geoip.dat
 curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/Country.mmdb
 ```
-# 二、 导入 user.yaml 文件
+# 三、 导入 user.yaml 文件
 ## 1. DNS 模式为 fake-ip
 连接 SSH 后执行如下命令：
 ```
@@ -22,7 +36,7 @@ curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 ```
 curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/redir-host-user.yaml
 ```
-# 三、 导入配置文件
+# 四、 导入配置文件
 ```
 proxy-providers:
   🛫 我的机场:
@@ -97,9 +111,10 @@ rules:
  - GEOIP,cn,🇨🇳 国内 IP
  - MATCH,🐟 漏网之鱼
 ```
-# 四、 添加定时任务
+# 五、 添加定时任务
 连接 SSH 后执行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 ```
+30 3 * * * curl -o /data/clash/clash -L https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
 0 4 * * * curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && curl -o /data/clash/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件和 user.yaml
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，执行如下命令：
