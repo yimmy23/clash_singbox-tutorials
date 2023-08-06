@@ -1,8 +1,9 @@
 # 前言：
 1. 本模板可以满足 90% 以上的科学上网需求，可以直接套用
 2. 本模板适用于 [Clash Verge](https://github.com/zzzgydi/clash-verge)（Windows 端）使用 rule-set 的模式
-3. 本模板的配置文件请通过 Clash Verge-配置-导入的方式导入（可参考《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》生成 .yaml 文件直链）
-4. 请根据自身选择的 DNS 模式导入相应的 user.yaml 文件
+3. 本模板仅适配 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核
+4. 本模板的配置文件请通过 Clash Verge-配置-导入的方式导入（可参考《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》生成 .yaml 文件直链）
+5. 请根据自身选择的 DNS 模式导入相应的 user.yaml 文件
 ---
 # 一、 导入配置文件
 ```
@@ -166,7 +167,24 @@ rules:
   - RULE-SET,direct,⚡ 直连域名
   - MATCH,🐟 漏网之鱼
 ```
-# 一、 导入 user.yaml 文件
+# 一、 导入 Clash.Meta 内核
+## 1. Release 版  
+编辑文本文档，粘贴如下内容：
+```
+taskkill /f /t /im "Clash Verge*"
+taskkill /f /t /im clash-meta*
+curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/raw/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+```
+另存为 .bat 文件，右击并选择以管理员身份运行
+## 2. Alpha 版  
+编辑文本文档，粘贴如下内容：
+```
+taskkill /f /t /im "Clash Verge*"
+taskkill /f /t /im clash-meta*
+curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-windows-amd64.exe
+```
+另存为 .bat 文件，右击并选择以管理员身份运行
+# 二、 导入 user.yaml 文件
 1. 进入配置，点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”
 2. 进入文件夹 *%USERPROFILE%.config\clash-verge\profiles*，可以看到这里新增了一个.yaml 文件，复制其文件名并替换下面命令中的{文件名}；将下面命令中的{DNS 模式}替换为正在使用的 DNS 模式（fake-ip 或 redir-host）  
 以管理员身份运行 CMD，执行如下命令：
