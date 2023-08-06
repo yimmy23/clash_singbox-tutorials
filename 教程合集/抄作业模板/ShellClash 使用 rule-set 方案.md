@@ -161,7 +161,7 @@ rules:
   - RULE-SET,direct,⚡ 直连域名
   - MATCH,🐟 漏网之鱼
 ```
-# 五、 添加定时任务
+# 四、 添加定时任务
 连接 SSH 后执行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 ```
 30 3 * * * curl -o /data/clash/clash -L https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
