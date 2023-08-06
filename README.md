@@ -3,10 +3,10 @@
 **[ShellClash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)**  
   
 **抄作业模板：**  
-**1. [ShellClash 使用 geo 规则集方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E6%8A%84%E4%BD%9C%E4%B8%9A%E6%A8%A1%E6%9D%BF/ShellClash%20%E4%BD%BF%E7%94%A8%20geo%20%E8%A7%84%E5%88%99%E9%9B%86%E6%96%B9%E6%A1%88.md)**  
+**1. [ShellClash 使用 geo 规则集方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E6%8A%84%E4%BD%9C%E4%B8%9A%E6%A8%A1%E6%9D%BF/ShellClash%20%E4%BD%BF%E7%94%A8%20geo%20%E8%A7%84%E5%88%99%E9%9B%86%E6%96%B9%E6%A1%88.md)（推荐）**  
 **2. [ShellClash 使用 rule-set 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E6%8A%84%E4%BD%9C%E4%B8%9A%E6%A8%A1%E6%9D%BF/ShellClash%20%E4%BD%BF%E7%94%A8%20rule-set%20%E6%96%B9%E6%A1%88.md)**  
 **3. [Clash Verge 使用 geo 规则集方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E6%8A%84%E4%BD%9C%E4%B8%9A%E6%A8%A1%E6%9D%BF/Clash%20Verge%20%E4%BD%BF%E7%94%A8%20geo%20%E8%A7%84%E5%88%99%E9%9B%86%E6%96%B9%E6%A1%88.md)**  
-**4. [Clash Verge 使用 rule-set 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E6%8A%84%E4%BD%9C%E4%B8%9A%E6%A8%A1%E6%9D%BF/Clash%20Verge%20%E4%BD%BF%E7%94%A8%20rule-set%20%E6%96%B9%E6%A1%88.md)**  
+**4. [Clash Verge 使用 rule-set 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E6%8A%84%E4%BD%9C%E4%B8%9A%E6%A8%A1%E6%9D%BF/Clash%20Verge%20%E4%BD%BF%E7%94%A8%20rule-set%20%E6%96%B9%E6%A1%88.md)（推荐）**  
 **5. [Clash Meta for Android 使用 rule-set 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E6%8A%84%E4%BD%9C%E4%B8%9A%E6%A8%A1%E6%9D%BF/Clash%20Meta%20for%20Android%20%E4%BD%BF%E7%94%A8%20rule-set%20%E6%96%B9%E6%A1%88.md)**
 ---
 # Clash 教程合集
