@@ -64,10 +64,6 @@ proxy-groups:
 
   - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
-  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
-
   - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
 
   - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
