@@ -1,4 +1,4 @@
-# 本地配置自定义规则和代理组 ruleset 方案
+# ShellClash 本地配置自定义规则和代理组 ruleset 方案
 此方案采用 `RULE-SET` 规则
 # 前言
 1. 本教程只适用于 [ShellClash](https://github.com/juewuy/ShellClash)
