@@ -37,7 +37,7 @@ $clashdir/start.sh restart
 - 3. 推荐使用 [VSCode 编辑器](https://code.visualstudio.com/Download) 或其它专业文本编辑器
 
 ## 1. 修改 user.yaml 文件
-连接 SSH，执行命令 `vi $clashdir/user.yaml`，按一下 Ins 键（Insert 键），在最上方粘贴如下内容：
+连接 SSH，执行命令 `vi $clashdir/yamls/user.yaml`，按一下 Ins 键（Insert 键），在最上方粘贴如下内容：
 ```
 proxy-providers:
   # 获取机场订阅链接内的所有节点
