@@ -189,7 +189,7 @@ curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 
 5. 返回到主菜单，进入 4 clash 启动设置，选择 1 允许 clash 开机启动
 6. 返回到主菜单，选择 5 设置定时任务，查看定时任务是否添加成功
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/235519b3-e345-4520-a574-8aae171ba185" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/de89445d-1537-4d92-804b-58212c50a7ba" width="60%"/>  
 
 7. 返回到主菜单，选择 7 clash 进阶设置，进入 6 配置内置 DNS 服务，设置如下：
 <img src="https://user-images.githubusercontent.com/45238096/232890411-b717ddae-1af2-4b20-9829-792f02c3e77e.png" width="60%"/>  
