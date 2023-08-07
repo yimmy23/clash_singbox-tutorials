@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths-ignore:
-      - "README.md"
+      - "**.md"
       - ".github/workflows/delete-old-workflows.yml"
 
 jobs:
