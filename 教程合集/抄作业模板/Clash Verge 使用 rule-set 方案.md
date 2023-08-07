@@ -194,5 +194,5 @@ rules:
   - RULE-SET,direct,⚡ 直连域名
   - MATCH,🐟 漏网之鱼
 ```
-# 五、 启用 Clash 字段
+# 四、 启用 Clash 字段
 进入 Clash Verge->设置->Clash 设置->Clash 字段，勾选带有感叹号的字段，“保存”即可
