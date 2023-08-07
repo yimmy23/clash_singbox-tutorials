@@ -4,7 +4,7 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.67 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.9 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.7.10 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
@@ -151,7 +151,7 @@ telnet 192.168.31.1
 ```
 ssh root@192.168.31.1
 ```
-- 注：若当前电脑登录过 SSH，后路由器经过重新解锁或恢复 SSH，需要进入 *C:\Users\[用户名]\.ssh* 文件夹，删除“known_hosts”文件，否则登录会报错
+- 注：若当前电脑登录过 SSH，后路由器经过重新解锁或恢复 SSH，需要进入 *C:\Users\\[用户名]\\.ssh* 文件夹，删除“known_hosts”文件，否则登录会报错
 
 首次登录需要手动输入“yes”，然后回车  
 <img src="https://i.postimg.cc/pVD7KCkq/QQ-20221208153543.png" width="60%"/>  
@@ -210,8 +210,8 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 ```
 ③ 选择 1 安装到/data 目录（推荐，支持软固化功能）  
 ④ 将下载的 clash.meta-linux-arm64-xxx.gz 文件解压，得到 clash.meta-linux-arm64 文件  
-⑤ 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\[用户名]\Desktop\upx*  
-⑥ 将 clash.meta-linux-arm64 文件移动到 *C:\Users\[用户名]\Desktop\upx* 文件夹中，以管理员身份运行 PowerShell，依次执行如下命令：
+⑤ 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\\[用户名]\Desktop\upx*  
+⑥ 将 clash.meta-linux-arm64 文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中，以管理员身份运行 PowerShell，依次执行如下命令：
 ```
 cd C:\Users\[用户名]\Desktop\upx
 .\upx --best clash.meta-linux-arm64
@@ -257,8 +257,8 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://user-images.githubusercontent.com/45238096/232899733-3d51da3a-2121-4e70-a27d-f08feefba8d7.png" width="60%"/>  
 
-⑥ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
-<img src="https://i.postimg.cc/xTZdM96v/QQ-20230202140107.png" width="60%"/>  
+⑥ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/28dd2543-97f8-4bb4-bc77-0f024afa5a88" width="60%"/>  
 
 ⑦ 返回到 9 更新/卸载，进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
 - 注：
@@ -297,7 +297,7 @@ $clashdir/start.sh restart
 ```
 - 5. 更新订阅：
 ```
-$clashdir/start.sh getyaml
+$clashdir/start.sh updateyaml
 ```
 - 6. 查看帮助和说明：
 ```
@@ -317,14 +317,14 @@ $clashdir/start.sh stop && clash -u
 进入 ShellClash 配置主菜单，进入 9 更新/卸载，选择 9 卸载 ShellClash
 # 六 、 AdGuardHome 安装和配置
 ## 1. AdGuardHome 安装
-① 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\[用户名]\Desktop\upx*  
+① 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\\[用户名]\Desktop\upx*  
 ② 将下载的 AdGuardHome_linux_arm64.tar.gz 文件复制到桌面，以管理员身份运行 PowerShell，依次执行如下命令：
 ```
 cd C:\Users\[用户名]\Desktop
 tar -zxvf AdGuardHome_linux_arm64.tar.gz
 ```
-.tar.gz 压缩文件成功解压到桌面的 *AdGuardHome* 文件夹内，目录结构为 *C:\Users\[用户名]\Desktop\AdGuardHome*  
-③ 进入 *AdGuardHome* 文件夹，将里面的“AdGuardHome”文件移动到 *C:\Users\[用户名]\Desktop\upx* 文件夹中  
+.tar.gz 压缩文件成功解压到桌面的 *AdGuardHome* 文件夹内，目录结构为 *C:\Users\\[用户名]\Desktop\AdGuardHome*  
+③ 进入 *AdGuardHome* 文件夹，将里面的“AdGuardHome”文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中  
 此时“AdGuardHome”文件大小：  
 <img src="https://i.postimg.cc/8cBhsjRm/QQ-20221216151642.png" width="60%"/>  
 
