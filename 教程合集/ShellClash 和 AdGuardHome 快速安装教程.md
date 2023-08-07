@@ -32,7 +32,8 @@ chmod +x $clashdir/clash && $clashdir/start.sh restart
 
 # 三、 安装 AdGuardHome
 - 注：DNS 服务器监听端口须与命令中的端口保持一致，此处设为 5625
- 
+
+## 1. 安装 AdGuardHome
 AdGuardHome CPU 架构和链接后缀对应关系如下：
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|-----|-----|-----|
@@ -64,7 +65,7 @@ ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
-# 四、 升级 AdGuardHome
+## 3. 升级 AdGuardHome
 - 注：留意链接后缀是否与 CPU 架构匹配
 
 执行如下命令：
