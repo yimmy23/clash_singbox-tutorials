@@ -16,18 +16,9 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 比如搭载的是 ARMv7 架构的 CPU，就修改为：  
 `https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv7`  
 其它架构 CPU 的链接后缀对应如下：
-
-|CPU 架构|链接后缀|
-|-----|-----|
-|AMD64|`Clash.Meta-linux-amd64`|
-|ARMv5|`Clash.Meta-linux-armv5`|
-|ARMv6|`Clash.Meta-linux-armv6`|
-|ARMv7|`Clash.Meta-linux-armv7`|
-|ARMv8|`Clash.Meta-linux-armv8`|
-|mips-softfloat|`Clash.Meta-linux-mips-softfloat`|
-|mipsle-hardfloat|`Clash.Meta-linux-mipsle-hardfloat`|
-|mipsle-softfloat|`Clash.Meta-linux-mipsle-softfloat`|
-|Windows-AMD64|`clash.meta-windows-amd64.exe`|
+|CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|链接后缀|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
 执行如下命令：
 ```
@@ -49,17 +40,9 @@ chmod +x $clashdir/clash && $clashdir/start.sh restart
 比如搭载的是 ARMv7 架构的 CPU，就修改为：  
 `https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome/AdGuardHome_linux_armv7`  
 其它架构 CPU 的链接后缀对应如下：
-
-|CPU 架构|链接后缀|
-|-----|-----|
-|AMD64|`AdGuardHome_linux_amd64`|
-|ARMv5|`AdGuardHome_linux_armv5`|
-|ARMv6|`AdGuardHome_linux_armv6`|
-|ARMv7|`AdGuardHome_linux_armv7`|
-|ARMv8|`AdGuardHome_linux_armv8`|
-|mips-softfloat|`AdGuardHome_linux_mips_softfloat`|
-|mipsle-softfloat|`AdGuardHome_linux_mipsle_softfloat`|
-|Windows-AMD64|`AdGuardHome_windows_amd64.exe`|
+|CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-softfloat|
+|-----|-----|-----|-----|-----|-----|-----|-----|
+|链接后缀|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-softfloat`|
 
 执行如下命令：
 ```
