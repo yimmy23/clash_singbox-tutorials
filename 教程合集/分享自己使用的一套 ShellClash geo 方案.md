@@ -131,7 +131,7 @@ curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）  
 输入 0 回车可返回到上级菜单（下同）  
 2. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
-3. 进入主菜单后选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 5 公测版&Jsdelivr-CDN 源（推荐）
+3. 进入主菜单后选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐）
 4. 返回到主菜单，选择 2 clash功能设置，设置如下：
 <img src="https://user-images.githubusercontent.com/45238096/231971374-f0b7e674-1e88-4b2e-987a-39667bc5d127.png" width="60%"/>  
 
