@@ -6,7 +6,7 @@
 3. 自定义规则参考 [Loyalsoldier/clash-rules](https://github.com/Loyalsoldier/clash-rules)
 ---
 # 一、 ShellClash 配置
-进入 ShellClash 脚本配置->6->1->4，选择 4 [Acl4SSR](https://acl4ssr-sub.github.io/) 极简版（适合自建节点）  
+进入 ShellClash 脚本配置->6->1->4，选择 4 [Acl4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 ![QQ截图20230315130212](https://user-images.githubusercontent.com/45238096/225292060-270091da-324b-4c84-8f94-74c2fcb2dc75.png)  
 然后在线生成 [Clash](https://github.com/Dreamacro/clash/wiki) 配置文件
 # 二、 选择模式
@@ -14,18 +14,18 @@
 没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户  
 运行如下命令：
 ```
-curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/whitelist-mode/proxy-groups.yaml
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/whitelist-mode/user.yaml
-curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/whitelist-mode/rules.yaml
+curl -o $clashdir/yamls/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/whitelist-mode/proxy-groups.yaml
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/whitelist-mode/user.yaml
+curl -o $clashdir/yamls/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/whitelist-mode/rules.yaml
 $clashdir/start.sh restart
 ```
 ## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_blacklist.yaml)
 只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式  
 运行如下命令：
 ```
-curl -o $clashdir/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/blacklist-mode/proxy-groups.yaml
-curl -o $clashdir/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/blacklist-mode/user.yaml
-curl -o $clashdir/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/blacklist-mode/rules.yaml
+curl -o $clashdir/yamls/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/blacklist-mode/proxy-groups.yaml
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/blacklist-mode/user.yaml
+curl -o $clashdir/yamls/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/ruleset-mode/blacklist-mode/rules.yaml
 $clashdir/start.sh restart
 ```
 # 三、 修改规则或代理组
@@ -39,7 +39,7 @@ $clashdir/start.sh restart
 - 3. 推荐使用 [VSCode 编辑器](https://code.visualstudio.com/Download) 或其它专业文本编辑器
 
 ## 1. 修改 user.yaml 文件
-① 连接 SSH，执行命令 `vi $clashdir/user.yaml`  
+① 连接 SSH，执行命令 `vi $clashdir/yamls/user.yaml`  
 ② 按一下 Ins 键（Insert 键），在最上方粘贴如下内容：
 ```
 proxy-providers:
@@ -70,21 +70,21 @@ proxy-providers:
 ```
 ④ 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 2. 修改 proxy-groups.yaml 文件
-连接 SSH，执行命令 `vi $clashdir/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH，执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
   # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
   - {name: 🎥 奈飞节点, type: url-test, tolerance: 100, use:[ 🛫 我的机场], filter: "日本|新加坡"}
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 3. 修改 rules.yaml 文件
-连接 SSH，执行命令 `vi $clashdir/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
+连接 SSH，执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
 ```
 # 自定义规则优先放前面
 - RULE-SET,netflix,🎥 奈飞节点
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 # 四、 添加小规则
-仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $clashdir/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
+仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
 注：
 - 1. 以下内容只是举例，请根据自身需要进行增删改
 - 2. 其它规则请参考《[Clash.Meta Wiki](https://wiki.metacubex.one/config/rules)》
