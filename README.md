@@ -25,6 +25,7 @@ Clash Verge 相关设置
 ### 1. 分享自己使用的一套 ShellClash geo 方案
 ### 2. 分享自己使用的一套 Clash Verge geo 方案
 # 二、 rule-set 方案
+## 1. 基础篇
 ### ① 生成 ShellClash 带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案
 ShellClash 相关设置
 ### ② 生成 Clash Verge 带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案
