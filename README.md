@@ -6,30 +6,41 @@
 ---
 
 # Clash 教程合集
-# 一、 基础篇
-## 1. 生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案
-ShellClash 相关设置  
-Clash Verge 相关设置
-## 3. 生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案
-ShellClash 相关设置  
-Clash Verge 相关设置
-# 二、 进阶篇
-## 1. ShellClash 本地配置自定义规则和代理组 geo 方案
+# 一、 geo 方案
+## 1. 基础篇
+### ① 生成 ShellClash 带有自定义规则和代理组的配置文件 yaml 直链 geo 方案
 ShellClash 相关设置
-## 2. ShellClash 本地配置自定义规则和代理组 ruleset 方案
+### ② 生成 Clash Verge 带有自定义规则和代理组的配置文件 yaml 直链 geo 方案
+Clash Verge 相关设置
+### ③ 生成 Clash.Meta for Android 带有自定义规则和代理组的配置文件 yaml 直链 geo 方案
+Clash.Meta for Android 相关设置  
+## 2. 进阶篇
+### 1. ShellClash 本地配置自定义规则和代理组 geo 方案
 ShellClash 相关设置
-## 3. 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案
-ShellClash 相关设置  
+### 2. ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案
+ShellClash 相关设置
+### 3. Clash Verge 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案
 Clash Verge 相关设置
-## 4. 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案
-ShellClash 相关设置  
+## 3. 分享自己使用的 geo 方案和配置
+### 1. 分享自己使用的一套 ShellClash geo 方案
+### 2. 分享自己使用的一套 Clash Verge geo 方案
+# 二、 rule-set 方案
+### ① 生成 ShellClash 带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案
+ShellClash 相关设置
+### ② 生成 Clash Verge 带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案
 Clash Verge 相关设置
-# 三、 分享自己使用的方案和配置
-## 1. 分享自己使用的一套 ShellClash geo 方案
-## 2. 分享自己使用的一套 Clash Verge geo 方案
-## 3. 分享自己使用的一套 ShellClash ruleset 方案
-## 4. 分享自己使用的一套 Clash Verge ruleset 方案
-
+### ③ 生成 Clash.Meta for Android 带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案
+Clash.Meta for Android 相关设置  
+## 2. 进阶篇
+### 1. ShellClash 本地配置自定义规则和代理组 rule-set 方案
+ShellClash 相关设置
+### 2. ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 rule-set 方案
+ShellClash 相关设置
+### 3. Clash Verge 使用 Clash.Meta 内核进行 DNS 分流教程 rule-set 方案
+Clash Verge 相关设置
+## 3. 分享自己使用的 rule-set 方案和配置
+### 1. 分享自己使用的一套 ShellClash rule-set 方案
+### 2. 分享自己使用的一套 Clash Verge rule-set 方案
 # 给作者加鸡腿：
 ## 支付宝
 ![167673823486183](https://user-images.githubusercontent.com/45238096/219877760-b385af34-ebbd-438e-a31f-cd2b985047bb.png)
