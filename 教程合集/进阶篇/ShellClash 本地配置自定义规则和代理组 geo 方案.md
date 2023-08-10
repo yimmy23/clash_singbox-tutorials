@@ -47,6 +47,7 @@ proxy-providers:
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
 ```
+按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 2. 自定义 proxy-groups.yaml 
 连接 SSH 后执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
