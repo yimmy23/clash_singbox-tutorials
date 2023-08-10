@@ -136,7 +136,7 @@ proxy-groups:
   - {name: 🎥 奈飞节点, type: url-test, tolerance: 100, use:[ 🛫 我的机场], filter: "日本|新加坡"}
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
-## 3. 修改 rules.yaml 文件
+## 2. 修改 rules.yaml 文件
 连接 SSH，执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
 ```
 # 自定义规则优先放前面
