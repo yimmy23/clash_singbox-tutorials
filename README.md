@@ -7,6 +7,7 @@
 
 # Clash 教程合集
 # 一、 geo 方案
+- 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
 ## 1. 基础篇
 ### ① [生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)
 ### ② [ShellClash 设置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)
@@ -23,6 +24,7 @@ Clash Verge 相关设置
 ### 1. 分享自己使用的一套 ShellClash geo 方案
 ### 2. 分享自己使用的一套 Clash Verge geo 方案
 # 二、 rule-set 方案
+- 注：此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 ## 1. 基础篇
 ### ① 生成 ShellClash 带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案
 ShellClash 相关设置
