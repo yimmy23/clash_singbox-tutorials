@@ -6,6 +6,7 @@
 nameserver-policy:
   'rule-set:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
+- 3. 此方案自定义规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 ---
 # 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)和路由规则文件
 可参考《[Clash Verge 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)》里的步骤《二、三》进行操作
