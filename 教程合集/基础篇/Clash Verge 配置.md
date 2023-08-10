@@ -1,4 +1,5 @@
 # [Clash Verge](https://github.com/zzzgydi/clash-verge)（Windows 端）配置
+- 注：此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 一、 设置部分
 1. 进入 Clash Verge->设置->Verge 设置->语言设置，可切换到“中文”
 2. 进入设置->Clash 设置->Clash 内核，点击“螺帽图标”并切换至“[Clash Meta 内核](https://github.com/MetaCubeX/Clash.Meta)”
@@ -11,7 +12,7 @@ taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/raw/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 pause
 ```
-# 二、 导入 [路由规则集文件](https://github.com/MetaCubeX/meta-rules-dat)
+# 二、 导入路由规则集文件
 编辑文本文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
