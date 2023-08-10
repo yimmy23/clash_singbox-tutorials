@@ -1,4 +1,4 @@
-# [ShellClash](https://github.com/juewuy/ShellClash) 本地配置自定义规则和代理组 geo 方案（慎用，有 bug）
+# [ShellClash](https://github.com/juewuy/ShellClash) 本地配置自定义规则和代理组 geo 方案
 - 注：此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 前言
 1. 本教程只适用于 ShellClash
@@ -48,34 +48,154 @@ proxy-providers:
       interval: 600
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
-## 2. 自定义 proxy-groups.yaml 
+## 2. 白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
+① 自定义 proxy-groups.yaml 和 rules.yaml  
 连接 SSH 后执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-proxy-groups:
-  # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），选择“节点选择”为测试机场速度（翻墙后网络速度）
-  - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+# 手动选择国家或地区节点；根据 proxy-groups 中（下方）国家或地区的节点名称对 proxies 值进行增删改，须一一对应
+- name: 🈯 节点指定
+  type: select
+  proxies:
+    - 🇭🇰 香港节点
+    - 🇹🇼 台湾节点
+    - 🇯🇵 日本节点
+    - 🇰🇷 韩国节点
+    - 🇸🇬 新加坡节点
+    - 🇺🇸 美国节点
 
-  - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+# Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
+- name: 📈 网络测试
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🇭🇰 香港节点
+    - 🇹🇼 台湾节点
+    - 🇯🇵 日本节点
+    - 🇰🇷 韩国节点
+    - 🇸🇬 新加坡节点
+    - 🇺🇸 美国节点
 
-  - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+- name: ⚡ 直连域名
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🈯 节点指定
 
-  - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+- name: 🪜 代理域名
+  type: select
+  proxies:
+    - 🈯 节点指定
+    - 🎯 全球直连
 
-  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+- name: 🎮 国区游戏
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🈯 节点指定
 
-  - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+- name: Ⓜ️ Microsoft 中国
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🈯 节点指定
 
-  - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+- name: 🗽 Google 中国
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🈯 节点指定
 
-  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+- name: 🍎 Apple 中国
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🈯 节点指定
 
-  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+- name: 🇨🇳 国内 IP
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🈯 节点指定
 
-  - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
+- name: ✈️ Telegram IP
+  type: select
+  proxies:
+    - 🈯 节点指定
 
-  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+- name: 🏠 私有网络
+  type: select
+  proxies:
+    - 🎯 全球直连
 
-  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
+- name: ⛔️ 广告域名
+  type: select
+  proxies:
+    - 🛑 全球拦截
+
+- name: 🛑 全球拦截
+  type: select
+  proxies:
+    - REJECT
+
+# -----------------国家或地区节点----------------------
+
+# 自动选择节点，即按照 url 测试结果使用延迟最低的节点
+- name: 🇭🇰 香港节点
+  type: url-test
+  # 测试后容差大于 100ms 才会切换到延迟低的那个节点
+  tolerance: 100
+  # 未选择到当前策略组时不会进行延迟测试
+  lazy: true
+  use:
+    - 🛫 我的机场 1
+    - 🛫 我的机场 2
+  # 筛选出“香港”节点，支持正则表达式
+  filter: "香港"
+
+- name: 🇹🇼 台湾节点
+  type: url-test
+  tolerance: 100
+  lazy: true
+  use:
+    - 🛫 我的机场 1
+    - 🛫 我的机场 2
+  filter: "台湾"
+
+- name: 🇯🇵 日本节点
+  type: url-test
+  tolerance: 100
+  lazy: true
+  use:
+    - 🛫 我的机场 1
+    - 🛫 我的机场 2
+  filter: "日本"
+
+- name: 🇰🇷 韩国节点
+  type: url-test
+  tolerance: 100
+  lazy: true
+  use:
+    - 🛫 我的机场 1
+    - 🛫 我的机场 2
+  filter: "韩国"
+
+- name: 🇸🇬 新加坡节点
+  type: url-test
+  tolerance: 100
+  lazy: true
+  use:
+    - 🛫 我的机场 1
+    - 🛫 我的机场 2
+  filter: "新加坡"
+
+- name: 🇺🇸 美国节点
+  type: url-test
+  tolerance: 100
+  lazy: true
+  use:
+    - 🛫 我的机场 1
+    - 🛫 我的机场 2
+  filter: "美国"
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 3. 自定义 rules.yaml
@@ -109,8 +229,13 @@ proxy-groups:
 ## 1. 修改 proxy-groups.yaml 文件
 连接 SSH 后执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-  # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-  - {name: 🎥 奈飞节点, type: url-test, tolerance: 100, use:[ 🛫 我的机场], filter: "日本|新加坡"}
+# 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
+- name: 🎥 奈飞节点
+  type: url-test
+  tolerance: 100
+  use:
+    - 🛫 我的机场
+  filter: "日本|新加坡"
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 2. 修改 rules.yaml 文件
