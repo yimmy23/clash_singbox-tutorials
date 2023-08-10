@@ -63,7 +63,7 @@ proxy-providers:
     - 🇺🇸 美国节点
 
 # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
-- name: 📈 网络测试
+- name: 📈 网络测速
   type: select
   proxies:
     - 🎯 全球直连
