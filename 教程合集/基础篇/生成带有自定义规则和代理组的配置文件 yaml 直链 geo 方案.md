@@ -1,5 +1,5 @@
 # 生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案
-此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
+- 注：此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 前言：
 1. 本教程可以生成扩展名为 .yaml 文件的直链，可以**一键导入使用了 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核的 Clash 客户端**  
 如：[ShellClash](https://github.com/juewuy/ShellClash)、[OpenClash](https://github.com/vernesong/OpenClash) 和 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等
@@ -240,9 +240,9 @@ rules:
 `https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/clashlink.yaml`  
 # 五、 导入订阅链接
 ## 1. 在 ShellClash 中导入订阅链接
-进入 ShellClash 配置脚本-6-2，粘贴最终生成的订阅链接即可，具体设置请参考 [ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)
+进入 ShellClash 配置脚本->6->2，粘贴最终生成的订阅链接即可，具体设置请参考 [ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)
 ## 2. 在 Clash Verge（Windows 端）中导入订阅链接
-进入 Clash Verge-配置-配置文件链接，粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考 [Clash Verge 配置](https://www.baidu.com)
+进入 Clash Verge->配置->配置文件链接，粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考 [Clash Verge 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
