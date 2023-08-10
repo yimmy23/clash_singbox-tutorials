@@ -11,7 +11,7 @@ taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/raw/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 pause
 ```
-# 二、 导入 [geo 规则集文件](https://github.com/MetaCubeX/meta-rules-dat)
+# 二、 导入 [路由规则集文件](https://github.com/MetaCubeX/meta-rules-dat)
 编辑文本文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
