@@ -228,16 +228,16 @@ rules:
 ```
 # 四、 生成.yaml 文件链接
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
-![微信截图_20230423201617](https://user-images.githubusercontent.com/45238096/233839417-51d1ab65-3e6b-4ae8-bf01-9d342029b423.png)  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/ed151cc8-1bae-4b9f-a598-2a2687e8acc5" width="60%"/>  
 
 取出地址栏中的网址，删除后面的一串随机码，**完成后该.yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该 .yaml 文件并提交了 n 次也不会改变  
 举例，这是原地址：  
-`https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/df770aae2001b2eab426a385ea10bbbb35a35c52/template_whitelist.yaml`  
-删除后面的一串随机码（当前编辑该文件生成的随机码“df770aae2001b2eab426a385ea10bbbb35a35c52”）  
-![QQ截图20230323121300](https://user-images.githubusercontent.com/45238096/227101230-83e6ee64-ebde-4045-acdc-1dc1eb5d9b4d.png)  
+`https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/064134b248dddb3a77d85acf45d084751c57ed11/clashlink.yaml`  
+删除后面的一串随机码（当前编辑该文件生成的随机码“064134b248dddb3a77d85acf45d084751c57ed11”）  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/12b17493-119d-40b7-8bf6-4d05ceaf7a8c" width="60%"/>  
 
 删除后变成：  
-`https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
+`https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/clashlink.yaml`  
 # 五、 导入订阅链接
 ## 1. 在 ShellClash 中导入订阅链接
 进入 ShellClash 配置脚本-6-2，粘贴最终生成的订阅链接即可，具体设置请参考 [ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)
