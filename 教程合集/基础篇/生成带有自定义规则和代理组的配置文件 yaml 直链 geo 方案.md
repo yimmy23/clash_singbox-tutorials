@@ -228,11 +228,11 @@ rules:
   - GEOSITE,bilibili,🎥 哔哩哔哩
   - GEOSITE,acfun,📽️ AcFun
 ```
-# 四、 生成.yaml 文件链接
+# 四、 生成 .yaml 文件链接
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/ed151cc8-1bae-4b9f-a598-2a2687e8acc5" width="60%"/>  
 
-取出地址栏中的网址，删除后面的一串随机码，**完成后该.yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该 .yaml 文件并提交了 n 次也不会改变  
+取出地址栏中的网址，删除后面的一串随机码，**完成后该 .yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该 .yaml 文件并提交了 n 次也不会改变  
 举例，这是原地址：  
 `https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/064134b248dddb3a77d85acf45d084751c57ed11/clashlink.yaml`  
 删除后面的一串随机码（当前编辑该文件生成的随机码“064134b248dddb3a77d85acf45d084751c57ed11”）  
