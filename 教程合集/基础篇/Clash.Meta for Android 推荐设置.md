@@ -116,6 +116,7 @@ proxy-groups:
 
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "美国"}
 
+# 规则集 .yaml 文件；每天自动更新
 rule-providers:
   reject:
     type: http
@@ -300,6 +301,7 @@ proxy-groups:
 
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "美国"}
 
+# 规则集 .yaml 文件；每天自动更新
 rule-providers:
   reject:
     type: http
