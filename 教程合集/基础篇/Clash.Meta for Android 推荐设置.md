@@ -346,5 +346,5 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入配置文件并启动 Clash
-1. 进入 Clash Meta for Android->配置->创建配置->从 URL 导入，“URL”输入[第一步](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash.Meta%20for%20Android%20%E6%8E%A8%E8%8D%90%E8%AE%BE%E7%BD%AE.md#%E4%B8%80-%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-yaml-%E7%9B%B4%E9%93%BE)中生成的配置文件 yaml 直链，“自动更新”填写“1440”，最后点击右上角的“保存图标”
+1. 进入 Clash Meta for Android->配置->创建配置->从 URL 导入，“URL”输入《[第一步](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash.Meta%20for%20Android%20%E6%8E%A8%E8%8D%90%E8%AE%BE%E7%BD%AE.md#%E4%B8%80-%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-yaml-%E7%9B%B4%E9%93%BE)》中生成的配置文件 yaml 直链，“自动更新”填写“1440”，最后点击右上角的“保存图标”
 2. 返回到主界面，点击“点此启用”即可启动 Clash 服务
