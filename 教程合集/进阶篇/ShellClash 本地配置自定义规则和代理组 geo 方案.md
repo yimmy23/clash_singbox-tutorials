@@ -1,32 +1,125 @@
-# [ShellClash](https://github.com/juewuy/ShellClash) 本地配置自定义规则和代理组 geo 方案
-此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）路由规则文件
+# [ShellClash](https://github.com/juewuy/ShellClash) 本地配置自定义规则和代理组 geo 方案（慎用，有 bug）
+- 注：此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）路由规则文件
 # 前言
 1. 本教程只适用于 ShellClash
 2. 自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
+3. 本教程最终效果媲美《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》（代理组更直观，操作更方便），但不依赖于网络
 ---
-# 一、 ShellClash 配置
-进入 ShellClash 脚本配置->6->1->4，选择 4 [Acl4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
+# 一、 导入 Clash.Meta 内核和路由规则文件
+可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》里的步骤《一、二》进行操作
+# 二、 导入配置文件
+1. 进入 ShellClash->6 导入配置文件->1 在线生成Clash配置文件->4 选取在线配置规则模版，选择 4 [Acl4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>  
- 
-然后在线生成 [Clash](https://github.com/Dreamacro/clash/wiki) 配置文件
-# 二、 选择模式
-## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_whitelist.yaml)
-没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户  
-运行如下命令：
+
+2. 进入 ShellClash->6 导入配置文件->1 在线生成Clash配置文件，输入订阅链接后回车，再输入“1”并回车即可
+# 三、 自定义规则和代理组
+## 1. 自定义 others.yaml
+连接 SSH 后执行命令 `vi $clashdir/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-curl -o $clashdir/yamls/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/geo-mode/whitelist-mode/proxy-groups.yaml
-curl -o $clashdir/yamls/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/geo-mode/whitelist-mode/rules.yaml
-$clashdir/start.sh restart
+proxy-providers:
+  # 获取机场订阅链接内的所有节点
+  🛫 我的机场 1:
+    type: http
+    # 机场订阅链接，使用 Clash 链接
+    url: 'https://example.com/xxx/xxx&flag=clash'
+    path: ./proxies/airport1.yaml
+    interval: 43200
+    # 初步筛选需要的节点，支持正则表达式，不筛选可删除此配置项
+    filter: "香港|台湾|日本|韩国|新加坡|美国"
+    health-check:
+      enable: true
+      # 未选择到当前策略组时，不会进行测试
+      lazy: true
+      url: 'https://www.gstatic.com/generate_204'
+      interval: 600
+
+  🛫 我的机场 2:
+    type: http
+    url: 'https://example.com/xxx/xxx&flag=clash'
+    path: ./proxies/airport2.yaml
+    interval: 43200
+    filter: "香港|台湾|日本|韩国|新加坡|美国"
+    health-check:
+      enable: true
+      lazy: true
+      url: 'https://www.gstatic.com/generate_204'
+      interval: 600
 ```
-## 2. [黑名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_blacklist.yaml)
-只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式  
-运行如下命令：
+## 2. 自定义 proxy-groups.yaml 和 rules.yaml
+① 白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）  
+执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-curl -o $clashdir/yamls/proxy-groups.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/geo-mode/blacklist-mode/proxy-groups.yaml
-curl -o $clashdir/yamls/rules.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/local-rules/geo-mode/blacklist-mode/rules.yaml
-$clashdir/start.sh restart
+proxy-groups:
+  # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），选择“节点选择”为测试机场速度（翻墙后网络速度）
+  - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+
+  - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+
+  - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+
+  - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
+
+  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+
+  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 ```
-# 三、 修改规则或代理组
+按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车  
+再次执行命令`vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+```
+# 自定义规则优先放前面
+- GEOSITE,category-ads-all,⛔️ 广告域名
+- GEOSITE,private,🏠 私有网络
+- GEOSITE,speedtest,📈 网络测速
+- GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
+- GEOSITE,apple-cn,🍎 Apple 中国
+- GEOSITE,google-cn,🗽 Google 中国
+- GEOSITE,category-games@cn,🎮 国区游戏
+- GEOSITE,geolocation-!cn,🪜 代理域名
+- GEOSITE,cn,⚡ 直连域名
+- GEOIP,telegram,✈️ Telegram IP
+- GEOIP,private,🏠 私有网络,no-resolve
+- GEOIP,cn,🇨🇳 国内 IP
+```
+按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车  
+② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
+执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+```
+proxy-groups:
+  # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），选择“节点选择”为测试机场速度（翻墙后网络速度）
+  - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: 🧱 GFWList 域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
+
+  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+
+  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+
+  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
+```
+按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车  
+再次执行命令`vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+```
+# 自定义规则优先放前面
+- GEOSITE,category-ads-all,⛔️ 广告域名
+- GEOSITE,speedtest,📈 网络测速
+- GEOSITE,gfw,🧱 GFWList 域名
+- GEOIP,telegram,✈️ Telegram IP
+```
+# 四、 修改规则或代理组
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“netflix”  
 ② 进入 [Loyalsoldier/geoip/text](https://github.com/Loyalsoldier/geoip/tree/release/text) 后按 Ctrl+F 组合键搜索“netflix”  
@@ -36,28 +129,7 @@ $clashdir/start.sh restart
 - 2. 以下只是节选，请酌情套用
 - 3. 推荐使用 [VSCode 编辑器](https://code.visualstudio.com/Download) 或其它专业文本编辑器
 
-## 1. 修改 user.yaml 文件
-连接 SSH，执行命令 `vi $clashdir/yamls/user.yaml`，按一下 Ins 键（Insert 键），在最上方粘贴如下内容：
-```
-proxy-providers:
-  # 获取机场订阅链接内的所有节点
-  🛫 我的机场:
-    type: http
-    # 机场订阅链接，使用 Clash 链接
-    url: 'https://example.com/xxx/clash'
-    path: ./proxies/airport.yaml
-    interval: 43200
-    # 筛选出需要的节点，支持正则表达式，不筛选可删除此配置项
-    filter: "日本|新加坡"
-    health-check:
-      enable: true
-      # 未选择到当前策略组时，不会进行测试
-      # lazy: true
-      url: 'https://www.gstatic.com/generate_204'
-      interval: 600
-```
-按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
-## 2. 修改 proxy-groups.yaml 文件
+## 1. 修改 proxy-groups.yaml 文件
 连接 SSH，执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
   # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
@@ -72,7 +144,7 @@ proxy-providers:
 - GEOIP,netflix,🎥 奈飞节点
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
-# 四、 添加小规则
+# 五、 添加小规则
 仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
 注：
 - 1. 以下内容只是举例，请根据自身需要进行增删改
@@ -89,21 +161,3 @@ proxy-providers:
 - DOMAIN-KEYWORD,ipv6,DIRECT
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
-# 五、 使规则或代理组生效
-启动 Clash 服务即可，也可连接 SSH 后执行如下命令：
-```
-$clashdir/start.sh restart
-```
-# 六、 更新 geoste.dat、geoip.dat 和 Country.mmdb
-1. 若配置文件内含有 `geodata-mode: true` 这一项，连接 SSH 后，执行如下命令：
-```
-curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
-curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat
-$clashdir/start.sh restart
-```
-2. 若配置文件内没有 `geodata-mode: true` 这一项或含有 `geodata-mode: false`，连接 SSH 后，执行如下命令：
-```
-curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat
-curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country.mmdb
-$clashdir/start.sh restart
-```
