@@ -3,7 +3,7 @@
 # 前言
 1. 本教程只适用于 ShellClash
 2. 自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
-3. 本教程仅适合白名单模式，黑名单模式慎用
+3. 本教程仅适合白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户），黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）慎用
 4. 本教程最终效果媲美《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》（代理组更直观，操作更方便），但不依赖于网络
 5. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
 ---
@@ -47,9 +47,8 @@ proxy-providers:
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
 ```
-## 2. 自定义 proxy-groups.yaml 和 rules.yaml
-白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）  
-执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+## 2. 自定义 proxy-groups.yaml 
+连接 SSH 后执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 proxy-groups:
   # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），选择“节点选择”为测试机场速度（翻墙后网络速度）
@@ -77,8 +76,9 @@ proxy-groups:
 
   - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 ```
-按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车  
-再次执行命令`vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
+## 3. 自定义 rules.yaml
+连接 SSH 后执行命令`vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 自定义规则优先放前面
 - GEOSITE,category-ads-all,⛔️ 广告域名
@@ -106,7 +106,7 @@ proxy-groups:
 - 3. 推荐使用 [VSCode 编辑器](https://code.visualstudio.com/Download) 或其它专业文本编辑器
 
 ## 1. 修改 proxy-groups.yaml 文件
-连接 SSH，执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH后执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
   # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
   - {name: 🎥 奈飞节点, type: url-test, tolerance: 100, use:[ 🛫 我的机场], filter: "日本|新加坡"}
