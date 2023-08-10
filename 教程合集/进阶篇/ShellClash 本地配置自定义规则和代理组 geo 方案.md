@@ -107,14 +107,14 @@ proxy-groups:
 - 3. 推荐使用 [VSCode 编辑器](https://code.visualstudio.com/Download) 或其它专业文本编辑器
 
 ## 1. 修改 proxy-groups.yaml 文件
-连接 SSH后执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
   # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
   - {name: 🎥 奈飞节点, type: url-test, tolerance: 100, use:[ 🛫 我的机场], filter: "日本|新加坡"}
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 2. 修改 rules.yaml 文件
-连接 SSH，执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
+连接 SSH 后执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
 ```
 # 自定义规则优先放前面
 - GEOSITE,netflix,🎥 奈飞节点
