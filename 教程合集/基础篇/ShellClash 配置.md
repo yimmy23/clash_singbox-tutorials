@@ -21,7 +21,7 @@ curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rule
 curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
 ```
 # 四、 添加定时任务
-连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
+连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴（快捷键 Ctrl+Shift+V）如下内容：
 ```
 30 3 * * * curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
 0 4 * * * curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
