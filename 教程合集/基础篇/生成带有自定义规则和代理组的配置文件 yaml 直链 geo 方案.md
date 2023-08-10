@@ -240,7 +240,7 @@ rules:
 `https://gist.githubusercontent.com/DustinWin/a6d67d1c2c5da5ece004efcd791e4bf4/raw/template_whitelist.yaml`  
 # 五、 导入订阅链接
 ## 1. 在 ShellClash 中导入订阅链接
-进入 ShellClash 配置脚本-6-2，粘贴最终生成的订阅链接即可，具体设置请参考 [ShellClash 配置](https://www.baidu.com)
+进入 ShellClash 配置脚本-6-2，粘贴最终生成的订阅链接即可，具体设置请参考 [ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)
 ## 2. 在 Clash Verge（Windows 端）中导入订阅链接
 进入 Clash Verge-配置-配置文件链接，粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考 [Clash Verge 配置](https://www.baidu.com)
 # 六、 私人定制
