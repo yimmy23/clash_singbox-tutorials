@@ -4,7 +4,7 @@
 1. 进入 Clash Verge->设置->Verge 设置->语言设置，可切换到“中文”
 2. 进入设置->Clash 设置->Clash 内核，点击“螺帽图标”并切换至“[Clash Meta 内核](https://github.com/MetaCubeX/Clash.Meta)”
 3. 进入设置->系统设置->服务模式，点击“盾牌图标”，“INSTALL”即可
-# 一、 导入或更新 Clash Meta 内核
+# 二、 导入或更新 Clash Meta 内核
 编辑文本文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
@@ -12,7 +12,7 @@ taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/raw/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 pause
 ```
-# 二、 导入路由规则集文件
+# 三、 导入路由规则集文件
 编辑文本文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
@@ -26,7 +26,7 @@ copy /y "%USERPROFILE%\.config\clash-verge\Country.mmdb" "%PROGRAMFILES%\Clash V
 pause
 ```
 另存为 .bat 文件，右击并选择以管理员身份运行
-# 三、 导入配置
+# 四、 导入配置
 ## 1. 导入配置文件
 ① 进入 Clash Verge->配置，在“配置文件链接”处粘贴《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链  
 ② 右击导入的配置文件，选择“编辑信息”，“更新间隔”设置为“1440”，然后“保存”
@@ -180,10 +180,10 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
 ```
-# 四、 启动 Clash
+# 五、 启动 Clash
 1. 进入 Clash Verge->设置->Clash 设置->Clash 字段，勾选带有感叹号的字段，“保存”即可
 2. 进入设置->系统设置->Tun 模式，启用
-# 五、 在线面板
+# 六、 在线 Dashboard 面板
 推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one  
 1. 需要设置该网站“允许不安全内容”，以 [Chrome 浏览器](https://www.google.com/chrome)为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`
 <img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>  
