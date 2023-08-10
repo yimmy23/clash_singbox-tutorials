@@ -34,30 +34,6 @@ pause
 ① 进入 Clash Verge->配置，点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
 ② 再次右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
 ```
-mode: rule
-ipv6: true
-log-level: silent
-allow-lan: true
-mixed-port: 7890
-unified-delay: false
-tcp-concurrent: true
-external-controller: 127.0.0.1:9090
-
-find-process-mode: strict
-global-client-fingerprint: chrome
-
-tun:
-  enable: true
-  stack: system
-  dns-hijack:
-    - 'any:53'
-  auto-route: true
-  auto-detect-interface: true
-
-profile:
-  store-selected: true
-  store-fake-ip: true
-
 dns:
   enable: true
   prefer-h3: true
@@ -66,119 +42,17 @@ dns:
   use-hosts: true
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
-  fake-ip-filter:
-    - '*.lan'
-    - '*.localdomain'
-    - '*.example'
-    - '*.invalid'
-    - '*.localhost'
-    - '*.test'
-    - '*.local'
-    - '*.home.arpa'
-    - 'time.*.com'
-    - 'time.*.gov'
-    - 'time.*.edu.cn'
-    - 'time.*.apple.com'
-    - 'time1.*.com'
-    - 'time2.*.com'
-    - 'time3.*.com'
-    - 'time4.*.com'
-    - 'time5.*.com'
-    - 'time6.*.com'
-    - 'time7.*.com'
-    - 'ntp.*.com'
-    - 'ntp1.*.com'
-    - 'ntp2.*.com'
-    - 'ntp3.*.com'
-    - 'ntp4.*.com'
-    - 'ntp5.*.com'
-    - 'ntp6.*.com'
-    - 'ntp7.*.com'
-    - '*.time.edu.cn'
-    - '*.ntp.org.cn'
-    - '+.pool.ntp.org'
-    - '*.music.163.com'
-    - '*.126.net'
-    - '*.kuwo.cn'
-    - '*.y.qq.com'
-    - '*.xiami.com'
-    - '*.music.migu.cn'
-    - '+.msftconnecttest.com'
-    - '+.msftncsi.com'
-    - '+.qq.com'
-    - '+.tencent.com'
-    - '+.srv.nintendo.net'
-    - '*.n.n.srv.nintendo.net'
-    - '+.stun.playstation.net'
-    - 'xbox.*.*.microsoft.com'
-    - '*.*.xboxlive.com'
-    - 'xbox.*.microsoft.com'
-    - '+.battlenet.com.cn'
-    - '+.wotgame.cn'
-    - '+.wggames.cn'
-    - '+.wowsgame.cn'
-    - '+.wargaming.net'
-    - 'stun.*.*'
-    - 'stun.*.*.*'
-    - '+.stun.*.*'
-    - '+.stun.*.*.*'
-    - '+.stun.*.*.*.*'
-    - '+.stun.*.*.*.*.*'
-    - '*.linksys.com'
-    - '*.linksyssmartwifi.com'
-    - '*.router.asus.com'
-    - '+.nflxvideo.net'
-    - '*.square-enix.com'
-    - '*.finalfantasyxiv.com'
-    - '*.ffxiv.com'
-    - '*.ff14.sdo.com'
-    - '*.mcdn.bilivideo.cn'
-    - '+.media.dssott.com'
-    - '+.cmbchina.com'
-    - '+.cmbimg.com'
-    - '+.sandai.net'
-    - '+.n0808.com'
-    - time-ios.apple.com
-    - time1.cloud.tencent.com
-    - music.163.com
-    - musicapi.taihe.com
-    - music.taihe.com
-    - songsearch.kugou.com
-    - trackercdn.kugou.com
-    - api-jooxtt.sanook.com
-    - api.joox.com
-    - joox.com
-    - y.qq.com
-    - streamoc.music.tc.qq.com
-    - mobileoc.music.tc.qq.com
-    - isure.stream.qqmusic.qq.com
-    - dl.stream.qqmusic.qq.com
-    - aqqmusic.tc.qq.com
-    - amobile.music.tc.qq.com
-    - music.migu.cn
-    - localhost.ptlogin2.qq.com
-    - localhost.sec.qq.com
-    - xnotify.xboxlive.com
-    - proxy.golang.org
-    - heartbeat.belkin.com
-    - mesu.apple.com
-    - swscan.apple.com
-    - swquery.apple.com
-    - swdownload.apple.com
-    - swcdn.apple.com
-    - swdist.apple.com
-    - lens.l.google.com
-    - stun.l.google.com
-    - na.b.g-tun.com
-    - ff.dorado.sdo.com
-    - shark007.net
-    - local.adguard.org
+  fake-ip-filter: ['+.*']
   default-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+  fallback:
+    - tls://dns.google
+    - https://dns.cloudflare.com/dns-query
+    - https://doh.opendns.com/dns-query
 ```
 # 五、 启动 Clash
 1. 进入 Clash Verge->设置->Clash 设置->Clash 字段，勾选带有感叹号的字段，“保存”即可
