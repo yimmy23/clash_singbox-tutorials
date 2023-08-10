@@ -241,7 +241,7 @@ rules:
 # 五、 导入订阅链接
 ## 1. 在 ShellClash 中导入订阅链接
 进入 ShellClash 配置脚本-6-2，粘贴最终生成的订阅链接即可，其它设置请参考 [ShellClash 配置](https://www.baidu.com)
-## 2. 在 Clash Verge 中导入订阅链接
+## 2. 在 Clash Verge（Windows 端）中导入订阅链接
 进入 Clash Verge-配置-配置文件链接，粘贴最终生成的订阅链接，直接“导入”即可，其它设置请参考 [Clash Verge 配置](https://www.baidu.com)
 # 六、 导入 geoste.dat、geoip.dat 和 Country.mmdb
 ## 1. ShellClash
@@ -252,7 +252,7 @@ curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-
 curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
 $clashdir/start.sh restart
 ```
-## 2. Clash Verge（Windows 客户端）
+## 2. Clash Verge（Windows 端）
 编辑文本文档，添加如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
