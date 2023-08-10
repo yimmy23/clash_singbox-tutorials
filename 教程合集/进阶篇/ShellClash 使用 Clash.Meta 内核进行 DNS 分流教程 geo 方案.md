@@ -7,8 +7,8 @@
 nameserver-policy:
   'geosite:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
-- 3. 此方案自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
-- 4. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
+- 4. 此方案自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
+- 5. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
 ---
 # 一、 导入 Clash.Meta 内核和路由规则文件
 可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》里的步骤《一、二》进行操作
