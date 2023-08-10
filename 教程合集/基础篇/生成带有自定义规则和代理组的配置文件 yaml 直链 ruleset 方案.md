@@ -334,7 +334,7 @@ rules:
 # 四、 生成 .yaml 文件链接
 ## 1. 生成链接
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
-![微信截图_20230423201617](https://user-images.githubusercontent.com/45238096/233839417-51d1ab65-3e6b-4ae8-bf01-9d342029b423.png)  
+<img src="https://user-images.githubusercontent.com/45238096/233839417-51d1ab65-3e6b-4ae8-bf01-9d342029b423.png" width="60%"/>  
 
 ## 2. 生成 .yaml 文件链接
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
