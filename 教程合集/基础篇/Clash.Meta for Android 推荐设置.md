@@ -63,9 +63,16 @@ dns:
   # 使用 fake-ip 模式模拟 redir-host 模式
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
-  default-nameserver: [https://1.12.12.12/dns-query, https://223.5.5.5/dns-query]
-  nameserver: [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
-  proxy-server-nameserver: [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  default-nameserver:
+    - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
+  nameserver:
+    - tls://dns.google
+    - https://dns.cloudflare.com/dns-query
+    - https://doh.opendns.com/dns-query
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:networktest,microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:direct,lan': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
@@ -259,9 +266,15 @@ dns:
   # 使用 fake-ip 模式模拟 redir-host 模式
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
-  default-nameserver: [https://1.12.12.12/dns-query, https://223.5.5.5/dns-query]
-  nameserver: [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-  proxy-server-nameserver: [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+  default-nameserver:
+    - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:proxy': [tls://dns.google, https://dns.cloudflare.com/dns-query, https://doh.opendns.com/dns-query]
 
