@@ -48,8 +48,7 @@ proxy-providers:
       interval: 600
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
-## 2. 白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
-① 自定义 proxy-groups.yaml 和 rules.yaml  
+## 2. 自定义 proxy-groups.yaml
 连接 SSH 后执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 手动选择国家或地区节点；根据 proxy-groups 中（下方）国家或地区的节点名称对 proxies 值进行增删改，须一一对应
