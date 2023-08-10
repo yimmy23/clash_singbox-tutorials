@@ -1,13 +1,13 @@
-# ShellClash 本地配置自定义规则和代理组 geo 方案
-此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
+# [ShellClash](https://github.com/juewuy/ShellClash) 本地配置自定义规则和代理组 geo 方案
+此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）路由规则文件
 # 前言
-1. 本教程只适用于 [ShellClash](https://github.com/juewuy/ShellClash)
-2. 不支持节点筛选，可使用 ShellClash 脚本配置->6->1->2 或 3 进行筛选
-3. 自定义规则参考 [Loyalsoldier/v2ray-rules-dat](https://github.com/Loyalsoldier/v2ray-rules-dat)
+1. 本教程只适用于 ShellClash
+2. 自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 ---
 # 一、 ShellClash 配置
 进入 ShellClash 脚本配置->6->1->4，选择 4 [Acl4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
-![QQ截图20230315130212](https://user-images.githubusercontent.com/45238096/225292060-270091da-324b-4c84-8f94-74c2fcb2dc75.png)  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>  
+ 
 然后在线生成 [Clash](https://github.com/Dreamacro/clash/wiki) 配置文件
 # 二、 选择模式
 ## 1. [白名单模式](https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/rule-templates/geo-mode/template_whitelist.yaml)
