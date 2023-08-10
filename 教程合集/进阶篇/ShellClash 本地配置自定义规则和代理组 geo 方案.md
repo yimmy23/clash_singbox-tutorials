@@ -233,7 +233,8 @@ proxy-providers:
   type: url-test
   tolerance: 100
   use:
-    - 🛫 我的机场
+    - 🛫 我的机场 1
+    - 🛫 我的机场 2
   filter: "日本|新加坡"
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
