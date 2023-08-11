@@ -85,7 +85,8 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
-我用的 Alpha 版，目前一直很稳定，连接 SSH 后运行如下命令：
+我用的 Alpha 版，目前一直很稳定  
+连接 SSH 后运行如下命令：
 ```
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8
 ```
