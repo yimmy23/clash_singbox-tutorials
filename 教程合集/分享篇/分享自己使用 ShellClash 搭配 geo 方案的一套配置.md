@@ -1,10 +1,12 @@
+# 分享自己使用 [ShellClash](https://github.com/juewuy/ShellClash) 搭配 geo 方案的一套配置
 # 声明
-1. 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件，属高度定制，仅供参考
-2. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
-3. 此方案适用于 [ShellClash](https://github.com/juewuy/ShellClash)（以 arm64 架构为例）
-4. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
-# 一、 生成配置文件.yaml 文件直链
-具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：  
+1. 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，属高度定制，仅供参考
+2. 规则参考 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
+3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
+4. 此方案适用于 ShellClash（以 arm64 架构为例）
+5. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
+# 一、 生成配置文件 .yaml 文件直链
+具体方法此处不再赘述，请看《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：
 - 注：`rules` 部分的 `geosite` 和 `geoip` 内容须与 `geox-url` 中的路由规则文件相匹配
 
 ```
@@ -12,7 +14,7 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 修改为你的 Clash 订阅链接
-    url: 'https://example.com/xxxxx/clash'
+    url: 'https://example.com/xxx/xxx&flag=clash'
     path: ./proxies/airport.yaml
     interval: 43200
     filter: "香港|台湾|IPV6|日本|韩国|新加坡|美国"
@@ -52,6 +54,7 @@ proxy-groups:
 
   - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
+  # 采用节点负载均衡策略，优点是更稳定，速度可能有提升
   - {name: 🇭🇰 香港节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "香港"}
 
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "台湾"}
@@ -81,25 +84,12 @@ rules:
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
-# 二、 安装和导入
-## 1. 安装 ShellClash
-连接 SSH 后运行如下命令：
-```
-curl -o /tmp/ShellClash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/ShellClash.tar.gz
-mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
-```
-## 2. 导入 Clash.Meta 内核
-① Release 版  
-连接 SSH 后运行如下命令：
-```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
-```
-② Alpha 版  
-连接 SSH 后运行如下命令：
+# 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
+我用的 Alpha 版，目前一直很稳定，连接 SSH 后运行如下命令：
 ```
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8
 ```
-## 3. 导入路由规则文件和 user.yaml
+# 三、 导入路由规则文件和 user.yaml
 注：
 - 1. **路由规则文件和 user.yaml 都属高度定制，牵一发而动全身**
 - 2. geosite.dat 和 user.yaml 来源于 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
@@ -112,7 +102,7 @@ curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geo
 curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb
 curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
 ```
-## 4. 添加定时任务
+# 四、 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 ```
 30 3 * * * curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
@@ -124,35 +114,24 @@ curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 /etc/init.d/cron restart
 ```
 # 三、 设置部分
-1. 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
-首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
-选择 1 在 */data/clash/ui* 目录安装  
-根据需要是否选择 1 确认导入配置文件（此处选择 0）  
-根据需要是否选择 1 立即启动 clash 服务（此处选择 0）  
-输入 0 回车可返回到上级菜单（下同）  
-2. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
-3. 进入主菜单后选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐）
-4. 返回到主菜单，选择 2 clash功能设置，设置如下：
+1. 设置可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
+2. 进入主菜单->2 clash功能设置，设置如下：
 <img src="https://user-images.githubusercontent.com/45238096/231971374-f0b7e674-1e88-4b2e-987a-39667bc5d127.png" width="60%"/>  
 
-特别说明：“5 过滤局域网设备”建议将“过滤方式”切换为“白名单模式”，然后添加需要代理的设备，以此减轻路由器压力  
-<img src="https://user-images.githubusercontent.com/45238096/231971027-159c6549-4282-458a-b973-0919739de1f0.png" width="60%"/>  
+3. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/7e10f9c0-f479-43ee-b50c-f1e7251997e0" width="60%"/>  
 
-5. 返回到主菜单，进入 4 clash 启动设置，选择 1 允许 clash 开机启动
-6. 返回到主菜单，选择 5 设置定时任务，查看定时任务是否添加成功
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/235519b3-e345-4520-a574-8aae171ba185" width="60%"/>  
-
-7. 返回到主菜单，选择 6 导入配置文件，进入 6 配置文件覆写，进入 1 自定义端口及秘钥，设置如下：
+4. 进入主菜单->6 导入配置文件->6 配置文件覆写->1 自定义端口及秘钥，设置如下：
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>  
 
-8. 返回到主菜单，选择 7 clash 进阶设置，进入 6 配置内置 DNS 服务，设置如下：
+5. 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，设置如下：
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f7054430-a528-4669-ba6d-be6ae8613f08" width="60%"/>  
 
-9. 返回到主菜单，选择 6 导入配置文件，进入 2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件.yaml 文件直链，启动 clash 服务即可  
-10. 推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one
-
-① 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 chrome://settings/content/insecureContent 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
+6. 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
+# 四、 在线 Dashboard 面板
+推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one
+1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
 <img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>  
 
-② 首次进入 https://yacd.metacubex.one 需要添加“API Base URL”，输入 `http://192.168.31.1:9090` 并点击“Add”，最后点击下方新增的 http://192.168.31.1:9090 即可访问 Dashboard 面板  
+2. 首次进入 https://yacd.metacubex.one 需要添加“API Base URL”，输入 `http://192.168.31.1:9090` 并点击“Add”，最后点击下方新增的 http://192.168.31.1:9090 即可访问 Dashboard 面板  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/086aa876-109a-4a6f-9e9b-22269a869b4f" width="60%"/>
