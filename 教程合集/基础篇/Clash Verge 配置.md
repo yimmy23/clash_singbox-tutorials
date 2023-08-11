@@ -5,12 +5,11 @@
 2. 进入设置->Clash 设置->Clash 内核，点击“螺帽图标”并切换至“[Clash Meta 内核](https://github.com/MetaCubeX/Clash.Meta)”
 3. 进入设置->系统设置->服务模式，点击“盾牌图标”，“INSTALL”即可
 # 二、 导入或更新 Clash Meta 内核
-编辑文本文档，粘贴如下内容：
+以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/raw/main/Clash.Meta-release/clash.meta-windows-amd64.exe
-pause
 ```
 # 三、 导入路由规则集文件
 编辑文本文档，粘贴如下内容：
