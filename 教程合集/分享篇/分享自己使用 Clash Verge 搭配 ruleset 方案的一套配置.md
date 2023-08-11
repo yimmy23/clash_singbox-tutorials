@@ -150,13 +150,24 @@ curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https:/
 # 三、 设置部分
 1. 设置可参考《[Clash Verge 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
 2. 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”
-3. 进入文件夹 %USERPROFILE%.config\clash-verge\profiles，找到与第 2 步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的{文件名}
+3. 进入文件夹 %USERPROFILE%\\.config\clash-verge\profiles，找到与第 2 步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的{文件名}
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
 curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
 ```
+小窍门：
+- 1. 可以配置一键更新 Clash.Meta 内核和自定义配置文件的脚本  
+- 2. 编辑本文文档，粘贴如下内容：
+```
+taskkill /f /t /im "Clash Verge*"
+taskkill /f /t /im clash-meta*
+curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-windows-amd64.exe
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
+pause
+```
+- 3. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
 # 四、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one
 1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
