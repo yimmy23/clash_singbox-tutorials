@@ -269,8 +269,8 @@ rule-providers:
 # 四、 修改规则或代理组
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 后按 Ctrl+F 组合键分别搜索“netflix”  
-② 可以精确搜索到“netflix”
-③ 进入指定目录并点击 yaml 文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
+② 可以精确搜索到“netflix”  
+③ 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
@@ -282,7 +282,7 @@ rule-providers:
   netflix:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix.yaml'
+    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml'
     path: ./ruleset/netflix.yaml
     interval: 86400
 ```
