@@ -140,9 +140,12 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
-我用的 Alpha 版，目前一直很稳定，连接 SSH 后运行如下命令：
+我用的 Alpha 版，目前一直很稳定  
+以管理员身份运行 CMD，执行如下命令：：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8
+taskkill /f /t /im "Clash Verge*"
+taskkill /f /t /im clash-meta*
+curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-windows-amd64.exe
 ```
 # 三、 设置部分
 1. 设置可参考《[Clash Verge 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
