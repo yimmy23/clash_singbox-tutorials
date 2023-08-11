@@ -43,7 +43,7 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 3. 进入主菜单->9 更新/卸载->7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐）
 4. 进入主菜单->9 更新/卸载->4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板
 5. 进入主菜单->2 clash功能设置，设置如下：
-- 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”
+- 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/717281f6-8cc9-4379-88ef-77a699f58deb" width="60%"/>  
 
 6. 进入主菜单->4 clash 启动设置，选择 1 允许 clash 开机启动
