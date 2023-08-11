@@ -113,7 +113,7 @@ curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 ```
 /etc/init.d/cron restart
 ```
-# 三、 设置部分
+# 五、 设置部分
 1. 设置可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
 2. 进入主菜单->2 clash功能设置，设置如下：
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/031ab115-bca8-4427-819a-200b19274e75" width="60%"/>  
@@ -128,8 +128,8 @@ curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f7054430-a528-4669-ba6d-be6ae8613f08" width="60%"/>  
 
 6. 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
-# 四、 在线 Dashboard 面板
-推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one
+# 六、 在线 Dashboard 面板
+推荐使用在线 Dashboard 面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one
 1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
 <img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>  
 
