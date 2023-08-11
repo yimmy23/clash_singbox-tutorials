@@ -35,7 +35,8 @@ dns:
   use-hosts: true
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
-  fake-ip-filter: ['+.*']
+  fake-ip-filter:
+    - '+.*'
   default-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
@@ -62,7 +63,8 @@ dns:
   use-hosts: true
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
-  fake-ip-filter: ['+.*']
+  fake-ip-filter:
+    - '+.*'
   default-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
