@@ -116,7 +116,7 @@ curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 # 三、 设置部分
 1. 设置可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
 2. 进入主菜单->2 clash功能设置，设置如下：
-<img src="https://user-images.githubusercontent.com/45238096/231971374-f0b7e674-1e88-4b2e-987a-39667bc5d127.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/031ab115-bca8-4427-819a-200b19274e75" width="60%"/>  
 
 3. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/7e10f9c0-f479-43ee-b50c-f1e7251997e0" width="60%"/>  
