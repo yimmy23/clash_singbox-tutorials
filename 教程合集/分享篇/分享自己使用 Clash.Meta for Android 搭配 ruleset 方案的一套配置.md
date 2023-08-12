@@ -7,31 +7,15 @@
 具体方法请参考《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：
 ```
 proxy-providers:
-  # 获取机场订阅链接内的所有节点
-  🛫 我的机场 1:
+  🛫 我的机场:
     type: http
-    # 机场订阅链接，使用 Clash 链接
+    # 修改为你的 Clash 订阅链接
     url: 'https://example.com/xxx/xxx&flag=clash'
     path: ./proxies/airport1.yaml
     interval: 43200
-    # 初步筛选需要的节点，支持正则表达式，不筛选可删除此配置项
-    filter: "香港|台湾|日本|韩国|新加坡|美国"
+    filter: "香港|台湾|IPV6|日本|韩国|新加坡|美国"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试
-      lazy: true
-      url: 'https://www.gstatic.com/generate_204'
-      interval: 600
-
-  🛫 我的机场 2:
-    type: http
-    url: 'https://example.com/xxx/xxx&flag=clash'
-    path: ./proxies/airport2.yaml
-    interval: 43200
-    filter: "香港|台湾|日本|韩国|新加坡|美国"
-    health-check:
-      enable: true
-      lazy: true
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
 
