@@ -265,6 +265,14 @@ profile:
   store-selected: true
   store-fake-ip: true
 
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - 'any:53'
+  auto-route: true
+  auto-detect-interface: true
+
 dns:
   enable: true
   prefer-h3: true
