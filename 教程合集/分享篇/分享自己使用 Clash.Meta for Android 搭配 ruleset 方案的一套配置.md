@@ -1,4 +1,4 @@
-# Clash.Meta for Android 推荐设置
+# 分享自己使用 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid) 搭配 ruleset 方案的一套配置
 注：
 - 1. 考虑到 Clash.Meta for Android 的特殊性，强烈建议使用 ruleset 方案并使用 redir-host 模式（由 fake-ip 模式模拟）
 - 2. 此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
@@ -52,6 +52,14 @@ global-client-fingerprint: chrome
 profile:
   store-selected: true
   store-fake-ip: true
+
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - 'any:53'
+  auto-route: true
+  auto-detect-interface: true
 
 dns:
   enable: true
