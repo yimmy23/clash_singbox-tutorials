@@ -166,9 +166,6 @@ dns:
     - 'https://dns.google/dns-query#🪜 代理域名'
     - https://dns.cloudflare.com/dns-query
     - https://doh.opendns.com/dns-query
-  proxy-server-nameserver:
-    - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:direct,lan': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 
