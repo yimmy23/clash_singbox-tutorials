@@ -38,8 +38,8 @@ jobs:
         curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user.txt
         cat <<EOF >> ./tmp/temp-user.txt
           default-nameserver:
-              - https://1.12.12.12/dns-query
-              - https://223.5.5.5/dns-query
+            - https://1.12.12.12/dns-query
+            - https://223.5.5.5/dns-query
           nameserver:
             - 'https://dns.google/dns-query#🪜 代理域名'
             - https://dns.cloudflare.com/dns-query
