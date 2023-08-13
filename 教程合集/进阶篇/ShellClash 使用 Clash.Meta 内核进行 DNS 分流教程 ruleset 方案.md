@@ -21,7 +21,7 @@ nameserver-policy:
 ## 1. DNS 模式为 fake-ip
 连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/fake-ip-user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/ruleset-mode/fake-ip-user.yaml && $clashdir/start.sh restart
 ```
 ## 2. DNS 模式为 redir-host
 ① 白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）  
