@@ -19,13 +19,11 @@ nameserver-policy:
 2. 其它设置可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》
 # 三、 导入 user.yaml 文件
 ## 1. DNS 模式为 fake-ip 
-该模式不需要使用 DNS 分流，仅配置 `default-nameserver` 和 `nameserver` 这两个参数即可  
-此处分享一配置，连接 SSH 后执行如下命令：
+连接 SSH 后执行如下命令：
 ```
 curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/dns-bypass/fake-ip-user.yaml && $clashdir/start.sh restart
 ```
 ## 2. DNS 模式为 redir-host
-该模式需要使用 DNS 分流  
 ① 白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）  
 连接 SSH 后执行命令 `vi $clashdir/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
