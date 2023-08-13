@@ -54,7 +54,7 @@ proxy-groups:
 
   - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
-  # 采用节点负载均衡策略，优点是更稳定，速度可能有提升
+  # 采用节点负载均衡策略，优点是更稳定，速度可能有提升；推荐在节点复用比较多的情况下使用
   - {name: 🇭🇰 香港节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "香港"}
 
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "台湾"}
