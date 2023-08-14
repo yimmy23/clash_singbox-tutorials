@@ -43,6 +43,7 @@ tun:
     - 'any:53'
   auto-route: true
   auto-detect-interface: true
+  strict-route: true
 
 dns:
   enable: true
@@ -167,7 +168,8 @@ dns:
     - https://cloudflare-dns.com/dns-query
     - https://doh.opendns.com/dns-query
   proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:direct,lan': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
