@@ -42,13 +42,13 @@ jobs:
             - https://1.12.12.12/dns-query
             - https://223.5.5.5/dns-query
           nameserver:
-            - tls://dns.google
-            - https://dns.cloudflare.com/dns-query
+            - https://dns.google/dns-query
+            - https://cloudflare-dns.com/dns-query
             - https://doh.opendns.com/dns-query
           proxy-server-nameserver:
-            - https://doh.pub/dns-query
-            - https://dns.alidns.com/dns-query
+            - https://1.1.1.1/dns-query
           nameserver-policy:
+            'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
             'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
         EOF
         cat ./tmp/temp-user.txt > ./dns-bypass/geo-mode/fake-ip-user.yaml
@@ -77,13 +77,13 @@ jobs:
             - https://1.12.12.12/dns-query
             - https://223.5.5.5/dns-query
           nameserver:
-            - tls://dns.google
-            - https://dns.cloudflare.com/dns-query
+            - https://dns.google/dns-query
+            - https://cloudflare-dns.com/dns-query
             - https://doh.opendns.com/dns-query
           proxy-server-nameserver:
-            - https://doh.pub/dns-query
-            - https://dns.alidns.com/dns-query
+            - https://1.1.1.1/dns-query
           nameserver-policy:
+            'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
             'rule-set:direct,lan': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
         EOF
         cat ./tmp/temp-user.txt > ./dns-bypass/ruleset-mode/fake-ip-user.yaml
