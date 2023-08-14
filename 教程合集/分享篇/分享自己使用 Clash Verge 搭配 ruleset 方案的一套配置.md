@@ -21,6 +21,31 @@ proxy-providers:
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
 
+mode: rule
+ipv6: true
+log-level: silent
+allow-lan: true
+mixed-port: 19925
+unified-delay: false
+tcp-concurrent: true
+external-controller: 127.0.0.1:9090
+
+find-process-mode: strict
+global-client-fingerprint: chrome
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - 'any:53'
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
@@ -145,7 +170,7 @@ rules:
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-windows-amd64.exe
+curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-windows-amd64.exe
 ```
 # 三、 设置部分
 1. 设置可参考《[Clash Verge 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
@@ -163,7 +188,7 @@ curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L htt
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-windows-amd64.exe
+curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-windows-amd64.exe
 curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
 pause
 ```
