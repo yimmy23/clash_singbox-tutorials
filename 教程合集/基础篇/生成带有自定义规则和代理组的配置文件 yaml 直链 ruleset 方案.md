@@ -165,6 +165,7 @@ rule-providers:
   direct:
     type: http
     behavior: classical
+    # 若使用了 DNS 分流，推荐将 ChinaMax_Classical.yaml 改为 ChinaMax_Classical_No_Resolve.yaml
     url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml'
     path: ./ruleset/direct.yaml
     interval: 86400
