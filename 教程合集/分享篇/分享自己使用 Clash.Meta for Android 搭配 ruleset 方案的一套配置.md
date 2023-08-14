@@ -163,10 +163,13 @@ dns:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
   nameserver:
-    - 'https://dns.google/dns-query#🪜 代理域名'
-    - https://dns.cloudflare.com/dns-query
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
     - https://doh.opendns.com/dns-query
+  proxy-server-nameserver:
+    - https://1.1.1.1/dns-query
   nameserver-policy:
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:direct,lan': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 
 proxy-groups:
@@ -280,7 +283,7 @@ rule-providers:
   direct:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml'
+    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml'
     path: ./ruleset/direct.yaml
     interval: 86400
 
