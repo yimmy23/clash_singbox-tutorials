@@ -49,7 +49,8 @@ dns:
     - https://cloudflare-dns.com/dns-query
     - https://doh.opendns.com/dns-query
   proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
@@ -74,7 +75,8 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   proxy-server-nameserver:
-    - https://1.1.1.1/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'geosite:gfw': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query, https://doh.opendns.com/dns-query]
 ```
