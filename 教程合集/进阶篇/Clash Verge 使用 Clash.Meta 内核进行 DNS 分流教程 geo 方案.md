@@ -3,8 +3,8 @@
 - 1. 此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/MetaCubeX/meta-rules-dat) 
 - 2. DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主要是这个配置：
 ```
-nameserver-policy:
-  'geosite:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  nameserver-policy:
+    'geosite:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 - 3. 此方案自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 ---
