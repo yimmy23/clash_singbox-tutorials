@@ -3,15 +3,15 @@
 - 1. 此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 - 2. DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主要是这个配置：
 ```
-nameserver-policy:
-  'rule-set:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  nameserver-policy:
+    'rule-set:direct': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 - 3. 此方案自定义规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 ---
-# 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)和路由规则文件
-可参考《[Clash Verge 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)》里的步骤《二、三》进行操作
+# 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
+可参考《[Clash Verge 配置 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE%20ruleset%20%E6%96%B9%E6%A1%88.md#%E4%BA%8C-%E5%AF%BC%E5%85%A5%E6%88%96%E6%9B%B4%E6%96%B0-clash-meta-%E5%86%85%E6%A0%B8)》里的步骤《二》进行操作
 # 二、 额外编辑配置文件
-通过《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》的方式，在编辑配置文件时需要额外添加如下内容：
+1. 在《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》编辑 .yaml 配置文件时，建议在 `tun` 参数中加上 `strict-route: true`，即修改为：
 ```
 tun:
   enable: true
@@ -22,6 +22,15 @@ tun:
   auto-detect-interface: true
   # 严格路由，可防止地址泄漏，启用后你的设备将无法被其他设备访问
   strict-route: true
+```
+2. 如果使用的是白名单模式，建议将 `rule-providers` 里的 `direct` 中的 `url` 链接修改为 `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml`，即修改为：
+```
+  direct:
+    type: http
+    behavior: classical
+    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml'
+    path: ./ruleset/direct.yaml
+    interval: 86400
 ```
 # 三、 编辑自定义配置
 ## 1. DNS 模式为 fake-ip
