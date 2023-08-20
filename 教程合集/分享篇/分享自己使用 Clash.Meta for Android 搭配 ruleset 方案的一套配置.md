@@ -1,6 +1,6 @@
 # 分享自己使用 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid) 搭配 ruleset 方案的一套配置
 # 声明
-1. 此方案采用 `RULE-SET` 规则，属高度定制，仅供参考
+1. 此方案采用 `RULE-SET` 规则，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 4. 此方案适用于 Clash.Meta for Android
@@ -14,7 +14,7 @@ proxy-providers:
     url: 'https://example.com/xxx/xxx&flag=clash'
     path: ./proxies/airport1.yaml
     interval: 43200
-    filter: "香港|台湾|IPV6|日本|韩国|新加坡|美国"
+    filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
       url: 'https://www.gstatic.com/generate_204'
@@ -175,9 +175,9 @@ dns:
     'rule-set:direct,lan': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
@@ -208,8 +208,6 @@ proxy-groups:
 
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "台湾"}
 
-  - {name: 6️⃣ IPv6 节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "IPV6"}
-
   - {name: 🇯🇵 日本节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "日本"}
 
   - {name: 🇰🇷 韩国节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "韩国"}
@@ -222,28 +220,28 @@ rule-providers:
   reject:
     type: http
     behavior: domain
-    url: 'https://fastly.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml'
     path: ./ruleset/reject.yaml
     interval: 86400
 
   applications:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt'
     path: ./ruleset/applications.yaml
     interval: 86400
 
   lan:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan_No_Resolve.yaml'
     path: ./ruleset/lan.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/networktest.yaml'
     path: ./ruleset/networktest.yaml
     interval: 86400
 
@@ -264,7 +262,7 @@ rule-providers:
   google-cn:
     type: http
     behavior: domain
-    url: 'https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/google-cn.yaml'
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
@@ -278,14 +276,14 @@ rule-providers:
   proxy:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml'
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   direct:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml'
     path: ./ruleset/direct.yaml
     interval: 86400
 
@@ -304,4 +302,5 @@ rules:
 ```
 # 二、 导入配置文件并启动 Clash
 1. 进入 Clash Meta for Android->配置->创建配置->从 URL 导入，“URL”输入《[第一步](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20Clash.Meta%20for%20Android%20%E6%90%AD%E9%85%8D%20ruleset%20%E6%96%B9%E6%A1%88%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md#%E4%B8%80-%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-yaml-%E7%9B%B4%E9%93%BE)》中生成的配置文件 yaml 直链，“自动更新”填写“1440”，最后点击右上角的“保存图标”
-2. 返回到主界面，点击“点此启用”即可启动 Clash 服务
+2. 进入 Clash Meta for Android->设置->网络，将“系统代理”关闭
+3. 返回到主界面，点击“点此启用”即可启动 Clash 服务
