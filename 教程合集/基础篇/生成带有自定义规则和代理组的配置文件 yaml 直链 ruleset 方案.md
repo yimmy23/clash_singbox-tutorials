@@ -194,11 +194,11 @@ proxy-providers:
     url: 'https://example.com/xxx/xxx&flag=clash'
     path: ./proxies/airport1.yaml
     interval: 43200
-    # 初步筛选需要的节点，支持正则表达式，不筛选可删除此配置项
+    # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试
+      # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
       lazy: true
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
