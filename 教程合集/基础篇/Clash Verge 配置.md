@@ -12,6 +12,8 @@ taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/raw/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 ```
 # 三、 导入路由规则集文件
+- 注：若使用 ruleset 方案，可忽略此步骤
+
 编辑文本文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
@@ -53,7 +55,7 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   fallback:
-    - tls://dns.google
+    - https://dns.google.com/dns-query
     - https://dns.cloudflare.com/dns-query
     - https://doh.opendns.com/dns-query
 ```
