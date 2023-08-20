@@ -8,7 +8,7 @@
 5. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
 ---
 # 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)和路由规则文件
-可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》里的步骤《一、二》进行操作
+可参考《[ShellClash 配置 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE%20geo%20%E6%96%B9%E6%A1%88.md)》里的步骤《一、二》进行操作
 # 二、 导入配置文件
 1. 进入 ShellClash->6 导入配置文件->1 在线生成Clash配置文件->4 选取在线配置规则模版，选择 4 [Acl4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>  
@@ -26,11 +26,11 @@ proxy-providers:
     url: 'https://example.com/xxx/xxx&flag=clash'
     path: ./proxies/airport1.yaml
     interval: 43200
-    # 初步筛选需要的节点，支持正则表达式，不筛选可删除此配置项
+    # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试
+      # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
       lazy: true
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
