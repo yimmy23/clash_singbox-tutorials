@@ -350,9 +350,9 @@ rules:
 `https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/clashlink.yaml`
 # 五、 导入订阅链接
 ## 1. 在 ShellClash 中导入订阅链接
-进入 ShellClash 配置脚本->6->2，粘贴最终生成的订阅链接即可，具体设置请参考 [ShellClash 配置 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)
+进入 ShellClash 配置脚本->6->2，粘贴最终生成的订阅链接即可，具体设置请参考《[ShellClash 配置 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 ## 2. 在 Clash Verge（Windows 端）中导入订阅链接
-进入 Clash Verge->配置->配置文件链接，粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考 [Clash Verge 配置 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)
+进入 Clash Verge->配置->配置文件链接，粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考《[Clash Verge 配置 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
