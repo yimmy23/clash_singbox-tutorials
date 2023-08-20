@@ -11,7 +11,7 @@
 若执行结果是“linux aarch64”，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
 4. ShellClash 和 AdGuardHome 中所有没有提到的配置保持默认即可
 5. ShellClash 和 AdGuardHome 快速安装方法请看《[ShellClash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
-6. ShellClash 单独使用时设置 DNS 分流请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
+6. ShellClash 单独使用时设置 DNS 分流请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 ---
 # 一、 资源下载
 打包下载：https://dustinwinvip.lanzoum.com/b01qd6p3a  
@@ -22,7 +22,7 @@
 - 3. 版本信息请查看打包文件内的 Readme.txt 文本
 
 ## 1. ShellClash
-官方下载：https://github.com/juewuy/ShellClash/raw/master/bin/ShellClash.tar.gz  
+官方下载：https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/ShellClash.tar.gz
 ## 2. Clash.Meta 内核
 官方下载：https://github.com/MetaCubeX/Clash.Meta/releases  
 下载 clash.meta-linux-arm64-xxx.gz 文件  
@@ -249,13 +249,10 @@ cd C:\Users\[用户名]\Desktop\upx
 
 返回到 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
 根据自身需要选择 5 启用节点绕过（设备较多可开启）  
-选择 6 配置内置 DNS 服务，选择 1 修改基础 DNS，输入 `null` 并回车，选择 2 修改 Fallback_DNS，输入 `null` 并回车  
-选择 7 禁用 DNS 劫持  
-注：
-- 1. 禁用后将无法访问 GitHub 下载 AdGuardHome，请下载完 AdGuardHome 相关工具后再禁用（重要）
-- 2. 若单独使用 ShellClash，请不要禁用 DNS 劫持，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
+选择 6 配置内置 DNS 服务，选择 1 修改基础 DNS，输入 `192.168.31.1:5353` 并回车，选择 2 修改 Fallback_DNS，输入 `null` 并回车  
+- 注：若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 
-<img src="https://user-images.githubusercontent.com/45238096/232899733-3d51da3a-2121-4e70-a27d-f08feefba8d7.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/56687dbd-81a6-4a59-8a1a-83f9aa293ece" width="60%"/>  
 
 ⑥ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/28dd2543-97f8-4bb4-bc77-0f024afa5a88" width="60%"/>  
@@ -269,13 +266,10 @@ cd C:\Users\[用户名]\Desktop\upx
 
 ⑧ 返回到主菜单，再次进入 6 导入配置文件  
 注：
-- 1. 选择 2 导入 Clash 配置文件链接需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》
-- 2. 选择 1 在线生成 Clash 配置文件，可直接转换订阅链接，此处具体方法省略
+- 1. 选择 1 在线生成 Clash 配置文件，粘贴你的订阅链接并回车，输入“1”并再次回车即可
+- 2. 选择 2 导入 Clash 配置文件链接，需要一定的 Clash 知识储备，请查看《[生成带有自定义规则和代理组的配置文件 yaml 直链 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geo%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 
-导入配置文件完成后，根据需要是否选择 1 立即启动 clash 服务，可以选择 1 立即启动，也可以返回到主菜单，输入 0 回车退出脚本并执行如下命令：
-```
-$clashdir/start.sh start
-```
+导入配置文件完成后，根据需要是否选择 1 立即启动 clash 服务，此处选择 0 **不启动 clash 服务**
 **ShellClash 配置成功！**  
 **拓展：**  
 ShellClash 常用命令
@@ -351,32 +345,20 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
 
 ⑦ 在最下方输入如下内容并保存：
-- 注：DNS 服务器监听端口须与命令中的端口保持一致，此处设为 5625（重要）
-
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
-iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ```
 ⑧ 连接 SSH，直接粘贴如下所有命令：
-- 注：DNS 服务器监听端口须与命令中的端口保持一致，此处设为 5625（重要）
-
 ```
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
-iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ```
 **AdGuardHome 安装成功！**
 ## 2. AdGuardHome 配置
 ① 打开网页 http://192.168.31.1:3000  
-点击“开始配置”，“网页管理界面端口”输入“3000”（不建议自定义），“DNS 服务器端口”输入执行安装命令中设置的端口号，如：5625  
+点击“开始配置”，“网页管理界面端口”输入“3000”（不建议自定义），“DNS 服务器端口”输入“5353”  
 “身份认证”设置用户名和密码  
 ② 点击“打开仪表盘”后输入刚才设置的用户名和密码“登入”，就可以进入 AdGuardHome 管理页面  
 ③ 进入设置-->常规设置  
@@ -384,66 +366,43 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ④ 进入设置 -->DNS 设置  
 “上游 DNS 服务器”设置为：
 ```
-https://dns.alidns.com/dns-query
 https://doh.pub/dns-query
+https://dns.alidns.com/dns-query
 tls://dns.google
-https://dns.cloudflare.com/dns-query
-https://doh.opendns.com/dns-query
+https://1.1.1.1/dns-query
 ```
 选中“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
-<img src="https://i.postimg.cc/FRSb5P1q/QQ-20230228160938.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/38493b21-663f-4808-9eaa-902d047b2d6e" width="60%"/>  
 
 “Bootstrap DNS 服务器”设置为：
 ```
 223.5.5.5
 119.29.29.29
-8.8.8.8
-1.1.1.1
 ```
 继续点击“测试上游 DNS”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器通了，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://i.postimg.cc/8CjBwkGT/QQ-20230228140830.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f88e7342-585a-43b0-b1c7-a57b6a3955ac" width="60%"/>  
 
 点击“应用”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器设置没问题，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://user-images.githubusercontent.com/45238096/224112577-e99ed24d-bd8c-45a9-b05e-1d1c68140813.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/73d54bb9-19c1-4d34-932c-946b75d52ee0" width="60%"/>  
 
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
-<img src="https://user-images.githubusercontent.com/45238096/224112771-5b2d2c4b-dcc3-4520-9c16-5954228bea40.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/8b43ed45-afec-4444-b8fc-77d784477649" width="60%"/>  
 
 勾选“乐观缓存”，并点击“保存”  
-<img src="https://i.postimg.cc/CMfrSNWw/QQ-20230115234616.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f857800a-ebf4-4031-994f-27cd6b3e7b53" width="60%"/>  
 
 ⑤ 进入过滤器-->DNS 黑名单，推荐如下列表：
 - 注：强烈建议删除自带黑名单并通过“添加黑名单”-->“添加一个自定义列表”进行手动添加，通过“添加黑名单”-->“从列表中选择”进行选择添加容易报错
 
 |名称|URL|
 |-----|-----|
-|`乘风视频过滤`|`https://cdn.jsdelivr.net/gh/xinggsf/Adblock-Plus-Rule@master/mv.txt`|
-|`AdGuard DNS filter`|`https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt`|
-|`CHN: AdRules DNS List`|`https://adrules.top/dns.txt`|
+|`CHN: anti-AD`|`https://anti-ad.net/easylist.txt`|
 
-- 注：添加后两个（较大）规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功
+- 注：添加较大规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功
 
-<img src="https://user-images.githubusercontent.com/45238096/224112940-b6c367e0-1ee7-470a-b370-9226c825ffad.png" width="60%"/>  
-
-⑥ 进入过滤器-->DNS 白名单，添加如下列表：
-|名称|URL|
-|-----|-----|
-|`AdRules Allow List`|`https://adrules.top/allow-domains-list.txt`|
-
-<img src="https://i.postimg.cc/YqKn9FHY/Snipaste_2023-03-05_19-22-25.png" width="60%"/>  
-
-⑦ 进入过滤器-->DNS 重写，推荐如下搭配：
-|域|IP 地址|
-|-----|-----|
-|`dns.alidns.com`|`223.5.5.5`|
-|`doh.pub`|`119.29.29.29`|
-|`dns.google`|`8.8.8.8`|
-|`dns.cloudflare.com`|`1.1.1.1`|
-|`doh.opendns.com`|`208.67.222.222`|
-
-<img src="https://user-images.githubusercontent.com/45238096/224114271-01bb270f-d753-4e30-af55-61a805387bdc.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5dd46dc8-3fd8-4eb8-8d7b-377fa138c777" width="60%"/>  
 
 **AdGuardHome 配置成功！**  
 **拓展：**  
@@ -477,10 +436,6 @@ chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
-iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ```
 并保存  
 ② 卸载 AdGuardHome  
@@ -491,12 +446,15 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ③ 重启路由器
 # 七、 效果图
 ## 1. IPv6 效果
-![QQ截图20230228143446](https://user-images.githubusercontent.com/45238096/224113189-e20e0b89-6dfc-40c5-b2cf-9abeb8525cdb.png)
+<img src="https://user-images.githubusercontent.com/45238096/224113189-e20e0b89-6dfc-40c5-b2cf-9abeb8525cdb.png" width="100%"/>  
+
 ## 2. BT 下载效果
 UDP 连接正常，使用的是移动 500M 带宽  
-![QQ截图20221213012832](https://user-images.githubusercontent.com/45238096/224113233-4d76dec2-495c-4790-a00e-538fc1469639.png)
+<img src="https://user-images.githubusercontent.com/45238096/224113233-4d76dec2-495c-4790-a00e-538fc1469639.png" width="100%"/>  
+
 ## 3. ShellClash 效果
 使用的是移动 500M 带宽  
-[![QQ-20221213022922.png](https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png)](https://postimg.cc/3dL1NdHc)
+<img src="https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png)](https://postimg.cc/3dL1NdHc" width="100%"/>  
+
 ## 4. AdGuardHome 效果
-![QQ截图20230120190927](https://user-images.githubusercontent.com/45238096/224113288-a84dd015-bb75-402d-82c1-9d71d0c5d7e2.png)
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/dfca4db6-b5a3-4012-b2c0-58f392533b78" width="100%"/>
