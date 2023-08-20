@@ -16,6 +16,8 @@ Clash.Meta 内核 CPU 架构和链接后缀对应关系如下：
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
 ```
 # 二、 导入路由规则文件
+- 注：若使用 ruleset 方案，可忽略此步骤
+
 连接 SSH 后运行如下命令：
 ```
 curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
@@ -23,6 +25,8 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 ```
 # 四、 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴（快捷键 Ctrl+Shift+V）如下内容：
+- 注：若使用 ruleset 方案，可删除`每天早上 4 点更新路由规则文件`此条定时任务
+
 ```
 30 3 * * * curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
 0 4 * * * curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
@@ -48,6 +52,8 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 
 6. 进入主菜单->4 clash 启动设置，选择 1 允许 clash 开机启动
 7. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功
+- 注：若使用 ruleset 方案，可删除`每天早上 4 点更新路由规则文件`此条定时任务
+
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/2a2bc646-c5ee-4dd0-841f-bd1383c9eb80" width="60%"/>  
 
 8. 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，选择 4 一键配置加密（推荐）
