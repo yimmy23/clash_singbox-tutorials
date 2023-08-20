@@ -1,6 +1,6 @@
 # 分享自己使用 [Clash Verge](https://github.com/zzzgydi/clash-verge) 搭配 ruleset 方案的一套配置
 # 声明
-1. 此方案采用 `RULE-SET` 规则，属高度定制，仅供参考
+1. 此方案采用 `RULE-SET` 规则，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 4. 此方案适用于 Clash Verge（以 Windows 端为例）
@@ -15,7 +15,7 @@ proxy-providers:
     url: 'https://example.com/xxx/xxx&flag=clash'
     path: ./proxies/airport.yaml
     interval: 43200
-    filter: "香港|台湾|IPV6|日本|韩国|新加坡|美国"
+    filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
       url: 'https://www.gstatic.com/generate_204'
@@ -47,9 +47,9 @@ tun:
   strict-route: true
 
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
@@ -77,8 +77,6 @@ proxy-groups:
   - {name: 🇭🇰 香港节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "香港"}
 
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "台湾"}
-
-  - {name: 6️⃣ IPv6 节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "IPV6"}
 
   - {name: 🇯🇵 日本节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "日本"}
 
@@ -173,14 +171,14 @@ taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-windows-amd64.exe
 ```
 # 三、 设置部分
-1. 设置可参考《[Clash Verge 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
+1. 设置可参考《[Clash Verge 配置 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE%20ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
 2. 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”
 3. 进入文件夹 %USERPROFILE%\\.config\clash-verge\profiles，找到与第 2 步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的{文件名}
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-ruleset/releases/download/latest/fake-ip-user.yaml
 ```
 小窍门：
 - 1. 可以配置一键更新 Clash.Meta 内核和自定义配置文件的脚本  
@@ -189,7 +187,7 @@ curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L htt
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-windows-amd64.exe
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-ruleset/releases/download/latest/fake-ip-user.yaml
 pause
 ```
 - 3. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
