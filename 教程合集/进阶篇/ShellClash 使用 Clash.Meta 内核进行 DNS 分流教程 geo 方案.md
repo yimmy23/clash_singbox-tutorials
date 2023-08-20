@@ -4,8 +4,8 @@
 - 2. 搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 时不要使用该方法 
 - 3. DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主要是这个配置：
 ```
-nameserver-policy:
-  'geosite:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+  nameserver-policy:
+    'geosite:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 - 4. 此方案自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 - 5. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
