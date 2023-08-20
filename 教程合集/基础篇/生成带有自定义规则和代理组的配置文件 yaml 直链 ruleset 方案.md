@@ -109,7 +109,7 @@ rule-providers:
   applications:
     type: http
     behavior: classical
-    url: 'https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt'
+    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt'
     path: ./ruleset/applications.yaml
     interval: 86400
 
