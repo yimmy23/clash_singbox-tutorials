@@ -131,11 +131,11 @@ passwd root
 # 四、 连接 SSH
 ## 1. 给 Windows 操作系统添加 SSH 支持（任选一）
 ① 启用 Telnet 客户端  
-进入控制面板-->程序和功能-->启用或关闭 Windows 功能，勾选“Telnet 客户端”  
+进入控制面板->程序和功能->启用或关闭 Windows 功能，勾选“Telnet 客户端”  
 <img src="https://user-images.githubusercontent.com/45238096/224110758-b3f85378-39dc-407d-82ba-7b1faaf12753.png" width="60%"/>  
 
 ② 启用 OpenSSH 服务器  
-进入设置-->应用-->可选功能-->查看功能-->搜索“ssh”，勾选“OpenSSH 服务器”并安装  
+进入设置->应用->可选功能->查看功能->搜索“ssh”，勾选“OpenSSH 服务器”并安装  
 <img src="https://user-images.githubusercontent.com/45238096/224110859-c869fed4-05bb-495b-a13c-aa3f78bb0ef7.png" width="60%"/>  
 
 重启系统  
@@ -168,7 +168,7 @@ ssh root@192.168.31.1
 <img src="https://user-images.githubusercontent.com/45238096/231961082-1fb3b895-e42d-46d5-98a6-e7a15cdaa2cc.png" width="60%"/>  
 
 ② 添加 Host  
-依次点击 ADD-->New Host  
+依次点击 ADD->New Host  
 <img src="https://user-images.githubusercontent.com/45238096/224111075-edf1f8a5-d30a-4c95-823f-0a756d2a9565.png" width="60%"/>  
 
 ③ 添加 Telnet  
@@ -361,9 +361,9 @@ chmod +x /data/AdGuardHome/AdGuardHome
 点击“开始配置”，“网页管理界面端口”输入“3000”（不建议自定义），“DNS 服务器端口”输入“5353”  
 “身份认证”设置用户名和密码  
 ② 点击“打开仪表盘”后输入刚才设置的用户名和密码“登入”，就可以进入 AdGuardHome 管理页面  
-③ 进入设置-->常规设置  
+③ 进入设置->常规设置  
 取消勾选“启用日志”并点击“保存”（日志非常占用空间）  
-④ 进入设置 -->DNS 设置  
+④ 进入设置 ->DNS 设置  
 “上游 DNS 服务器”设置为：
 ```
 https://doh.pub/dns-query
@@ -393,8 +393,8 @@ https://1.1.1.1/dns-query
 勾选“乐观缓存”，并点击“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f857800a-ebf4-4031-994f-27cd6b3e7b53" width="60%"/>  
 
-⑤ 进入过滤器-->DNS 黑名单，推荐如下列表：
-- 注：强烈建议删除自带黑名单并通过“添加黑名单”-->“添加一个自定义列表”进行手动添加，通过“添加黑名单”-->“从列表中选择”进行选择添加容易报错
+⑤ 进入过滤器->DNS 黑名单，推荐如下列表：
+- 注：强烈建议删除自带黑名单并通过“添加黑名单”->“添加一个自定义列表”进行手动添加，通过“添加黑名单”->“从列表中选择”进行选择添加容易报错
 
 |名称|URL|
 |-----|-----|
