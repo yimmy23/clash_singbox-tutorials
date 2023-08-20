@@ -1,6 +1,6 @@
 # 分享自己使用 [ShellClash](https://github.com/juewuy/ShellClash) 搭配 geo 方案的一套配置
 # 声明
-1. 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，属高度定制，仅供参考
+1. 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 4. 此方案适用于 ShellClash（以 arm64 架构为例）
@@ -17,16 +17,16 @@ proxy-providers:
     url: 'https://example.com/xxx/xxx&flag=clash'
     path: ./proxies/airport.yaml
     interval: 43200
-    filter: "香港|台湾|IPV6|日本|韩国|新加坡|美国"
+    filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
       url: 'https://www.gstatic.com/generate_204'
       interval: 600
 
 proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 6️⃣ IPv6 节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
@@ -59,8 +59,6 @@ proxy-groups:
 
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "台湾"}
 
-  - {name: 6️⃣ IPv6 节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "IPV6"}
-
   - {name: 🇯🇵 日本节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "日本"}
 
   - {name: 🇰🇷 韩国节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "韩国"}
@@ -88,7 +86,7 @@ rules:
 我用的 Alpha 版，目前一直很稳定  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8
+curl -o /tmp/clash.meta-linux-armv8 -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-linux-armv8
 ```
 # 三、 导入路由规则文件和 user.yaml
 注：
@@ -98,29 +96,30 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 
 连接 SSH 后运行如下命令：
 ```
-curl -o $clashdir/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat
-curl -o $clashdir/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat
-curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb
-curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
+curl -o $clashdir/GeoSite.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/geosite.dat
+curl -o $clashdir/GeoIP.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/geoip.dat
+curl -o $clashdir/Country.mmdb -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/Country.mmdb
+curl -o $clashdir/yamls/user.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/fake-ip-user.yaml
 ```
 # 四、 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 ```
-30 3 * * * curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
-0 4 * * * curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && curl -o /data/clash/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件和 user.yaml
-30 4 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新订阅并重启 Clash 服务
+30 3 * * * curl -o /data/clash/clash -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
+0 4 * * * curl -o /data/clash/GeoSite.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/geoip.dat && curl -o /data/clash/Country.mmdb -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
+30 4 * * * curl -o /data/clash/yamls/user.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点半更新 user.yaml
+0 5 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 5 点更新订阅并重启 Clash 服务
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
 ```
 /etc/init.d/cron restart
 ```
 # 五、 设置部分
-1. 设置可参考《[ShellClash 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE.md)》，此处只列举配置的不同之处
+1. 设置可参考《[ShellClash 配置 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE%20geo%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
 2. 进入主菜单->2 clash功能设置，设置如下：
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/031ab115-bca8-4427-819a-200b19274e75" width="60%"/>  
 
 3. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/7e10f9c0-f479-43ee-b50c-f1e7251997e0" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d60e9bc9-49b9-4b93-b911-147abb822f91" width="60%"/>  
 
 4. 进入主菜单->6 导入配置文件->6 配置文件覆写->1 自定义端口及秘钥，设置如下：
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>  
