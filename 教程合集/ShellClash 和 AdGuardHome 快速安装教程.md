@@ -48,10 +48,6 @@ curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/c
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
-iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 vi /data/auto_ssh/auto_ssh.sh
 ```
 ## 2. 添加开机启动
@@ -59,10 +55,6 @@ vi /data/auto_ssh/auto_ssh.sh
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
-iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5625
-ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5625
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 3. 升级 AdGuardHome
