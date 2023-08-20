@@ -31,8 +31,6 @@ chmod +x $clashdir/clash && $clashdir/start.sh restart
 ```
 
 # 三、 安装 AdGuardHome
-- 注：DNS 服务器监听端口须与命令中的端口保持一致，此处设为 5625
-
 ## 1. 安装 AdGuardHome
 AdGuardHome CPU 架构和链接后缀对应关系如下：
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-softfloat|
