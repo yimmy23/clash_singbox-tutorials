@@ -41,9 +41,7 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 
 6. 进入主菜单->4 clash 启动设置，选择 1 允许 clash 开机启动
 7. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功
-- 注：若使用 ruleset 方案，可删除`每天早上 4 点更新路由规则文件`此条定时任务
-
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/2a2bc646-c5ee-4dd0-841f-bd1383c9eb80" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/844d13ef-4f48-4d71-ae3f-31aac78a4eb4" width="60%"/>  
 
 8. 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，选择 4 一键配置加密（推荐）
 9. 进入 ShellClash->6 导入配置文件->1 在线生成Clash配置文件，输入订阅链接后回车，再输入“1”并回车即可，然后启动 clash 服务
