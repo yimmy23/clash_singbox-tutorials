@@ -378,8 +378,8 @@ https://1.1.1.1/dns-query
 
 “Bootstrap DNS 服务器”设置为：
 ```
-223.5.5.5
 119.29.29.29
+223.5.5.5
 ```
 继续点击“测试上游 DNS”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器通了，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f88e7342-585a-43b0-b1c7-a57b6a3955ac" width="60%"/>  
