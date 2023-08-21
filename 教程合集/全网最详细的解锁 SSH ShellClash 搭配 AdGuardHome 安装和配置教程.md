@@ -344,7 +344,7 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 并编辑  
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
 
-⑦ 在最下方输入如下内容并保存：
+⑦ 在 `unlock()` 上方输入如下内容并保存：
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
@@ -432,7 +432,7 @@ chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
 ## 4. AdGuardHome 卸载
 ① 删除开机启动项  
-执行《六、 1. ⑥》的操作步骤，删除最下方添加的内容：
+执行《六、 1. ⑥》的操作步骤，删除添加的内容：
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
