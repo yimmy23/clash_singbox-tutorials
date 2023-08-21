@@ -382,10 +382,10 @@ https://1.1.1.1/dns-query
 223.5.5.5
 ```
 继续点击“测试上游 DNS”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器通了，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f88e7342-585a-43b0-b1c7-a57b6a3955ac" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bad7b3e6-cbc6-41e0-8541-2b78bbb15696" width="60%"/>  
 
 点击“应用”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器设置没问题，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/73d54bb9-19c1-4d34-932c-946b75d52ee0" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/1c46445b-2c9c-4666-ac66-3e950df7377f" width="60%"/>  
 
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/8b43ed45-afec-4444-b8fc-77d784477649" width="60%"/>  
