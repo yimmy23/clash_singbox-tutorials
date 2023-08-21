@@ -36,8 +36,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user1.txt
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user1.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user1.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user1.txt
         cat <<EOF >> ./tmp/temp-user1.txt
           default-nameserver:
             - https://1.12.12.12/dns-query
@@ -72,8 +72,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user2.txt
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user2.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user2.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user2.txt
         cat <<EOF >> ./tmp/temp-user2.txt
           default-nameserver:
             - https://1.12.12.12/dns-query
@@ -103,8 +103,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user3.txt
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user3.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user3.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user3.txt
         cat <<EOF >> ./tmp/temp-user3.txt
           default-nameserver:
             - https://1.12.12.12/dns-query
@@ -139,8 +139,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user4.txt
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user4.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user4.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | sed '/^\s*#/d' | sed '/^\s*$/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user4.txt
         cat <<EOF >> ./tmp/temp-user4.txt
           default-nameserver:
             - https://1.12.12.12/dns-query
