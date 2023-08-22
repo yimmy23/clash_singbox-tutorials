@@ -153,7 +153,7 @@ rule-providers:
   direct:
     type: http
     behavior: classical
-    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml'
+    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml'
     path: ./ruleset/direct.yaml
     interval: 86400
 
