@@ -1,4 +1,4 @@
-**教程历经无数次更改，给大家带来了困扰，在此抱歉！截至到 2023 年 8 月 22 日教程最终方案已经确定，可放心食用**
+**教程历经无数次更改，给大家带来了困扰，在此抱歉！截至到 2023 年 8 月 23 日教程最终方案已经确定，可放心食用**
 
 # 置顶教程：
 ## [全网最详细的解锁 SSH ShellClash 搭配 AdGuardHome 安装和配置教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86%E7%9A%84%E8%A7%A3%E9%94%81%20SSH%20ShellClash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.md)
