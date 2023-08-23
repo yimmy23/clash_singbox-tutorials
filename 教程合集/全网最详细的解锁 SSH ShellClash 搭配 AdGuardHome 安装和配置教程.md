@@ -251,9 +251,8 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 
-进入 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
-根据自身需要选择 5 启用节点绕过（设备较多可开启）  
-进入 6 配置内置 DNS 服务，选择 7 禁用 DNS 劫持
+进入 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启），根据自身需要选择 5 启用节点绕过（设备较多可开启）  
+进入 6 配置内置 DNS 服务，选择 7 禁用 DNS 劫持  
 注：
 - 1. 若单独使用 ShellClash，请不要禁用 DNS 劫持
 - 2. 推荐设置 DNS 分流（单独使用 ShellClash 以及 ShellClash 搭配 AdGuardHome 都适用），请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
