@@ -249,10 +249,10 @@ cd C:\Users\[用户名]\Desktop\upx
 
 返回到 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启）  
 根据自身需要选择 5 启用节点绕过（设备较多可开启）  
-选择 6 配置内置 DNS 服务，选择 1 修改基础 DNS，输入 `192.168.31.1:5353` 并回车，选择 2 修改 Fallback_DNS，输入 `null` 并回车  
-- 注：若单独使用 ShellClash，推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
+进入 6 配置内置 DNS 服务，选择 7 禁用 DNS 劫持
+- 注：推荐设置 DNS 分流，请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 geo 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20geo%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B%20ruleset%20%E6%96%B9%E6%A1%88.md)》
 
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/56687dbd-81a6-4a59-8a1a-83f9aa293ece" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/eb80990b-cb92-4038-a766-d6c691ec266d" width="60%"/>  
 
 ⑥ 返回到主菜单，选择 9 更新/卸载，进入 7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/28dd2543-97f8-4bb4-bc77-0f024afa5a88" width="60%"/>  
@@ -345,15 +345,25 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
 
 ⑦ 在 `unlock()` 上方输入如下内容并保存：
+- 注：AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
+iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
+iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
+ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
+ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ```
 ⑧ 连接 SSH，直接粘贴如下所有命令：
+- 注：AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
 ```
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
+iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
+iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
+ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
+ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ```
 **AdGuardHome 安装成功！**
 ## 2. AdGuardHome 配置
@@ -364,28 +374,18 @@ chmod +x /data/AdGuardHome/AdGuardHome
 ③ 进入设置->常规设置  
 取消勾选“启用日志”并点击“保存”（日志非常占用空间）  
 ④ 进入设置 ->DNS 设置  
-“上游 DNS 服务器”设置为：
-```
-https://doh.pub/dns-query
-https://dns.alidns.com/dns-query
-tls://dns.google
-https://1.1.1.1/dns-query
-```
-选中“并行请求”
+“上游 DNS 服务器”设置为 `127.0.0.1:1053`，选中“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/38493b21-663f-4808-9eaa-902d047b2d6e" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/1a3065d0-3d4d-4fff-91e1-bdf21344fefc" width="60%"/>  
 
 “Bootstrap DNS 服务器”设置为：
 ```
-119.29.29.29
+1.12.12.12
 223.5.5.5
 ```
-继续点击“测试上游 DNS”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器通了，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bad7b3e6-cbc6-41e0-8541-2b78bbb15696" width="60%"/>  
-
-点击“应用”，没有弹出报错信息则证明 AdGuardHome 的上游 DNS 服务器设置没问题，弹出报错信息则修改或删除报错信息中的那个 DNS 地址  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/1c46445b-2c9c-4666-ac66-3e950df7377f" width="60%"/>  
+直接点击“应用”即可  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d32e40c3-d436-4076-a2bf-c622707827ba" width="60%"/>  
 
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/8b43ed45-afec-4444-b8fc-77d784477649" width="60%"/>  
@@ -436,6 +436,10 @@ chmod +x /data/AdGuardHome/AdGuardHome && reboot
 ```
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
+iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
+iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
+ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
+ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ```
 并保存  
 ② 卸载 AdGuardHome  
@@ -457,4 +461,4 @@ UDP 连接正常，使用的是移动 500M 带宽
 <img src="https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png)](https://postimg.cc/3dL1NdHc" width="100%"/>  
 
 ## 4. AdGuardHome 效果
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/dfca4db6-b5a3-4012-b2c0-58f392533b78" width="100%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d37f6157-0684-44af-99b7-871280343be9" width="100%"/>
