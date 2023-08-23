@@ -60,6 +60,7 @@ vi /data/auto_ssh/auto_ssh.sh
 
 执行如下命令：
 ```
+/data/AdGuardHome/AdGuardHome -s stop
 curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome/AdGuardHome_linux_armv8
-chmod +x /data/AdGuardHome/AdGuardHome && reboot
+/data/AdGuardHome/AdGuardHome -s start
 ```
