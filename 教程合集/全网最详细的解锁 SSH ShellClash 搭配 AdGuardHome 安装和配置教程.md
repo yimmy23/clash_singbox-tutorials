@@ -240,6 +240,11 @@ cd C:\Users\[用户名]\Desktop\upx
 - 注：fake-ip 模式不支持 CN_IP 绕过内核
 
 进入 6 设置本机代理服务，选择 1 使用 iptables 增强模式配置
+注：
+- 1. AdGuardHome 添加和更新黑名单时依赖此功能
+- 2. ShellClash v1.8.0 有重大 bug，**开启本机代理后重启路由器，网页会卡顿甚至无法打开**
+- 3. 强烈建议平时将本机代理关闭（AdGuardHome 页面右下角会有报错，不用理会），仅需要添加或更新 AdGuardHome 黑名单时打开
+
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4e7874ca-af54-4dd4-b6cc-a97b3a34ed8d" width="60%"/>  
 
 启用 7 屏蔽 QUIC 流量  
