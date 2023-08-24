@@ -96,6 +96,7 @@ uci set system.@system[0].timezoneindex='2.84'
 uci commit
 mtd erase crash
 reboot
+
 ```
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/6b3af81b-94ac-4905-b05b-b6fd98a513a2" width="60%"/>  
 
@@ -120,6 +121,7 @@ curl -o /data/auto_ssh/auto_ssh.sh -L https://fastly.jsdelivr.net/gh/lemoeo/AX6S
 chmod +x /data/auto_ssh/auto_ssh.sh
 /data/auto_ssh/auto_ssh.sh install
 echo -e '12345678\n12345678' | passwd root
+
 ```
 ## 3. 更改 Telnet 和 SSH 登录密码（可选）
 执行如下命令：  
@@ -215,6 +217,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 ```
 cd C:\Users\[用户名]\Desktop\upx
 .\upx --best clash.meta-linux-arm64
+
 ```
 ⑦ 将压缩完成的 clash.meta-linux-arm64 移动到路由器的 */tmp* 目录中  
 <img src="https://user-images.githubusercontent.com/45238096/230613949-da4d28e2-0654-4dd4-b781-f7e5b8910b98.png" width="60%"/>  
@@ -326,6 +329,7 @@ $clashdir/start.sh stop && clash -u
 ```
 cd C:\Users\[用户名]\Desktop
 tar -zxvf AdGuardHome_linux_arm64.tar.gz
+
 ```
 .tar.gz 压缩文件成功解压到桌面的 *AdGuardHome* 文件夹内，目录结构为 *C:\Users\\[用户名]\Desktop\AdGuardHome*  
 ③ 进入 *AdGuardHome* 文件夹，将里面的“AdGuardHome”文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中  
@@ -336,6 +340,7 @@ tar -zxvf AdGuardHome_linux_arm64.tar.gz
 ```
 cd C:\Users\[用户名]\Desktop\upx
 .\upx --best AdGuardHome
+
 ```
 等待压缩完成，完成后“AdGuardHome”文件大小：  
 <img src="https://user-images.githubusercontent.com/45238096/224112398-45ce73d6-1c9c-4707-9d01-0ac57eb26c43.png" width="60%"/>  
@@ -355,14 +360,19 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
 
 ⑦ 在 `unlock()` 上方输入如下内容并保存：
-- 注：AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
+注：
+- 1. AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
+- 2. 保留首尾的空行
+
 ```
+
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
 iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
+
 ```
 ⑧ 连接 SSH，直接粘贴如下所有命令：
 - 注：AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
@@ -374,6 +384,7 @@ iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
+
 ```
 **AdGuardHome 安装成功！**
 ## 2. AdGuardHome 配置
