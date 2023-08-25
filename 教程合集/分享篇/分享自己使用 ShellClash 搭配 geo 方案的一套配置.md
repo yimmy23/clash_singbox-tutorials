@@ -1,5 +1,5 @@
 # 分享自己使用 [ShellClash](https://github.com/juewuy/ShellClash) 搭配 geo 方案的一套配置
-# 声明
+# 声明：
 1. 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
