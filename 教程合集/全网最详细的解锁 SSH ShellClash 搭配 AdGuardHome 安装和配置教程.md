@@ -248,7 +248,7 @@ cd C:\Users\[用户名]\Desktop\upx
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9633249b-53cf-4d17-96c8-76eb54079d83" width="60%"/>  
 
 ④ 进入主菜单-> 4 clash 启动设置，选择 1 允许 clash 开机启动  
-⑤ 进入主菜单-> 7 clash 进阶设置-> 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
+⑤ 进入主菜单-> 7 clash 进阶设置-> 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核  
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 
 进入 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启），根据自身需要选择 5 启用节点绕过（设备较多可开启）  
