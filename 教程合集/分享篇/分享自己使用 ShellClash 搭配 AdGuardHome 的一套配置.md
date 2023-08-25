@@ -94,7 +94,7 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://ghproxy.com/https://github.com/Du
 
 连接 SSH 后运行如下命令：  
 注：
-- 1. 由于 ShellClash 采用的 DNS 模式为 fake-ip，当 AdGuardHome 的黑名单下载地址在 `🪜 代理域名`内时，ShellClash 传给 AdGuardHome 的该下载地址对应 IP 为假 IP，所以会造成黑名单下载失败
+- 1. 由于 ShellClash 采用的 DNS 模式为 fake-ip，当 AdGuardHome 的黑名单下载地址在 `🪜 代理域名`或 `🐟 漏网之鱼`内时，ShellClash 传给 AdGuardHome 的该下载地址对应 IP 为假 IP，所以会造成黑名单下载失败
 - 2. AdHuardHome **自带的添加黑名单列表**中的下载域名都是“adguardteam.github.io”，所以我定制的 user.yaml 中 `fake-ip-filter` 列表内含有 `- adguardteam.github.io` 域名，黑名单可正常下载
 
 ```
