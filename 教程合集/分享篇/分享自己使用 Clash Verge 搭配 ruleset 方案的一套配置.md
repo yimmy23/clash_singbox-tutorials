@@ -1,5 +1,5 @@
 # 分享自己使用 [Clash Verge](https://github.com/zzzgydi/clash-verge) 搭配 ruleset 方案的一套配置
-# 声明
+# 声明：
 1. 此方案采用 `RULE-SET` 规则，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
