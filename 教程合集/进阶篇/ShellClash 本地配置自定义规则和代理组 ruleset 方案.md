@@ -1,6 +1,6 @@
 # [ShellClash](https://github.com/juewuy/ShellClash) 本地配置自定义规则和代理组 ruleset 方案
 - 注：此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
-# 前言
+# 前言：
 1. 本教程只适用于 ShellClash
 2. 自定义规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 3. 本教程**仅适合白名单模式**（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户），黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）慎用
