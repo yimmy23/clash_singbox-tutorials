@@ -239,24 +239,16 @@ cd C:\Users\[用户名]\Desktop\upx
 ③ 进入主菜单-> 2 clash 功能设置-> 1 切换 Clash 运行模式，选择 5 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 
-进入 2 切换 DNS 运行模式，选择 1 fake-ip 模式（经实测，现兼容性已大大增强，如仍有问题请选择 2 redir_host 模式）
-- 注：fake-ip 模式不支持 CN_IP 绕过内核
-
-进入 6 设置本机代理服务，选择 1 使用 iptables 增强模式配置
+进入 2 切换 DNS 运行模式，选择 2 redir_host 模式  
 注：
-- 1. AdGuardHome 添加和更新黑名单时依赖此功能
-- 2. ShellClash v1.8.0 有重大 bug，**开启本机代理后重启路由器，网页会卡顿甚至无法打开**
-- 3. 强烈建议平时将本机代理关闭（AdGuardHome 页面右下角会有报错，不用理会），仅需要添加或更新 AdGuardHome 黑名单时打开
-
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4e7874ca-af54-4dd4-b6cc-a97b3a34ed8d" width="60%"/>  
+- 1. 更推荐使用 redir-host 模式，兼容性更高，与 AdGuardHome 搭配更简单
+- 2. 根据自身需要开启 8 CN_IP 绕过内核
 
 启用 7 屏蔽 QUIC 流量  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a6416c9e-7ba9-44c0-8f95-adc1982e23d3" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9633249b-53cf-4d17-96c8-76eb54079d83" width="60%"/>  
 
 ④ 进入主菜单-> 4 clash 启动设置，选择 1 允许 clash 开机启动  
 ⑤ 进入主菜单-> 7 clash 进阶设置-> 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核
-- 注：fake-ip 模式不支持 CNIP 绕过内核
-
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 
 进入 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启），根据自身需要选择 5 启用节点绕过（设备较多可开启）  
@@ -414,16 +406,14 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 勾选“乐观缓存”，并点击“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f857800a-ebf4-4031-994f-27cd6b3e7b53" width="60%"/>  
 
-⑤ 进入过滤器->DNS 黑名单，推荐如下列表：
-- 注：强烈建议删除自带黑名单并通过“添加黑名单”->“添加一个自定义列表”进行手动添加，通过“添加黑名单”->“从列表中选择”进行选择添加容易报错
-
-|名称|URL|
-|-----|-----|
-|`CHN: anti-AD`|`https://anti-ad.net/easylist.txt`|
+⑤ 进入过滤器->DNS 黑名单->添加黑名单->从列表中选择，推荐勾选“区域”里的“CHN: anti-AD”，然后点击“保存”  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a0b4dff7-df3d-4b50-9d10-3fdffe004581" width="60%"/>  
 
 - 注：添加较大规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/201d8e2b-104b-4687-b0e8-aa5bf4660e24" width="60%"/>  
 
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5dd46dc8-3fd8-4eb8-8d7b-377fa138c777" width="60%"/>  
+添加成功  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/56c133e1-6298-4cf8-a565-f1171959f20f" width="60%"/>  
 
 **AdGuardHome 配置成功！**  
 **拓展：**  
@@ -482,4 +472,4 @@ UDP 连接正常，使用的是移动 500M 带宽
 <img src="https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png)](https://postimg.cc/3dL1NdHc" width="100%"/>  
 
 ## 4. AdGuardHome 效果
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d37f6157-0684-44af-99b7-871280343be9" width="100%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a36b30ce-a732-43bf-ae50-552b5588e1ff" width="100%"/>
