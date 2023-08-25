@@ -1,5 +1,6 @@
 # [Clash Verge](https://github.com/zzzgydi/clash-verge)（Windows 端）配置 ruleset 方案
 - 注：此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
+---
 # 一、 设置部分
 1. 进入 Clash Verge->设置->Verge 设置->语言设置，可切换到“中文”
 2. 进入设置->Clash 设置->Clash 内核，点击“螺帽图标”并切换至“[Clash Meta 内核](https://github.com/MetaCubeX/Clash.Meta)”
