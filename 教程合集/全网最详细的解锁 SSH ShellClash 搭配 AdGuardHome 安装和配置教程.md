@@ -406,7 +406,9 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 勾选“乐观缓存”，并点击“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f857800a-ebf4-4031-994f-27cd6b3e7b53" width="60%"/>  
 
-⑤ 进入过滤器->DNS 黑名单->添加黑名单->从列表中选择，推荐勾选“区域”里的“CHN: anti-AD”，然后点击“保存”  
+⑤ 进入过滤器->DNS 黑名单->添加黑名单->从列表中选择，推荐勾选“区域”里的“CHN: anti-AD”，然后点击“保存”
+- 注：若下载不稳定或失败，可手动将下载地址 URL 更改为 `https://anti-ad.net/easylist.txt`
+
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a0b4dff7-df3d-4b50-9d10-3fdffe004581" width="60%"/>  
 
 - 注：添加较大规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功
