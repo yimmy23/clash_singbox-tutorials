@@ -474,4 +474,4 @@ UDP 连接正常，使用的是移动 500M 带宽
 <img src="https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png)](https://postimg.cc/3dL1NdHc" width="100%"/>  
 
 ## 4. AdGuardHome 效果
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a36b30ce-a732-43bf-ae50-552b5588e1ff" width="100%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/b48319fd-7cc3-43f7-b93e-36fb15844c7f" width="100%"/>
