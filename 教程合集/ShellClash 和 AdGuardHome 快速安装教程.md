@@ -9,6 +9,7 @@
 ```
 curl -o /tmp/ShellClash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/ShellClash.tar.gz
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
+
 ```
 选择 1 安装到/data 目录（推荐，支持软固化功能）
 # 二、 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核
@@ -28,6 +29,7 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 ```
 curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
 chmod +x $clashdir/clash && $clashdir/start.sh restart
+
 ```
 
 # 三、 安装 AdGuardHome
@@ -47,12 +49,17 @@ chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
 vi /data/auto_ssh/auto_ssh.sh
+
 ```
 ## 2. 添加开机启动
 按一下 Ins 键（Insert 键），在最下方粘贴如下命令：
+- 注：保留首尾的空行
+
 ```
+
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
+
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 ## 3. 升级 AdGuardHome
@@ -63,4 +70,5 @@ vi /data/auto_ssh/auto_ssh.sh
 /data/AdGuardHome/AdGuardHome -s stop
 curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome/AdGuardHome_linux_armv8
 /data/AdGuardHome/AdGuardHome -s start
+
 ```
