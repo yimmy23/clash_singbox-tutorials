@@ -66,6 +66,10 @@ proxy-groups:
 
   - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
+  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+
   - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
 
   - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
@@ -88,78 +92,100 @@ proxy-groups:
   - {name: 🇺🇸 美国节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "美国"}
 
 rule-providers:
-  reject:
+  ads:
     type: http
     behavior: domain
-    url: 'https://ghproxy.com/https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/anti-ad-clash.yaml'
-    path: ./ruleset/reject.yaml
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/ads.yaml"
+    path: ./ruleset/ads.yaml
     interval: 86400
 
   applications:
     type: http
     behavior: classical
-    url: 'https://ghproxy.com/https://raw.githubusercontent.com/Loyalsoldier/clash-rules/release/applications.txt'
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/applications.yaml"
     path: ./ruleset/applications.yaml
     interval: 86400
 
   lan:
     type: http
-    behavior: classical
-    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan_No_Resolve.yaml'
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/lan.yaml"
     path: ./ruleset/lan.yaml
     interval: 86400
 
   networktest:
     type: http
-    behavior: classical
-    url: 'https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/networktest.yaml'
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/microsoft@cn.yaml'
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/microsoft-cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/apple@cn.yaml'
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/apple-cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/google@cn.yaml'
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/category-games@cn.yaml'
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   proxy:
     type: http
-    behavior: classical
-    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Proxy/Proxy_Classical.yaml'
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
-  direct:
+  cn:
     type: http
-    behavior: classical
-    url: 'https://ghproxy.com/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml'
-    path: ./ruleset/direct.yaml
+    behavior: domain
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/cn.yaml"
+    path: ./ruleset/cn.yaml
+    interval: 86400
+
+  telegramip:
+    type: http
+    behavior: ipcidr
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/telegramip.yaml"
+    path: ./ruleset/telegramip.yaml
+    interval: 86400
+
+  lanip:
+    type: http
+    behavior: ipcidr
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/lanip.yaml"
+    path: ./ruleset/lanip.yaml
+    interval: 86400
+
+  cnip:
+    type: http
+    behavior: ipcidr
+    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/cnip.yaml"
+    path: ./ruleset/cnip.yaml
     interval: 86400
 
 rules:
-  - RULE-SET,reject,⛔️ 广告域名
+  - RULE-SET,ads,⛔️ 广告域名
+  - RULE-SET,applications,📥 下载软件
   - RULE-SET,lan,🏠 私有网络
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
@@ -167,7 +193,10 @@ rules:
   - RULE-SET,google-cn,🗽 Google 中国
   - RULE-SET,games-cn,🎮 国区游戏
   - RULE-SET,proxy,🪜 代理域名
-  - RULE-SET,direct,⚡ 直连域名
+  - RULE-SET,cn,⚡ 直连域名
+  - RULE-SET,telegramip,✈️ Telegram IP
+  - RULE-SET,lanip,🏠 私有网络
+  - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
