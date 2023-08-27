@@ -77,7 +77,7 @@ rules:
   - GEOSITE,cn,⚡ 直连域名
   - GEOIP,telegramip,✈️ Telegram IP
   - GEOIP,lanip,🏠 私有网络,no-resolve
-  - GEOIP,cnip,🇨🇳 国内 IP
+  - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
