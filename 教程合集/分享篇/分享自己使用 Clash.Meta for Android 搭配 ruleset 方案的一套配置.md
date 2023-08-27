@@ -238,7 +238,7 @@ rule-providers:
 
   networktest:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
@@ -273,14 +273,14 @@ rule-providers:
 
   proxy:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   cn:
     type: http
-    behavior: domain
+    behavior: classical
     url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/cn.yaml"
     path: ./ruleset/cn.yaml
     interval: 86400
@@ -318,7 +318,7 @@ rules:
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,⚡ 直连域名
   - RULE-SET,telegramip,✈️ Telegram IP
-  - RULE-SET,lanip,🏠 私有网络
+  - RULE-SET,lanip,🏠 私有网络,no-resolve
   - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
