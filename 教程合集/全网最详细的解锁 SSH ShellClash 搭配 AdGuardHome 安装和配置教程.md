@@ -388,16 +388,10 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ③ 进入设置->常规设置  
 取消勾选“启用日志”并点击“保存”（日志非常占用空间）  
 ④ 进入设置 ->DNS 设置  
-“上游 DNS 服务器”设置为：
-```
-127.0.0.1:1053
-https://doh.pub/dns-query
-https://dns.alidns.com/dns-query
-```
-并选择“并行请求”
+“上游 DNS 服务器”设置为 `127.0.0.1:1053`，并选择“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a5084c49-bcb5-44c4-8c73-fcea68c31e81" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d211440f-23f2-45d1-8319-4292ea6e85f8" width="60%"/>  
 
 “Bootstrap DNS 服务器”设置为：
 ```
