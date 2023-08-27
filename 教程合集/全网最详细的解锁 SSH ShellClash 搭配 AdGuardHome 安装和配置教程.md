@@ -461,6 +461,11 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 连接 SSH，直接粘贴如下所有命令：
 ```
 /data/AdGuardHome/AdGuardHome -s stop && /data/AdGuardHome/AdGuardHome -s uninstall && rm -rf /data/AdGuardHome
+iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
+iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
+ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
+ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
+
 ```
 ③ 重启路由器
 # 七、 效果图
