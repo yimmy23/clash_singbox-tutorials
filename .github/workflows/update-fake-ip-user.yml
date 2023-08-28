@@ -19,13 +19,13 @@ jobs:
 
     - name: Generate fake-ip-user.yaml
       env:
-          SED: sed 's/^/    - /'
+          SED: sed 's/^/    - /' | sed '/^\s*$/d'
       run: |
         echo "update_version=$(date +%Y-%m-%d)" >> ${GITHUB_ENV}
         mkdir -p ./tmp
         mkdir -p ./fake-ip-config
         rm -f ./fake-ip-config/*
-        cat <<EOF > ./tmp/temp-user1.txt
+        cat <<EOF > ./tmp/temp-user.txt
         dns:
           enable: true
           prefer-h3: true
@@ -36,9 +36,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | grep -E "\*|\+" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user1.txt
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | grep -vE "\*|\+" | grep '\.' | ${{ env.SED }} >> ./tmp/temp-user1.txt
-        cat <<EOF >> ./tmp/temp-user1.txt
+          curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user.txt
+        cat <<EOF >> ./tmp/temp-user.txt
           default-nameserver:
             - https://1.12.12.12/dns-query
             - https://223.5.5.5/dns-query
@@ -46,7 +45,7 @@ jobs:
             - https://doh.pub/dns-query
             - https://dns.alidns.com/dns-query
         EOF
-        cat ./tmp/temp-user1.txt > ./fake-ip-config/fake-ip-user.yaml
+        cat ./tmp/temp-user.txt > ./fake-ip-config/fake-ip-user.yaml
         rm -rf ./tmp
 
     - name: Commit and push
