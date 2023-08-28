@@ -25,7 +25,7 @@ proxy-providers:
   🛫 我的机场 1:
     type: http
     # 机场订阅链接，使用 Clash 链接
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
@@ -34,19 +34,19 @@ proxy-providers:
       enable: true
       # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
   🛫 我的机场 2:
     type: http
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
 proxy-groups:
@@ -101,7 +101,7 @@ rule-providers:
   reject:
     type: http
     behavior: domain
-    url: 'https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml'
+    url: "https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml"
     path: ./ruleset/reject.yaml
     interval: 86400
 
@@ -109,63 +109,63 @@ rule-providers:
   applications:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt'
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
     path: ./ruleset/applications.yaml
     interval: 86400
 
   lan:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml"
     path: ./ruleset/lan.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/microsoft@cn.yaml'
+    url: "https://rules.kr328.app/microsoft@cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/apple@cn.yaml'
+    url: "https://rules.kr328.app/apple@cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/category-games@cn.yaml'
+    url: "https://rules.kr328.app/category-games@cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   direct:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
     path: ./ruleset/direct.yaml
     interval: 86400
 
@@ -190,7 +190,7 @@ proxy-providers:
   🛫 我的机场 1:
     type: http
     # 机场订阅链接，使用 Clash 链接
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
@@ -199,19 +199,19 @@ proxy-providers:
       enable: true
       # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
   🛫 我的机场 2:
     type: http
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
 proxy-groups:
@@ -251,21 +251,21 @@ rule-providers:
   reject:
     type: http
     behavior: domain
-    url: 'https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml'
+    url: "https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml"
     path: ./ruleset/reject.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
@@ -315,14 +315,14 @@ rule-providers:
   bilibili:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml"
     path: ./ruleset/bilibili.yaml
     interval: 86400
 
   acfun:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AcFun/AcFun.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AcFun/AcFun.yaml"
     path: ./ruleset/acfun.yaml
     interval: 86400
 
@@ -374,14 +374,14 @@ rule-providers:
   netflix:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
     path: ./ruleset/netflix.yaml
     interval: 86400
 
   primevideo:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrimeVideo/PrimeVideo.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrimeVideo/PrimeVideo.yaml"
     path: ./ruleset/primevideo.yaml
     interval: 86400
 
