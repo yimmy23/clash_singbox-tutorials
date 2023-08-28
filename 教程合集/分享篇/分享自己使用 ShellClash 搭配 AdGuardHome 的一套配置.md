@@ -17,13 +17,13 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 修改为你的 Clash 订阅链接
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
 proxy-groups:
@@ -108,8 +108,8 @@ curl -o $clashdir/yamls/user.yaml -L https://ghproxy.com/https://github.com/Dust
 ```
 30 3 * * * curl -o /data/clash/clash -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
 0 4 * * * curl -o /data/clash/GeoSite.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/geosite-lite.dat && curl -o /data/clash/GeoIP.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/geoip.dat && curl -o /data/clash/Country.mmdb -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
-30 4 * * * curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome/AdGuardHome_linux_armv8 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s start && curl -o /data/clash/yamls/user.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点半更新 AdGuardHome 和 user.yaml
-0 5 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 5 点更新订阅并重启 Clash 服务
+30 4 * * * curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome/AdGuardHome_linux_armv8 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s start >/dev/null 2>&1 #每天早上 4 点半更新 AdGuardHome
+0 5 * * 1,3,5 curl -o /data/clash/yamls/user.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/fake-ip-user.yaml && /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 5 点更新 user.yaml 和订阅
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
 ```
@@ -122,7 +122,7 @@ curl -o $clashdir/yamls/user.yaml -L https://ghproxy.com/https://github.com/Dust
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/031ab115-bca8-4427-819a-200b19274e75" width="60%"/>  
 
 ③ 进入主菜单->5 设置定时任务，查看定时任务是否添加成功  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/252d34f0-a1ce-4624-8bc2-ea903b94616c" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/1755d7d8-d011-4119-a52a-4c213c138427" width="60%"/>  
 
 ④ 进入主菜单->6 导入配置文件->6 配置文件覆写->1 自定义端口及秘钥，设置如下：  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>  
