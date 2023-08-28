@@ -94,10 +94,10 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://ghproxy.com/https://github.com/Du
 
 连接 SSH 后运行如下命令：  
 注：
-- 1. 由于 ShellClash 采用的 DNS 模式为 fake-ip，当 AdGuardHome 的黑名单下载地址在 `🪜 代理域名`或 `🐟 漏网之鱼`内时，ShellClash 传给 AdGuardHome 的该下载地址对应 IP 为假 IP，所以会造成黑名单下载失败
-- 2. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'adguardteam.github.io'` 域名，以解决在 AdHuardHome 自带的“DNS 黑名单”列表中添加规则失败的问题
+- 1. 由于 ShellClash 采用的 DNS 模式为 fake-ip，当 AdGuardHome 的黑名单下载地址在 `🪜 代理域名`或 `🐟 漏网之鱼`内时，**ShellClash 传给 AdGuardHome 的该下载地址对应 IP 为假 IP**，所以会造成黑名单下载失败
+- 2. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'adguardteam.github.io'` 域名，以**解决在 AdHuardHome 自带的“DNS 黑名单”列表中添加规则失败的问题**
 - 3. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'anti-ad.net'` 域名，在添加“DNS 黑名单”时可以修改成该域名，下载更稳定
-- 4. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'static.adtidy.org'` 域名（属 AdHuardHome 自带的版本检查域名），以解决 AdHuardHome 右下角报错“检查更新失败”的问题，但不推荐使用自带更新去升级，更推荐[添加定时任务](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellClash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md#%E5%9B%9B-%E6%B7%BB%E5%8A%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1)去自动更新（AdHuardHome 程序已被压缩，节省空间）
+- 4. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'static.adtidy.org'` 域名（属 AdHuardHome 自带的版本检查域名），以**解决 AdHuardHome 右下角报错“检查更新失败”的问题**，但不推荐使用自带更新去升级，更推荐[添加定时任务](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellClash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md#%E5%9B%9B-%E6%B7%BB%E5%8A%A0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1)去自动更新（AdHuardHome 程序已被压缩，节省空间）
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/fa87cd47-f74b-40f1-a105-cc660e2f44ee" width="60%"/>
 
 ```
