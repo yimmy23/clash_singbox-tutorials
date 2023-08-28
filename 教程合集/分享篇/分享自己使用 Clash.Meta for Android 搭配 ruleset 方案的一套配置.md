@@ -12,13 +12,13 @@ proxy-providers:
   🛫 我的机场:
     type: http
     # 修改为你的 Clash 订阅链接
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
 mode: rule
@@ -67,6 +67,7 @@ dns:
     - 'time.*.gov'
     - 'time.*.edu.cn'
     - 'time.*.apple.com'
+    - 'time-ios.apple.com'
     - 'time1.*.com'
     - 'time2.*.com'
     - 'time3.*.com'
@@ -85,14 +86,33 @@ dns:
     - '*.time.edu.cn'
     - '*.ntp.org.cn'
     - '+.pool.ntp.org'
+    - 'time1.cloud.tencent.com'
+    - 'music.163.com'
     - '*.music.163.com'
     - '*.126.net'
+    - 'musicapi.taihe.com'
+    - 'music.taihe.com'
+    - 'songsearch.kugou.com'
+    - 'trackercdn.kugou.com'
     - '*.kuwo.cn'
+    - 'api-jooxtt.sanook.com'
+    - 'api.joox.com'
+    - 'joox.com'
+    - 'y.qq.com'
     - '*.y.qq.com'
+    - 'streamoc.music.tc.qq.com'
+    - 'mobileoc.music.tc.qq.com'
+    - 'isure.stream.qqmusic.qq.com'
+    - 'dl.stream.qqmusic.qq.com'
+    - 'aqqmusic.tc.qq.com'
+    - 'amobile.music.tc.qq.com'
     - '*.xiami.com'
     - '*.music.migu.cn'
+    - 'music.migu.cn'
     - '+.msftconnecttest.com'
     - '+.msftncsi.com'
+    - 'localhost.ptlogin2.qq.com'
+    - 'localhost.sec.qq.com'
     - '+.qq.com'
     - '+.tencent.com'
     - '+.srv.nintendo.net'
@@ -101,66 +121,49 @@ dns:
     - 'xbox.*.*.microsoft.com'
     - '*.*.xboxlive.com'
     - 'xbox.*.microsoft.com'
+    - 'xnotify.xboxlive.com'
     - '+.battlenet.com.cn'
     - '+.wotgame.cn'
     - '+.wggames.cn'
     - '+.wowsgame.cn'
     - '+.wargaming.net'
+    - 'proxy.golang.org'
     - 'stun.*.*'
     - 'stun.*.*.*'
     - '+.stun.*.*'
     - '+.stun.*.*.*'
     - '+.stun.*.*.*.*'
     - '+.stun.*.*.*.*.*'
+    - 'heartbeat.belkin.com'
     - '*.linksys.com'
     - '*.linksyssmartwifi.com'
     - '*.router.asus.com'
+    - 'mesu.apple.com'
+    - 'swscan.apple.com'
+    - 'swquery.apple.com'
+    - 'swdownload.apple.com'
+    - 'swcdn.apple.com'
+    - 'swdist.apple.com'
+    - 'lens.l.google.com'
+    - 'stun.l.google.com'
+    - 'na.b.g-tun.com'
     - '+.nflxvideo.net'
     - '*.square-enix.com'
     - '*.finalfantasyxiv.com'
     - '*.ffxiv.com'
     - '*.ff14.sdo.com'
+    - 'ff.dorado.sdo.com'
     - '*.mcdn.bilivideo.cn'
     - '+.media.dssott.com'
+    - 'shark007.net'
+    - 'Mijia Cloud'
     - '+.cmbchina.com'
     - '+.cmbimg.com'
+    - 'local.adguard.org'
     - '+.sandai.net'
     - '+.n0808.com'
-    - time-ios.apple.com
-    - time1.cloud.tencent.com
-    - music.163.com
-    - musicapi.taihe.com
-    - music.taihe.com
-    - songsearch.kugou.com
-    - trackercdn.kugou.com
-    - api-jooxtt.sanook.com
-    - api.joox.com
-    - joox.com
-    - y.qq.com
-    - streamoc.music.tc.qq.com
-    - mobileoc.music.tc.qq.com
-    - isure.stream.qqmusic.qq.com
-    - dl.stream.qqmusic.qq.com
-    - aqqmusic.tc.qq.com
-    - amobile.music.tc.qq.com
-    - music.migu.cn
-    - localhost.ptlogin2.qq.com
-    - localhost.sec.qq.com
-    - xnotify.xboxlive.com
-    - proxy.golang.org
-    - heartbeat.belkin.com
-    - mesu.apple.com
-    - swscan.apple.com
-    - swquery.apple.com
-    - swdownload.apple.com
-    - swcdn.apple.com
-    - swdist.apple.com
-    - lens.l.google.com
-    - stun.l.google.com
-    - na.b.g-tun.com
-    - ff.dorado.sdo.com
-    - shark007.net
-    - local.adguard.org
+    - 'adguardteam.github.io'
+    - 'anti-ad.net'
   default-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
