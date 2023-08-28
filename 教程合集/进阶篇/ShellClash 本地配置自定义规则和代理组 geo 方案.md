@@ -23,7 +23,7 @@ proxy-providers:
   🛫 我的机场 1:
     type: http
     # 机场订阅链接，使用 Clash 链接
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
@@ -32,19 +32,19 @@ proxy-providers:
       enable: true
       # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
   🛫 我的机场 2:
     type: http
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
