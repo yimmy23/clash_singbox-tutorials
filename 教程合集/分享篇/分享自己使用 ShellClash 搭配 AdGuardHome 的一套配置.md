@@ -95,7 +95,9 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://ghproxy.com/https://github.com/Du
 连接 SSH 后运行如下命令：  
 注：
 - 1. 由于 ShellClash 采用的 DNS 模式为 fake-ip，当 AdGuardHome 的黑名单下载地址在 `🪜 代理域名`或 `🐟 漏网之鱼`内时，ShellClash 传给 AdGuardHome 的该下载地址对应 IP 为假 IP，所以会造成黑名单下载失败
-- 2. AdHuardHome **自带的添加黑名单列表**中的下载域名都是“adguardteam.github.io”，所以我定制的 user.yaml 中 `fake-ip-filter` 列表内含有 `- adguardteam.github.io` 域名，并添加了 `- anti-ad.net`（下载地址 URL 可手动修改为 https://anti-ad.net/easylist.txt ，下载更稳定），黑名单可正常下载，添加了 `- 'static.adtidy.org'` 以解决右下角报错“检查更新失败”的问题
+- 2. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'adguardteam.github.io'` 域名，以解决在 AdHuardHome 自带的“DNS 黑名单”列表中添加规则失败的问题
+- 3. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'anti-ad.net'` 域名，在添加“DNS 黑名单”时可以修改成该域名，下载更稳定
+- 4. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `- 'static.adtidy.org'` 域名，以解决 AdHuardHome 右下角报错“检查更新失败”的问题（属 AdHuardHome 自带的版本检查域名）
 
 ```
 curl -o $clashdir/GeoSite.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/geosite-lite.dat
