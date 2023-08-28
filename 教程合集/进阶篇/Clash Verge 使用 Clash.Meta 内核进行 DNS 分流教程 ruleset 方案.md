@@ -24,14 +24,9 @@ tun:
   # 严格路由，可防止地址泄漏，启用后你的设备将无法被其他设备访问
   strict-route: true
 ```
-2. 如果使用的是白名单模式，建议将 `rule-providers` 里的 `direct` 中的 `url` 链接修改为 `https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml`，即修改为：
+2. 如果使用的是白名单模式，建议将 `rules` 里的规则 `- GEOIP,cn,🇨🇳 国内 IP` 后面加上 `no-resolve`，即修改为：
 ```
-  direct:
-    type: http
-    behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml'
-    path: ./ruleset/direct.yaml
-    interval: 86400
+  - GEOIP,cn,🇨🇳 国内 IP,no-resolve
 ```
 # 三、 编辑自定义配置
 ## 1. DNS 模式为 fake-ip
