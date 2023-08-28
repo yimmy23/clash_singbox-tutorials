@@ -23,7 +23,7 @@ proxy-providers:
   🛫 我的机场 1:
     type: http
     # 机场订阅链接，使用 Clash 链接
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
@@ -32,84 +32,105 @@ proxy-providers:
       enable: true
       # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
   🛫 我的机场 2:
     type: http
-    url: 'https://example.com/xxx/xxx&flag=clash'
+    url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
       lazy: true
-      url: 'https://www.gstatic.com/generate_204'
+      url: "https://www.gstatic.com/generate_204"
       interval: 600
 
 # 规则集 .yaml 文件；每天自动更新
 rule-providers:
-  reject:
+  ads:
     type: http
     behavior: domain
-    url: 'https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml'
-    path: ./ruleset/reject.yaml
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/ads.yaml"
+    path: ./ruleset/ads.yaml
     interval: 86400
 
   lan:
     type: http
-    behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml'
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lan.yaml"
     path: ./ruleset/lan.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/microsoft@cn.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/microsoft-cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/apple@cn.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/apple-cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: 'https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: 'https://rules.kr328.app/category-games@cn.yaml'
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   proxy:
     type: http
-    behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml'
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
-  direct:
+  cn:
     type: http
-    behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml'
-    path: ./ruleset/direct.yaml
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cn.yaml"
+    path: ./ruleset/cn.yaml
+    interval: 86400
+
+  telegramip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/telegramip.yaml"
+    path: ./ruleset/telegramip.yaml
+    interval: 86400
+
+  lanip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lanip.yaml"
+    path: ./ruleset/lanip.yaml
+    interval: 86400
+
+  cnip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cnip.yaml"
+    path: ./ruleset/cnip.yaml
     interval: 86400
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
@@ -255,15 +276,18 @@ rule-providers:
 连接 SSH 后执行命令`vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 自定义规则优先放前面
-- RULE-SET,reject,⛔️ 广告域名
+- RULE-SET,ads,⛔️ 广告域名
+- RULE-SET,applications,📥 下载软件
 - RULE-SET,lan,🏠 私有网络
-- RULE-SET,networktest,📈 网络测速
+- RULE-SET,networktest,📈 网络测试
 - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
 - RULE-SET,apple-cn,🍎 Apple 中国
 - RULE-SET,google-cn,🗽 Google 中国
 - RULE-SET,games-cn,🎮 国区游戏
 - RULE-SET,proxy,🪜 代理域名
-- RULE-SET,direct,⚡ 直连域名
+- RULE-SET,cn,⚡ 直连域名
+- RULE-SET,telegramip,✈️ Telegram IP
+- RULE-SET,lanip,🏠 私有网络
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 # 四、 修改规则或代理组
@@ -282,7 +306,7 @@ rule-providers:
   netflix:
     type: http
     behavior: classical
-    url: 'https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml'
+    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
     path: ./ruleset/netflix.yaml
     interval: 86400
 ```
