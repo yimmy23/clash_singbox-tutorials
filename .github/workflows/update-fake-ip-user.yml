@@ -38,6 +38,8 @@ jobs:
         EOF
           curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user.txt
         cat <<EOF >> ./tmp/temp-user.txt
+            - 'adguardteam.github.io'
+            - 'anti-ad.net'
           default-nameserver:
             - https://1.12.12.12/dns-query
             - https://223.5.5.5/dns-query
