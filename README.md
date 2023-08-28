@@ -40,4 +40,4 @@
 ## 支付宝
 ![167673823486183](https://user-images.githubusercontent.com/45238096/219877760-b385af34-ebbd-438e-a31f-cd2b985047bb.png)
 # 机场推荐
-## [bitz](https://portal.getbitzapp.com/#/register?code=HT0ALWZq)：新用户 9 折优惠码 `new9`；8 月 13 日起涨价
+## [bitz](https://cs.getbitzapp.com/#/register?code=HT0ALWZq)：新用户 9 折优惠码 `new9`；8 月 13 日起涨价
