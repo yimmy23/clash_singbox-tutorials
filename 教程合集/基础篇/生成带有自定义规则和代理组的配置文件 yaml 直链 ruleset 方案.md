@@ -70,6 +70,10 @@ proxy-groups:
 
   - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
+  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+
+  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+
   # 若使用 ShellClash，由于无法判断进程，需删除此条“📥 下载软件”
   - {name: 📥 下载软件, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
@@ -115,8 +119,8 @@ rule-providers:
 
   lan:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan_No_Resolve.yaml"
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lan.yaml"
     path: ./ruleset/lan.yaml
     interval: 86400
 
@@ -130,14 +134,14 @@ rule-providers:
   microsoft-cn:
     type: http
     behavior: domain
-    url: "https://rules.kr328.app/microsoft@cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/microsoft-cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: "https://rules.kr328.app/apple@cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/apple-cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
@@ -151,22 +155,43 @@ rule-providers:
   games-cn:
     type: http
     behavior: domain
-    url: "https://rules.kr328.app/category-games@cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   proxy:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml"
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
-  direct:
+  cn:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical.yaml"
-    path: ./ruleset/direct.yaml
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cn.yaml"
+    path: ./ruleset/cn.yaml
+    interval: 86400
+
+  telegramip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/telegramip.yaml"
+    path: ./ruleset/telegramip.yaml
+    interval: 86400
+
+  lanip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lanip.yaml"
+    path: ./ruleset/lanip.yaml
+    interval: 86400
+
+  cnip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cnip.yaml"
+    path: ./ruleset/cnip.yaml
     interval: 86400
 
 rules:
@@ -180,7 +205,10 @@ rules:
   - RULE-SET,google-cn,🗽 Google 中国
   - RULE-SET,games-cn,🎮 国区游戏
   - RULE-SET,proxy,🪜 代理域名
-  - RULE-SET,direct,⚡ 直连域名
+  - RULE-SET,cn,⚡ 直连域名
+  - RULE-SET,telegramip,✈️ Telegram IP
+  - RULE-SET,lanip,🏠 私有网络
+  - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
@@ -264,8 +292,8 @@ rule-providers:
 
   proxy:
     type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Classical.yaml"
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
