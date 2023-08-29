@@ -162,6 +162,7 @@ dns:
     - 'local.adguard.org'
     - '+.sandai.net'
     - '+.n0808.com'
+    - 'static.adtidy.org'
     - 'adguardteam.github.io'
     - 'anti-ad.net'
   default-nameserver:
