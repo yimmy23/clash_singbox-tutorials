@@ -42,11 +42,11 @@ jobs:
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
-            - https://1.12.12.12/dns-query
             - https://223.5.5.5/dns-query
+            - https://1.12.12.12/dns-query
           nameserver:
-            - https://doh.pub/dns-query
             - https://dns.alidns.com/dns-query
+            - https://doh.pub/dns-query
         EOF
         cat ./tmp/temp-user.txt > ./fake-ip-config/fake-ip-user.yaml
         rm -rf ./tmp
