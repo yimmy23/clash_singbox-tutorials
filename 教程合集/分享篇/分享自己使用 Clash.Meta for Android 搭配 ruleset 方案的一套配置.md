@@ -166,11 +166,11 @@ dns:
     - 'adguardteam.github.io'
     - 'anti-ad.net'
   default-nameserver:
-    - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   nameserver:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
 
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
