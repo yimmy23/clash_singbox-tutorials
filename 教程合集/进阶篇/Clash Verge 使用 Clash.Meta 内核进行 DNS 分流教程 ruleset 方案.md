@@ -5,7 +5,7 @@
 - 3. DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主要是这个配置：
 ```
   nameserver-policy:
-    'rule-set:direct': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 - 4. 此方案自定义规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 ---
@@ -55,17 +55,17 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   default-nameserver:
-    - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   nameserver:
     - tls://dns.google
     - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   nameserver-policy:
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-    'rule-set:direct,lan': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    'rule-set:cn,lan': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
@@ -81,11 +81,11 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   default-nameserver:
-    - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   nameserver:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   nameserver-policy:
     'rule-set:proxy': [tls://dns.google, https://cloudflare-dns.com/dns-query]
 ```
