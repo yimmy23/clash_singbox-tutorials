@@ -45,17 +45,17 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   default-nameserver:
-    - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   nameserver:
     - tls://dns.google
     - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   nameserver-policy:
-    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-    'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    'geosite:cn,private': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车  
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
@@ -71,11 +71,11 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   default-nameserver:
-    - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   nameserver:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   nameserver-policy:
     'geosite:gfw': [tls://dns.google, https://cloudflare-dns.com/dns-query]
 ```
