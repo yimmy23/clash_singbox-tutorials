@@ -102,18 +102,18 @@ proxy-groups:
 
 # 规则集 .yaml 文件；每天自动更新
 rule-providers:
-  reject:
+  ads:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml"
-    path: ./ruleset/reject.yaml
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/ads.yaml"
+    path: ./ruleset/ads.yaml
     interval: 86400
 
   # 若使用 ShellClash，由于无法判断进程，需删除此条“applications”
   applications:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/applications.yaml"
     path: ./ruleset/applications.yaml
     interval: 86400
 
@@ -195,7 +195,7 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,reject,⛔️ 广告域名
+  - RULE-SET,ads,⛔️ 广告域名
     # 若使用 ShellClash，由于无法判断进程，需删除此条 RULE-SET
   - RULE-SET,applications,📥 下载软件
   - RULE-SET,lan,🏠 私有网络
@@ -276,11 +276,11 @@ proxy-groups:
 
 # 规则集 .yaml 文件；每天自动更新
 rule-providers:
-  reject:
+  ads:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/privacy-protection-tools/anti-AD@master/anti-ad-clash.yaml"
-    path: ./ruleset/reject.yaml
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/ads.yaml"
+    path: ./ruleset/ads.yaml
     interval: 86400
 
   networktest:
@@ -298,7 +298,7 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,reject,⛔️ 广告域名
+  - RULE-SET,ads,⛔️ 广告域名
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
   - MATCH,🐟 漏网之鱼
