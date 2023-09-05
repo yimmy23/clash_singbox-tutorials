@@ -244,8 +244,7 @@ cd C:\Users\[用户名]\Desktop\upx
 - 1. 更推荐使用 redir-host 模式，兼容性更高，与 AdGuardHome 搭配更简单
 - 2. 根据自身需要开启 8 CN_IP 绕过内核
 
-启用 7 屏蔽 QUIC 流量  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9633249b-53cf-4d17-96c8-76eb54079d83" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/211e8667-c137-4ea3-ba43-ba2b5ec3e4a2" width="60%"/>  
 
 ④ 进入主菜单-> 4 clash 启动设置，选择 1 允许 clash 开机启动  
 ⑤ 进入主菜单-> 7 clash 进阶设置-> 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核  
@@ -395,11 +394,11 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 “Bootstrap DNS 服务器”设置为：
 ```
-1.12.12.12
 223.5.5.5
+1.12.12.12
 ```
 直接点击“应用”即可  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d32e40c3-d436-4076-a2bf-c622707827ba" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/82119224-3885-41d7-a3ca-4851c87443a4" width="60%"/>  
 
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/8b43ed45-afec-4444-b8fc-77d784477649" width="60%"/>  
