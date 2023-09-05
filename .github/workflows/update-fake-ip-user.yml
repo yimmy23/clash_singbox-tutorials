@@ -19,7 +19,7 @@ jobs:
 
     - name: Generate fake-ip-user.yaml
       env:
-          SED: sed 's/^/    - /' | sed '/^\s*$/d'
+          SED: sed 's/^/    - /g' | sed '/^\s*$/d'
       run: |
         echo "update_version=$(date +%Y-%m-%d)" >> ${GITHUB_ENV}
         mkdir -p ./tmp
@@ -36,8 +36,9 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-          curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed "s/.*/'&'/" | ${{ env.SED }} >> ./tmp/temp-user.txt
+          curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed "s/.*/'&'/g" | ${{ env.SED }} >> ./tmp/temp-user.txt
         cat <<EOF >> ./tmp/temp-user.txt
+            - 'static.adtidy.org'
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
