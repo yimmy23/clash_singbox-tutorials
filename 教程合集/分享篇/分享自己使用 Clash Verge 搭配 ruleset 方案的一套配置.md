@@ -229,9 +229,9 @@ pause
 ```
 - 3. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
 # 四、 在线 Dashboard 面板
-推荐使用在线 Dashboard 面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one
-1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
-<img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>  
+推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://d.metacubex.one
+1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a5ba7e10-b060-4548-81f9-3815f6619bdd" width="60%"/>  
 
-2. 首次进入 https://yacd.metacubex.one 需要添加“API Base URL”，直接点击 http://127.0.0.1:9090 即可访问 Dashboard 面板  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5086cb88-2dd7-4117-8341-048640dfed91" width="60%"/>
+2. 首次进入 https://d.metacubex.one 需要添加“host url”，输入 `http://192.168.31.1:9090` 并点击“添加”，最后点击下方新增的 http://192.168.31.1:9090 即可访问 Dashboard 面板  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/1e22f5a6-7f61-4435-8aaf-683d3c1b2e93" width="60%"/>
