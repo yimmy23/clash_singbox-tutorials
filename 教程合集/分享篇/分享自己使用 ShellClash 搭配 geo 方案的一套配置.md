@@ -87,8 +87,10 @@ rules:
 我用的 Alpha 版，目前一直很稳定  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-armv8 -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-linux-armv8
+curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8
+clash
 ```
+此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
 # 三、 导入路由规则文件和 user.yaml
 注：
 - 1. **路由规则文件和 user.yaml 都属高度定制，牵一发而动全身**
@@ -97,17 +99,17 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://ghproxy.com/https://github.com/Du
 
 连接 SSH 后运行如下命令：
 ```
-curl -o $clashdir/GeoSite.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/geosite.dat
-curl -o $clashdir/GeoIP.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/geoip.dat
-curl -o $clashdir/Country.mmdb -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/Country.mmdb
-curl -o $clashdir/yamls/user.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/fake-ip-user.yaml
+curl -o $clashdir/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat
+curl -o $clashdir/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat
+curl -o $clashdir/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb
+curl -o $clashdir/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
 ```
 # 四、 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 ```
-30 3 * * * curl -o /data/clash/clash -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
-0 4 * * * curl -o /data/clash/GeoSite.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/geoip.dat && curl -o /data/clash/Country.mmdb -L https://ghproxy.com/https://github.com/DustinWin/clash-geoip/releases/download/latest/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
-30 4 * * * curl -o /data/clash/yamls/user.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-geosite/releases/download/latest/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点半更新 user.yaml
+30 3 * * * curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
+0 4 * * * curl -o /data/clash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
+30 4 * * * curl -o /data/clash/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点半更新 user.yaml
 0 5 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 5 点更新订阅并重启 Clash 服务
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
