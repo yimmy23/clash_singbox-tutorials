@@ -94,91 +94,91 @@ rule-providers:
   ads:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/ads.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/ads.yaml"
     path: ./ruleset/ads.yaml
     interval: 86400
 
   applications:
     type: http
     behavior: classical
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/applications.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/applications.yaml"
     path: ./ruleset/applications.yaml
     interval: 86400
 
   lan:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/lan.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lan.yaml"
     path: ./ruleset/lan.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/networktest.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/microsoft-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/microsoft-cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/apple-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/apple-cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/google-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/games-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/proxy.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   cn:
     type: http
     behavior: domain
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cn.yaml"
     path: ./ruleset/cn.yaml
     interval: 86400
 
   telegramip:
     type: http
     behavior: ipcidr
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/telegramip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/telegramip.yaml"
     path: ./ruleset/telegramip.yaml
     interval: 86400
 
   lanip:
     type: http
     behavior: ipcidr
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/lanip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lanip.yaml"
     path: ./ruleset/lanip.yaml
     interval: 86400
 
   cnip:
     type: http
     behavior: ipcidr
-    url: "https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-ruleset/release/cnip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cnip.yaml"
     path: ./ruleset/cnip.yaml
     interval: 86400
 
@@ -214,7 +214,7 @@ curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https:/
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-ruleset/releases/download/latest/fake-ip-user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
 ```
 小窍门：
 - 1. 可以配置一键更新 Clash.Meta 内核和自定义配置文件的脚本  
@@ -223,7 +223,7 @@ curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L htt
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
 curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://github.com/DustinWin/clash-tools/releases/download/latest/clash.meta-windows-amd64.exe
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://ghproxy.com/https://github.com/DustinWin/clash-ruleset/releases/download/latest/fake-ip-user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
 pause
 ```
 - 3. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
