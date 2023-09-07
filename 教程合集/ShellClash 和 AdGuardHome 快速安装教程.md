@@ -23,10 +23,9 @@ Clash.Meta 内核 CPU 架构和链接后缀对应关系如下：
 执行如下命令：
 ```
 # Release 版
-curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
+curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && clash
 # Alpha 版
-curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-prerelease/clash.meta-linux-armv8
-clash
+curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-prerelease/clash.meta-linux-armv8 && clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
 或者执行如下命令：
