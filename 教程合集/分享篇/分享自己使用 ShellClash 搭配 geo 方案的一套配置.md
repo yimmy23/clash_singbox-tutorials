@@ -87,8 +87,7 @@ rules:
 我用的 Alpha 版，目前一直很稳定  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8
-clash
+curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8 && clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
 # 三、 导入路由规则文件和 user.yaml
