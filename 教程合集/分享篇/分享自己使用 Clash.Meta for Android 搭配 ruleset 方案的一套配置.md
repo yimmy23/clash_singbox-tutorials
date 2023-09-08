@@ -160,9 +160,9 @@ dns:
     - '+.cmbchina.com'
     - '+.cmbimg.com'
     - 'local.adguard.org'
+    - 'static.adtidy.org'
     - '+.sandai.net'
     - '+.n0808.com'
-    - 'static.adtidy.org'
     - 'adguardteam.github.io'
     - 'anti-ad.net'
   default-nameserver:
