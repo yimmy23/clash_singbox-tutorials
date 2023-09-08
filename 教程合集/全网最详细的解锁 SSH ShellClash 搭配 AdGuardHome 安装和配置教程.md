@@ -392,13 +392,18 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d211440f-23f2-45d1-8319-4292ea6e85f8" width="60%"/>  
 
+“后备 DNS 服务器”设置为：
+```
+https://dns.alidns.com/dns-query
+https://doh.pub/dns-query
+```
 “Bootstrap DNS 服务器”设置为：
 ```
 223.5.5.5
 1.12.12.12
 ```
 直接点击“应用”即可  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/82119224-3885-41d7-a3ca-4851c87443a4" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb7399f3-feea-40c5-aefd-2b5811778dad" width="60%"/>  
 
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/8b43ed45-afec-4444-b8fc-77d784477649" width="60%"/>  
