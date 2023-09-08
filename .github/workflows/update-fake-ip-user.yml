@@ -58,7 +58,7 @@ jobs:
         git add . && git commit -m "更新于 ${update_version}" || exit 0
         git push -f
 
-    - name: Purge jsdelivr CDN
+    - name: Purge jsDelivr CDN
       run: |
         cd ./fake-ip-config || exit 1
         for file in $(ls); do
