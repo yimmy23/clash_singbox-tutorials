@@ -1,4 +1,4 @@
-# 分享自己使用 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid) 搭配 ruleset 方案的一套配置
+# 分享自己使用 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid) 搭配 rule-set 方案的一套配置
 # 声明：
 1. 此方案采用 `RULE-SET` 规则，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
@@ -6,7 +6,7 @@
 4. 此方案适用于 Clash.Meta for Android
 ---
 # 一、 生成带有自定义规则和代理组的配置文件 yaml 直链
-具体方法请参考《[生成带有自定义规则和代理组的配置文件 yaml 直链 ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20ruleset%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：
+具体方法请参考《[生成带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20rule-set%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：
 ```
 proxy-providers:
   🛫 我的机场:
@@ -28,20 +28,15 @@ allow-lan: true
 mixed-port: 7890
 unified-delay: false
 tcp-concurrent: true
-external-controller: 127.0.0.1:9090
-
+external-controller-tls: 127.0.0.1:9090
 find-process-mode: strict
 global-client-fingerprint: chrome
-
-profile:
-  store-selected: true
-  store-fake-ip: true
+profile: {store-selected: true, store-fake-ip: true}
 
 tun:
   enable: true
   stack: system
-  dns-hijack:
-    - 'any:53'
+  dns-hijack: ['any:53']
   auto-route: true
   auto-detect-interface: true
   strict-route: true
@@ -327,6 +322,6 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入配置文件并启动 Clash
-1. 进入 Clash Meta for Android->配置->创建配置->从 URL 导入，“URL”输入《[第一步](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20Clash.Meta%20for%20Android%20%E6%90%AD%E9%85%8D%20ruleset%20%E6%96%B9%E6%A1%88%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md#%E4%B8%80-%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-yaml-%E7%9B%B4%E9%93%BE)》中生成的配置文件 yaml 直链，“自动更新”填写“1440”，最后点击右上角的“保存图标”
+1. 进入 Clash Meta for Android->配置->创建配置->从 URL 导入，“URL”输入《[第一步](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20Clash.Meta%20for%20Android%20%E6%90%AD%E9%85%8D%20rule-set%20%E6%96%B9%E6%A1%88%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md#%E4%B8%80-%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-yaml-%E7%9B%B4%E9%93%BE)》中生成的配置文件 yaml 直链，“自动更新”填写“1440”，最后点击右上角的“保存图标”
 2. 进入 Clash Meta for Android->设置->网络，将“系统代理”关闭
 3. 返回到主界面，点击“点此启用”即可启动 Clash 服务
