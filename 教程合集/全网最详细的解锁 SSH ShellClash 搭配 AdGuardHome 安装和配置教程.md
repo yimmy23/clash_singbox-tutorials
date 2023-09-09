@@ -216,7 +216,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && sou
 ⑥ 将 clash.meta-linux-arm64 文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中，以管理员身份运行 PowerShell，依次执行如下命令：
 ```
 cd C:\Users\[用户名]\Desktop\upx
-.\upx --best clash.meta-linux-arm64
+.\upx clash.meta-linux-arm64
 
 ```
 ⑦ 将压缩完成的 clash.meta-linux-arm64 移动到路由器的 */tmp* 目录中  
@@ -325,22 +325,16 @@ tar -zxvf AdGuardHome_linux_arm64.tar.gz
 ```
 .tar.gz 压缩文件成功解压到桌面的 *AdGuardHome* 文件夹内，目录结构为 *C:\Users\\[用户名]\Desktop\AdGuardHome*  
 ③ 进入 *AdGuardHome* 文件夹，将里面的“AdGuardHome”文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中  
-此时“AdGuardHome”文件大小：  
-<img src="https://i.postimg.cc/8cBhsjRm/QQ-20221216151642.png" width="60%"/>  
-
-④ 依次执行如下命令：
+依次执行如下命令：
 ```
 cd C:\Users\[用户名]\Desktop\upx
-.\upx --best AdGuardHome
+.\upx AdGuardHome
 
 ```
-等待压缩完成，完成后“AdGuardHome”文件大小：  
-<img src="https://user-images.githubusercontent.com/45238096/224112398-45ce73d6-1c9c-4707-9d01-0ac57eb26c43.png" width="60%"/>  
-
-⑤ 将压缩后的“AdGuardHome”文件移动到路由器的 */data/AdGuardHome* 目录（没有此目录就新建）中  
+④ 将压缩后的“AdGuardHome”文件移动到路由器的 */data/AdGuardHome* 目录（没有此目录就新建）中  
 <img src="https://i.postimg.cc/qvZ2tf3S/QQ-20230130144006.png" width="60%"/>  
 
-⑥ 进入路由器文件管理的 */data/auto_ssh* 目录，右击“auto_ssh.sh”文件  
+⑤ 进入路由器文件管理的 */data/auto_ssh* 目录，右击“auto_ssh.sh”文件  
 注：
 - 1. 若没有此目录和文件，可新建
 - 2. 新建后连接 SSH，直接粘贴如下所有命令：
@@ -351,7 +345,7 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 并编辑  
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
 
-⑦ 在 `unlock()` 上方输入如下内容并保存：
+⑥ 在 `unlock()` 上方输入如下内容并保存：
 注：
 - 1. AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
 - 2. 保留首尾的空行
@@ -366,7 +360,7 @@ ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 ```
-⑧ 连接 SSH，直接粘贴如下所有命令：
+⑦ 连接 SSH，直接粘贴如下所有命令：
 - 注：AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
 ```
 chmod +x /data/AdGuardHome/AdGuardHome
