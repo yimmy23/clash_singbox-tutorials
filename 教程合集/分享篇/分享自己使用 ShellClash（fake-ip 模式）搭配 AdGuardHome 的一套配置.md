@@ -4,7 +4,7 @@
 2. 此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，属高度定制，仅供参考
 3. 规则参考 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
 4. 请根据自身情况进行修改，适合自己的方案才是最好的方案，如无特殊需求，可以照搬
-5. 此方案中 ShellClash 采用的 DNS 模式为 fake-ip（仍与 AdGuardHome 配合完美）
+5. 此方案中 ShellClash 采用的 **DNS 模式为 fake-ip**（仍与 AdGuardHome 配合完美）
 6. 此方案适用于 ShellClash（以 arm64 架构为例）
 7. 此方案适用于 AdGuardHome（以 arm64 架构为例）
 ---
