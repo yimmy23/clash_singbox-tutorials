@@ -48,7 +48,7 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/717281f6-8cc9-4379-88ef-77a699f58deb" width="60%"/>
 
 6. 进入主菜单->4 clash 启动设置，选择 1 允许 clash 开机启动
-7. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功
+7. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/3740f34e-b136-44a5-8f0d-401d35847cf7" width="60%"/>
 
 8. 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，选择 4 一键配置加密（推荐）
