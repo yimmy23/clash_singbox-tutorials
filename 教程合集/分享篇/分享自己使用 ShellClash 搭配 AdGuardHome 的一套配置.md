@@ -123,17 +123,13 @@ curl -o $clashdir/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/cl
 ## 1. ShellClash 设置
 ① 设置可参考《[ShellClash 配置 geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE%20geo%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处  
 ② 进入主菜单->2 clash功能设置，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/39920422-3d2b-4ee9-806a-5e9ac31fb7e9" width="60%"/>
-
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/39920422-3d2b-4ee9-806a-5e9ac31fb7e9" width="60%"/>  
 ③ 进入主菜单->5 设置定时任务，查看定时任务是否添加成功  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/1755d7d8-d011-4119-a52a-4c213c138427" width="60%"/>
-
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/1755d7d8-d011-4119-a52a-4c213c138427" width="60%"/>  
 ④ 进入主菜单->6 导入配置文件->6 配置文件覆写->1 自定义端口及秘钥，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>
-
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>  
 ⑤ 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4ec93fb8-1200-4baa-b3b4-29d164d7a743" width="60%"/>
-
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4ec93fb8-1200-4baa-b3b4-29d164d7a743" width="60%"/>  
 ⑥ 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
 ## 2. AdGuardHome 设置
 设置可参考《[AdGuardHome 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86%E7%9A%84%E8%A7%A3%E9%94%81%20SSH%20ShellClash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.md#2-adguardhome-%E9%85%8D%E7%BD%AE)》
