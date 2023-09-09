@@ -22,10 +22,9 @@ jobs:
           SED: sed 's/^/    - /g' | sed '/^\s*$/d'
       run: |
         echo "update_version=$(date +%Y-%m-%d)" >> ${GITHUB_ENV}
-        mkdir -p ./tmp
         mkdir -p ./fake-ip-config
-        rm -f ./fake-ip-config/*
-        cat <<EOF > ./tmp/temp-user.txt
+        rm -rf ./fake-ip-config/*
+        cat <<EOF > ./fake-ip-config/fake-ip-user.yaml
         dns:
           enable: true
           prefer-h3: true
@@ -36,8 +35,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-          curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed "s/.*/'&'/g" | ${{ env.SED }} >> ./tmp/temp-user.txt
-        cat <<EOF >> ./tmp/temp-user.txt
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed "s/.*/'&'/g" | ${{ env.SED }} >> ./fake-ip-config/fake-ip-user.yaml
+        cat <<EOF >> ./fake-ip-config/fake-ip-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
@@ -47,8 +46,6 @@ jobs:
             - https://dns.alidns.com/dns-query
             - https://doh.pub/dns-query
         EOF
-        cat ./tmp/temp-user.txt > ./fake-ip-config/fake-ip-user.yaml
-        rm -rf ./tmp
 
     - name: Commit and push
       run: |
