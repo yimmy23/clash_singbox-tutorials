@@ -57,8 +57,8 @@ dns:
 2. 进入设置->系统设置->Tun 模式，启用
 # 六、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://d.metacubex.one
-1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`
+1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/3d1ed229-1d3a-4ccc-a7b4-adecc8fee8b4" width="60%"/>
 
-2. 首次进入 https://d.metacubex.one 需要添加“host url”，输入 `http://192.168.31.1:9090` 并点击“添加”，最后点击下方新增的 http://192.168.31.1:9090 即可访问 Dashboard 面板
+2. 首次进入 https://d.metacubex.one 需要添加“host url”，输入 `http://192.168.31.1:9090` 并点击“添加”，最后点击下方新增的 http://192.168.31.1:9090 即可访问 Dashboard 面板  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/340b3519-c98c-440b-a065-11678142f883" width="60%"/>
