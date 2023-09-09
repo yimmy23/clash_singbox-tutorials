@@ -439,7 +439,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
 ③ 重启路由器
 # 七、 效果图
 ## 1. IPv6 效果
-<img src="https://user-images.githubusercontent.com/45238096/224113189-e20e0b89-6dfc-40c5-b2cf-9abeb8525cdb.png" width="60%"/>
+<img src="https://user-images.githubusercontent.com/45238096/224113189-e20e0b89-6dfc-40c5-b2cf-9abeb8525cdb.png" width="100"/>
 
 ## 2. BT 下载效果
 UDP 连接正常，使用的是移动 500M 带宽  
