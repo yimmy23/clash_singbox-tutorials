@@ -1,4 +1,4 @@
-# 分享自己使用 [ShellClash](https://github.com/juewuy/ShellClash) 搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 的一套配置
+# 分享自己使用 [ShellClash](https://github.com/juewuy/ShellClash)（fake-ip 模式）搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 的一套配置
 # 声明：
 1. 此方案采用 ShellClash 作为上游，AdGuardHome 作为下游的模式
 2. 此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，属高度定制，仅供参考
