@@ -46,6 +46,7 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 5. 进入主菜单->2 clash功能设置，设置如下：
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/717281f6-8cc9-4379-88ef-77a699f58deb" width="60%"/>
+
 6. 进入主菜单->4 clash 启动设置，选择 1 允许 clash 开机启动
 7. 进入主菜单->5 设置定时任务，查看定时任务是否添加成功
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/3740f34e-b136-44a5-8f0d-401d35847cf7" width="60%"/>
