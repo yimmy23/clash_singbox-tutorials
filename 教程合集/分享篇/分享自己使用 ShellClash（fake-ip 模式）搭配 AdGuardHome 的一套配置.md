@@ -103,15 +103,15 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
 
 ```
 curl -o $clashdir/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite-lite.dat
-curl -o $clashdir/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat
-curl -o $clashdir/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb
+curl -o $clashdir/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip-lite.dat
+curl -o $clashdir/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country-lite.mmdb
 curl -o $clashdir/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
 ```
 # 四、 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
 ```
 30 3 * * * curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
-0 4 * * * curl -o /data/clash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite-lite.dat && curl -o /data/clash/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
+0 4 * * * curl -o /data/clash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite-lite.dat && curl -o /data/clash/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip-lite.dat && curl -o /data/clash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country-lite.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
 30 4 * * * curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@release/AdGuardHome_linux_armv8 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s start >/dev/null 2>&1 #每天早上 4 点半更新 AdGuardHome
 0 5 * * 1,3,5 curl -o /data/clash/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 5 点更新 user.yaml 和订阅
 ```
