@@ -76,11 +76,10 @@ vi /data/auto_ssh/auto_ssh.sh
 
 执行如下命令：
 ```
-/data/AdGuardHome/AdGuardHome -s stop
 # Release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-release/AdGuardHome_linux_armv8
 # Pre-release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
-/data/AdGuardHome/AdGuardHome -s start
+/data/AdGuardHome/AdGuardHome -s restart
 
 ```
