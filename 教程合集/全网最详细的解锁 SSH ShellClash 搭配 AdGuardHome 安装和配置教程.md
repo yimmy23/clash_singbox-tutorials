@@ -411,7 +411,7 @@ AdGuardHome 常用命令
 ① 执行《六、 1. ① ② ③ ④ ⑤（替换）》的操作步骤  
 ② 连接 SSH，直接粘贴如下所有命令：
 ```
-chmod +x /data/AdGuardHome/AdGuardHome && reboot
+chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart
 ```
 ## 4. AdGuardHome 卸载
 ① 删除开机启动项  
