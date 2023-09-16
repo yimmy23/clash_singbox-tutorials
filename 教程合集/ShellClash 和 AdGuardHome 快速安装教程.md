@@ -19,21 +19,21 @@ Clash.Meta 内核 CPU 架构和链接后缀对应关系如下：
 |链接后缀|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
 如 CPU 架构为 ARMv7，则下载链接须修改为：  
-`https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv7`和 `https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-prerelease/clash.meta-linux-armv7`  
+`https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Release/clash.meta-linux-armv7`和 `https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Alpha/clash.meta-linux-armv7`  
 执行如下命令：
 ```
 # Release 版
-curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && clash
+curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Release/clash.meta-linux-armv8 && clash
 # Alpha 版
-curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-prerelease/clash.meta-linux-armv8 && clash
+curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Alpha/clash.meta-linux-armv8 && clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
 或者执行如下命令：
 ```
 # Release 版
-curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
+curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Release/clash.meta-linux-armv8
 # Alpha 版
-curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-prerelease/clash.meta-linux-armv8
+curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Alpha/clash.meta-linux-armv8
 chmod +x $clashdir/clash && $clashdir/start.sh restart
 
 ```
@@ -46,14 +46,14 @@ AdGuardHome CPU 架构和链接后缀对应关系如下：
 |链接后缀|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-softfloat`|
 
 如 CPU 架构为 ARMv7，则下载链接须修改为：  
-`https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-release/AdGuardHome_linux_armv7` 和 `https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv7`  
+`https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-Release/AdGuardHome_linux_armv7` 和 `https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-Prerelease/AdGuardHome_linux_armv7`  
 执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
 # Release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-release/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-Release/AdGuardHome_linux_armv8
 # Pre-release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-Prerelease/AdGuardHome_linux_armv8
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
@@ -77,9 +77,9 @@ vi /data/auto_ssh/auto_ssh.sh
 执行如下命令：
 ```
 # Release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-release/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-Release/AdGuardHome_linux_armv8
 # Pre-release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-Prerelease/AdGuardHome_linux_armv8
 /data/AdGuardHome/AdGuardHome -s restart
 
 ```
