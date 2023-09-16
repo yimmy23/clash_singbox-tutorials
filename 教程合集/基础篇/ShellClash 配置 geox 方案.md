@@ -10,10 +10,10 @@ Clash.Meta 内核 CPU 架构和链接后缀对应关系如下：
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
-如 CPU 架构为 ARMv7，则下载链接须修改为：`https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv7`  
+如 CPU 架构为 ARMv7，则下载链接须修改为：`https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Release/clash.meta-linux-armv7`  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && clash
+curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Release/clash.meta-linux-armv8 && clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
 # 二、 导入路由规则文件
@@ -25,7 +25,7 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 # 三、 添加定时任务
 连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴（快捷键 Ctrl+Shift+V）如下内容：
 ```
-30 3 * * * curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
+30 3 * * * curl -o /data/clash/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-Release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 3 点半更新 Clash.Meta 内核
 0 4 * * * curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
 30 4 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新订阅并重启 Clash 服务
 ```
