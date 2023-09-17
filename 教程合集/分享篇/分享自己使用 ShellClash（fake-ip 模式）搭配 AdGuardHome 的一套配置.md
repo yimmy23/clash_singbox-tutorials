@@ -138,5 +138,5 @@ curl -o $clashdir/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/cl
 1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/97ff3448-e6a1-45e2-aac9-46a5676e98fc" width="60%"/>
 
-2. 首次进入 https://d.metacubex.one 需要添加“host url”，输入 `http://192.168.31.1:9090` 并点击“添加”，最后点击下方新增的 http://192.168.31.1:9090 即可访问 Dashboard 面板  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e7d1a759-94b5-4088-be6f-541d88b7ffcb" width="60%"/>
+2. 首次进入 https://d.metacubex.one 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5551bf56-4c3e-4b31-aed9-214074bf92e1" width="60%"/>
