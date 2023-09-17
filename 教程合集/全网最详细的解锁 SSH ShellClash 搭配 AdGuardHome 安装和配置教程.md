@@ -4,7 +4,7 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.8.0 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.8.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
@@ -238,12 +238,12 @@ cd C:\Users\[用户名]\Desktop\upx
 
 ⑥ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/28dd2543-97f8-4bb4-bc77-0f024afa5a88" width="60%"/>  
-进入 4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板  
+进入 4 安装本地 Dashboard 面板，选择 5 安装 MetaXD 面板  
 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
-- 2. 初次打开需要添加链接：http://192.168.31.1:9999
+- 2. 初次打开需要添加 URL：http://192.168.31.1:9999
 
-<img src="https://i.postimg.cc/DfgJJkV6/QQ-20230306203324.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/7fbb048e-0df7-42de-91eb-5dac6a03eddc" width="60%"/>
 
 ⑦ 进入主菜单-> 6 导入配置文件  
 注：
