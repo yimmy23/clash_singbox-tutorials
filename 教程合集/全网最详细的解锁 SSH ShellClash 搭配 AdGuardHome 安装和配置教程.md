@@ -241,7 +241,7 @@ cd C:\Users\[用户名]\Desktop\upx
 进入 4 安装本地 Dashboard 面板，选择 5 安装 MetaXD 面板  
 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
-- 2. 初次打开需要添加 URL：http://192.168.31.1:9999
+- 2. 初次打开需要添加“后端地址”：http://192.168.31.1:9999
 
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/7fbb048e-0df7-42de-91eb-5dac6a03eddc" width="60%"/>
 
