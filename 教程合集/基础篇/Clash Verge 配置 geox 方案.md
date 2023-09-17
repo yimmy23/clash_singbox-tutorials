@@ -61,4 +61,4 @@ dns:
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/3d1ed229-1d3a-4ccc-a7b4-adecc8fee8b4" width="60%"/>
 
 2. 首次进入 https://d.metacubex.one 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/6e8431e1-4fc1-4581-ac55-3e3f1bce6071" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb27d6e2-d72b-4a4a-a038-0fd6d085a573" width="60%"/>
