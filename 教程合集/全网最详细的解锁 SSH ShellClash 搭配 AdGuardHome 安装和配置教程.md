@@ -319,7 +319,7 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 ```
 并编辑  
 <img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
-⑥ 在 `unlock()` 上方输入如下内容并保存：
+⑥ 在最下方添加如下内容并保存：
 注：
 - 1. AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
 - 2. 保留首尾的空行
