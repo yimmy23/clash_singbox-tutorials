@@ -42,7 +42,7 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 输入 0 回车可返回到上级菜单（下同）  
 2. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
 3. 进入主菜单->9 更新/卸载->7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐）
-4. 进入主菜单->9 更新/卸载->4 安装本地 Dashboard 面板，选择 4 安装 Yacd-Meta 魔改面板
+4. 进入主菜单->9 更新/卸载->4 安装本地 Dashboard 面板，选择 5 安装 MetaXD 面板
 5. 进入主菜单->2 clash功能设置，设置如下：
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/717281f6-8cc9-4379-88ef-77a699f58deb" width="60%"/>
@@ -53,7 +53,6 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 
 8. 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，选择 4 一键配置加密（推荐）
 9. 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴《[生成带有自定义规则和代理组的配置文件 yaml 直链 geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geox%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
-10. 访问 Dashboard 面板 [http://192.168.31.1:9999/ui](http://192.168.31.1:9999/ui)，首次打开需要添加“API Base URL”，输入 `http://192.168.31.1:9999` 并点击“Add”，最后点击下方新增的 http://192.168.31.1:9999 即可  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5c411c5a-8ae4-4e5a-a4f0-364dbf65f57c" width="60%"/>
-
+10. 访问 Dashboard 面板 [http://192.168.31.1:9999/ui](http://192.168.31.1:9999/ui)，首次打开需要添加“后端地址”，输入 `http://192.168.31.1:9999` 并点击“添加”即可  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/91ebae62-df79-4d1d-9998-d47adb69cf43" width="60%"/>
 11. 进入 Dashboard 面板->代理，找到下方的“Proxy Provider”，点击“转圈图标”（Update），也可手动更新节点
