@@ -56,4 +56,4 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 10. 访问 Dashboard 面板 [http://192.168.31.1:9999/ui](http://192.168.31.1:9999/ui)，首次打开需要添加“后端地址”，输入 `http://192.168.31.1:9999` 并点击“添加”即可  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/91ebae62-df79-4d1d-9998-d47adb69cf43" width="60%"/>
 
-11. 进入 Dashboard 面板->代理，找到下方的“Proxy Provider”，点击“转圈图标”（Update），也可手动更新节点
+11. 进入 Dashboard 面板->代理->代理提供者，点击“转圈图标”（Update），也可手动更新节点
