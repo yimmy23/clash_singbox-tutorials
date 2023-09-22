@@ -64,7 +64,7 @@ dns:
     - https://doh.pub/dns-query
   nameserver-policy:
     'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
-    'rule-set:cn,lan': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    'rule-set:cn,private': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
 ```
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
