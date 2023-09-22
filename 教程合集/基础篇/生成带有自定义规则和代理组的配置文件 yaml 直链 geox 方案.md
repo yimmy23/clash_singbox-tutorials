@@ -71,7 +71,7 @@ proxy-groups:
 
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
 
   - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
 
@@ -110,7 +110,7 @@ rules:
   - GEOSITE,category-games@cn,🎮 国区游戏
   - GEOSITE,geolocation-!cn,🪜 代理域名
   - GEOSITE,cn,⚡ 直连域名
-  - GEOIP,telegram,✈️ Telegram IP
+  - GEOIP,telegram,✈️ Telegram
   - GEOIP,private,🏠 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
@@ -158,7 +158,7 @@ proxy-groups:
 
   - {name: 🧱 GFWList 域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
 
   - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
 
@@ -187,7 +187,7 @@ rules:
   - GEOSITE,category-ads-all,⛔️ 广告域名
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
-  - GEOIP,telegram,✈️ Telegram IP
+  - GEOIP,telegram,✈️ Telegram
   - MATCH,🐟 漏网之鱼
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
