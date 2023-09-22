@@ -1,4 +1,4 @@
-**修改了几乎所有链接地址，请注意！最终方案已稳定（2023-09-10），以后仅针对新增功能进行修改**  
+**修改了代理组名和规则名，请注意！最终方案已稳定（2023-09-23），以后仅针对新增功能进行修改**  
 **ShellClash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash-tutorials/tree/main#2-%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8-shellclashfake-ip-%E6%A8%A1%E5%BC%8F%E6%90%AD%E9%85%8D-adguardhome-%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE)，强烈推荐！**
 
 # 置顶教程：
