@@ -71,7 +71,7 @@ proxy-groups:
 
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
 
   # 若使用 ShellClash，由于无法判断进程，需删除此条“📥 下载软件”
   - {name: 📥 下载软件, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
@@ -117,11 +117,11 @@ rule-providers:
     path: ./ruleset/applications.yaml
     interval: 86400
 
-  lan:
+  private:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lan.yaml"
-    path: ./ruleset/lan.yaml
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/private.yaml"
+    path: ./ruleset/private.yaml
     interval: 86400
 
   networktest:
@@ -180,11 +180,11 @@ rule-providers:
     path: ./ruleset/telegramip.yaml
     interval: 86400
 
-  lanip:
+  privateip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lanip.yaml"
-    path: ./ruleset/lanip.yaml
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/privateip.yaml"
+    path: ./ruleset/privateip.yaml
     interval: 86400
 
   cnip:
@@ -198,7 +198,7 @@ rules:
   - RULE-SET,ads,⛔️ 广告域名
     # 若使用 ShellClash，由于无法判断进程，需删除此条 RULE-SET
   - RULE-SET,applications,📥 下载软件
-  - RULE-SET,lan,🏠 私有网络
+  - RULE-SET,private,🏠 私有网络
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
   - RULE-SET,apple-cn,🍎 Apple 中国
@@ -206,8 +206,8 @@ rules:
   - RULE-SET,games-cn,🎮 国区游戏
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,⚡ 直连域名
-  - RULE-SET,telegramip,✈️ Telegram IP
-  - RULE-SET,lanip,🏠 私有网络
+  - RULE-SET,telegramip,✈️ Telegram
+  - RULE-SET,privateip,🏠 私有网络
   - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
