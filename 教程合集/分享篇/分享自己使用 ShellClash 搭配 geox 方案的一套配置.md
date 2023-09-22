@@ -45,7 +45,7 @@ proxy-groups:
 
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: ✈️ Telegram IP, type: select, proxies: [🚀 节点选择]}
+  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
 
   - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
 
@@ -70,7 +70,7 @@ proxy-groups:
 
 rules:
   - GEOSITE,ads,⛔️ 广告域名
-  - GEOSITE,lan,🏠 私有网络
+  - GEOSITE,private,🏠 私有网络
   - GEOSITE,networktest,📈 网络测试
   - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
@@ -78,8 +78,8 @@ rules:
   - GEOSITE,games-cn,🎮 国区游戏
   - GEOSITE,proxy,🪜 代理域名
   - GEOSITE,cn,⚡ 直连域名
-  - GEOIP,telegramip,✈️ Telegram IP
-  - GEOIP,lanip,🏠 私有网络,no-resolve
+  - GEOIP,telegram,✈️ Telegram
+  - GEOIP,private,🏠 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
