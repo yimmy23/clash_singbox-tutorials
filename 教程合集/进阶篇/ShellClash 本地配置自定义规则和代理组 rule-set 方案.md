@@ -56,11 +56,11 @@ rule-providers:
     path: ./ruleset/ads.yaml
     interval: 86400
 
-  lan:
+  private:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lan.yaml"
-    path: ./ruleset/lan.yaml
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/private.yaml"
+    path: ./ruleset/private.yaml
     interval: 86400
 
   networktest:
@@ -119,11 +119,11 @@ rule-providers:
     path: ./ruleset/telegramip.yaml
     interval: 86400
 
-  lanip:
+  privateip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/lanip.yaml"
-    path: ./ruleset/lanip.yaml
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/privateip.yaml"
+    path: ./ruleset/privateip.yaml
     interval: 86400
 
   cnip:
@@ -195,6 +195,17 @@ rule-providers:
   proxies:
     - 🎯 全球直连
     - 🈯 节点指定
+
+- name: 🇨🇳 国内 IP
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🚀 节点选择
+
+- name: ✈️ Telegram
+  type: select
+  proxies:
+    - 🚀 节点选择
 
 - name: 🏠 私有网络
   type: select
@@ -278,7 +289,7 @@ rule-providers:
 # 自定义规则优先放前面
 - RULE-SET,ads,⛔️ 广告域名
 - RULE-SET,applications,📥 下载软件
-- RULE-SET,lan,🏠 私有网络
+- RULE-SET,private,🏠 私有网络
 - RULE-SET,networktest,📈 网络测试
 - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
 - RULE-SET,apple-cn,🍎 Apple 中国
@@ -286,8 +297,9 @@ rule-providers:
 - RULE-SET,games-cn,🎮 国区游戏
 - RULE-SET,proxy,🪜 代理域名
 - RULE-SET,cn,⚡ 直连域名
-- RULE-SET,telegramip,✈️ Telegram IP
-- RULE-SET,lanip,🏠 私有网络
+- RULE-SET,telegramip,✈️ Telegram
+- RULE-SET,privateip,🏠 私有网络,no-resolve
+- RULE-SET,cnip,🇨🇳 国内 IP
 ```
 按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车
 # 四、 修改规则或代理组
