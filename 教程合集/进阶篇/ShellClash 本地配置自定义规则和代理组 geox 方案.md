@@ -116,7 +116,7 @@ proxy-providers:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: ✈️ Telegram IP
+- name: ✈️ Telegram
   type: select
   proxies:
     - 🈯 节点指定
@@ -210,7 +210,7 @@ proxy-providers:
 - GEOSITE,category-games@cn,🎮 国区游戏
 - GEOSITE,geolocation-!cn,🪜 代理域名
 - GEOSITE,cn,⚡ 直连域名
-- GEOIP,telegram,✈️ Telegram IP
+- GEOIP,telegram,✈️ Telegram
 - GEOIP,private,🏠 私有网络,no-resolve
 - GEOIP,cn,🇨🇳 国内 IP
 ```
