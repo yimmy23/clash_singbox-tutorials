@@ -5,7 +5,7 @@
 如：[ShellClash](https://github.com/juewuy/ShellClash)、[OpenClash](https://github.com/vernesong/OpenClash)、[Clash Verge](https://github.com/zzzgydi/clash-verge) 和 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid) 等
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
-4. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，生成后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件中
+4. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，生成后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件 `proxy-providers` 的 `url` 中
 ---
 # 一、 注册 [Gist](https://gist.github.com)
 进入 https://gist.github.com 网站并注册
@@ -253,6 +253,8 @@ proxy-groups:
 
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
+  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
+
   - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
@@ -298,10 +300,18 @@ rule-providers:
     path: ./ruleset/proxy.yaml
     interval: 86400
 
+  telegramip:
+    type: http
+    behavior: ipcidr
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/telegramip.yaml"
+    path: ./ruleset/telegramip.yaml
+    interval: 86400
+
 rules:
   - RULE-SET,ads,⛔️ 广告域名
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
+  - RULE-SET,telegramip,✈️ Telegram
   - MATCH,🐟 漏网之鱼
 ```
 ## 2. 修改模板
