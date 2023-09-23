@@ -5,7 +5,7 @@
 如：[ShellClash](https://github.com/juewuy/ShellClash)、[OpenClash](https://github.com/vernesong/OpenClash) 和 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
-4. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，生成后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件中
+4. 请先**确定自己机场的订阅链接是否支持 [Clash](https://github.com/Dreamacro/clash/wiki)**，若不支持，可前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行生成，参数全部默认即可，生成后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件 `proxy-providers` 的 `url` 中
 ---
 # 一、 注册 [Gist](https://gist.github.com)
 进入 https://gist.github.com 网站并注册
