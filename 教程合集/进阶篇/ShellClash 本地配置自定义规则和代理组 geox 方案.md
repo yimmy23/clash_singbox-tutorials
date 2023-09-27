@@ -203,11 +203,11 @@ proxy-providers:
 # 自定义规则优先放前面
 - GEOSITE,category-ads-all,⛔️ 广告域名
 - GEOSITE,private,🏠 私有网络
-- GEOSITE,speedtest,📈 网络测速
 - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
 - GEOSITE,apple-cn,🍎 Apple 中国
 - GEOSITE,google-cn,🗽 Google 中国
 - GEOSITE,category-games@cn,🎮 国区游戏
+- GEOSITE,speedtest,📈 网络测速
 - GEOSITE,geolocation-!cn,🪜 代理域名
 - GEOSITE,cn,⚡ 直连域名
 - GEOIP,telegram,✈️ Telegram
