@@ -103,11 +103,11 @@ rules:
   # 若使用 Clash Verge，为过滤 P2P 流量（BT 下载），可添加一条 DST-PORT 规则
   - DST-PORT,6881-6889,🎯 全球直连
   - GEOSITE,private,🏠 私有网络
-  - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,category-games@cn,🎮 国区游戏
+  - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,geolocation-!cn,🪜 代理域名
   - GEOSITE,cn,⚡ 直连域名
   - GEOIP,telegram,✈️ Telegram
