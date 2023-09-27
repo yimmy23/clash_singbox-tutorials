@@ -68,11 +68,11 @@ proxy-groups:
 
 rules:
   - GEOSITE,private,🏠 私有网络
-  - GEOSITE,networktest,📈 网络测试
   - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
   - GEOSITE,apple-cn,🍎 Apple 中国
   - GEOSITE,google-cn,🗽 Google 中国
   - GEOSITE,games-cn,🎮 国区游戏
+  - GEOSITE,networktest,📈 网络测试
   - GEOSITE,proxy,🪜 代理域名
   - GEOSITE,cn,⚡ 直连域名
   - GEOIP,telegram,✈️ Telegram
