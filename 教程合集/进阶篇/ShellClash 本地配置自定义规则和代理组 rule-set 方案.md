@@ -63,13 +63,6 @@ rule-providers:
     path: ./ruleset/private.yaml
     interval: 86400
 
-  networktest:
-    type: http
-    behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
-    path: ./ruleset/networktest.yaml
-    interval: 86400
-
   microsoft-cn:
     type: http
     behavior: domain
@@ -96,6 +89,13 @@ rule-providers:
     behavior: domain
     url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
+    interval: 86400
+
+  networktest:
+    type: http
+    behavior: classical
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
+    path: ./ruleset/networktest.yaml
     interval: 86400
 
   proxy:
@@ -288,13 +288,12 @@ rule-providers:
 ```
 # 自定义规则优先放前面
 - RULE-SET,ads,⛔️ 广告域名
-- RULE-SET,applications,📥 下载软件
 - RULE-SET,private,🏠 私有网络
-- RULE-SET,networktest,📈 网络测试
 - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
 - RULE-SET,apple-cn,🍎 Apple 中国
 - RULE-SET,google-cn,🗽 Google 中国
 - RULE-SET,games-cn,🎮 国区游戏
+- RULE-SET,networktest,📈 网络测试
 - RULE-SET,proxy,🪜 代理域名
 - RULE-SET,cn,⚡ 直连域名
 - RULE-SET,telegramip,✈️ Telegram
