@@ -115,6 +115,7 @@ dns:
     - 'static.adtidy.org'
     - '+.sandai.net'
     - '+.n0808.com'
+    - '+.3gppnetwork.org'
     - 'adguardteam.github.io'
     - 'anti-ad.net'
   default-nameserver:
