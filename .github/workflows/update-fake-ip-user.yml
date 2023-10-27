@@ -21,7 +21,7 @@ jobs:
       env:
           SED: sed 's/^/    - /g' | sed '/^\s*$/d'
       run: |
-        echo "update_version=$(date +%Y-%m-%d)" >> ${GITHUB_ENV}
+        echo "update_version=$(date +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./fake-ip-config
         rm -rf ./fake-ip-config/*
         cat <<EOF > ./fake-ip-config/fake-ip-user.yaml
