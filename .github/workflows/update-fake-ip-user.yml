@@ -18,8 +18,6 @@ jobs:
       uses: actions/checkout@main
 
     - name: Generate fake-ip-user.yaml
-      env:
-          SED: sed 's/^/    - /g' | sed '/^\s*$/d'
       run: |
         echo "update_version=$(date +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./fake-ip-config
@@ -35,7 +33,7 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed "s/.*/'&'/g" | ${{ env.SED }} >> ./fake-ip-config/fake-ip-user.yaml
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/^/    - '/g" | sed "s/$/'/g" >> ./fake-ip-config/fake-ip-user.yaml
         cat <<EOF >> ./fake-ip-config/fake-ip-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
