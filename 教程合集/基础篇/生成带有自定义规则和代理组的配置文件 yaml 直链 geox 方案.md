@@ -28,7 +28,7 @@ proxy-providers:
     path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
-    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美|us|unitedstates|united states"
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
       # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
@@ -41,7 +41,7 @@ proxy-providers:
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
     interval: 43200
-    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美|us|unitedstates|united states"
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
       lazy: true
@@ -91,7 +91,7 @@ proxy-groups:
 
   - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)日本|jp|japan"}
 
-  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新加坡|sg|singapore"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
 
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
 
@@ -125,7 +125,7 @@ proxy-providers:
     path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
-    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美|us|unitedstates|united states"
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
       # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
@@ -138,7 +138,7 @@ proxy-providers:
     url: "https://example.com/xxx/xxx=2&flag=clash"
     path: ./proxies/airport2.yaml
     interval: 43200
-    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新加坡|sg|singapore|美|us|unitedstates|united states"
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
       lazy: true
@@ -252,10 +252,10 @@ rules:
 ```
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
-  - {name: 🎥 奈飞节点, type: select, use: [🛫 我的机场], filter: "日本|韩国"}
+  - {name: 🎥 奈飞节点, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
 
   # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-  - {name: 🎞️ 亚马逊节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "新加坡"}
+  - {name: 🎞️ 亚马逊节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
 
 rules:
   # 自定义规则优先放前面
