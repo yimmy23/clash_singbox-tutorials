@@ -1,18 +1,18 @@
-# [Clash Verge](https://github.com/zzzgydi/clash-verge) 使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)进行 DNS 分流教程 rule-set 方案
+# [Clash Verge](https://github.com/zzzgydi/clash-verge) 使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)进行 DNS 分流教程-ruleset 方案
 注：
 - 1. 此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
-- 2. 只有 **DNS 模式选用 reidir-host（`fake-ip-filter: ['+.*']` 也算 redir-host 模式）** 时才需要进行 DNS 分流
-- 3. DNS 分流简单来说就是**指定国内域名走阿里或腾讯 DNS**，主要是这个配置：
+- 2. 只有 **DNS 模式选用 `reidir-host`（`fake-ip-filter: ['+.*']` 也算 redir-host 模式）** 时才需要进行 DNS 分流
+- 3. DNS 分流简单来说就是**指定国内域名走腾讯或阿里 DNS**，主要是这个配置：
 ```
   nameserver-policy:
-    'rule-set:cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 - 4. 此方案自定义规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 ---
 # 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
-可参考《[Clash Verge 配置 rule-set 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE%20rule-set%20%E6%96%B9%E6%A1%88.md#%E4%BA%8C-%E5%AF%BC%E5%85%A5%E6%88%96%E6%9B%B4%E6%96%B0-clash-meta-%E5%86%85%E6%A0%B8)》里的步骤《二》进行操作
+可参考《[Clash Verge 配置-ruleset 方案/导入或更新 Clash Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%BA%8C-%E5%AF%BC%E5%85%A5%E6%88%96%E6%9B%B4%E6%96%B0-clash-meta-%E5%86%85%E6%A0%B8)》里的步骤《二》进行操作
 # 二、 额外编辑配置文件
-1. 在《[生成带有自定义规则和代理组的配置文件 yaml 直链 rule-set 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20rule-set%20%E6%96%B9%E6%A1%88.md)》编辑 .yaml 配置文件时，建议在 `tun` 参数中加上 `strict-route: true`，即修改为：
+1. 在《[生成带有自定义策略组和规则的 yaml 配置文件直链-ruleset 方案/编辑 .yaml 文件](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%89-%E7%BC%96%E8%BE%91-yaml-%E6%96%87%E4%BB%B6)》编辑 .yaml 配置文件时，建议在 `tun` 参数中加上 `strict-route: true`，即修改为：
 ```
 tun:
   enable: true
@@ -28,7 +28,7 @@ tun:
   - GEOIP,cn,🇨🇳 国内 IP,no-resolve
 ```
 # 三、 编辑自定义配置
-## 1. DNS 模式为 fake-ip
+## 1. DNS 模式为 `fake-ip`
 - 注：该模式不需要进行 DNS 分流，推荐导入我生成的 fake-ip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/master/public/fake_ip_filter.list)，提高了兼容性）
 
 ① 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
@@ -54,17 +54,18 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   default-nameserver:
-    - https://223.5.5.5/dns-query
     - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
   nameserver:
-    - tls://dns.google
-    - https://cloudflare-dns.com/dns-query
+    # 策略组内必须有`🪜 代理域名`
+    - 'https://dns.google/dns-query#🪜 代理域名'
+    - 'https://cloudflare-dns.com/dns-query#🪜 代理域名'
   proxy-server-nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
-    'rule-set:cn,private': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
@@ -80,11 +81,12 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   default-nameserver:
-    - https://223.5.5.5/dns-query
     - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
   nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
-    'rule-set:proxy': [tls://dns.google, https://cloudflare-dns.com/dns-query]
+    # 策略组内必须有`🪜 代理域名`
+    'rule-set:proxy': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
 ```
