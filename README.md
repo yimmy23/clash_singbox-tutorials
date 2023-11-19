@@ -1,3 +1,10 @@
+**更新日志（2023-11-20）：**
+1. 修改各个教程标题的命名方式，更加规范、清晰（相应链接地址也会被修改）
+2. 修改使用错误的专业名词，减少混淆概率，精准定位配置项
+3. 修改错误或已变更的下载链接地址，下载更丝滑、稳定（已删库的没有修改）
+4. 修改配置文件注释，更加明了、易懂
+5. 其它优化
+
 **ShellClash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellClash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
 
 # 置顶教程：
