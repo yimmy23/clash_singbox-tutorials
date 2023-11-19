@@ -1,4 +1,4 @@
-# [Clash Verge](https://github.com/zzzgydi/clash-verge)（Windows 端）配置 geox 方案
+# [Clash Verge](https://github.com/zzzgydi/clash-verge)（Windows 端）配置-geox 方案
 - 注：此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 ---
 # 一、 设置部分
@@ -26,7 +26,7 @@ pause
 另存为 .bat 文件，右击并选择以管理员身份运行
 # 四、 导入配置
 ## 1. 导入配置文件
-① 进入 Clash Verge->配置，在“配置文件链接”处粘贴《[生成带有自定义规则和代理组的配置文件 yaml 直链 geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geox%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链  
+① 进入 Clash Verge->配置，在“配置文件链接”处粘贴《[生成带有自定义策略组和规则的 yaml 配置文件直链-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geox%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链  
 ② 右击导入的配置文件，选择“编辑信息”，“更新间隔”设置为“1440”，然后“保存”
 ## 2. 新建自定义配置
 ① 进入 Clash Verge->配置，点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
