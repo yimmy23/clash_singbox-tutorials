@@ -1,4 +1,4 @@
-# [ShellClash](https://github.com/juewuy/ShellClash) 配置 geox 方案
+# [ShellClash](https://github.com/juewuy/ShellClash) 配置-geox 方案
 注：
 - 1. 此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 - 2. 本教程中的下载链接以 CPU 架构 ARMv8 为例，请注意修改链接后缀
@@ -32,7 +32,7 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新路由规则文件
 30 4 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新订阅
 ```
-按一下 Esc 键（退出键），输入英文冒号“:”，继续输入“wq”并回车，运行如下命令：
+按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车，运行如下命令：
 ```
 /etc/init.d/cron restart
 ```
@@ -55,7 +55,7 @@ curl -o $clashdir/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a7156776-a52e-466b-80bd-d6b05115cc96" width="60%"/>
 
 8. 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，选择 4 一键配置加密（推荐）
-9. 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴《[生成带有自定义规则和代理组的配置文件 yaml 直链 geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E5%88%99%E5%92%8C%E4%BB%A3%E7%90%86%E7%BB%84%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%20yaml%20%E7%9B%B4%E9%93%BE%20geox%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
+9. 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴《[生成带有自定义策略组和规则的 yaml 配置文件直链-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geox%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
 10. 访问 Dashboard 面板 [http://192.168.31.1:9999/ui](http://192.168.31.1:9999/ui)，首次打开需要添加“后端地址”，输入 `http://192.168.31.1:9999` 并点击“添加”即可  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/91ebae62-df79-4d1d-9998-d47adb69cf43" width="60%"/>
 
