@@ -4,7 +4,7 @@
 2. 此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，属高度定制，仅供参考
 3. 规则参考 [DustinWin/clash-geosite](https://github.com/DustinWin/clash-geosite)
 4. 请根据自身情况进行修改，适合自己的方案才是最好的方案，如无特殊需求，可以照搬
-5. 此方案中 ShellClash 采用的 **DNS 模式为 fake-ip**（仍与 AdGuardHome 配合完美）
+5. 此方案中 ShellClash 采用的 **DNS 模式为 `fake-ip`**（仍与 AdGuardHome 配合完美）
 6. 此方案适用于 ShellClash（以 arm64 架构为例）
 7. 此方案适用于 AdGuardHome（以 arm64 架构为例）
 ---
@@ -112,7 +112,7 @@ curl -o $clashdir/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/cl
 ```
 30 3 * * 1,3,5 curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 \
 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 3 点半更新 Clash.Meta 内核
-0 4 * * 1,3,5 curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@release/AdGuardHome_linux_armv8 \
+0 4 * * 1,3,5 curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 \
 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1 #每周一、三、五早上 4 点更新 AdGuardHome
 30 4 * * * curl -o /data/clash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite-lite.dat \
 && curl -o /data/clash/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip-lite.dat \
