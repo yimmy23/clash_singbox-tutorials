@@ -5,7 +5,7 @@
 如：[ShellClash](https://github.com/juewuy/ShellClash)、[OpenClash](https://github.com/vernesong/OpenClash) 和 [Clash Verge](https://github.com/zzzgydi/clash-verge) 等，详见[支持 Clash.Meta 的工具](https://wiki.metacubex.one/startup/client)
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
-4. 请先**确定自己机场的订阅链接是否为 [Clash](https://github.com/Dreamacro/clash/wiki) 订阅链接**，若不是，需前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行转换，参数全部默认即可，转换后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件 `proxy-providers` 的 `url` 中
+4. 请先**确定自己机场的订阅链接是否为 [Clash](https://github.com/Dreamacro/clash/wiki) 订阅链接**，若不是，需前往 [ACL4SSR 在线订阅转换](https://acl4ssr-sub.github.io)进行转换，参数全部默认即可，转换后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件代理集合的 `url` 中
 ---
 # 一、 注册 [Gist](https://gist.github.com)
 进入 https://gist.github.com 网站并注册
@@ -32,7 +32,7 @@ proxy-providers:
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
+      # 未选择到当前策略组时，不会进行测试，有多个代理集合时可使用
       lazy: true
       url: "https://www.gstatic.com/generate_204"
       interval: 600
@@ -51,10 +51,10 @@ proxy-providers:
 
 # 策略组
 proxy-groups:
-  # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 proxies 值进行增删改，须一一对应
+  # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 `proxies` 值进行增删改，须一一对应
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
+  # Speedtest 测速网站：选择`🎯 全球直连`为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
   - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   # 若机场的 UDP 不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项
@@ -102,7 +102,7 @@ proxy-groups:
 rules:
   # 自定义规则优先放前面
   - GEOSITE,category-ads-all,⛔️ 广告域名
-  # 若使用 Clash Verge，为过滤 P2P 流量（BT 下载），可添加一条 DST-PORT 规则
+  # 若使用 Clash Verge，为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则
   - DST-PORT,6881-6889,🎯 全球直连
   - GEOSITE,private,🏠 私有网络
   - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
@@ -133,7 +133,7 @@ proxy-providers:
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试，有多个 proxy-providers 时可使用
+      # 未选择到当前策略组时，不会进行测试，有多个代理集合时可使用
       lazy: true
       url: "https://www.gstatic.com/generate_204"
       interval: 600
@@ -152,10 +152,10 @@ proxy-providers:
 
 # 策略组
 proxy-groups:
-  # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 proxies 值进行增删改，须一一对应
+  # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 `proxies` 值进行增删改，须一一对应
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  # Speedtest 测速网站：选择“全球直连”为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
+  # Speedtest 测速网站：选择`🎯 全球直连`为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
   - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   - name: 🐟 漏网之鱼, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
@@ -194,18 +194,18 @@ rules:
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
 ## 2. 修改模板
-① 首先确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区策略组**”和“🚀 节点选择”策略组下的“**proxies**”里面的国家或地区进行增删改
+① 首先确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区策略组**”和`🚀 节点选择`策略组下的 `proxies` 里面的国家或地区进行增删改
 - 注：两者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）
 
-② 将代理集合中的“url”链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）  
-③ 在国家或地区策略组中的“filter”支持[正则表达式](https://tool.oschina.net/regex)，可以精确地筛选出指定的国家或地区节点  
-例如：我想筛选出“香港 IPLC”节点，“filter”可以这样写：`filter: "香港.*IPLC|IPLC.*香港"`  
+② 将代理集合中的 `url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）  
+③ 在“国家或地区策略组”中的 `filter` 支持[正则表达式](https://tool.oschina.net/regex)，可以精确地筛选出指定的国家或地区节点  
+例如：我想筛选出“香港 IPLC”节点，`filter` 可以这样写：`filter: "香港.*IPLC|IPLC.*香港"`  
 **小窍门：**
 - 使用 [ChatGPT](https://chat.openai.com) 查询符合自己要求的正则表达式
 - 使用 [New Bing](https://www.bing.com/new) 查询符合自己要求的正则表达式
 
-④ 在“🚀 节点选择”策略组下的“proxies”里，可以将最稳定的节点放在最前面，这样重启路由器后可以自动选择最稳定的节点  
-⑤ 在国家或地区策略组里，“type”为“url-test”就是自动选择延迟最低的节点，将“url-test”改成“select”就是手动选择节点  
+④ 在`🚀 节点选择`策略组下的 `proxies` 里，可以将最稳定的节点放在最前面，这样重启路由器后可以自动选择最稳定的节点  
+⑤ 在“国家或地区策略组”里，`type` 为 `url-test` 就是自动选择延迟最低的节点，将 `url-test` 改成 `select` 就是手动选择节点  
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让[哔哩哔哩](https://www.bilibili.com)（B 站）自动选择延迟最低的香港节点，[AcFun](https://www.acfun.cn)（A 站）手动选择日本节点，这个需求怎么写？  
 我们可以进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**，那么就可以这样编写：
 - 注：以下只是节选，请酌情套用
