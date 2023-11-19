@@ -10,7 +10,7 @@
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://gh-proxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 ```
 # 三、 导入配置
 ## 1. 导入配置文件
