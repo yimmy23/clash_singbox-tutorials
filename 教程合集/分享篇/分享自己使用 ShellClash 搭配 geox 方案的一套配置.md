@@ -29,7 +29,7 @@ proxy-groups:
 
   - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  # 若机场的 UDP 不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项
+  # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
   - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
