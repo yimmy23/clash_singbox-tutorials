@@ -77,9 +77,9 @@ vi /data/auto_ssh/auto_ssh.sh
 执行如下命令：
 ```
 # Release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://gh-proxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-release/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-release/AdGuardHome_linux_armv8
 # Pre-release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://gh-proxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
 /data/AdGuardHome/AdGuardHome -s restart
 
 ```
