@@ -18,9 +18,8 @@
 ## 1. 自定义 others.yaml
 连接 SSH 后执行命令 `vi $clashdir/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-# 代理集合
+# 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
-  # 获取机场订阅链接内的所有节点
   🛫 我的机场 1:
     type: http
     # 机场订阅链接，使用 Clash 链接
@@ -31,7 +30,7 @@ proxy-providers:
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试，有多个代理集合时可使用
+      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
       lazy: true
       url: "https://www.gstatic.com/generate_204"
       interval: 600
