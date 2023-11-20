@@ -19,9 +19,8 @@
 ## 1. 选择规则集模式
 ① 白名单模式（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 ```
-# 代理集合
+# 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
-  # 获取机场订阅链接内的所有节点
   🛫 我的机场 1:
     type: http
     # 机场订阅链接，使用 Clash 链接
@@ -32,7 +31,7 @@ proxy-providers:
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试，有多个代理集合时可使用
+      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
       lazy: true
       url: "https://www.gstatic.com/generate_204"
       interval: 600
@@ -57,7 +56,7 @@ proxy-groups:
   # Speedtest 测速网站：选择`🎯 全球直连`为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
   - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
-  # 若机场的 UDP 不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项
+  # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
   - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
@@ -120,9 +119,8 @@ rules:
 将模板内容复制到自己 Gist 新建的 .yaml 文件中  
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）
 ```
-# 代理集合
+# 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
-  # 获取机场订阅链接内的所有节点
   🛫 我的机场 1:
     type: http
     # 机场订阅链接，使用 Clash 链接
@@ -133,7 +131,7 @@ proxy-providers:
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
-      # 未选择到当前策略组时，不会进行测试，有多个代理集合时可使用
+      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
       lazy: true
       url: "https://www.gstatic.com/generate_204"
       interval: 600
