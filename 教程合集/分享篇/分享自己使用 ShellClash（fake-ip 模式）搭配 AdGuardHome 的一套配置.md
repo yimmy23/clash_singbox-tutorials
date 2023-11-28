@@ -34,23 +34,23 @@ proxy-groups:
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🔗 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
 
-  - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
+  - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
@@ -68,16 +68,16 @@ proxy-groups:
   - {name: 🇺🇸 美国节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "美国"}
 
 rules:
-  - GEOSITE,private,🏠 私有网络
-  - GEOSITE,microsoft-cn,Ⓜ️ Microsoft 中国
-  - GEOSITE,apple-cn,🍎 Apple 中国
-  - GEOSITE,google-cn,🗽 Google 中国
-  - GEOSITE,games-cn,🎮 国区游戏
+  - GEOSITE,private,🔒 私有网络
+  - GEOSITE,microsoft-cn,Ⓜ️ 微软服务
+  - GEOSITE,apple-cn,🍎 苹果服务
+  - GEOSITE,google-cn,📢 谷歌服务
+  - GEOSITE,games-cn,🎮 游戏平台
   - GEOSITE,networktest,📈 网络测试
   - GEOSITE,proxy,🪜 代理域名
-  - GEOSITE,cn,⚡ 直连域名
-  - GEOIP,telegram,✈️ Telegram
-  - GEOIP,private,🏠 私有网络,no-resolve
+  - GEOSITE,cn,🔗 直连域名
+  - GEOIP,telegram,📲 电报消息
+  - GEOIP,private,🔒 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
