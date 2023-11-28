@@ -76,7 +76,7 @@ proxy-providers:
     - 🇸🇬 新加坡节点
     - 🇺🇸 美国节点
 
-- name: ⚡ 直连域名
+- name: 🔗 直连域名
   type: select
   proxies:
     - 🎯 全球直连
@@ -88,25 +88,25 @@ proxy-providers:
     - 🈯 节点指定
     - 🎯 全球直连
 
-- name: 🎮 国区游戏
+- name: 🎮 游戏平台
   type: select
   proxies:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: Ⓜ️ Microsoft 中国
+- name: Ⓜ️ 微软服务
   type: select
   proxies:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: 🗽 Google 中国
+- name: 📢 谷歌服务
   type: select
   proxies:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: 🍎 Apple 中国
+- name: 🍎 苹果服务
   type: select
   proxies:
     - 🎯 全球直连
@@ -118,22 +118,17 @@ proxy-providers:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: ✈️ Telegram
+- name: 📲 电报消息
   type: select
   proxies:
     - 🈯 节点指定
 
-- name: 🏠 私有网络
+- name: 🔒 私有网络
   type: select
   proxies:
     - 🎯 全球直连
 
-- name: ⛔️ 广告域名
-  type: select
-  proxies:
-    - 🛑 全球拦截
-
-- name: 🛑 全球拦截
+- name: 🛑 广告拦截
   type: select
   proxies:
     - REJECT
@@ -205,17 +200,17 @@ proxy-providers:
 # 规则
 
 # 自定义规则优先放前面
-- GEOSITE,category-ads-all,⛔️ 广告域名
-- GEOSITE,private,🏠 私有网络
-- GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
-- GEOSITE,apple-cn,🍎 Apple 中国
-- GEOSITE,google-cn,🗽 Google 中国
-- GEOSITE,category-games@cn,🎮 国区游戏
+- GEOSITE,category-ads-all,🛑 广告拦截
+- GEOSITE,private,🔒 私有网络
+- GEOSITE,microsoft@cn,Ⓜ️ 微软服务
+- GEOSITE,apple-cn,🍎 苹果服务
+- GEOSITE,google-cn,📢 谷歌服务
+- GEOSITE,category-games@cn,🎮 游戏平台
 - GEOSITE,speedtest,📈 网络测速
 - GEOSITE,geolocation-!cn,🪜 代理域名
-- GEOSITE,cn,⚡ 直连域名
-- GEOIP,telegram,✈️ Telegram
-- GEOIP,private,🏠 私有网络,no-resolve
+- GEOSITE,cn,🔗 直连域名
+- GEOIP,telegram,📲 电报消息
+- GEOIP,private,🔒 私有网络,no-resolve
 - GEOIP,cn,🇨🇳 国内 IP
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车  
@@ -237,7 +232,7 @@ proxy-providers:
 # 策略组
 
 # 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-- name: 🎥 奈飞节点
+- name: 🎥 奈飞视频
   type: url-test
   tolerance: 100
   use:
@@ -252,8 +247,8 @@ proxy-providers:
 # 规则
 
 # 自定义规则优先放前面
-- GEOSITE,netflix,🎥 奈飞节点
-- GEOIP,netflix,🎥 奈飞节点
+- GEOSITE,netflix,🎥 奈飞视频
+- GEOIP,netflix,🎥 奈飞视频
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 # 五、 添加小规则
