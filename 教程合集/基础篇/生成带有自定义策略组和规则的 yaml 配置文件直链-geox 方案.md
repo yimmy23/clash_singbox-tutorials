@@ -59,29 +59,27 @@ proxy-groups:
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🔗 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
 
-  - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
+  - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
 
-  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+  - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
-
-  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
   # ----------------国家或地区策略组---------------------
 
@@ -100,19 +98,19 @@ proxy-groups:
 # 规则
 rules:
   # 自定义规则优先放前面
-  - GEOSITE,category-ads-all,⛔️ 广告域名
+  - GEOSITE,category-ads-all,🛑 广告拦截
   # 若使用 Clash Verge，为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则
   - DST-PORT,6881-6889,🎯 全球直连
-  - GEOSITE,private,🏠 私有网络
-  - GEOSITE,microsoft@cn,Ⓜ️ Microsoft 中国
-  - GEOSITE,apple-cn,🍎 Apple 中国
-  - GEOSITE,google-cn,🗽 Google 中国
-  - GEOSITE,category-games@cn,🎮 国区游戏
+  - GEOSITE,private,🔒 私有网络
+  - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
+  - GEOSITE,apple-cn,🍎 苹果服务
+  - GEOSITE,google-cn,📢 谷歌服务
+  - GEOSITE,category-games@cn,🎮 游戏平台
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,geolocation-!cn,🪜 代理域名
-  - GEOSITE,cn,⚡ 直连域名
-  - GEOIP,telegram,✈️ Telegram
-  - GEOIP,private,🏠 私有网络,no-resolve
+  - GEOSITE,cn,🔗 直连域名
+  - GEOIP,telegram,📲 电报消息
+  - GEOIP,private,🔒 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
@@ -162,13 +160,11 @@ proxy-groups:
 
   - {name: 🧱 GFWList 域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
 
-  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+  - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
-
-  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
   # ----------------国家或地区策略组---------------------
 
@@ -186,10 +182,10 @@ proxy-groups:
 
 rules:
   # 自定义规则优先放前面
-  - GEOSITE,category-ads-all,⛔️ 广告域名
+  - GEOSITE,category-ads-all,🛑 广告拦截
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
-  - GEOIP,telegram,✈️ Telegram
+  - GEOIP,telegram,📲 电报消息
   - MATCH,🐟 漏网之鱼
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
@@ -214,7 +210,7 @@ rules:
 # 策略组
 proxy-groups:
   # 默认选择香港节点
-  - {name: 🎥 哔哩哔哩, type: select, proxies: [🇭🇰 香港节点, 🎯 全球直连]}
+  - {name: 📺 哔哩哔哩, type: select, proxies: [🇭🇰 香港节点, 🎯 全球直连]}
 
   # 默认选择日本节点
   - {name: 📽️ AcFun, type: select, proxies: [🇯🇵 日本节点, 🎯 全球直连]}
@@ -230,7 +226,7 @@ proxy-groups:
 # 规则
 rules:
   # 自定义规则优先放前面
-  - GEOSITE,bilibili,🎥 哔哩哔哩
+  - GEOSITE,bilibili,📺 哔哩哔哩
   - GEOSITE,acfun,📽️ AcFun
 ```
 # 四、 生成 .yaml 文件链接
@@ -261,15 +257,15 @@ rules:
 # 策略组
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
-  - {name: 🎥 奈飞节点, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
+  - {name: 🎥 奈飞视频, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
 
   # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-  - {name: 🎞️ 亚马逊节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
+  - {name: 🎬 Prime Video, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
 
 # 规则
 rules:
   # 自定义规则优先放前面
-  - GEOSITE,netflix,🎥 奈飞节点
-  - GEOIP,netflix,🎥 奈飞节点
-  - GEOSITE,primevideo,🎞️ 亚马逊节点
+  - GEOSITE,netflix,🎥 奈飞视频
+  - GEOIP,netflix,🎥 奈飞视频
+  - GEOSITE,primevideo,🎬 Prime Video
 ```
