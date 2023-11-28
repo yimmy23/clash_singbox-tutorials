@@ -299,7 +299,9 @@ rule-providers:
 - RULE-SET,privateip,🔒 私有网络,no-resolve
 - RULE-SET,cnip,🇨🇳 国内 IP
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车  
+**贴一张面板效果图（举个例子：我手动选择`🇹🇼 台湾节点`策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/cc640bd9-c691-4387-8ddb-d10fcb2bf4f2" width="60%"/>  
 # 四、 修改策略组或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 后按 Ctrl+F 组合键搜索“netflix”  
