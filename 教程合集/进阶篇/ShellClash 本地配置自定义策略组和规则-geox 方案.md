@@ -215,7 +215,7 @@ proxy-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车  
 **贴一张面板效果图（举个例子：我手动选择`🇹🇼 台湾节点`策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/93e6e611-da91-4d58-9b2d-6dd1bcc9e4f9" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/13d52f81-9e84-460a-99c6-a2d1ea05750c" width="60%"/>  
 # 四、 修改策略组或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“netflix”  
