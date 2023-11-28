@@ -59,32 +59,30 @@ proxy-groups:
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🔗 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
 
   # 若使用 ShellClash，由于无法判断非本机进程，需删除此条`🖥️ 直连软件`
   - {name: 🖥️ 直连软件, type: select, proxies: [🎯 全球直连]}
 
-  - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
+  - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
 
-  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+  - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
-
-  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
   # ----------------国家或地区策略组---------------------
 
@@ -196,19 +194,19 @@ rule-providers:
 
 # 规则
 rules:
-  - RULE-SET,ads,⛔️ 广告域名
-  - RULE-SET,private,🏠 私有网络
-  - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
-  - RULE-SET,apple-cn,🍎 Apple 中国
-  - RULE-SET,google-cn,🗽 Google 中国
-  - RULE-SET,games-cn,🎮 国区游戏
+  - RULE-SET,ads,🛑 广告拦截
+  - RULE-SET,private,🔒 私有网络
+  - RULE-SET,microsoft-cn,Ⓜ️ 微软服务
+  - RULE-SET,apple-cn,🍎 苹果服务
+  - RULE-SET,google-cn,📢 谷歌服务
+  - RULE-SET,games-cn,🎮 游戏平台
   - RULE-SET,networktest,📈 网络测试
   # 若使用 ShellClash，由于无法判断非本机进程，需删除此条 `RULE-SET`
   - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
-  - RULE-SET,cn,⚡ 直连域名
-  - RULE-SET,telegramip,✈️ Telegram
-  - RULE-SET,privateip,🏠 私有网络
+  - RULE-SET,cn,🔗 直连域名
+  - RULE-SET,telegramip,📲 电报消息
+  - RULE-SET,privateip,🔒 私有网络,no-resolve
   - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
@@ -258,13 +256,11 @@ proxy-groups:
 
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
 
-  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
 
-  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+  - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
-
-  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
   # ----------------国家或地区策略组---------------------
 
@@ -311,10 +307,10 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,ads,⛔️ 广告域名
+  - RULE-SET,ads,🛑 广告拦截
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
-  - RULE-SET,telegramip,✈️ Telegram
+  - RULE-SET,telegramip,📲 电报消息
   - MATCH,🐟 漏网之鱼
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
@@ -341,7 +337,7 @@ rules:
 # 策略组
 proxy-groups:
   # 默认选择香港节点
-  - {name: 🎥 哔哩哔哩, type: select, proxies: [🇭🇰 香港节点, 🎯 全球直连]}
+  - {name: 📺 哔哩哔哩, type: select, proxies: [🇭🇰 香港节点, 🎯 全球直连]}
 
   # 默认选择日本节点
   - {name: 📽️ AcFun, type: select, proxies: [🇯🇵 日本节点, 🎯 全球直连]}
@@ -373,7 +369,7 @@ rule-providers:
 # 规则
 rules:
   # 自定义规则优先放前面
-  - RULE-SET,bilibili,🎥 哔哩哔哩
+  - RULE-SET,bilibili,📺 哔哩哔哩
   - RULE-SET,acfun,📽️ AcFun
 ```
 # 四、 生成 .yaml 文件链接
@@ -407,10 +403,10 @@ rules:
 # 策略组
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
-  - {name: 🎥 奈飞节点, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
+  - {name: 🎥 奈飞视频, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
 
   # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-  - {name: 🎞️ 亚马逊节点, type: url-test, tolerance: 100, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
+  - {name: 🎬 Prime Video, type: url-test, tolerance: 100, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
 
 # 规则集（yaml 文件每天自动更新）
 rule-providers:
@@ -431,6 +427,6 @@ rule-providers:
 # 规则
 rules:
   # 自定义规则优先放前面
-  - RULE-SET,netflix,🎥 奈飞节点
-  - RULE-SET,primevideo,🎞️ 亚马逊节点
+  - RULE-SET,netflix,🎥 奈飞视频
+  - RULE-SET,primevideo,🎬 Prime Video
 ```
