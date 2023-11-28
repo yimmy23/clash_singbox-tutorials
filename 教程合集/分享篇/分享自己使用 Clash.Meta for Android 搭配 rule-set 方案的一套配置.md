@@ -177,31 +177,29 @@ proxy-groups:
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连], disable-udp: true}
 
-  - {name: ⚡ 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🔗 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连], disable-udp: true}
 
-  - {name: 🎮 国区游戏, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: Ⓜ️ Microsoft 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🗽 Google 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: 🍎 Apple 中国, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
-  - {name: ✈️ Telegram, type: select, proxies: [🚀 节点选择]}
+  - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
 
   - {name: 🖥️ 直连软件, type: select, proxies: [🎯 全球直连]}
 
-  - {name: 🏠 私有网络, type: select, proxies: [🎯 全球直连]}
+  - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
 
-  - {name: ⛔️ 广告域名, type: select, proxies: [🛑 全球拦截]}
+  - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
 
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
-
-  - {name: 🛑 全球拦截, type: select, proxies: [REJECT]}
 
   # 采用节点负载均衡策略，优点是更稳定，速度可能有提升；推荐在节点复用比较多的情况下使用
   - {name: 🇭🇰 香港节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "香港"}
@@ -309,18 +307,18 @@ rule-providers:
     interval: 86400
 
 rules:
-  - RULE-SET,ads,⛔️ 广告域名
-  - RULE-SET,private,🏠 私有网络
-  - RULE-SET,microsoft-cn,Ⓜ️ Microsoft 中国
-  - RULE-SET,apple-cn,🍎 Apple 中国
-  - RULE-SET,google-cn,🗽 Google 中国
-  - RULE-SET,games-cn,🎮 国区游戏
+  - RULE-SET,ads,🛑 广告拦截
+  - RULE-SET,private,🔒 私有网络
+  - RULE-SET,microsoft-cn,Ⓜ️ 微软服务
+  - RULE-SET,apple-cn,🍎 苹果服务
+  - RULE-SET,google-cn,📢 谷歌服务
+  - RULE-SET,games-cn,🎮 游戏平台
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
-  - RULE-SET,cn,⚡ 直连域名
-  - RULE-SET,telegramip,✈️ Telegram
-  - RULE-SET,privateip,🏠 私有网络,no-resolve
+  - RULE-SET,cn,🔗 直连域名
+  - RULE-SET,telegramip,📲 电报消息
+  - RULE-SET,privateip,🔒 私有网络,no-resolve
   - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
