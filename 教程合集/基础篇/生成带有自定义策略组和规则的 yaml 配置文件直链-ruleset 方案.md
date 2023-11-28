@@ -212,7 +212,7 @@ rules:
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中  
 **贴一张面板效果图（举个例子：我手动选择`🇹🇼 台湾节点`策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/93e6e611-da91-4d58-9b2d-6dd1bcc9e4f9" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9bcbccf2-577b-43b4-b53c-e3fd911364dd" width="60%"/>  
 ② 黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
