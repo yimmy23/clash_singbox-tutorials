@@ -49,7 +49,7 @@ proxy-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 2. 自定义 proxies.yaml
-连接 SSH 后执行命令`vi $clashdir/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令`vi $clashdir/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
 注：
 - 1. 此处以“vless”节点类型为例，其它节点类型写法可参考[通用字段](https://wiki.metacubex.one/config/proxies)
 - 2. 必须在 proxy-groups.yaml 里添加自定义的节点才可以正常选择和使用
