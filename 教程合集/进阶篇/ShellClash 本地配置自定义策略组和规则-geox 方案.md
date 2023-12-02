@@ -3,14 +3,14 @@
 # 前言：
 1. 本教程只适用于 ShellClash
 2. 自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
-3. 本教程**仅适合白名单模式**（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户），黑名单模式（只有命中规则的网络流量，才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）慎用
+3. 本教程**仅适合白名单模式**（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 4. 本教程最终效果媲美《[生成带有自定义策略组和规则的 yaml 配置文件直链-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geox%20%E6%96%B9%E6%A1%88.md)》（策略组更直观，操作更方便），但不依赖于网络
 5. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
 ---
 # 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)和路由规则文件
 可参考《[ShellClash 配置-geox 方案/导入 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-geox%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-clashmeta-%E5%86%85%E6%A0%B8)》里的步骤《一、二》进行操作
 # 二、 导入配置文件
-1. 进入 ShellClash->6 导入配置文件->1 在线生成 Clash 配置文件->4 选取在线配置规则模版，选择 4 [Acl4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
+1. 进入 ShellClash->6 导入配置文件->1 在线生成 Clash 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>  
 
 2. 进入 ShellClash->6 导入配置文件->1 在线生成 Clash 配置文件，输入订阅链接后回车，再输入“1”并回车即可
@@ -48,7 +48,32 @@ proxy-providers:
       interval: 600
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
-## 2. 自定义 proxy-groups.yaml
+## 2. 自定义 proxies.yaml
+连接 SSH 后执行命令`vi $clashdir/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+注：
+- 1. 此处以“vless”节点类型为例，其它节点类型写法可参考[通用字段](https://wiki.metacubex.one/config/proxies)
+- 2. 必须在 proxy-groups.yaml 里添加自定义的节点才可以正常选择和使用
+
+```
+- name: 🆓 免费节点
+  # 节点类型
+  type: vless
+  # 代理节点服务器（域名/ip）
+  server: example.com
+  port: 443
+  uuid: {uuid}
+  network: ws
+  tls: true
+  udp: true
+  sni: example.com
+  client-fingerprint: chrome
+  ws-opts:
+    path: "/?ed=2048"
+    headers:
+      host: example.com
+```
+按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+## 3. 自定义 proxy-groups.yaml
 连接 SSH 后执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
@@ -59,6 +84,8 @@ proxy-providers:
   proxies:
     - 🇭🇰 香港节点
     - 🇹🇼 台湾节点
+    # 添加 proxies.yaml 中的自定义节点
+    - 🆓 免费节点
     - 🇯🇵 日本节点
     - 🇰🇷 韩国节点
     - 🇸🇬 新加坡节点
@@ -71,6 +98,8 @@ proxy-providers:
     - 🎯 全球直连
     - 🇭🇰 香港节点
     - 🇹🇼 台湾节点
+    # 添加 proxies.yaml 中的自定义节点
+    - 🆓 免费节点
     - 🇯🇵 日本节点
     - 🇰🇷 韩国节点
     - 🇸🇬 新加坡节点
@@ -194,7 +223,7 @@ proxy-providers:
   filter: "美国"
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
-## 3. 自定义 rules.yaml
+## 4. 自定义 rules.yaml
 连接 SSH 后执行命令`vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 规则
