@@ -20,7 +20,7 @@ jobs:
     - name: Generate fake-ip-user.yaml
       run: |
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
-        mkdir -p ./fake-ip-config
+        mkdir -p ./fake-ip-config/
         rm -rf ./fake-ip-config/*
         cat <<EOF > ./fake-ip-config/fake-ip-user.yaml
         dns:
@@ -54,7 +54,7 @@ jobs:
 
     - name: Purge jsDelivr CDN
       run: |
-        cd ./fake-ip-config || exit 1
+        cd ./fake-ip-config/ || exit 1
         for file in $(ls); do
           curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/fake-ip-config/${file}"
         done
