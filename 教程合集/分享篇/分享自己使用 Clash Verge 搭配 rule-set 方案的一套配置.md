@@ -25,13 +25,18 @@ mode: rule
 ipv6: true
 log-level: silent
 allow-lan: true
-mixed-port: 19925
+mixed-port: 7890
 unified-delay: false
 tcp-concurrent: true
 external-controller-tls: 127.0.0.1:9090
 find-process-mode: strict
 global-client-fingerprint: chrome
 profile: {store-selected: true, store-fake-ip: true}
+
+sniffer:
+  enable: true
+  sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+  skip-domain: ['Mijia Cloud']
 
 tun:
   enable: true
@@ -189,9 +194,9 @@ rules:
   - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
-  - RULE-SET,telegramip,📲 电报消息
+  - RULE-SET,telegramip,📲 电报消息,no-resolve
   - RULE-SET,privateip,🔒 私有网络,no-resolve
-  - RULE-SET,cnip,🇨🇳 国内 IP
+  - RULE-SET,cnip,🇨🇳 国内 IP,no-resolve
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
