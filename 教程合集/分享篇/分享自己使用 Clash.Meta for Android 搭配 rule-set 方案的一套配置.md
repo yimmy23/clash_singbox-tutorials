@@ -33,6 +33,11 @@ find-process-mode: strict
 global-client-fingerprint: chrome
 profile: {store-selected: true, store-fake-ip: true}
 
+sniffer:
+  enable: true
+  sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+  skip-domain: ['Mijia Cloud']
+
 tun:
   enable: true
   stack: system
@@ -46,7 +51,6 @@ dns:
   prefer-h3: true
   ipv6: true
   listen: 0.0.0.0:1053
-  use-hosts: true
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
   fake-ip-filter:
@@ -166,8 +170,11 @@ dns:
     - https://223.5.5.5/dns-query
     - https://1.12.12.12/dns-query
   nameserver:
-    - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  nameserver-policy:
+    'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:proxy': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
 
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
@@ -317,9 +324,9 @@ rules:
   - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
-  - RULE-SET,telegramip,📲 电报消息
+  - RULE-SET,telegramip,📲 电报消息,no-resolve
   - RULE-SET,privateip,🔒 私有网络,no-resolve
-  - RULE-SET,cnip,🇨🇳 国内 IP
+  - RULE-SET,cnip,🇨🇳 国内 IP,no-resolve
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入配置文件并启动 Clash
