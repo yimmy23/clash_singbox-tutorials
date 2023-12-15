@@ -45,6 +45,11 @@ curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L htt
 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
 再次右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
 ```
+sniffer:
+  enable: true
+  sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+  skip-domain: ['Mijia Cloud']
+
 dns:
   enable: true
   prefer-h3: true
