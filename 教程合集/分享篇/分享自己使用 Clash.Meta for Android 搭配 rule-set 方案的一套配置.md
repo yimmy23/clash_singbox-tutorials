@@ -324,9 +324,9 @@ rules:
   - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
-  - RULE-SET,telegramip,📲 电报消息,no-resolve
+  - RULE-SET,telegramip,📲 电报消息
   - RULE-SET,privateip,🔒 私有网络,no-resolve
-  - RULE-SET,cnip,🇨🇳 国内 IP,no-resolve
+  - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入配置文件并启动 Clash
