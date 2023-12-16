@@ -32,7 +32,9 @@ tun:
 ```
 # 三、 编辑自定义配置
 ## 1. DNS 模式为 `fake-ip`
-- 注：该模式其实不需要进行 DNS 分流，推荐导入我生成的 fake-ip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/master/public/fake_ip_filter.list)，提高了兼容性）
+注：
+- 1. 该模式其实不需要进行 DNS 分流，推荐导入我生成的 fake-ip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/master/public/fake_ip_filter.list)，提高了兼容性）
+- 2. 策略组内必须有🪜 代理域名
 
 ① 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
 ② 进入文件夹 *%USERPROFILE%\\.config\clash-verge\profiles*，找到与第 1 步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的{文件名}  
@@ -40,7 +42,7 @@ tun:
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im clash-meta*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/fake-ip-config/fake-ip-user.yaml
+curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/fake-ip-config/ruleset-user.yaml
 ```
 ## 2. DNS 模式为 redir-host
 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”  
@@ -69,5 +71,6 @@ dns:
   proxy-server-nameserver:
     - https://doh.pub/dns-query
   nameserver-policy:
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
