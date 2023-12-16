@@ -21,6 +21,7 @@ jobs:
       run: |
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./fake-ip-config/
+        rm -f ./fake-ip-config/*
         cat <<EOF > ./fake-ip-config/geox-user.yaml
         dns:
           enable: true
@@ -31,8 +32,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./fake-ip-config/fake-ip-user.yaml
-        cat <<EOF >> ./fake-ip-config/fake-ip-user.yaml
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./fake-ip-config/geox-user.yaml
+        cat <<EOF >> ./fake-ip-config/geox-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
@@ -59,8 +60,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./fake-ip-config/fake-ip-user.yaml
-        cat <<EOF >> ./fake-ip-config/fake-ip-user.yaml
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./fake-ip-config/ruleset-user.yaml
+        cat <<EOF >> ./fake-ip-config/ruleset-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
