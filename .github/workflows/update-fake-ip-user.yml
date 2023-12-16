@@ -17,18 +17,16 @@ jobs:
     - name: Clone Repository
       uses: actions/checkout@main
 
-    - name: Generate fake-ip-user.yaml
+    - name: Generate geox-user.yaml
       run: |
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./fake-ip-config/
-        rm -rf ./fake-ip-config/*
-        cat <<EOF > ./fake-ip-config/fake-ip-user.yaml
+        cat <<EOF > ./fake-ip-config/geox-user.yaml
         dns:
           enable: true
           prefer-h3: true
           ipv6: true
           listen: 0.0.0.0:1053
-          use-hosts: true
           fake-ip-range: 198.18.0.1/16
           enhanced-mode: fake-ip
           fake-ip-filter:
@@ -43,6 +41,38 @@ jobs:
           nameserver:
             - https://dns.alidns.com/dns-query
             - https://doh.pub/dns-query
+          nameserver-policy:
+            'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+            'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+            'geosite:geolocation-!cn': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
+        EOF
+
+    - name: Generate ruleset-user.yaml
+      run: |
+        cat <<EOF > ./fake-ip-config/ruleset-user.yaml
+        dns:
+          enable: true
+          prefer-h3: true
+          ipv6: true
+          listen: 0.0.0.0:1053
+          fake-ip-range: 198.18.0.1/16
+          enhanced-mode: fake-ip
+          fake-ip-filter:
+        EOF
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellClash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./fake-ip-config/fake-ip-user.yaml
+        cat <<EOF >> ./fake-ip-config/fake-ip-user.yaml
+            - 'adguardteam.github.io'
+            - 'anti-ad.net'
+          default-nameserver:
+            - https://223.5.5.5/dns-query
+            - https://1.12.12.12/dns-query
+          nameserver:
+            - https://dns.alidns.com/dns-query
+            - https://doh.pub/dns-query
+          nameserver-policy:
+            'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+            'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+            'rule-set:proxy': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
         EOF
 
     - name: Commit and push
