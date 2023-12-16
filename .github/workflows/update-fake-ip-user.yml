@@ -21,7 +21,6 @@ jobs:
       run: |
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./fake-ip-config/
-        rm -f ./fake-ip-config/*
         cat <<EOF > ./fake-ip-config/geox-user.yaml
         dns:
           enable: true
