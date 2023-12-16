@@ -28,11 +28,13 @@
 2. 其它设置可参考《[ShellClash 配置-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
 # 四、 导入 user.yaml 文件
 ## 1. DNS 模式为 `fake-ip`
-- 注：该模式其实不需要进行 DNS 分流，推荐导入我生成的 fake-ip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/master/public/fake_ip_filter.list)，提高了兼容性）
+注：
+- 1. 该模式其实不需要进行 DNS 分流，推荐导入我生成的 fake-ip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/master/public/fake_ip_filter.list)，提高了兼容性）
+- 2. 策略组内必须有`🪜 代理域名`
 
 连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/fake-ip-config/fake-ip-user.yaml && $clashdir/start.sh restart
+curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/fake-ip-config/ruleset-user.yaml && $clashdir/start.sh restart
 ```
 ## 2. DNS 模式为 `redir-host`
 连接 SSH 后执行命令 `vi $clashdir/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
@@ -60,6 +62,7 @@ dns:
   proxy-server-nameserver:
     - https://doh.pub/dns-query
   nameserver-policy:
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
