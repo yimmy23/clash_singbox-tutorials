@@ -173,6 +173,7 @@ dns:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
   nameserver-policy:
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:proxy': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
 
