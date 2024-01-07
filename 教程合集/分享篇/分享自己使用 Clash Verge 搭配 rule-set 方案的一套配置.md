@@ -1,4 +1,4 @@
-# 分享自己使用 [Clash Verge](https://github.com/zzzgydi/clash-verge) 搭配 rule-set 方案的一套配置
+# 分享自己使用 [Clash Verge](https://github.com/MetaCubeX/clash-verge) 搭配 rule-set 方案的一套配置
 # 声明：
 1. 此方案采用 `RULE-SET` 规则，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
@@ -199,12 +199,13 @@ rules:
   - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
-# 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
+# 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
-taskkill /f /t /im clash-meta*
-curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+taskkill /f /t /im Clash-Verge*
+taskkill /f /t /im mihomo*
+curl -o %PROGRAMFILES%\Clash Verge\mihomo.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 ```
 # 三、 设置部分
 1. 设置可参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
@@ -213,7 +214,8 @@ curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://mirror.ghproxy.com/
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
-taskkill /f /t /im clash-meta*
+taskkill /f /t /im Clash-Verge*
+taskkill /f /t /im mihomo*
 curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
 ```
 小窍门：
@@ -221,8 +223,9 @@ curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L htt
 - 2. 编辑本文文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
-taskkill /f /t /im clash-meta*
-curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+taskkill /f /t /im Clash-Verge*
+taskkill /f /t /im mihomo*
+curl -o %PROGRAMFILES%\Clash Verge\mihomo.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
 pause
 ```
