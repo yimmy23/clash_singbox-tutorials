@@ -1,4 +1,4 @@
-# [ShellClash](https://github.com/juewuy/ShellClash) 使用 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)进行 DNS 分流教程-geox 方案
+# [ShellClash](https://github.com/juewuy/ShellCrash) 使用 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)进行 DNS 分流教程-geox 方案
 注：
 - 1. 此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 - 2. 只有 **DNS 模式选用 `reidir-host`（`fake-ip-filter: ['+.*']` 也算 redir-host 模式）** 时才需要进行 DNS 分流
@@ -9,7 +9,7 @@
     'geosite:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 - 5. 此方案自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
-- 6. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
+- 6. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
 ---
 # 一、 导入 Clash.Meta 内核和路由规则文件
 可参考《[ShellClash 配置-geox 方案/导入 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-geox%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-clashmeta-%E5%86%85%E6%A0%B8)》里的步骤《一、二》进行操作
@@ -22,7 +22,7 @@
   - GEOIP,cn,🇨🇳 国内 IP,no-resolve
 ```
 # 三、 ShellClash 设置
-1. 进入 ShellClash->7 clash 进阶设置->6 配置内置 DNS 服务，将“当前基础 DNS”和“FallbackDNS”都设置为“null”  
+1. 进入 ShellClash->7 内核进阶设置->6 配置内置 DNS 服务，将“当前基础 DNS”和“FallbackDNS”都设置为“null”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5fb2e16b-5b1d-4393-af3a-fc694b52f4c2" width="60%"/>
 
 2. 其它设置可参考《[ShellClash 配置-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-geox%20%E6%96%B9%E6%A1%88.md)》
@@ -30,14 +30,14 @@
 ## 1. DNS 模式为 `fake-ip`
 注：
 - 1. 该模式其实不需要进行 DNS 分流，推荐导入我生成的 fake-ip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/master/public/fake_ip_filter.list)，提高了兼容性）
-- 2. 策略组内必须有🪜 代理域名
+- 2. 策略组内必须有 `🪜 代理域名`
 
 连接 SSH 后执行如下命令：
 ```
-curl -o $clashdir/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/fake-ip-config/geox-user.yaml && $clashdir/start.sh restart
+curl -o $CRASHDIR/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tutorials@main/fake-ip-config/geox-user.yaml && $CRASHDIR/start.sh restart
 ```
 ## 2. DNS 模式为 `redir-host`
-连接 SSH 后执行命令 `vi $clashdir/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 sniffer:
   enable: true
