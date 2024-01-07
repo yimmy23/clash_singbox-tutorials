@@ -190,7 +190,7 @@ ssh root@192.168.31.1
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 ③ 选择 1 安装到/data 目录（推荐，支持软固化功能）  
-④ 将下载的 mihomo-linux-arm64-xxx.gz 文件解压，得到 mihomo-linux-arm64 文件并重命名为 clash.meta-linux-arm64 
+④ 将下载的 mihomo-linux-arm64-xxx.gz 文件解压，得到 mihomo-linux-arm64 文件并重命名为 clash.meta-linux-arm64  
 ⑤ 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\\[用户名]\Desktop\upx*  
 ⑥ 将 clash.meta-linux-arm64 文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中，以管理员身份运行 PowerShell，依次执行如下命令：
 ```
