@@ -340,7 +340,6 @@ iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
-
 ```
 **AdGuardHome 安装成功！**
 ## 2. AdGuardHome 配置
@@ -429,7 +428,6 @@ iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
 iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
 ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
-
 ```
 ③ 重启路由器
 # 七、 效果图
