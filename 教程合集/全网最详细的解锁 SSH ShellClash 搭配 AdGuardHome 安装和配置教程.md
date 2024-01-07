@@ -4,9 +4,9 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellClash](https://github.com/juewuy/ShellClash) v1.8.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellClash](https://github.com/juewuy/ShellCrash) v1.8.3 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
-3. 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
+3. 安装 [Clash.Meta](https://github.com/MetaCubeX/mihomo) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
 若执行结果是“linux aarch64”，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
 4. ShellClash 和 AdGuardHome 中所有没有提到的配置保持默认即可
@@ -22,10 +22,10 @@
 - 3. 版本信息请查看打包文件内的 Readme.txt 文本
 
 ## 1. ShellClash
-官方下载：https://raw.githubusercontent.com/juewuy/ShellClash/master/bin/ShellClash.tar.gz
+官方下载：https://raw.githubusercontent.com/juewuy/ShellCrash/master/bin/ShellCrash.tar.gz
 ## 2. Clash.Meta 内核
-官方下载：https://github.com/MetaCubeX/Clash.Meta/releases  
-下载 clash.meta-linux-arm64-xxx.gz 文件  
+官方下载：https://github.com/MetaCubeX/Clash.Meta/mihomo  
+下载 mihomo-linux-arm64-xxx.gz 文件  
 ## 3. Termius
 官方下载：https://autoupdate.termius.com/windows/Termius.exe  
 ## 4. AdGuardHome
@@ -42,7 +42,7 @@
 # 二、 解锁 SSH
 ## 1. 复制 stok 值
 进入路由器管理页面 http://192.168.31.1 ，登录后复制地址栏中的 stok 值  
-<img src="https://i.postimg.cc/nLjSrGCK/QQ-20230109171055.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4951fb74-87c7-4eb6-a2e4-cb80a78587fe" width="60%"/>
 ## 2. 开启调试模式
 将复制的 stok 值替换如下网址的{stok}并访问：
 ```
@@ -71,7 +71,7 @@ http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone
 网页内容显示{"code":0}，此时路由器会再次重启
 ## 7. 连接 Telnet
 显示“ARE U OK”表示成功解锁 SSH  
-<img src="https://i.postimg.cc/DZ1CdfQ8/QQ-20230102101630.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/65862548-dd4a-4ffb-81ec-39fbeea60125" width="60%"/>
 ## 8. 永久开启并固化 SSH
 直接粘贴如下所有命令：
 - 注：第一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
@@ -94,7 +94,6 @@ uci set system.@system[0].timezoneindex='2.84'
 uci commit
 mtd erase crash
 reboot
-
 ```
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/6b3af81b-94ac-4905-b05b-b6fd98a513a2" width="60%"/>
 
@@ -104,10 +103,10 @@ reboot
 若已解锁并固化过 SSH 的路由器在升级固件或恢复出厂设置后 SSH 丢失，可快速再次解锁 SSH
 ## 1. 计算 Telnet 登录密码
 打开网站 https://miwifi.dev/ssh ，在 SN 处输入路由器背面的 SN 号，点击“Calc”按钮  
-<img src="https://i.postimg.cc/X74PL5z3/QQ-20221208192756.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/43143002-75a2-4f23-a5c4-a120fbb8875f" width="60%"/>
 ## 2. 连接 Telnet
 用户名为：root，密码为第 1 步中计算出的 Telnet 登录密码  
-<img src="https://user-images.githubusercontent.com/45238096/224110394-e61c7373-f944-49b7-95d2-af18e31809ce.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e1694432-ec7f-46bf-b1b0-7a2fbd6ff019" width="60%"/>  
 直接粘贴如下所有命令：
 - 注：最后一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
 
@@ -117,7 +116,6 @@ curl -o /data/auto_ssh/auto_ssh.sh -L https://fastly.jsdelivr.net/gh/lemoeo/AX6S
 chmod +x /data/auto_ssh/auto_ssh.sh
 /data/auto_ssh/auto_ssh.sh install
 echo -e '12345678\n12345678' | passwd root
-
 ```
 ## 3. 更改 Telnet 和 SSH 登录密码（可选）
 执行如下命令：  
@@ -150,11 +148,11 @@ ssh root@192.168.31.1
 - 注：若当前电脑登录过 SSH，后路由器经过重新解锁或恢复 SSH，需要进入 *C:\Users\\[用户名]\\.ssh* 文件夹，删除“known_hosts”文件，否则登录会报错
 
 首次登录需要手动输入“yes”，然后回车  
-<img src="https://i.postimg.cc/pVD7KCkq/QQ-20221208153543.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5ca31ea0-d2f4-4cbb-8f0b-5739fa1a3ff3" width="60%"/>  
 输入 SSH 登录密码（输入过程中不会显示任何字符），回车  
-<img src="https://i.postimg.cc/3RGqSFhr/QQ-20221208153627.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9db9d0e3-759e-442d-9c96-76c2f454a047" width="60%"/>  
 显示“ARE U OK”表示成功登录 SSH  
-<img src="https://i.postimg.cc/9frKTjN7/QQ-20221208153736.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/0bcf1d7b-9923-4b75-9313-c86e8ff68122" width="60%"/>
 ## 2. 通过 SSH 工具添加 SSH 支持（任选一）
 ① 打开 Termius  
 安装 Termius 并打开（登录后可一直免费试用），现暂时点击“l don't want a free trial”  
@@ -172,40 +170,40 @@ ssh root@192.168.31.1
 <img src="https://user-images.githubusercontent.com/45238096/224111529-4eab34c8-4c28-41d3-8a20-bb62ad61ab84.png" width="60%"/>  
 ⑤ 连接 Telnet 或 SSH  
 按需双击添加的项即可  
-<img src="https://i.postimg.cc/pXK2hKnH/Snipaste_2022-12-23_13-32-27.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/62b6bdd2-7e18-4697-a70e-5ff72e95f41d" width="60%"/>
 - 注：首次连接 SSH 需要点击“Add and continue”  
-<img src="https://i.postimg.cc/Jny81XWS/Snipaste_2022-12-23_13-32-54.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/542d0894-ae64-4cb3-aedd-9e24635dde4a" width="60%"/>
 
 显示“ARE U OK”表示成功登录 SSH  
-<img src="https://i.postimg.cc/Bv7s9gRx/QQ-20230102102435.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/6f5ba51e-9291-4332-aea5-967a91c2b70e" width="60%"/>
 ## 3. 通过 WinSCP 连接路由器文件管理
 将下载的 WinSCP-xxx-Portable.zip 文件解压，路径随意，打开 WinSCP，“文件协议”选择“SCP”，其它按图输入，“密码”为 SSH 登录密码，完成后点击登录  
-<img src="https://i.postimg.cc/vT1Jsw5y/QQ-20221208160309.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/04f0611b-f4dd-4e49-8342-8ef873d8e286" width="60%"/>  
 左侧为电脑本地文件，右侧为路由器文件  
-<img src="https://i.postimg.cc/YCkt1j1m/QQ-20230130134908.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f9c38757-9863-4d60-863b-bf178aef64f9" width="60%"/>
 # 五、 ShellClash 安装和配置
 ## 1. ShellClash 安装
-① 打开 WinSCP，将下载的 ShellClash.tar.gz 文件移动到路由器的 */tmp* 目录中  
-<img src="https://user-images.githubusercontent.com/45238096/227115154-1aa926a7-ba65-4d5a-ae5c-5af37e0ed85e.png" width="60%"/>  
+① 打开 WinSCP，将下载的 ShellCrash.tar.gz 文件移动到路由器的 */tmp* 目录中  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/067c0496-20e5-45c9-acdd-5dfe3ac7c0b2" width="60%"/>  
 ② 连接 SSH，执行如下命令：
 ```
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 ③ 选择 1 安装到/data 目录（推荐，支持软固化功能）  
-④ 将下载的 clash.meta-linux-arm64-xxx.gz 文件解压，得到 clash.meta-linux-arm64 文件  
+④ 将下载的 mihomo-linux-arm64-xxx.gz 文件解压，得到 mihomo-linux-arm64 文件并重命名为 clash.meta-linux-arm64 
 ⑤ 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\\[用户名]\Desktop\upx*  
 ⑥ 将 clash.meta-linux-arm64 文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中，以管理员身份运行 PowerShell，依次执行如下命令：
 ```
 cd C:\Users\[用户名]\Desktop\upx
 .\upx clash.meta-linux-arm64
-
 ```
 ⑦ 将压缩完成的 clash.meta-linux-arm64 移动到路由器的 */tmp* 目录中  
-<img src="https://user-images.githubusercontent.com/45238096/230613949-da4d28e2-0654-4dd4-b781-f7e5b8910b98.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/36a35ef7-3a2a-4cb4-9346-3f72ffa586e7" width="60%"/>  
 **ShellClash 安装成功！**
 ## 2. ShellClash 配置
-① 连接 SSH 后运行 `clash` 命令打开 ShellClash 配置脚本  
+① 连接 SSH 后运行 `crash` 命令打开 ShellClash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
+启用推荐的自动任务配置  
 根据需要是否启用软固化（此处选择 0）
 - 注：解锁 SSH 时已成功启用软固化
 
@@ -214,8 +212,8 @@ cd C:\Users\[用户名]\Desktop\upx
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
 
 ② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e88587df-785c-459f-88ac-940e3d858a7c" width="60%"/>  
-③ 进入主菜单-> 2 clash 功能设置-> 1 切换 Clash 运行模式，选择 5 Tproxy 模式
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/0e531453-696e-44ee-bd64-75324472df34" width="60%"/>  
+③ 进入主菜单-> 2 内核功能设置-> 1 切换 Clash 运行模式，选择 5 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 
 进入 2 切换 DNS 运行模式，选择 2 redir_host 模式  
@@ -225,10 +223,10 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/211e8667-c137-4ea3-ba43-ba2b5ec3e4a2" width="60%"/>
 
-④ 进入主菜单-> 4 clash 启动设置，选择 1 允许 clash 开机启动  
-⑤ 进入主菜单-> 7 clash 进阶设置-> 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核  
+④ 进入主菜单-> 4 内核启动设置，选择 1 允许 clash 开机启动  
+⑤ 进入主菜单-> 7 内核进阶设置-> 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核  
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
-进入 7 clash 进阶设置，根据自身需要选择 4 启用域名嗅探（若全配置加密 DNS 则不用开启），根据自身需要选择 5 启用节点绕过（设备较多可开启）  
+进入 7 内核进阶设置，选择 4 启用域名嗅探，根据自身需要选择 5 启用节点绕过（设备较多可开启）  
 进入 6 配置内置 DNS 服务，选择 7 禁用 DNS 劫持  
 注：
 - 1. 若单独使用 ShellClash，请不要禁用 DNS 劫持
@@ -257,36 +255,36 @@ cd C:\Users\[用户名]\Desktop\upx
 ShellClash 常用命令
 - 1. 打开配置：
 ```
-clash
+crash
 ```
 - 2. 启动服务：
 ```
-$clashdir/start.sh start
+$CRASHDIR/start.sh start
 ```
 - 3. 停止服务：
 ```
-$clashdir/start.sh stop
+$CRASHDIR/start.sh stop
 ```
 - 4. 重启服务：
 ```
-$clashdir/start.sh restart
+$CRASHDIR/start.sh restart
 ```
 - 5. 更新订阅：
 ```
-$clashdir/start.sh updateyaml
+$CRASHDIR/start.sh updateyaml
 ```
 - 6. 查看帮助和说明：
 ```
-clash -h
+crash -h
 ```
 ## 3. ShellClash 升级
 进入主菜单-> 9 更新/卸载，查看“管理脚本”、“clash 核心”和“GeoIP/CN-IP”有无新版本，有则选择对应的数字进行升级即可  
-<img src="https://i.postimg.cc/R0HJNW9J/QQ-20221223141923.png" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/30be15fa-526d-478d-a453-113df3c34130" width="60%"/>
 ## 4. ShellClash 卸载
 ① 通过脚本命令进行卸载（任选一）  
 连接 SSH 后，直接粘贴如下所有命令：
 ```
-$clashdir/start.sh stop && clash -u
+$CRASHDIR/start.sh stop && crash -u
 ```
 ② 通过 ShellClash 配置进行卸载（任选一）  
 进入主菜单-> 9 更新/卸载，选择 9 卸载 ShellClash
@@ -297,7 +295,6 @@ $clashdir/start.sh stop && clash -u
 ```
 cd C:\Users\[用户名]\Desktop
 tar -zxvf AdGuardHome_linux_arm64.tar.gz
-
 ```
 .tar.gz 压缩文件成功解压到桌面的 *AdGuardHome* 文件夹内，目录结构为 *C:\Users\\[用户名]\Desktop\AdGuardHome*  
 ③ 进入 *AdGuardHome* 文件夹，将里面的“AdGuardHome”文件移动到 *C:\Users\\[用户名]\Desktop\upx* 文件夹中  
@@ -305,10 +302,9 @@ tar -zxvf AdGuardHome_linux_arm64.tar.gz
 ```
 cd C:\Users\[用户名]\Desktop\upx
 .\upx AdGuardHome
-
 ```
 ④ 将压缩后的“AdGuardHome”文件移动到路由器的 */data/AdGuardHome* 目录（没有此目录就新建）中  
-<img src="https://i.postimg.cc/qvZ2tf3S/QQ-20230130144006.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/23340e1f-64f0-44a6-893e-5fb48304ef61" width="60%"/>  
 ⑤ 进入路由器文件管理的 */data/auto_ssh* 目录，右击“auto_ssh.sh”文件  
 注：
 - 1. 若没有此目录和文件，可新建
@@ -318,7 +314,7 @@ cd C:\Users\[用户名]\Desktop\upx
 chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 ```
 并编辑  
-<img src="https://i.postimg.cc/Bvk5zWZH/QQ-20221208162340.png" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a5057b0f-4cc7-4c23-81e6-913e1bc856b5" width="60%"/>  
 ⑥ 在最下方添加如下内容并保存：
 注：
 - 1. AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
@@ -373,7 +369,7 @@ https://doh.pub/dns-query
 直接点击“应用”即可  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb7399f3-feea-40c5-aefd-2b5811778dad" width="60%"/>  
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/8b43ed45-afec-4444-b8fc-77d784477649" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e665285c-8792-420d-805e-cba534c00e22" width="60%"/>  
 勾选“乐观缓存”，并点击“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f857800a-ebf4-4031-994f-27cd6b3e7b53" width="60%"/>  
 ⑤ 进入过滤器->DNS 黑名单->添加黑名单->从列表中选择，推荐勾选“区域”里的“CHN: anti-AD”，然后点击“保存”
@@ -438,13 +434,13 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
 ③ 重启路由器
 # 七、 效果图
 ## 1. IPv6 效果
-<img src="https://user-images.githubusercontent.com/45238096/224113189-e20e0b89-6dfc-40c5-b2cf-9abeb8525cdb.png" width="100%"/>
-
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/962cef1b-b772-4c18-8040-0a370da8be0a" width="50%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5a26417a-cd29-4605-bafe-0458f23e19aa" width="50%"/>
 ## 2. BT 下载效果
 UDP 连接正常，使用的是移动 500M 带宽  
 <img src="https://user-images.githubusercontent.com/45238096/224113233-4d76dec2-495c-4790-a00e-538fc1469639.png" width="100%"/>
 ## 3. ShellClash 效果
-使用的是移动 500M 带宽  
-<img src="https://i.postimg.cc/8zG0y6XN/QQ-20221213022922.png" width="100%"/>
+使用的是移动 300M 带宽  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/695f0f5d-7757-4b65-ac30-535544c5c440" width="100%"/>
 ## 4. AdGuardHome 效果
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/b2b322e4-2ac9-4d94-bb14-21eb9e3dc7dd" width="100%"/>
