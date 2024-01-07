@@ -434,8 +434,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
 ③ 重启路由器
 # 七、 效果图
 ## 1. IPv6 效果
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/962cef1b-b772-4c18-8040-0a370da8be0a" width="50%"/>
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5a26417a-cd29-4605-bafe-0458f23e19aa" width="50%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/962cef1b-b772-4c18-8040-0a370da8be0a" width="50%"/><img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5a26417a-cd29-4605-bafe-0458f23e19aa" width="50%"/>
 ## 2. BT 下载效果
 UDP 连接正常，使用的是移动 500M 带宽  
 <img src="https://user-images.githubusercontent.com/45238096/224113233-4d76dec2-495c-4790-a00e-538fc1469639.png" width="100%"/>
