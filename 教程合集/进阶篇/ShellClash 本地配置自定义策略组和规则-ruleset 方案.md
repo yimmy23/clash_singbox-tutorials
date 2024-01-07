@@ -1,13 +1,13 @@
-# [ShellClash](https://github.com/juewuy/ShellClash) 本地配置自定义规则和代理组-ruleset 方案
+# [ShellClash](https://github.com/juewuy/ShellCrash) 本地配置自定义规则和代理组-ruleset 方案
 - 注：此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 # 前言：
 1. 本教程只适用于 ShellClash
 2. 自定义规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
 3. 本教程**仅适合白名单模式**（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 4. 本教程最终效果媲美《[生成带有自定义策略组和规则的 yaml 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》（策略组更直观，操作更方便），但不依赖于网络
-5. 所有步骤完成后，请连接 SSH 执行命令 `$clashdir/start.sh restart` 后生效
+5. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
 ---
-# 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)
+# 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)
 可参考《[ShellClash 配置-ruleset 方案/导入 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-clashmeta-%E5%86%85%E6%A0%B8)》里的步骤《一》进行操作
 # 二、 导入配置文件
 1. 进入 ShellClash->6 导入配置文件->1 在线生成 Clash 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
@@ -16,7 +16,7 @@
 2. 进入 ShellClash->6 导入配置文件->1 在线生成 Clash 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义策略组和规则
 ## 1. 自定义 others.yaml
-连接 SSH 后执行命令 `vi $clashdir/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
@@ -135,7 +135,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 2. 自定义 proxies.yaml
-连接 SSH 后执行命令`vi $clashdir/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
+连接 SSH 后执行命令`vi $CRASHDIR/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
 注：
 - 1. 此处以“vless”节点类型为例，其它节点类型写法可参考[通用字段](https://wiki.metacubex.one/config/proxies)
 - 2. 必须在 proxy-groups.yaml 里添加自定义的节点才可以正常选择和使用
@@ -160,7 +160,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 3. 自定义 proxy-groups.yaml
-连接 SSH 后执行命令`vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令`vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
 
@@ -308,7 +308,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 4. 自定义 rules.yaml
-连接 SSH 后执行命令`vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令`vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 规则
 
@@ -340,7 +340,7 @@ rule-providers:
 - 3. 推荐使用 [VSCode 编辑器](https://code.visualstudio.com/Download) 或其它专业文本编辑器
 
 ## 1. 修改 others.yaml 文件
-① 连接 SSH 后执行命令 `vi $clashdir/yamls/others.yaml`，按一下 Ins 键（Insert 键），在 `rule-providers` 内粘贴如下内容：
+① 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），在 `rule-providers` 内粘贴如下内容：
 ```
 # 规则集（yaml 文件每天自动更新）
 
@@ -353,7 +353,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 2. 修改 proxy-groups.yaml 文件
-连接 SSH 后执行命令 `vi $clashdir/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
 
@@ -368,7 +368,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 3. 修改 rules.yaml 文件
-连接 SSH 后执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
 ```
 # 规则
 
@@ -377,7 +377,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 # 五、 添加小规则
-仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $clashdir/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
+仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
 注：
 - 1. 以下内容只是举例，请根据自身需要进行增删改
 - 2. 其它规则请参考《[Clash.Meta Wiki](https://wiki.metacubex.one/config/rules)》
