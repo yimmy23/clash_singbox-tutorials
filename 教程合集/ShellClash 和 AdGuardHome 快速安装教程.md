@@ -4,15 +4,14 @@
 3. 查看 CPU 架构可连接 SSH 后执行命令 `uname -ms`，若执行结果是“linux aarch64”，就是搭载的 ARMv8 架构
 4. 以下所有命令均可全部复制后直接粘贴执行
 ---
-# 一、 安装 [ShellClash](https://github.com/juewuy/ShellClash)
+# 一、 安装 [ShellClash](https://github.com/juewuy/ShellCrash)
 执行如下命令：
 ```
-curl -o /tmp/ShellClash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/ShellClash.tar.gz
-mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
-
+curl -o /tmp/ShellClash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellClash@master/bin/ShellCrash.tar.gz
+mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 选择 1 安装到/data 目录（推荐，支持软固化功能）
-# 二、 安装 [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta) 内核
+# 二、 安装 [Clash.Meta](https://github.com/MetaCubeX/mihomo) 内核
 Clash.Meta 内核 CPU 架构和链接后缀对应关系如下：
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -31,11 +30,10 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 或者执行如下命令：
 ```
 # Release 版
-curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
+curl -o $CRASHDIR/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8
 # Alpha 版
-curl -o $clashdir/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-alpha/clash.meta-linux-armv8
-chmod +x $clashdir/clash && $clashdir/start.sh restart
-
+curl -o $CRASHDIR/clash -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-alpha/clash.meta-linux-armv8
+chmod +x $CRASHDIR/clash && $CRASHDIR/start.sh restart
 ```
 
 # 三、 安装 AdGuardHome
@@ -58,7 +56,6 @@ chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
 vi /data/auto_ssh/auto_ssh.sh
-
 ```
 ## 2. 添加开机启动
 按一下 Ins 键（Insert 键），在最下方粘贴如下命令：
@@ -81,5 +78,4 @@ curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.
 # Pre-release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
 /data/AdGuardHome/AdGuardHome -s restart
-
 ```
