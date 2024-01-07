@@ -1,4 +1,4 @@
-# 分享自己使用 [ShellClash](https://github.com/juewuy/ShellClash)（fake-ip 模式）搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 的一套配置
+# 分享自己使用 [ShellClash](https://github.com/juewuy/ShellCrash)（fake-ip 模式）搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 的一套配置
 # 声明：
 1. 此方案采用 ShellClash 作为上游，AdGuardHome 作为下游的模式
 2. 此方案采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/DustinWin/clash-geosite)，属高度定制，仅供参考
@@ -81,10 +81,10 @@ rules:
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
 ```
-# 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/Clash.Meta)  
+# 二、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)  
 连接 SSH 后运行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && clash
+curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
 # 三、 导入路由规则文件和 user.yaml
@@ -103,41 +103,29 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/fa87cd47-f74b-40f1-a105-cc660e2f44ee" width="60%"/>
 
 ```
-curl -o $clashdir/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite-lite.dat
-curl -o $clashdir/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip-lite.dat
-curl -o $clashdir/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country-lite.mmdb
-curl -o $clashdir/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
+curl -o $CRASHDIR/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite-lite.dat
+curl -o $CRASHDIR/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip-lite.dat
+curl -o $CRASHDIR/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country-lite.mmdb
+curl -o $CRASHDIR/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
 ```
 # 四、 添加定时任务
-连接 SSH 后运行 `crontab -e`，按一下 Ins 键（Insert 键），在最下方粘贴如下内容：
+连接 SSH 后运行 vi $CRASHDIR/task/task.user，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-30 3 * * 1,3,5 curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 \
-&& chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 3 点半更新 Clash.Meta 内核
-0 4 * * 1,3,5 curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 \
-&& chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1 #每周一、三、五早上 4 点更新 AdGuardHome
-30 4 * * * curl -o /data/clash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite-lite.dat \
-&& curl -o /data/clash/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip-lite.dat \
-&& curl -o /data/clash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country-lite.mmdb \
-&& curl -o /data/clash/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml \
-&& /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点半更新路由规则文件和 user.yaml
-0 5 * * 1,3,5 /data/clash/start.sh updateyaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 5 点更新订阅
+201#30 3 * * 1,3,5 curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 3 点半更新 Clash.Meta 内核
+202#0 4 * * 1,3,5 curl -o /data/clash/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每天早上 4 点更新 user.yaml
+203#30 4 * * 1,3,5 curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新 AdGuardHome
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车，运行如下命令：
-```
-/etc/init.d/cron restart
-```
+按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 # 五、 设置部分
 ## 1. ShellClash 设置
 ① 设置可参考《[ShellClash 配置-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-geo%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处  
-② 进入主菜单->2 clash功能设置，设置如下：  
+② 进入主菜单->2 内核功能设置，设置如下：  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/39920422-3d2b-4ee9-806a-5e9ac31fb7e9" width="60%"/>  
-③ 进入主菜单->5 设置定时任务，查看定时任务是否添加成功  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/8d04d73d-b46b-4164-86ff-8b7512fe773b" width="60%"/>  
-④ 进入主菜单->6 导入配置文件->6 配置文件覆写->1 自定义端口及秘钥，设置如下：  
+③ 进入主菜单->6 导入配置文件->6 配置文件覆写->1 自定义端口及秘钥，设置如下：  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>  
-⑤ 进入主菜单->7 clash 进阶设置->6 配置内置 DNS 服务，设置如下：  
+④ 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，设置如下：  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4ec93fb8-1200-4baa-b3b4-29d164d7a743" width="60%"/>  
-⑥ 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
+⑤ 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件 .yaml 文件直链，启动 clash 服务即可
 ## 2. AdGuardHome 设置
 设置可参考《[全网最详细的解锁 SSH ShellClash 搭配 AdGuardHome 安装和配置教程/AdGuardHome 配置](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86%E7%9A%84%E8%A7%A3%E9%94%81%20SSH%20ShellClash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.md#2-adguardhome-%E9%85%8D%E7%BD%AE)》
 # 六、 在线 Dashboard 面板
