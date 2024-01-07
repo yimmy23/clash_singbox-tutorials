@@ -1,26 +1,27 @@
-# [Clash Verge](https://github.com/zzzgydi/clash-verge)（Windows 端）配置-geox 方案
+# [Clash Verge](https://github.com/MetaCubeX/clash-verge)（Windows 端）配置-geox 方案
 - 注：此方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 ---
 # 一、 设置部分
 1. 进入 Clash Verge->设置->Verge 设置->语言设置，可切换到“中文”
-2. 进入设置->Clash 设置->Clash 内核，点击“螺帽图标”并切换至“[Clash Meta 内核](https://github.com/MetaCubeX/Clash.Meta)”
-3. 进入设置->系统设置->服务模式，点击“盾牌图标”，“INSTALL”即可
+2. 进入设置->系统设置->服务模式，点击“盾牌图标”，“INSTALL”即可
 # 二、 导入或更新 Clash Meta 内核
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
-taskkill /f /t /im clash-meta*
-curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+taskkill /f /t /im Clash-Verge*
+taskkill /f /t /im mihomo*
+curl -o %PROGRAMFILES%\Clash Verge\mihomo.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 ```
 # 三、 导入路由规则集文件
 编辑文本文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
-taskkill /f /t /im clash-meta*
+taskkill /f /t /im Clash-Verge*
+taskkill /f /t /im mihomo*
 curl -o %USERPROFILE%\.config\clash-verge\geosite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
 curl -o %USERPROFILE%\.config\clash-verge\Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
-copy /y "%USERPROFILE%\.config\clash-verge\geosite.dat" "%PROGRAMFILES%\Clash Verge\resources"
-copy /y "%USERPROFILE%\.config\clash-verge\Country.mmdb" "%PROGRAMFILES%\Clash Verge\resources"
+copy /y "%USERPROFILE%\.config\clash-verge\geosite.dat" "%PROGRAMFILES%\Clash Verge\resources\"
+copy /y "%USERPROFILE%\.config\clash-verge\Country.mmdb" "%PROGRAMFILES%\Clash Verge\resources\"
 pause
 ```
 另存为 .bat 文件，右击并选择以管理员身份运行
@@ -37,20 +38,22 @@ dns:
   prefer-h3: true
   ipv6: true
   listen: 0.0.0.0:1053
-  use-hosts: true
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
-  fake-ip-filter: ['+.*']
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
   default-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-  fallback:
-    - https://dns.google.com/dns-query
-    - https://dns.cloudflare.com/dns-query
-    - https://doh.opendns.com/dns-query
+  nameserver-policy:
+    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'geosite:geolocation-!cn': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
 ```
 # 五、 启动 Clash
 1. 进入 Clash Verge->设置->Clash 设置->Clash 字段，勾选带有感叹号的字段，“保存”即可
