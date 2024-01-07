@@ -1,16 +1,16 @@
-# [Clash Verge](https://github.com/zzzgydi/clash-verge)（Windows 端）配置-ruleset 方案
+# [Clash Verge](https://github.com/MetaCubeX/clash-verge)（Windows 端）配置-ruleset 方案
 - 注：此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 ---
 # 一、 设置部分
 1. 进入 Clash Verge->设置->Verge 设置->语言设置，可切换到“中文”
-2. 进入设置->Clash 设置->Clash 内核，点击“螺帽图标”并切换至“[Clash Meta 内核](https://github.com/MetaCubeX/Clash.Meta)”
-3. 进入设置->系统设置->服务模式，点击“盾牌图标”，“INSTALL”即可
+2. 进入设置->系统设置->服务模式，点击“盾牌图标”，“INSTALL”即可
 # 二、 导入或更新 Clash Meta 内核
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
-taskkill /f /t /im clash-meta*
-curl -o %PROGRAMFILES%\Clash Verge\clash-meta.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+taskkill /f /t /im Clash-Verge*
+taskkill /f /t /im mihomo*
+curl -o %PROGRAMFILES%\Clash Verge\mihomo.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
 ```
 # 三、 导入配置
 ## 1. 导入配置文件
@@ -25,28 +25,30 @@ dns:
   prefer-h3: true
   ipv6: true
   listen: 0.0.0.0:1053
-  use-hosts: true
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
-  fake-ip-filter: ['+.*']
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
   default-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
   nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
-  fallback:
-    - https://dns.google.com/dns-query
-    - https://dns.cloudflare.com/dns-query
-    - https://doh.opendns.com/dns-query
+  nameserver-policy:
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:proxy': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
 ```
 # 四、 启动 Clash
 1. 进入 Clash Verge->设置->Clash 设置->Clash 字段，勾选带有感叹号的字段，“保存”即可
 2. 进入设置->系统设置->Tun 模式，启用
 # 五、 在线 Dashboard 面板
-推荐使用在线面板 [Yacd-meta](https://github.com/MetaCubeX/Yacd-meta)，访问地址：https://yacd.metacubex.one  
-1. 需要设置该网站“允许不安全内容”，以 [Chrome 浏览器](https://www.google.com/chrome)为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://yacd.metacubex.one`  
-<img src="https://user-images.githubusercontent.com/45238096/235448980-52331db5-6b9f-4b0c-a876-1509d34db51a.png" width="60%"/>
+推荐使用在线面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://d.metacubex.one 
+1. 需要设置该网站“允许不安全内容”，以 [Chrome 浏览器](https://www.google.com/chrome)为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/3d1ed229-1d3a-4ccc-a7b4-adecc8fee8b4" width="60%"/>
 
-2. 首次进入 https://yacd.metacubex.one 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/67d5caee-e6a8-42d9-94d2-3f707dc20e14" width="60%"/>
+2. 首次进入 https://d.metacubex.one 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb27d6e2-d72b-4a4a-a038-0fd6d085a573" width="60%"/>
