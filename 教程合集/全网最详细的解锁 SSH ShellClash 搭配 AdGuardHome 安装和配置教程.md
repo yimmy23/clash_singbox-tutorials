@@ -187,7 +187,7 @@ ssh root@192.168.31.1
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/067c0496-20e5-45c9-acdd-5dfe3ac7c0b2" width="60%"/>  
 ② 连接 SSH，执行如下命令：
 ```
-mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellClash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
+mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 ③ 选择 1 安装到/data 目录（推荐，支持软固化功能）  
 ④ 将下载的 mihomo-linux-arm64-xxx.gz 文件解压，得到 mihomo-linux-arm64 文件并重命名为 clash.meta-linux-arm64 
