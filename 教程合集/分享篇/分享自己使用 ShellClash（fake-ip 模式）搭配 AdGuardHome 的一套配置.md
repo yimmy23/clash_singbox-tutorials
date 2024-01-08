@@ -109,13 +109,17 @@ curl -o $CRASHDIR/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/clash
 curl -o $CRASHDIR/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml
 ```
 # 四、 添加定时任务
-连接 SSH 后运行 vi $CRASHDIR/task/task.user，按一下 Ins 键（Insert 键），粘贴如下内容：
+1. 连接 SSH 后运行 vi $CRASHDIR/task/task.user，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-201#30 3 * * 1,3,5 curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 3 点半更新 Clash.Meta 内核
-202#0 4 * * 1,3,5 curl -o /data/clash/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1 #每周一、三、五早上 4 点更新 user.yaml
-203#30 4 * * 1,3,5 curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1 #每周一、三、五早上 4 点半更新 AdGuardHome
+201#curl -o /data/clash/GeoSite.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/geosite.dat && curl -o /data/clash/GeoIP.dat -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/geoip.dat && curl -o /data/clash/Country.mmdb -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geoip@release/Country.mmdb && /data/clash/start.sh restart >/dev/null 2>&1#更新GeoX路由规则文件
+202#curl -o /data/clash/clash -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/clash/clash && /data/clash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
+203#curl -o /data/clash/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash-geosite@release/fake-ip-user.yaml && /data/clash/start.sh restart >/dev/null 2>&1#更新user.yaml
+204#curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1#更新AdGuardHome
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+2. 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+3. 执行 `crash`，进入 ShellClash->5 配置自动任务->1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/79ba03d5-eab8-4b43-aef5-d1fa35a9bd75" width="60%"/>
+
 # 五、 设置部分
 ## 1. ShellClash 设置
 ① 设置可参考《[ShellClash 配置-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-geo%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处  
