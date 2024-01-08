@@ -111,6 +111,7 @@ curl -o $CRASHDIR/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/cl
 2. 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 3. 执行 `crash`，进入 ShellClash->5 配置自动任务->1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e9fecb49-9302-443a-8296-7c864375c8e9" width="60%"/>
+
 # 五、 设置部分
 1. 设置可参考《[ShellClash 配置-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-geox%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
 2. 进入主菜单->2 内核功能设置，设置如下：  
