@@ -279,8 +279,7 @@ crash -h
 ```
 ## 3. ShellCrash 升级
 进入主菜单-> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
-
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/30be15fa-526d-478d-a453-113df3c34130" width="60%"/>
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/c1fc6135-7adc-4eeb-a92e-8fbda0a97a07" width="60%"/>  
 ## 4. ShellCrash 卸载
 ① 通过脚本命令进行卸载（任选一）  
 连接 SSH 后，直接粘贴如下所有命令：
@@ -318,7 +317,7 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a5057b0f-4cc7-4c23-81e6-913e1bc856b5" width="60%"/>  
 ⑥ 在最下方添加如下内容并保存：
 注：
-- 1. AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
+- 1. AdGuardHome 的“DNS 服务器端口”须设置为“5353”
 - 2. 保留首尾的空行
 
 ```
@@ -332,7 +331,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 ```
 ⑦ 连接 SSH，直接粘贴如下所有命令：
-- 注：AdGuardHome 的 “DNS 服务器端口”须设置为“5353”
+- 注：AdGuardHome 的“DNS 服务器端口”须设置为“5353”
 ```
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
@@ -358,7 +357,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 “后备 DNS 服务器”设置为：
 ```
-https://dns.alidns.com/dns-query
+h3://dns.alidns.com/dns-query
 https://doh.pub/dns-query
 ```
 “Bootstrap DNS 服务器”设置为：
@@ -367,7 +366,7 @@ https://doh.pub/dns-query
 1.12.12.12
 ```
 直接点击“应用”即可  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb7399f3-feea-40c5-aefd-2b5811778dad" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/c2a8519a-da98-4863-bc10-14148b043650" width="60%"/>  
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e665285c-8792-420d-805e-cba534c00e22" width="60%"/>  
 勾选“乐观缓存”，并点击“保存”  
