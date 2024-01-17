@@ -4,14 +4,14 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](http://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellClash](https://github.com/juewuy/ShellCrash) v1.8.3 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
-2. 恢复 SSH，安装 ShellClash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
+1. 本教程基于 Redmi AX6000 [官方固件](https://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellCrash](https://github.com/juewuy/ShellCrash) v1.8.7 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+2. 恢复 SSH，安装 ShellCrash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [Clash.Meta](https://github.com/MetaCubeX/mihomo) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
 若执行结果是“linux aarch64”，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
-4. ShellClash 和 AdGuardHome 中所有没有提到的配置保持默认即可
-5. ShellClash 和 AdGuardHome 快速安装方法请看《[ShellClash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellClash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
-6. ShellClash 单独使用时设置 DNS 分流请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geox%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%20%E6%96%B9%E6%A1%88.md)》
+4. ShellCrash 和 AdGuardHome 中所有没有提到的配置保持默认即可
+5. ShellCrash 和 AdGuardHome 快速安装方法请看《[ShellCrash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellCrash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
+6. ShellCrash 单独使用时设置 DNS 分流请看《[ShellCrash 使用 Clash.Meta 内核进行 DNS 分流教程-geodata 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geodata%20%E6%96%B9%E6%A1%88.md)》或《[ShellCrash 使用 Clash.Meta 内核进行 DNS 分流教程-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%20%E6%96%B9%E6%A1%88.md)》
 ---
 # 一、 资源下载
 打包下载：https://dustinwinvip.lanzoum.com/b01qd6p3a  
@@ -21,10 +21,10 @@
 - 2. 不保证实时更新，想用新版请安装后自行升级
 - 3. 版本信息请查看打包文件内的 Readme.txt 文本
 
-## 1. ShellClash
+## 1. ShellCrash
 官方下载：https://raw.githubusercontent.com/juewuy/ShellCrash/master/bin/ShellCrash.tar.gz
 ## 2. Clash.Meta 内核
-官方下载：https://github.com/MetaCubeX/Clash.Meta/mihomo  
+官方下载：https://github.com/MetaCubeX/mihomo/releases  
 下载 mihomo-linux-arm64-xxx.gz 文件  
 ## 3. Termius
 官方下载：https://autoupdate.termius.com/windows/Termius.exe  
@@ -181,8 +181,8 @@ ssh root@192.168.31.1
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/04f0611b-f4dd-4e49-8342-8ef873d8e286" width="60%"/>  
 左侧为电脑本地文件，右侧为路由器文件  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f9c38757-9863-4d60-863b-bf178aef64f9" width="60%"/>
-# 五、 ShellClash 安装和配置
-## 1. ShellClash 安装
+# 五、 ShellCrash 安装和配置
+## 1. ShellCrash 安装
 ① 打开 WinSCP，将下载的 ShellCrash.tar.gz 文件移动到路由器的 */tmp* 目录中  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/067c0496-20e5-45c9-acdd-5dfe3ac7c0b2" width="60%"/>  
 ② 连接 SSH，执行如下命令：
@@ -199,9 +199,9 @@ cd C:\Users\[用户名]\Desktop\upx
 ```
 ⑦ 将压缩完成的 clash.meta-linux-arm64 移动到路由器的 */tmp* 目录中  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/36a35ef7-3a2a-4cb4-9346-3f72ffa586e7" width="60%"/>  
-**ShellClash 安装成功！**
-## 2. ShellClash 配置
-① 连接 SSH 后运行 `crash` 命令打开 ShellClash 配置脚本  
+**ShellCrash 安装成功！**
+## 2. ShellCrash 配置
+① 连接 SSH 后运行 `crash` 命令打开 ShellCrash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 启用推荐的自动任务配置  
 根据需要是否启用软固化（此处选择 1）
@@ -229,13 +229,13 @@ cd C:\Users\[用户名]\Desktop\upx
 进入 7 内核进阶设置，选择 4 启用域名嗅探，根据自身需要选择 5 启用节点绕过（设备较多可开启）  
 进入 6 配置内置 DNS 服务，选择 7 禁用 DNS 劫持  
 注：
-- 1. 若单独使用 ShellClash，请不要禁用 DNS 劫持
-- 2. 推荐设置 DNS 分流（单独使用 ShellClash 以及 ShellClash 搭配 AdGuardHome 都适用），请看《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geox%20%E6%96%B9%E6%A1%88.md)》或《[ShellClash 使用 Clash.Meta 内核进行 DNS 分流教程-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellClash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%20%E6%96%B9%E6%A1%88.md)》
+- 1. 若单独使用 ShellCrash，请不要禁用 DNS 劫持
+- 2. 推荐设置 DNS 分流（单独使用 ShellCrash 以及 ShellCrash 搭配 AdGuardHome 都适用），请看《[ShellCrash 使用 Clash.Meta 内核进行 DNS 分流教程-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geox%20%E6%96%B9%E6%A1%88.md)》或《[ShellCrash 使用 Clash.Meta 内核进行 DNS 分流教程-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20Clash.Meta%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%20%E6%96%B9%E6%A1%88.md)》
 
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/eb80990b-cb92-4038-a766-d6c691ec266d" width="60%"/>
 
-⑥ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 3 公测版 Jsdelivr-CDN 源（推荐），追求新版可选择 7 内测版（可能不稳定）  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/28dd2543-97f8-4bb4-bc77-0f024afa5a88" width="60%"/>  
+⑥ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版->1 Jsdelivr_CDN源，追求新版可选择 c 切换至开发版（可能不稳定）  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/854b7cc3-af6d-4e6e-837d-6eaabd45ad3f" width="60%"/>  
 进入 4 安装本地 Dashboard 面板，选择 5 安装 MetaXD 面板  
 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
@@ -246,13 +246,13 @@ cd C:\Users\[用户名]\Desktop\upx
 ⑦ 进入主菜单-> 6 导入配置文件  
 注：
 - 1. 选择 1 在线生成 Clash 配置文件，粘贴你的订阅链接并回车，输入“1”并再次回车即可
-- 2. 选择 2 导入 Clash 配置文件链接，需要一定的 Clash 知识储备，请查看《[生成带有自定义策略组和规则的 yaml 配置文件直链-geox 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geox%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义策略组和规则的 yaml 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》
+- 2. 选择 2 导入 Clash 配置文件链接，需要一定的 Clash 知识储备，请查看《[生成带有自定义策略组和规则的 yaml 配置文件直链-geodata 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义策略组和规则的 yaml 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》
 
 导入配置文件完成后，选择 1 立即启动 clash 服务  
-**ShellClash 配置成功！**  
+**ShellCrash 配置成功！**  
 
 **拓展：**  
-ShellClash 常用命令
+ShellCrash 常用命令
 - 1. 打开配置：
 ```
 crash
@@ -271,23 +271,24 @@ $CRASHDIR/start.sh restart
 ```
 - 5. 更新订阅：
 ```
-$CRASHDIR/start.sh updateyaml
+$CRASHDIR/start.sh update_config
 ```
 - 6. 查看帮助和说明：
 ```
 crash -h
 ```
-## 3. ShellClash 升级
-进入主菜单-> 9 更新/卸载，查看“管理脚本”、“clash 核心”和“GeoIP/CN-IP”有无新版本，有则选择对应的数字进行升级即可  
+## 3. ShellCrash 升级
+进入主菜单-> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
+
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/30be15fa-526d-478d-a453-113df3c34130" width="60%"/>
-## 4. ShellClash 卸载
+## 4. ShellCrash 卸载
 ① 通过脚本命令进行卸载（任选一）  
 连接 SSH 后，直接粘贴如下所有命令：
 ```
 $CRASHDIR/start.sh stop && crash -u
 ```
-② 通过 ShellClash 配置进行卸载（任选一）  
-进入主菜单-> 9 更新/卸载，选择 9 卸载 ShellClash
+② 通过 ShellCrash 配置进行卸载（任选一）  
+进入主菜单-> 9 更新/卸载，选择 9 卸载 ShellCrash
 # 六 、 AdGuardHome 安装和配置
 ## 1. AdGuardHome 安装
 ① 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\\[用户名]\Desktop\upx*  
@@ -436,7 +437,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53
 ## 2. BT 下载效果
 UDP 连接正常，使用的是移动 500M 带宽  
 <img src="https://user-images.githubusercontent.com/45238096/224113233-4d76dec2-495c-4790-a00e-538fc1469639.png" width="100%"/>
-## 3. ShellClash 效果
+## 3. ShellCrash 效果
 使用的是移动 300M 带宽  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/695f0f5d-7757-4b65-ac30-535544c5c440" width="100%"/>
 ## 4. AdGuardHome 效果
