@@ -55,7 +55,7 @@ dns:
 # 四、 启动 Clash
 1. 进入 Clash Verge->设置->系统设置，点击“服务模式”右边的盾牌图标，点击“INSTALL”，完成后启用“服务模式”
 2. 进入设置->Clash 设置->Clash 字段，勾选带有感叹号的字段，“保存”即可
-3. 进入设置->系统设置->Tun 模式，启用
+3. 进入设置->系统设置，启用“Tun 模式”
 # 五、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://d.metacubex.one
 1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`  
