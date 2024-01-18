@@ -211,7 +211,7 @@ cd C:\Users\[用户名]\Desktop\upx
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
 
-② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核  
+② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash-Meta 内核  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/0e531453-696e-44ee-bd64-75324472df34" width="60%"/>  
 ③ 进入主菜单-> 2 内核功能设置-> 1 切换 Clash 运行模式，选择 5 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
@@ -223,7 +223,7 @@ cd C:\Users\[用户名]\Desktop\upx
 
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/211e8667-c137-4ea3-ba43-ba2b5ec3e4a2" width="60%"/>
 
-④ 进入主菜单-> 4 内核启动设置，选择 1 允许 clash 开机启动  
+④ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动  
 ⑤ 进入主菜单-> 7 内核进阶设置-> 1 ipv6 相关，一般情况下不推荐开启 2 ipv6 透明代理 ，根据自身需要开启 4 CNIP 绕过内核  
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
 进入 7 内核进阶设置，选择 4 启用域名嗅探，根据自身需要选择 5 启用节点绕过（设备较多可开启）  
