@@ -17,11 +17,11 @@ jobs:
     - name: Clone Repository
       uses: actions/checkout@main
 
-    - name: Generate geox-user.yaml
+    - name: Generate geodata-user.yaml
       run: |
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
-        mkdir -p ./fake-ip-config/
-        cat <<EOF > ./fake-ip-config/geox-user.yaml
+        mkdir -p ./Clash/fake-ip-config/
+        cat <<EOF > ./Clash/fake-ip-config/geodata-user.yaml
         dns:
           enable: true
           prefer-h3: true
@@ -31,8 +31,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./fake-ip-config/geox-user.yaml
-        cat <<EOF >> ./fake-ip-config/geox-user.yaml
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./Clash/fake-ip-config/geodata-user.yaml
+        cat <<EOF >> ./Clash/fake-ip-config/geodata-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
@@ -42,14 +42,14 @@ jobs:
             - https://dns.alidns.com/dns-query
             - https://doh.pub/dns-query
           nameserver-policy:
-            'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-            'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+            'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query,]
+            'geosite:cn,private': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
             'geosite:geolocation-!cn': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
         EOF
 
     - name: Generate ruleset-user.yaml
       run: |
-        cat <<EOF > ./fake-ip-config/ruleset-user.yaml
+        cat <<EOF > ./Clash/fake-ip-config/ruleset-user.yaml
         dns:
           enable: true
           prefer-h3: true
@@ -59,8 +59,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./fake-ip-config/ruleset-user.yaml
-        cat <<EOF >> ./fake-ip-config/ruleset-user.yaml
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./Clash/fake-ip-config/ruleset-user.yaml
+        cat <<EOF >> ./Clash/fake-ip-config/ruleset-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
@@ -70,8 +70,8 @@ jobs:
             - https://dns.alidns.com/dns-query
             - https://doh.pub/dns-query
           nameserver-policy:
-            'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-            'rule-set:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+            'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+            'rule-set:cn,private': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
             'rule-set:proxy': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
         EOF
 
@@ -84,7 +84,7 @@ jobs:
 
     - name: Purge jsDelivr CDN
       run: |
-        cd ./fake-ip-config/ || exit 1
+        cd ./Clash/fake-ip-config/ || exit 1
         for file in $(ls); do
-          curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/fake-ip-config/${file}"
+          curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/Clash/fake-ip-config/${file}"
         done
