@@ -201,7 +201,7 @@ cd C:\Users\[用户名]\Desktop\upx
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/36a35ef7-3a2a-4cb4-9346-3f72ffa586e7" width="60%"/>  
 **ShellCrash 安装成功！**
 ## 2. ShellCrash 配置
-① 连接 SSH 后运行 `crash` 命令打开 ShellCrash 配置脚本  
+① 连接 SSH 后执行 `crash` 命令打开 ShellCrash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 启用推荐的自动任务配置  
 根据需要是否启用软固化（此处选择 1）
