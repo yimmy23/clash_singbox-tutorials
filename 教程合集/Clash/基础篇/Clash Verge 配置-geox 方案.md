@@ -45,11 +45,11 @@ dns:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
   nameserver:
-    - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
   nameserver-policy:
-    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-    'geosite:cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
+    'geosite:cn,private': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
     'geosite:geolocation-!cn': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
 ```
 # 四、 启动 Clash
