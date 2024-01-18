@@ -1,12 +1,12 @@
 # 分享自己使用 [Clash Verge](https://github.com/MetaCubeX/clash-verge) 搭配 rule-set 方案的一套配置
 # 声明：
-1. 此方案采用 `RULE-SET` 规则，**属高度定制，仅供参考**
-2. 规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
+1. 此方案此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则，**属高度定制，仅供参考**
+2. 规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 4. 此方案适用于 Clash Verge（以 Windows 端为例）
 ---
 # 一、 生成配置文件 .yaml 文件直链
-具体方法此处不再赘述，请看《[生成带有自定义策略组和规则的 yaml 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：
+具体方法此处不再赘述，请看《[生成带有自定义策略组和规则的 Clash 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》，贴一下我使用的配置：
 ```
 proxy-providers:
   🛫 我的机场:
@@ -95,91 +95,91 @@ rule-providers:
   ads:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/ads.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ads.yaml"
     path: ./ruleset/ads.yaml
     interval: 86400
 
   private:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/private.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/private.yaml"
     path: ./ruleset/private.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/microsoft-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/microsoft-cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/apple-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/apple-cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/games-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   applications:
     type: http
     behavior: classical
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/applications.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/applications.yaml"
     path: ./ruleset/applications.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/proxy.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   cn:
     type: http
     behavior: domain
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cn.yaml"
     path: ./ruleset/cn.yaml
     interval: 86400
 
   telegramip:
     type: http
     behavior: ipcidr
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/telegramip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/telegramip.yaml"
     path: ./ruleset/telegramip.yaml
     interval: 86400
 
   privateip:
     type: http
     behavior: ipcidr
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/privateip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/privateip.yaml"
     path: ./ruleset/privateip.yaml
     interval: 86400
 
   cnip:
     type: http
     behavior: ipcidr
-    url: "https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cnip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cnip.yaml"
     path: ./ruleset/cnip.yaml
     interval: 86400
 
@@ -204,19 +204,20 @@ rules:
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
-taskkill /f /t /im mihomo*
-curl -o %PROGRAMFILES%\Clash Verge\mihomo.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+taskkill /f /t /im clash-meta*
+curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
+curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/Clash.Meta-alpha/clash.meta-windows-amd64.exe
 ```
 # 三、 设置部分
-1. 设置可参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
-2. 进入 Clash Verge->配置，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，选择“启用”
-3. 进入文件夹 *%USERPROFILE%\\.config\clash-verge\profiles*，找到与第 2 步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的{文件名}
+1. 设置可参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
+2. 进入 Clash Verge->订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，点击“启用”
+3. 进入文件夹 *%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles*，找到与上一步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的 `{Merge 文件名}`
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
-taskkill /f /t /im mihomo*
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
+taskkill /f /t /im clash-meta*
+curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ruleset-fakeip-user.yaml
 ```
 小窍门：
 - 1. 可以配置一键更新 Clash.Meta 内核和自定义配置文件的脚本  
@@ -224,9 +225,10 @@ curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L htt
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
-taskkill /f /t /im mihomo*
-curl -o %PROGRAMFILES%\Clash Verge\mihomo.exe -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/Clash.Meta-release/clash.meta-windows-amd64.exe
-curl -o %USERPROFILE%\.config\clash-verge\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/clash-ruleset@release/fake-ip-user.yaml
+taskkill /f /t /im clash-meta*
+curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta.exe" -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-windows-amd64.exe
+curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta-alpha.exe" -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-alpha/clash.meta-windows-amd64.exe
+curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/fake-ip-user.yaml
 pause
 ```
 - 3. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
