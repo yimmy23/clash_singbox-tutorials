@@ -24,7 +24,7 @@ curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\geoip.dat -L https:/
 ```
 # 三、 导入配置
 ## 1. 导入配置文件
-① 进入 Clash Verge->订阅->粘贴文件链接，粘贴《[生成带有自定义策略组和规则的 Clash 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链  
+① 进入 Clash Verge->订阅，在“订阅文件链接”处粘贴《[生成带有自定义策略组和规则的 Clash 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .yaml 文件直链  
 ② 右击导入的配置文件，选择“编辑信息”，“更新间隔”设置为“1440”，然后“保存”
 ## 2. 新建自定义配置
 ① 进入 Clash Verge->订阅，点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，点击“启用”  
