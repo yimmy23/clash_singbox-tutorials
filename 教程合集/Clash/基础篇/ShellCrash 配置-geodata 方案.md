@@ -18,7 +18,7 @@ curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 # 二、 导入路由规则文件
 连接 SSH 后运行如下命令：
 ```
-curl -o $CRASHDIR/GeoSite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+curl -o $CRASHDIR/geosite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
 curl -o $CRASHDIR/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
 ```
 # 三、 添加定时任务
