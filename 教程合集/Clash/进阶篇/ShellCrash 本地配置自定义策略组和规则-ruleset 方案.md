@@ -1,19 +1,19 @@
-# [ShellClash](https://github.com/juewuy/ShellCrash) 本地配置自定义规则和代理组-ruleset 方案
-- 注：此方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
+# [ShellCrash](https://github.com/juewuy/ShellCrash) 本地配置自定义规则和代理组-ruleset 方案
+- 注：此方案此方案此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 # 前言：
-1. 本教程只适用于 ShellClash
-2. 自定义规则参考 [DustinWin/clash-ruleset](https://github.com/DustinWin/clash-ruleset)
-3. 本教程**仅适合白名单模式**（没有命中规则的网络流量，统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
-4. 本教程最终效果媲美《[生成带有自定义策略组和规则的 yaml 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20yaml%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》（策略组更直观，操作更方便），但不依赖于网络
+1. 本教程只适用于 ShellCrash
+2. 自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
+3. 本教程**仅适合白名单模式**（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
+4. 本教程最终效果媲美《[生成带有自定义策略组和规则的 Clash 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》（策略组更直观，操作更方便），但不依赖于网络
 5. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
 ---
 # 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)
-可参考《[ShellClash 配置-ruleset 方案/导入 Clash.Meta 内核](https://github.com/DustinWin/clash-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellClash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-clashmeta-%E5%86%85%E6%A0%B8)》里的步骤《一》进行操作
+可参考《[ShellCrash 配置-ruleset 方案/导入 Clash.Meta 内核](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-clashmeta-%E5%86%85%E6%A0%B8)》里的步骤进行操作
 # 二、 导入配置文件
-1. 进入 ShellClash->6 导入配置文件->1 在线生成 Clash 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
+1. 进入 ShellCrash->6 导入配置文件->1 在线生成 Clash 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>
 
-2. 进入 ShellClash->6 导入配置文件->1 在线生成 Clash 配置文件，输入订阅链接后回车，再输入“1”并回车即可
+2. 进入 ShellCrash->6 导入配置文件->1 在线生成 Clash 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义策略组和规则
 ## 1. 自定义 others.yaml
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
@@ -52,90 +52,90 @@ rule-providers:
   ads:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/ads.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ads.yaml"
     path: ./ruleset/ads.yaml
     interval: 86400
 
   private:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/private.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/private.yaml"
     path: ./ruleset/private.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/microsoft-cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/microsoft-cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/apple-cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/apple-cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/google-cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/games-cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/networktest.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/proxy.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cn.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cn.yaml"
     path: ./ruleset/cn.yaml
     interval: 86400
 
   telegramip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/telegramip.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/telegramip.yaml"
     path: ./ruleset/telegramip.yaml
     interval: 86400
 
   privateip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/privateip.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/privateip.yaml"
     path: ./ruleset/privateip.yaml
     interval: 86400
 
   cnip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/clash-ruleset@release/cnip.yaml"
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cnip.yaml"
     path: ./ruleset/cnip.yaml
     interval: 86400
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 2. 自定义 proxies.yaml
-连接 SSH 后执行命令`vi $CRASHDIR/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
 注：
 - 1. 此处以“vless”节点类型为例，其它节点类型写法可参考[通用字段](https://wiki.metacubex.one/config/proxies)
 - 2. 必须在 proxy-groups.yaml 里添加自定义的节点才可以正常选择和使用
@@ -160,7 +160,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 3. 自定义 proxy-groups.yaml
-连接 SSH 后执行命令`vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
 
@@ -176,7 +176,7 @@ rule-providers:
     - 🇸🇬 新加坡节点
     - 🇺🇸 美国节点
 
-# 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
+# 选择 `🎯 全球直连` 为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
 - name: 📈 网络测试
   type: select
   proxies:
@@ -308,7 +308,7 @@ rule-providers:
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 ## 4. 自定义 rules.yaml
-连接 SSH 后执行命令`vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 规则
 
@@ -327,7 +327,7 @@ rule-providers:
 - RULE-SET,cnip,🇨🇳 国内 IP
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车  
-**贴一张面板效果图（举个例子：我手动选择`🇹🇼 台湾节点`策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
+**贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/cc640bd9-c691-4387-8ddb-d10fcb2bf4f2" width="60%"/>  
 # 四、 修改策略组或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
