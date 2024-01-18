@@ -1,4 +1,4 @@
-# [ShellClash](https://github.com/juewuy/ShellCrash) 配置-geodata 方案
+# [ShellCrash](https://github.com/juewuy/ShellCrash) 配置-geodata 方案
 注：
 - 1. 此方案此方案适用于 Clash，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 - 2. 本教程中的下载链接以 CPU 架构 ARMv8 为例，请注意修改链接后缀
@@ -30,7 +30,7 @@ curl -o $CRASHDIR/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 # 四、 设置部分
-1. 连接 SSH 后运行 `crash` 命令打开 ShellClash 配置脚本  
+1. 连接 SSH 后运行 `crash` 命令打开 ShellCrash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 启用推荐的自动任务配置  
 根据需要是否启用软固化（此处选择 1）  
