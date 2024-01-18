@@ -17,11 +17,11 @@ jobs:
     - name: Clone Repository
       uses: actions/checkout@main
 
-    - name: Generate geodata-user.yaml
+    - name: Generate geodata-fakeip-user.yaml
       run: |
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./Clash/fake-ip-config/
-        cat <<EOF > ./Clash/fake-ip-config/geodata-user.yaml
+        cat <<EOF > ./Clash/geodata-fakeip-user.yaml
         dns:
           enable: true
           prefer-h3: true
@@ -31,8 +31,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./Clash/fake-ip-config/geodata-user.yaml
-        cat <<EOF >> ./Clash/fake-ip-config/geodata-user.yaml
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./Clash/geodata-fakeip-user.yaml
+        cat <<EOF >> ./Clash/geodata-fakeip-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
@@ -47,9 +47,9 @@ jobs:
             'geosite:geolocation-!cn': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
         EOF
 
-    - name: Generate ruleset-user.yaml
+    - name: Generate ruleset-fakeip-user.yaml
       run: |
-        cat <<EOF > ./Clash/fake-ip-config/ruleset-user.yaml
+        cat <<EOF > ./Clash/ruleset-fakeip-user.yaml
         dns:
           enable: true
           prefer-h3: true
@@ -59,8 +59,8 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./Clash/fake-ip-config/ruleset-user.yaml
-        cat <<EOF >> ./Clash/fake-ip-config/ruleset-user.yaml
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v "#" | sed '/^\s*$/d' | sed "s/.*/'&'/g" | sed 's/^/    - /g' >> ./Clash/ruleset-fakeip-user.yaml
+        cat <<EOF >> ./Clash/ruleset-fakeip-user.yaml
             - 'adguardteam.github.io'
             - 'anti-ad.net'
           default-nameserver:
@@ -84,7 +84,7 @@ jobs:
 
     - name: Purge jsDelivr CDN
       run: |
-        cd ./Clash/fake-ip-config/ || exit 1
+        cd ./Clash/ || exit 1
         for file in $(ls); do
-          curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/Clash/fake-ip-config/${file}"
+          curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@main/Clash/${file}"
         done
