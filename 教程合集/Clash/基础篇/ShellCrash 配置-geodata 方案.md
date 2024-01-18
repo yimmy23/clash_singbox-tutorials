@@ -10,19 +10,19 @@
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
-连接 SSH 后运行如下命令：
+连接 SSH 后执行如下命令：
 ```
 curl -o /tmp/clash.meta-linux-arm64 -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash.Meta 内核
 # 二、 导入路由规则文件
-连接 SSH 后运行如下命令：
+连接 SSH 后执行如下命令：
 ```
 curl -o $CRASHDIR/geosite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
 curl -o $CRASHDIR/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
 ```
 # 三、 添加定时任务
-连接 SSH 后运行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴（快捷键 Ctrl+Shift+V）如下内容：
+连接 SSH 后执行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴（快捷键 Ctrl+Shift+V）如下内容：
 ```
 201#curl -o /data/ShellCrash/CrashCore -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/ShellCrash/CrashCore && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
 202#curl -o /data/ShellCrash/geosite.dat -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat && curl -o /data/ShellCrash/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新geodata路由规则文件
@@ -30,7 +30,7 @@ curl -o $CRASHDIR/Country.mmdb -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rul
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
 # 四、 设置部分
-1. 连接 SSH 后运行 `crash` 命令打开 ShellCrash 配置脚本  
+1. 连接 SSH 后执行 `crash` 命令打开 ShellCrash 配置脚本  
 首次打开会进入新手引导，选择 1 路由设备配置局域网透明代理  
 启用推荐的自动任务配置  
 根据需要是否启用软固化（此处选择 1）  
