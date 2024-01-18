@@ -1,4 +1,4 @@
-**更新日志（2024-01-187）：**  
+**更新日志（2024-01-18）：**  
 1. 修改教程文件结构，为后续 sing-box 教程做准备
 2. 同步最新版 ShellCrash 新目录结构和新文件结构
 3. 同步最新版由我[个人定制的 geodata 和 ruleset](https://github.com/DustinWin/ruleset_geodata) 下载路径
