@@ -22,6 +22,11 @@ jobs:
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./Clash/fake-ip-config/
         cat <<EOF > ./Clash/geodata-fakeip-user.yaml
+        sniffer:
+          enable: true
+          sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+          skip-domain: ['Mijia Cloud']
+
         dns:
           enable: true
           prefer-h3: true
@@ -50,6 +55,11 @@ jobs:
     - name: Generate ruleset-fakeip-user.yaml
       run: |
         cat <<EOF > ./Clash/ruleset-fakeip-user.yaml
+        sniffer:
+          enable: true
+          sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+          skip-domain: ['Mijia Cloud']
+
         dns:
           enable: true
           prefer-h3: true
