@@ -212,7 +212,7 @@ cd C:\Users\[用户名]\Desktop\upx
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
 
 ② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash-Meta 内核  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/0e531453-696e-44ee-bd64-75324472df34" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/06ac7b80-d32c-426f-ba60-f2e1269d4cbe" width="60%"/>  
 ③ 进入主菜单-> 2 内核功能设置-> 1 切换 Clash 运行模式，选择 5 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 
@@ -279,7 +279,7 @@ crash -h
 ```
 ## 3. ShellCrash 升级
 进入主菜单-> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/c1fc6135-7adc-4eeb-a92e-8fbda0a97a07" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/fac11138-6158-4f7a-988a-6abda3bec655" width="60%"/>  
 ## 4. ShellCrash 卸载
 ① 通过脚本命令进行卸载（任选一）  
 连接 SSH 后，直接粘贴如下所有命令：
