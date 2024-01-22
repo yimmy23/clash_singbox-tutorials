@@ -6,7 +6,7 @@
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 4. **在 .json 文件中不支持以 `#` 开头的注释，本教程为方便初学者理解，特意增加了“注释”，在导入 sing-box 前必须删除干净**
-5. 目前 sing-box 内核不支持类似 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)的 `proxy-providers` 功能，需要手动导入节点：
+5. 目前 sing-box 内核不支持类似 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)的 `proxy-providers` 功能，需要手动导入节点：  
 ① 前往[肥羊在线订阅转换工具](https://suburl.v1.mk)粘贴订阅链接，“生成类型”选择“Sing-Box”，其它参数保持默认即可，点击“生成订阅链接”  
 ② 使用浏览器打开复制的订阅链接，复制 `"outbounds"` 内的所有节点配置，范围参考：
 ```
