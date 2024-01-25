@@ -446,7 +446,7 @@
     # 打开奈飞后手动选择日本或韩国节点
     { "tag": "🎥 奈飞视频", "type": "selector", "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|韩|kr|korea" ] },
 
-  # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
+    # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
     { "tag": "🎬 Prime Video", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] }
   ],
   # 路由
