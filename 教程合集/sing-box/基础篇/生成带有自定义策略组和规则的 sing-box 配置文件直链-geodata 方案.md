@@ -177,10 +177,12 @@
       { "geoip": "private",  "outbound": "🔒 私有网络" },
       { "geoip": "cn", "outbound": "🇨🇳 国内 IP" }
     ],
+    # geosite 配置项
     "geosite": {
       "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "DIRECT"
     },
+    # geoip 配置项
     "geoip": {
       "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "DIRECT"
@@ -341,10 +343,12 @@
       { "geosite": "gfw", "outbound": "🧱 GFWList 域名" },
       { "geoip": "telegram", "outbound": "📲 电报消息" },
     ],
+    # geosite 配置项
     "geosite": {
       "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "DIRECT"
     },
+    # geoip 配置项
     "geoip": {
       "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "DIRECT"
