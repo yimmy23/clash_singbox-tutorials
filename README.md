@@ -1,13 +1,11 @@
+**更新日志（2024-01-25）：**  
+新增 sing-box 配置文件直链编写教程（支持 providers 代理集合）
+
 **更新日志（2024-01-18）：**  
 1. 修改教程文件结构，为后续 sing-box 教程做准备
 2. 同步最新版 ShellCrash 新目录结构和新文件结构
 3. 同步最新版由我[个人定制的 geodata 和 ruleset](https://github.com/DustinWin/ruleset_geodata) 下载路径
 4. 其它错误内容修改
-
-**更新日志（2024-01-07）：**  
-1. 同步最新版 ShellCrash 新命令、新增功能、新界面和新链接
-2. 同步最新版 Clash.Meta 内核新增功能和新链接
-3. 其它错误内容修改
 
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
