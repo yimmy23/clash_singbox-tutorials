@@ -61,7 +61,9 @@
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   },
+  # NTP 客户端服务
   "ntp": { "enabled": true, "server": "time.apple.com", "server_port": 123, "interval": "30m" },
+  # 入站
   "inbounds": [
     { "tag": "mixed-in", "type": "mixed", "listen": "::", "listen_port": 7890, "sniff": false },
 
@@ -69,10 +71,12 @@
 
     { "tag": "redirect-in", "type": "redirect", "listen": "::", "listen_port": 7892, "sniff": true, "sniff_override_destination": true },
 
+    # 如设备不支持 Tproxy，如 Android 设备，须删除此项
     { "tag": "tproxy-in", "type": "tproxy", "listen": "::", "listen_port": 7893, "sniff": true, "sniff_override_destination": true },
 
     { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "mtu": 9000, "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true }
   ],
+  # 出站
   "outbounds": [
     # 手动选择国家或地区节点；根据“国家或地区出站”的名称对 `outbounds` 值进行增删改，须一一对应
     { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
@@ -150,7 +154,9 @@
       "override_dialer": { "domain_strategy": "prefer_ipv6" }
     }
   ],
+  # 路由
   "route": {
+    # 规则
     "rules": [
       { "protocol": "dns", "outbound": "dns-out" },
       { "clash_mode": "global", "outbound": "🚀 节点选择" },
@@ -183,7 +189,9 @@
     "final": "🚀 节点选择",
     "auto_detect_interface": true
   },
+  # 实验性配置项
   "experimental": {
+    # 缓存文件
     "cache_file": { "enabled": true, "cache_id": "", "store_fakeip": true },
     # 面板配置
     "clash_api": {
@@ -241,7 +249,9 @@
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   },
+  # NTP 客户端服务
   "ntp": { "enabled": true, "server": "time.apple.com", "server_port": 123, "interval": "30m" },
+  # 入站
   "inbounds": [
     { "tag": "mixed-in", "type": "mixed", "listen": "::", "listen_port": 7890, "sniff": false },
 
@@ -249,10 +259,12 @@
 
     { "tag": "redirect-in", "type": "redirect", "listen": "::", "listen_port": 7892, "sniff": true, "sniff_override_destination": true },
 
+    # 如设备不支持 Tproxy，如 Android 设备，须删除此项
     { "tag": "tproxy-in", "type": "tproxy", "listen": "::", "listen_port": 7893, "sniff": true, "sniff_override_destination": true },
 
     { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "mtu": 9000, "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true }
   ],
+  # 出站
   "outbounds": [
     # 手动选择国家或地区节点；根据“国家或地区出站”的名称对 `outbounds` 值进行增删改，须一一对应
     { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
@@ -316,7 +328,9 @@
       "override_dialer": { "domain_strategy": "prefer_ipv6" }
     }
   ],
+  # 路由
   "route": {
+    # 规则
     "rules": [
       { "protocol": "dns", "outbound": "dns-out" },
       { "clash_mode": "global", "outbound": "🚀 节点选择" },
@@ -339,7 +353,9 @@
     "final": "🎯 全球直连",
     "auto_detect_interface": true
   },
+  # 实验性配置项
   "experimental": {
+    # 缓存文件
     "cache_file": { "enabled": true, "cache_id": "", "store_fakeip": true },
     # 面板配置
     "clash_api": {
