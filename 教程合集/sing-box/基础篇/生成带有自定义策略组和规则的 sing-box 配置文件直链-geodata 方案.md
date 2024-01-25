@@ -29,12 +29,16 @@
     "servers": [
       # 广告 DNS
       { "tag": "dns_block", "address": "rcode://success" },
+
       # 国外 DNS
       { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
+
       # 国内 DNS
       { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
+
       # FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" },
+
       # IP 格式的 DNS
       { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" }
     ],
@@ -60,39 +64,61 @@
   "ntp": { "enabled": true, "server": "time.apple.com", "server_port": 123, "interval": "30m" },
   "inbounds": [
     { "tag": "mixed-in", "type": "mixed", "listen": "::", "listen_port": 7890, "sniff": false },
+
     { "tag": "dns_in", "type": "direct", "listen": "::", "listen_port": 1053, "sniff": true, "sniff_override_destination": false },
+
     { "tag": "redirect-in", "type": "redirect", "listen": "::", "listen_port": 7892, "sniff": true, "sniff_override_destination": true },
+
     { "tag": "tproxy-in", "type": "tproxy", "listen": "::", "listen_port": 7893, "sniff": true, "sniff_override_destination": true },
+
     { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "mtu": 9000, "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true }
   ],
   "outbounds": [
     # 手动选择国家或地区节点；根据“国家或地区出站”的名称对 `outbounds` 值进行增删改，须一一对应
     { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+
     # Speedtest 测速网站：选择`🎯 全球直连` 为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
     { "tag": "📈 网络测速", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+
     { "tag": "🔗 直连域名", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
+
     { "tag": "🪜 代理域名", "type": "selector", "outbounds": [ "🚀 节点选择", "🎯 全球直连" ] },
+
     { "tag": "🎮 游戏平台", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
+
     { "tag": "Ⓜ️ 微软服务", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
+
     { "tag": "📢 谷歌服务", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
+
     { "tag": "🍎 苹果服务", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
+
     { "tag": "🇨🇳 国内 IP", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
+
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
+
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
+
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
+
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
+
     { "tag": "REJECT", "type": "block" },
+
     # 本地网络有 IPv6 时可以配置 `"domain_strategy": "prefer_ipv6"`
     { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+
     { "tag": "dns-out", "type": "dns" },
 
     # -------------------- 国家或地区出站 --------------------
     # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
     { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+
     { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)台|tw|taiwan" ] },
+
     { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
-    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
+
     { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+
     { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
   ],
   # 代理集合（获取机场订阅链接内的所有节点）
@@ -185,12 +211,16 @@
     "servers": [
       # 广告 DNS
       { "tag": "dns_block", "address": "rcode://success" },
+
       # 国外 DNS
       { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
+
       # 国内 DNS
       { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
+
       # FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" },
+
       # IP 格式的 DNS
       { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" }
     ],
@@ -214,35 +244,77 @@
   "ntp": { "enabled": true, "server": "time.apple.com", "server_port": 123, "interval": "30m" },
   "inbounds": [
     { "tag": "mixed-in", "type": "mixed", "listen": "::", "listen_port": 7890, "sniff": false },
+
     { "tag": "dns_in", "type": "direct", "listen": "::", "listen_port": 1053, "sniff": true, "sniff_override_destination": false },
+
     { "tag": "redirect-in", "type": "redirect", "listen": "::", "listen_port": 7892, "sniff": true, "sniff_override_destination": true },
+
     { "tag": "tproxy-in", "type": "tproxy", "listen": "::", "listen_port": 7893, "sniff": true, "sniff_override_destination": true },
+
     { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "mtu": 9000, "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true }
   ],
   "outbounds": [
     # 手动选择国家或地区节点；根据“国家或地区出站”的名称对 `outbounds` 值进行增删改，须一一对应
-    { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+
     # Speedtest 测速网站：选择`🎯 全球直连` 为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
-    { "tag": "📈 网络测速", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "📈 网络测速", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+
     { "tag": "🧱 GFWList 域名", "type": "selector", "outbounds": [ "🚀 节点选择", "🎯 全球直连" ] },
+
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
+
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
+
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
+
     { "tag": "REJECT", "type": "block" },
+
     # 本地网络有 IPv6 时可以配置 `"domain_strategy": "prefer_ipv6"`
     { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+
     { "tag": "dns-out", "type": "dns" },
 
     # -------------------- 国家或地区出站 --------------------
-    # 根据粘贴的节点配置中的国家或地区节点，配置 `url-test` 类型的出站；自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点
-    { "tag": "🇭🇰 香港节点", "type": "url-test", "outbounds": [ "🇭🇰 香港 xxx 节点 1", "🇭🇰 香港 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
-    { "tag": "🇹🇼 台湾节点", "type": "url-test", "outbounds": [ "🇹🇼 台湾 xxx 节点 1", "🇹🇼 台湾 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
-    { "tag": "🇯🇵 日本节点", "type": "url-test", "outbounds": [ "🇯🇵 日本 xxx 节点 1", "🇯🇵 日本 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
-    { "tag": "🇰🇷 韩国节点", "type": "url-test", "outbounds": [ "🇰🇷 韩国 xxx 节点 1", "🇰🇷 韩国 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
-    { "tag": "🇸🇬 新加坡节点", "type": "url-test", "outbounds": [ "🇸🇬 新加坡 xxx 节点 1", "🇸🇬 新加坡 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
-    { "tag": "🇺🇸 美国节点", "type": "url-test", "outbounds": [ "🇺🇸 美国 xxx 节点 1", "🇺🇸 美国 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
+    # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
+    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
 
-    # 此处粘贴节点配置
+    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)台|tw|taiwan" ] },
+
+    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
+
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+
+    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
+  ],
+  # 代理集合（获取机场订阅链接内的所有节点）
+  "outbound_providers": [
+    {
+      "tag": "🛫 我的机场 1",
+      "type": "http",
+      "healthcheck_url": "https://www.gstatic.com/generate_204",
+      "healthcheck_interval": "10m",
+      # 机场订阅链接，使用 Clash 链接
+      "download_url": "https://example.com/xxx/xxx&flag=clash",
+      "path": "./yamls/airport1.yaml",
+      "download_ua": "clash.meta",
+      "download_interval": "24h",
+      "download_detour": "DIRECT",
+      # 若机场节点支持 IPv6，可添加此参数
+      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+    },
+    {
+      "tag": "🛫 我的机场 2",
+      "type": "http",
+      "healthcheck_url": "https://www.gstatic.com/generate_204",
+      "healthcheck_interval": "10m",
+      "download_url": "https://example.com/xxx/xxx&flag=clash",
+      "path": "./yamls/airport2.yaml",
+      "download_ua": "clash.meta",
+      "download_interval": "24h",
+      "download_detour": "DIRECT",
+      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+    }
   ],
   "route": {
     "rules": [
@@ -302,16 +374,15 @@
     # 默认选择日本节点
     { "tag": "📽️ AcFun", "type": "selector", "outbounds": [ "🇯🇵 日本节点", "🎯 全球直连" ] },
 
-    # 自动选择延迟最低的香港节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-    { "tag": "🇭🇰 香港节点", "type": "urltest", "outbounds": [ "🇭🇰 香港 xxx 节点 1", "🇭🇰 香港 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
+    # 自动选择延迟最低的香港节点；容差大于 100ms 才会切换到延迟低的那个节点
+    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
 
     # 手动选择日本节点
-    { "tag": "🇯🇵 日本节点", "type": "selector", "outbounds": [ "🇯🇵 日本 xxx 节点 1", "🇯🇵 日本 xxx 节点 2", "🎯 全球直连" ] },
+    { "tag": "🇯🇵 日本节点", "type": "selector", "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
 
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
 
-    # 此处粘贴香港和日本节点配置
+    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" }
   ],
   "route": {
     "rules": [
@@ -349,16 +420,10 @@
 {
   "outbounds": [
     # 打开奈飞后手动选择日本或韩国节点
-    { "tag": "🎥 奈飞视频", "type": "selector", "outbounds": [ "🇯🇵 日本节点", "🇰🇷 韩国节点" ] },
+    { "tag": "🎥 奈飞视频", "type": "selector", "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|韩|kr|korea" ] },
 
-  # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-    { "tag": "🎬 Prime Video", "type": "selector", "outbounds": [ "🇸🇬 新加坡节点" ] },
-
-    { "tag": "🇯🇵 日本节点", "type": "selector", "outbounds": [ "🇯🇵 日本 xxx 节点 1", "🇯🇵 日本 xxx 节点 2" ] },
-    { "tag": "🇰🇷 韩国节点", "type": "selector", "outbounds": [ "🇰🇷 韩国 xxx 节点 1", "🇰🇷 韩国 xxx 节点 2" ] },
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "outbounds": [ "🇸🇬 新加坡 xxx 节点 1", "🇸🇬 新加坡 xxx 节点 2" ], "url": "https://www.gstatic.com/generate_204", "interval": "10m", "tolerance": 100 },
-
-    # 此处粘贴日本、韩国和新加坡节点配置
+  # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
+    { "tag": "🎬 Prime Video", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] }
   ],
   "route": {
     "rules": [
