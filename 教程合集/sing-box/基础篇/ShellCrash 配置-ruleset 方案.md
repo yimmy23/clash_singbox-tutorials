@@ -4,7 +4,7 @@
 - 2. 本教程中的下载链接以 CPU 架构 ARMv8 为例，请注意修改链接后缀
 - 3. 查看 CPU 架构可连接 SSH 后执行命令 `uname -ms`，若执行结果是“linux aarch64”，就是搭载的 ARMv8 架构
 ---
-# 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)
+# 一、 导入 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)
 **sing-box 内核下载链接后缀和 CPU 架构对应关系如下：**
 |CPU 架构|AMD64|AMD64v3|ARMv5|ARMv6|ARMv7|ARMv8&ARM64&AArch64|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|-----|:---:|-----|-----|-----|
@@ -18,7 +18,7 @@ curl -o /tmp/sing-box-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 # 二、 添加定时任务
 连接 SSH 后执行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴（快捷键 Ctrl+Shift+V）如下内容：
 ```
-201#curl -o /data/ShellCrash/CrashCore -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8 && chmod +x /data/ShellCrash/CrashCore && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
+201#curl -o /data/ShellCrash/CrashCore -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8 && chmod +x /data/ShellCrash/CrashCore && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新sing-box_PuerNya版内核
 202#curl -o /tmp/metacubexd.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-dashboard/metacubexd.tar.gz && rm -rf /data/ShellCrash/ui/* && tar -zxf /tmp/metacubexd.tar.gz -C /data/ShellCrash/ui && rm -f /tmp/metacubexd.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新metacubexd面板
 ```
 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
