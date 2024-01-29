@@ -14,7 +14,7 @@
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/70e60a4d-6819-43aa-9f6c-0a0ab4384db6" width="60%"/>
 
 2. 进入 ShellCrash->6 导入配置文件->1 在线生成 singbox 配置文件，输入订阅链接后回车，再输入“1”并回车即可
-# 三、 自定义出站
+# 三、 自定义出站和规则
 ## 1. 自定义代理集合 outbound_providers.json
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
