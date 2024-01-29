@@ -108,8 +108,6 @@
     "rules": [
       # 自定义规则优先放前面
       { "geosite": "category-ads-all", "outbound": "🛑 广告拦截" },
-      # 为过滤 P2P 流量（BT 下载），可添加一条 `port_range` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
-      { "port_range": 6881-6889, "outbound": "🎯 全球直连" },
       { "geosite": "private", "outbound": "🔒 私有网络" },
       { "geosite": "microsoft@cn", "outbound": "Ⓜ️ 微软服务" },
       { "geosite": "apple-cn", "outbound": "🍎 苹果服务" },
