@@ -17,12 +17,46 @@
 “Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 singboxlink.json  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/13346166-85cf-474c-9da7-55182e095758" width="60%"/>
 # 三、 编辑 .json 文件
-## 1. 选择规则集模式
-① 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
+## 1. 编辑代理集合 `outbound_providers`
+连接 SSH 后执行 `vi $CRASHDIR/jsons/outbound_providers.json`，编辑如下内容并粘贴：
 ```
 {
-  # 日志
-  "log": { "level": "error", "timestamp": true },
+  # 代理集合（获取机场订阅链接内的所有节点）
+  "outbound_providers": [
+    {
+      "tag": "🛫 我的机场 1",
+      "type": "http",
+      "healthcheck_url": "https://www.gstatic.com/generate_204",
+      "healthcheck_interval": "10m",
+      # 机场订阅链接，使用 Clash 链接
+      "download_url": "https://example.com/xxx/xxx&flag=clash",
+      "path": "./yamls/airport1.yaml",
+      "download_ua": "clash.meta",
+      "download_interval": "24h",
+      "download_detour": "DIRECT",
+      # 若机场节点支持 IPv6，可添加此参数
+      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+    },
+    {
+      "tag": "🛫 我的机场 2",
+      "type": "http",
+      "healthcheck_url": "https://www.gstatic.com/generate_204",
+      "healthcheck_interval": "10m",
+      "download_url": "https://example.com/xxx/xxx&flag=clash",
+      "path": "./yamls/airport2.yaml",
+      "download_ua": "clash.meta",
+      "download_interval": "24h",
+      "download_detour": "DIRECT",
+      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+    }
+  ]
+}
+```
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+## 2. 编辑 DNS 配置 `dns`
+连接 SSH 后执行 `vi $CRASHDIR/jsons/dns.json`，编辑如下内容并粘贴：
+```
+{
   # DNS
   "dns": {
     # DNS 服务器
@@ -57,22 +91,13 @@
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
-  },
-  # NTP 客户端服务
-  "ntp": { "enabled": true, "server": "time.apple.com", "server_port": 123, "interval": "30m" },
-  # 入站
-  "inbounds": [
-    { "tag": "mixed-in", "type": "mixed", "listen": "::", "listen_port": 7890, "sniff": false },
-
-    { "tag": "dns_in", "type": "direct", "listen": "::", "listen_port": 1053, "sniff": true, "sniff_override_destination": false },
-
-    { "tag": "redirect-in", "type": "redirect", "listen": "::", "listen_port": 7892, "sniff": true, "sniff_override_destination": true },
-
-    # 如设备不支持 Tproxy，如 Android 设备，须删除此项
-    { "tag": "tproxy-in", "type": "tproxy", "listen": "::", "listen_port": 7893, "sniff": true, "sniff_override_destination": true },
-
-    { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "mtu": 9000, "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true }
-  ],
+  }
+}
+```
+## 3. 选择规则集模式
+① 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
+```
+{
   # 出站
   "outbounds": [
     # 手动选择国家或地区节点；根据“国家或地区出站”的名称对 `outbounds` 值进行增删改，须一一对应
@@ -121,35 +146,6 @@
     { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
 
     { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
-  ],
-  # 代理集合（获取机场订阅链接内的所有节点）
-  "outbound_providers": [
-    {
-      "tag": "🛫 我的机场 1",
-      "type": "http",
-      "healthcheck_url": "https://www.gstatic.com/generate_204",
-      "healthcheck_interval": "10m",
-      # 机场订阅链接，使用 Clash 链接
-      "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport1.yaml",
-      "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "DIRECT",
-      # 若机场节点支持 IPv6，可添加此参数
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
-    },
-    {
-      "tag": "🛫 我的机场 2",
-      "type": "http",
-      "healthcheck_url": "https://www.gstatic.com/generate_204",
-      "healthcheck_interval": "10m",
-      "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport2.yaml",
-      "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "DIRECT",
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
-    }
   ],
   # 路由
   "route": {
@@ -260,23 +256,9 @@
         "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/cnip.srs",
         "download_detour": "DIRECT"
       }
+    ],
     # 默认出站，相当于 Clash 的 `漏网之鱼`，即没有命中规则的域名或 IP 走该规则
-    "final": "🚀 节点选择",
-    "auto_detect_interface": true
-  },
-  # # 实验性配置项
-  "experimental": {
-    # 缓存文件
-    "cache_file": { "enabled": true, "cache_id": "", "store_fakeip": true },
-    # 面板配置
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "DIRECT",
-      "secret": "",
-      "default_mode": "Rule"
-    }
+    "final": "🚀 节点选择"
   }
 }
 ```
@@ -286,57 +268,6 @@
 ② 黑名单模式（只有命中规则的网络流量才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）
 ```
 {
-  # 日志
-  "log": { "level": "error", "timestamp": true },
-  # DNS
-  "dns": {
-    # DNS 服务器
-    "servers": [
-      # 广告 DNS
-      { "tag": "dns_block", "address": "rcode://success" },
-
-      # 国外 DNS
-      { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
-
-      # 国内 DNS
-      { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
-
-      # FakeIP
-      { "tag": "dns_fakeip", "address": "fakeip" },
-
-      # IP 格式的 DNS
-      { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" }
-    ],
-    # DNS 规则
-    "rules": [
-      { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "global", "server": "dns_fakeip" },
-      { "clash_mode": "direct", "server": "dns_direct" },
-      { "rule_set": "ads", "server": "dns_block" },
-      { "rule_set": "proxy", "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
-    ],
-    # 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
-    "final": "dns_direct",
-    "strategy": "prefer_ipv4",
-    "independent_cache": true,
-    "reverse_mapping": true,
-    "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
-  },
-  # NTP 客户端服务
-  "ntp": { "enabled": true, "server": "time.apple.com", "server_port": 123, "interval": "30m" },
-  # 入站
-  "inbounds": [
-    { "tag": "mixed-in", "type": "mixed", "listen": "::", "listen_port": 7890, "sniff": false },
-
-    { "tag": "dns_in", "type": "direct", "listen": "::", "listen_port": 1053, "sniff": true, "sniff_override_destination": false },
-
-    { "tag": "redirect-in", "type": "redirect", "listen": "::", "listen_port": 7892, "sniff": true, "sniff_override_destination": true },
-
-    # 如设备不支持 Tproxy，如 Android 设备，须删除此项
-    { "tag": "tproxy-in", "type": "tproxy", "listen": "::", "listen_port": 7893, "sniff": true, "sniff_override_destination": true },
-
-    { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "mtu": 9000, "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true }
-  ],
   # 出站
   "outbounds": [
     # 手动选择国家或地区节点；根据“国家或地区出站”的名称对 `outbounds` 值进行增删改，须一一对应
@@ -371,35 +302,6 @@
     { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
 
     { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
-  ],
-  # 代理集合（获取机场订阅链接内的所有节点）
-  "outbound_providers": [
-    {
-      "tag": "🛫 我的机场 1",
-      "type": "http",
-      "healthcheck_url": "https://www.gstatic.com/generate_204",
-      "healthcheck_interval": "10m",
-      # 机场订阅链接，使用 Clash 链接
-      "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport1.yaml",
-      "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "DIRECT",
-      # 若机场节点支持 IPv6，可添加此参数
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
-    },
-    {
-      "tag": "🛫 我的机场 2",
-      "type": "http",
-      "healthcheck_url": "https://www.gstatic.com/generate_204",
-      "healthcheck_interval": "10m",
-      "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport2.yaml",
-      "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "DIRECT",
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
-    }
   ],
   # 路由
   "route": {
@@ -444,34 +346,20 @@
         "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/telegramip.srs",
         "download_detour": "DIRECT"
       }
+    ],
     # 默认出站，相当于 Clash 的 `漏网之鱼`，即没有命中规则的域名或 IP 走该规则
-    "final": "🎯 全球直连",
-    "auto_detect_interface": true
-  },
-  # 实验性配置项
-  "experimental": {
-    # 缓存文件
-    "cache_file": { "enabled": true, "cache_id": "", "store_fakeip": true },
-    # 面板配置
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "ui",
-      "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
-      "external_ui_download_detour": "DIRECT",
-      "secret": "",
-      "default_mode": "Rule"
-    }
+    "final": "🎯 全球直连"
   }
 }
 ```
 将模板内容复制到自己 Gist 新建的 .json 文件中
-## 2. 修改模板
-① 首先确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区出站**”和 `🚀 节点选择` 出站下的 `outbounds` 里面的国家或地区进行增删改
+## 4. 修改模板
+① 将代理集合 `outbound_providers` 中的 `download_url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：5》）  
+② 确定自己机场中有哪些国家或地区的节点，然后对模板文件里 `outbounds` 中“**国家或地区出站**”以及 `🚀 节点选择` 出站下的 `outbounds` 里面的国家或地区进行增删改
 - 注：两者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）
 
-② 将代理集合中的 `download_url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：5》）  
 ③ 在 `🚀 节点选择` 出站下的 `outbounds` 里，可以将最稳定的节点放在最前面，配置完成后会自动选择最稳定的节点  
-⑤ 在“国家或地区出站”里，`type` 为 `url-test` 就是自动选择延迟最低的节点，将 `url-test` 改成 `selector` 就是手动选择节点  
+⑤ 在“国家或地区出站”里，`type` 为 `urltest` 就是自动选择延迟最低的节点，将 `urltest` 改成 `selector` 就是手动选择节点  
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让[哔哩哔哩](https://www.bilibili.com)（B 站）自动选择延迟最低的香港节点，[AcFun](https://www.acfun.cn)（A 站）可以手动选择日本节点，这个需求怎么写？  
 我们可以进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7) 后按 Ctrl+F 组合键搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**  
 选择 .srs 文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 jsDelivr CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
@@ -535,11 +423,8 @@
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/a409ace5-8f03-4776-b9e3-dce3ba804844" width="60%"/>  
 删除后变成：  
 `https://gist.githubusercontent.com/DustinWin/40c0611fda5d6fcd0795ee5a15de7c73/raw/singboxlink.json`
-# 五、 导入订阅链接
-## 1. 在 ShellCrash 中导入订阅链接
+# 五、 导入订阅链接（以 ShellCrash 导入订阅链接为例）
 进入 ShellCrash 配置脚本->6->2，粘贴最终生成的订阅链接即可，具体设置请参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
-## 2. 在 sing-box for Android 中导入订阅链接
-进入 sing-box for Android->Profiles->New Profile，“Type”选择“Remote”，在“URL”处粘贴最终生成的订阅链接，点击“Create”即可
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
