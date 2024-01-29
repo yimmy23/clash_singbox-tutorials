@@ -18,7 +18,7 @@
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/13346166-85cf-474c-9da7-55182e095758" width="60%"/>
 # 三、 编辑 .json 文件
 ## 1. 编辑代理集合 `outbound_providers`
-连接 SSH 后执行 'vi $CRASHDIR/jsons/outbound_providers.json'，编辑如下内容并粘贴：
+连接 SSH 后执行 `vi $CRASHDIR/jsons/outbound_providers.json`，编辑如下内容并粘贴：
 ```
 {
   # 代理集合（获取机场订阅链接内的所有节点）
