@@ -1,7 +1,7 @@
 # 分享自己使用 [ShellCrash](https://github.com/juewuy/ShellCrash) 搭配 geodata 方案的一套配置
 # 声明：
 1. 此方案此方案适用于 [sing-box](https://github.com/SagerNet/sing-box)，采用 `rule_set` 规则
-2. 自定义规则参考 [DustinWin/ruleset_geodata/ruleset]（https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E）
+2. 自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 4. 此方案适用于 ShellCrash（以 arm64 架构为例，且安装路径为 */data/ShellCrash*）
 5. 此方案已摒弃 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome)，但拦截广告效果依然强劲
