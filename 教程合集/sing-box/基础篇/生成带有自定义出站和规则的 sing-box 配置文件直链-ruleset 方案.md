@@ -79,8 +79,8 @@
     # DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "global", "server": "dns_fakeip" },
-      { "clash_mode": "direct", "server": "dns_direct" },
+      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "server": "dns_direct" },
       { "rule_set": "ads", "server": "dns_block" },
       { "rule_set": "proxy", "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" },
       { "rule_set": "cn", "query_type": [ "A", "AAAA" ], "server": "dns_direct" }
@@ -106,6 +106,8 @@
     # 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
     { "tag": "📈 网络测试", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
 
+    { "tag": "🐟 漏网之鱼", "type": "selector", "outbounds": [ "🚀 节点选择", "🎯 全球直连" ] },
+
     { "tag": "🔗 直连域名", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
 
     { "tag": "🪜 代理域名", "type": "selector", "outbounds": [ "🚀 节点选择", "🎯 全球直连" ] },
@@ -128,12 +130,27 @@
 
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
 
+    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🇬🇧 英国节点" ] },
+
     { "tag": "REJECT", "type": "block" },
 
     # 本地网络有 IPv6 时可以配置 `"domain_strategy": "prefer_ipv6"`
     { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
 
     { "tag": "dns-out", "type": "dns" },
+
+    # vless 出站
+    {
+      "tag": "🆓 免费节点",
+      "type": "vless",
+      "server": "example.com",
+      "server_port": 443,
+      "uuid": "{uuid}",
+      "network": "tcp",
+      "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
+      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } },
+      "domain_strategy": "prefer_ipv6"
+    },
 
     # -------------------- 国家或地区出站 --------------------
     # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
@@ -152,8 +169,8 @@
     # 规则
     "rules": [
       { "protocol": "dns", "outbound": "dns-out" },
-      { "clash_mode": "global", "outbound": "🚀 节点选择" },
-      { "clash_mode": "direct", "outbound": "DIRECT" },
+      { "clash_mode": "Global", "outbound": "🚀 节点选择" },
+      { "clash_mode": "Direct", "outbound": "DIRECT" },
       # 自定义规则优先放前面
       { "rule_set": "ads", "outbound": "🛑 广告拦截" },
       # 为过滤 P2P 流量（BT 下载），可添加一条 `port_range` 规则
@@ -257,8 +274,8 @@
         "download_detour": "DIRECT"
       }
     ],
-    # 默认出站，相当于 Clash 的 `漏网之鱼`，即没有命中规则的域名或 IP 走该规则
-    "final": "🚀 节点选择"
+    # 默认出站，即没有命中规则的域名或 IP 走该规则
+    "final": "🐟 漏网之鱼"
   }
 }
 ```
@@ -276,6 +293,8 @@
     # 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
     { "tag": "📈 网络测试", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
 
+    { "tag": "🐟 漏网之鱼", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
+
     { "tag": "🪜 代理域名", "type": "selector", "outbounds": [ "🚀 节点选择", "🎯 全球直连" ] },
 
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
@@ -284,12 +303,27 @@
 
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
 
+    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🇬🇧 英国节点" ] },
+
     { "tag": "REJECT", "type": "block" },
 
     # 本地网络有 IPv6 时可以配置 `"domain_strategy": "prefer_ipv6"`
     { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
 
     { "tag": "dns-out", "type": "dns" },
+
+    # vless 出站
+    {
+      "tag": "🆓 免费节点",
+      "type": "vless",
+      "server": "example.com",
+      "server_port": 443,
+      "uuid": "{uuid}",
+      "network": "tcp",
+      "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
+      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } },
+      "domain_strategy": "prefer_ipv6"
+    },
 
     # -------------------- 国家或地区出站 --------------------
     # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
@@ -308,8 +342,8 @@
     # 规则
     "rules": [
       { "protocol": "dns", "outbound": "dns-out" },
-      { "clash_mode": "global", "outbound": "🚀 节点选择" },
-      { "clash_mode": "direct", "outbound": "DIRECT" },
+      { "clash_mode": "Global", "outbound": "🚀 节点选择" },
+      { "clash_mode": "Direct", "outbound": "DIRECT" },
       # 自定义规则优先放前面
       { "rule_set": "ads", "outbound": "🛑 广告拦截" },
       { "rule_set": "networktest", "outbound": "📈 网络测试" },
@@ -347,8 +381,8 @@
         "download_detour": "DIRECT"
       }
     ],
-    # 默认出站，相当于 Clash 的 `漏网之鱼`，即没有命中规则的域名或 IP 走该规则
-    "final": "🎯 全球直连"
+    # 默认出站，即没有命中规则的域名或 IP 走该规则
+    "final": "🐟 漏网之鱼"
   }
 }
 ```
