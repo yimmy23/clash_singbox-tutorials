@@ -23,7 +23,9 @@
     { "tag": "🇨🇳 国内 IP", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
+    { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
+    { "tag": "REJECT", "type": "block" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🇬🇧 英国节点" ] },
     { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
     { "tag": "dns-out", "type": "dns" },
@@ -51,6 +53,7 @@
       { "protocol": "dns", "outbound": "dns-out" },
       { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "clash_mode": "Direct", "outbound": "DIRECT" },
+      { "rule_set": "ads", "outbound": "🛑 广告拦截" },
       { "rule_set": "private", "outbound": "🔒 私有网络" },
       { "rule_set": "microsoft-cn", "outbound": "Ⓜ️ 微软服务" },
       { "rule_set": "apple-cn", "outbound": "🍎 苹果服务" },
@@ -64,6 +67,13 @@
       { "rule_set": "cnip", "outbound": "🇨🇳 国内 IP" }
     ],
     "rule_set": [
+      {
+        "tag": "ads",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ads.srs",
+        "download_detour": "DIRECT"
+      },
       {
         "tag": "private",
         "type": "remote",
