@@ -1,4 +1,4 @@
-# [ShellCrash](https://github.com/juewuy/ShellCrash) 配置-ruleset  方案
+# [ShellCrash](https://github.com/juewuy/ShellCrash) 配置-ruleset 方案
 注：
 - 1. 此方案此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 - 2. 本教程中的下载链接以 CPU 架构 ARMv8 为例，请注意修改链接后缀
