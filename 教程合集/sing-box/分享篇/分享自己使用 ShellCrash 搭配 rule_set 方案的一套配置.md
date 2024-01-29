@@ -1,4 +1,4 @@
-# 分享自己使用 [ShellCrash](https://github.com/juewuy/ShellCrash) 搭配 geodata 方案的一套配置
+# 分享自己使用 [ShellCrash](https://github.com/juewuy/ShellCrash) 搭配 rule_set 方案的一套配置
 # 声明：
 1. 此方案此方案适用于 [sing-box](https://github.com/SagerNet/sing-box)，采用 `rule_set` 规则
 2. 自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
