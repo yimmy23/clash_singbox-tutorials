@@ -1,4 +1,4 @@
-# 生成带有自定义策略组和规则的 sing-box 配置文件直链-ruleset 方案
+# 生成带有自定义出站和规则的 sing-box 配置文件直链-ruleset 方案
 - 注：此方案适用于 [sing-box](https://github.com/SagerNet/sing-box)，采用 `rule_set` 规则
 # 前言：
 1. 本教程可以生成扩展名为 .json 文件的直链，可以**一键导入使用了 sing-box 内核（v1.8.0+ 版本）的客户端**  
