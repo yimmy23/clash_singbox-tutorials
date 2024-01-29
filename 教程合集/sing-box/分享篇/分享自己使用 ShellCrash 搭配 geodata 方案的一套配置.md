@@ -152,7 +152,7 @@
 curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8 && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 4 Sing-Box 内核
-# 三、 编辑 outbound_providers.json
+# 三、 添加代理集合 outbound_providers.json
 连接 SSH 后执行 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
@@ -173,7 +173,7 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
   ]
 }
 ```
-四、 导入 dns.json
+# 四、 导入 DNS 配置 dns.json
 连接 SSH 后运行如下命令：
 ```
 curl -o $CRASHDIR/jsons/dns.json -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ruleset-dns.json
