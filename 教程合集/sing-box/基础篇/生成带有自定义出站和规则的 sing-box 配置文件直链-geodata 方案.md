@@ -1,4 +1,4 @@
-# 生成带有自定义策略组和规则的 sing-box 配置文件直链-geodata 方案
+# 生成带有自定义出站和规则的 sing-box 配置文件直链-geodata 方案
 - 注：此方案适用于 [sing-box](https://github.com/SagerNet/sing-box)，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 前言：
 1. 本教程可以生成扩展名为 .json 文件的直链，可以**一键导入使用了 sing-box 内核的客户端**  
