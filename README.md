@@ -1,11 +1,11 @@
+**更新日志（2024-01-30）：**  
+修改 sing-box 相关教程里的错误内容，已可以正常使用了
+
 **更新日志（2024-01-29）：**  
 1. 新增 sing-box 自定义配置教程
 2. 新增 sing-box 搭配 AdGuardHome 教程
 3. 新增 sing-box for Android 使用教程
 4. 其它错误内容修改（近期将持续修改错误内容，请使用最新版教程）
-
-**更新日志（2024-01-25）：**  
-新增 sing-box 配置文件直链编写教程（支持 providers 代理集合）
 
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
