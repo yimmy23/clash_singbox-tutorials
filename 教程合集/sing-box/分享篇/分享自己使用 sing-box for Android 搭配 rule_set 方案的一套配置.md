@@ -12,18 +12,18 @@
   "dns": {
     "servers": [
       { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
       { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
-      { "tag": "dns_fakeip", "address": "fakeip" },
-      { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" }
+      { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
+      { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" },
+      { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
       { "outbound": "any", "server": "dns_ip" },
       { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
-      { "rule_set": "ads", "server": "dns_block" },
-      { "rule_set": "proxy", "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" },
-      { "rule_set": "cn", "query_type": [ "A", "AAAA" ], "server": "dns_direct" }
+      { "rule_set": [ "ads" ], "server": "dns_block" },
+      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "rule_set": [ "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
     ],
     "final": "dns_direct",
     "strategy": "prefer_ipv6",
@@ -82,7 +82,7 @@
       "type": "http",
       "healthcheck_url": "https://www.gstatic.com/generate_204",
       "healthcheck_interval": "10m",
-      # 修改为你的 Clash 订阅链接
+      // 修改为你的 Clash 订阅链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
       "path": "./providers/airport.yaml",
       "download_ua": "clash.meta",
@@ -94,7 +94,7 @@
   "route": {
     "rules": [
       { "protocol": "dns", "outbound": "dns-out" },
-      { "clash_mode": "Global", "outbound": "🚀 节点选择" },
+      { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "clash_mode": "Direct", "outbound": "DIRECT" },
       { "rule_set": "ads", "outbound": "🛑 广告拦截" },
       { "rule_set": "private", "outbound": "🔒 私有网络" },
