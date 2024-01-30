@@ -50,6 +50,7 @@
     { "tag": "🍎 苹果服务", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
     { "tag": "🇨🇳 国内 IP", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
+    { "tag": "🖥️ 直连软件", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
@@ -103,6 +104,7 @@
       { "rule_set": "google-cn", "outbound": "📢 谷歌服务" },
       { "rule_set": "games-cn", "outbound": "🎮 游戏平台" },
       { "rule_set": "networktest", "outbound": "📈 网络测试" },
+      { "rule_set": "applications", "outbound": "🖥️ 直连软件" },
       { "rule_set": "proxy", "outbound": "🪜 代理域名" },
       { "rule_set": "cn", "outbound": "🔗 直连域名" },
       { "rule_set": "telegramip", "outbound": "📲 电报消息" },
@@ -157,6 +159,13 @@
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/networktest.srs",
+        "download_detour": "DIRECT"
+      },
+      {
+        "tag": "applications",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/applications.srs",
         "download_detour": "DIRECT"
       },
       {
