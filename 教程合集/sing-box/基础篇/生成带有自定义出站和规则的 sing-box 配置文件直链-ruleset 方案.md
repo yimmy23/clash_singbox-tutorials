@@ -395,7 +395,7 @@
   }
 }
 ```
-## ② 添加 dns.json
+### ② 添加 dns.json
 • 作用是使 DNS 能够精确解析国内外域名，国内域名走 realip，国外域名走 fakeip（属 sing-box 内核的核心功能）  
 • 连接 SSH 后执行 vi $CRASHDIR/jsons/dns.json，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
