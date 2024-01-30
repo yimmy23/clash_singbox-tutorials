@@ -164,7 +164,7 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
       "type": "http",
       "healthcheck_url": "https://www.gstatic.com/generate_204",
       "healthcheck_interval": "10m",
-      # # 修改为你的 Clash 订阅链接
+      // 修改为你的 Clash 订阅链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
       "path": "./yamls/airport.yaml",
       "download_ua": "clash.meta",
@@ -178,8 +178,8 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
 # 四、 导入 DNS 配置 dns.json
 连接 SSH 后执行如下命令：  
 注：
-- 1. 由于 ShellCrash 采用的 DNS 模式为 `mix`，**ShellCrash 传给 AdGuardHome 的国外域名对应 IP 为假 IP**，会导致 AdGuardHome 检查更新失败，但不推荐使用自带更新去更新，更推荐第《五》部通过定时任务去自动更新（AdGuardHome 程序已被压缩，节省空间）
-- 2. 定制的 [ruleset 规则集文件](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)中的 `rule_set:cn` 包含 `static.adtidy.org`，以**彻底解决 AdGuardHome 右下角报错“检查更新失败”的问题**
+- 1. 由于 ShellCrash 采用的 DNS 模式为 `mix`，**ShellCrash 传给 AdGuardHome 的国外域名对应 IP 为假 IP**，会导致 AdGuardHome 检查更新失败，但不推荐使用自带更新去更新，更推荐第《五》步通过定时任务去自动更新（AdGuardHome 程序已被压缩，节省空间）
+- 2. 定制的 [ruleset 规则集文件](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)中的 `rule_set:cn` 包含 `static.adtidy.org`，可以通过国内 DNS 去解析，以**彻底解决 AdGuardHome 右下角报错“检查更新失败”的问题**
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/fa87cd47-f74b-40f1-a105-cc660e2f44ee" width="60%"/>
 
 ```
