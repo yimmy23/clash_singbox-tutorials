@@ -330,6 +330,7 @@
       # geosite.db 规则集文件内必须包含 `gfw` 规则
       { "geosite": [ "gfw" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
     ],
+    # 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
     # 本地网络有 IPv6 时可配置 `prefer_ipv6`
     "strategy": "prefer_ipv6",
