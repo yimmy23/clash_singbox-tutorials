@@ -172,7 +172,7 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
       "type": "http",
       "healthcheck_url": "https://www.gstatic.com/generate_204",
       "healthcheck_interval": "10m",
-      # # 修改为你的 Clash 订阅链接
+      // 修改为你的 Clash 订阅链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
       "path": "./yamls/airport.yaml",
       "download_ua": "clash.meta",
@@ -193,8 +193,8 @@ curl -o $CRASHDIR/jsons/dns.json -L https://fastly.jsdelivr.net/gh/DustinWin/rul
 ```
 201#curl -o /data/ShellCrash/CrashCore -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8 && chmod +x /data/ShellCrash/CrashCore && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新sing-box_PuerNya版内核
 ```
-2. 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
-3. 执行 `crash`，进入 ShellCrash->5 配置自动任务->1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件  
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+2. 执行 `crash`，进入 ShellCrash->5 配置自动任务->1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/3f65431a-bdff-48d3-addb-82e6888fbfaa" width="60%"/>
 
 # 六、 设置部分
