@@ -13,14 +13,13 @@
     "servers": [
       { "tag": "dns_block", "address": "rcode://success" },
       { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
-      { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
       { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
       { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
+      { "clash_mode": "Global", "server": "dns_fakeip" },
       { "rule_set": [ "ads" ], "server": "dns_block" },
       { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
       { "rule_set": [ "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
@@ -31,10 +30,9 @@
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   },
-  "ntp": { "enabled": true, "server": "time.apple.com", "server_port": 123, "interval": "30m" },
   "inbounds": [
     { "tag": "mixed-in", "type": "mixed", "listen": "::", "listen_port": 7890, "sniff": false },
-    { "tag": "dns_in", "type": "direct", "listen": "::", "listen_port": 1053, "sniff": true, "sniff_override_destination": false },
+    { "tag": "dns_in", "type": "direct", "listen": "::", "listen_port": 1053 },
     { "tag": "redirect-in", "type": "redirect", "listen": "::", "listen_port": 7892, "sniff": true, "sniff_override_destination": true },
     { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "mtu": 9000, "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true }
   ],
@@ -94,22 +92,22 @@
   ],
   "route": {
     "rules": [
-      { "protocol": "dns", "outbound": "dns-out" },
+      { "protocol": [ "dns" ], "outbound": "dns-out" },
       { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "clash_mode": "Direct", "outbound": "DIRECT" },
-      { "rule_set": "ads", "outbound": "🛑 广告拦截" },
-      { "rule_set": "private", "outbound": "🔒 私有网络" },
-      { "rule_set": "microsoft-cn", "outbound": "Ⓜ️ 微软服务" },
-      { "rule_set": "apple-cn", "outbound": "🍎 苹果服务" },
-      { "rule_set": "google-cn", "outbound": "📢 谷歌服务" },
-      { "rule_set": "games-cn", "outbound": "🎮 游戏平台" },
-      { "rule_set": "networktest", "outbound": "📈 网络测试" },
-      { "rule_set": "applications", "outbound": "🖥️ 直连软件" },
-      { "rule_set": "proxy", "outbound": "🪜 代理域名" },
-      { "rule_set": "cn", "outbound": "🔗 直连域名" },
-      { "rule_set": "telegramip", "outbound": "📲 电报消息" },
-      { "rule_set": "privateip", "outbound": "🔒 私有网络" },
-      { "rule_set": "cnip", "outbound": "🇨🇳 国内 IP" }
+      { "rule_set": [ "ads" ], "outbound": "🛑 广告拦截" },
+      { "rule_set": [ "private" ], "outbound": "🔒 私有网络" },
+      { "rule_set": [ "microsoft-cn" ], "outbound": "Ⓜ️ 微软服务" },
+      { "rule_set": [ "apple-cn" ], "outbound": "🍎 苹果服务" },
+      { "rule_set": [ "google-cn" ], "outbound": "📢 谷歌服务" },
+      { "rule_set": [ "games-cn" ], "outbound": "🎮 游戏平台" },
+      { "rule_set": [ "networktest" ], "outbound": "📈 网络测试" },
+      { "rule_set": [ "applications" ], "outbound": "🖥️ 直连软件" },
+      { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
+      { "rule_set": [ "cn" ], "outbound": "🔗 直连域名" },
+      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息" },
+      { "rule_set": [ "privateip" ], "outbound": "🔒 私有网络" },
+      { "rule_set": [ "cnip" ], "outbound": "🇨🇳 国内 IP" }
     ],
     "rule_set": [
       {
