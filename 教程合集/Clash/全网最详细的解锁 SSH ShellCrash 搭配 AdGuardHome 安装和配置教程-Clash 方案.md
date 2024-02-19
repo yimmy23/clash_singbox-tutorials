@@ -235,7 +235,8 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
 - 2. 初次打开需要添加“后端地址”：http://192.168.31.1:9999
 
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f0b7b76a-ead0-49ce-9e7a-56cded971b37" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f0b7b76a-ead0-49ce-9e7a-56cded971b37" width="60%"/>
+
 ⑦ 进入主菜单-> 6 导入配置文件  
 注：
 - 1. 选择 1 在线生成 meta 配置文件，粘贴你的订阅链接并回车，输入“1”并再次回车即可
