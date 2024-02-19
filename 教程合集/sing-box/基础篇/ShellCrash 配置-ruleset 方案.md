@@ -32,7 +32,7 @@ curl -o /tmp/sing-box-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/cl
 输入 0 回车可返回到上级菜单（下同）  
 2. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer 内核
 3. 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版->1 Jsdelivr_CDN源（推荐）
-4. 进入主菜单->9 更新/卸载->4 安装本地 Dashboard 面板，选择 5 安装 MetaXD 面板
+4. 进入主菜单->9 更新/卸载->4 安装本地 Dashboard 面板，选择 3 安装 MetaXD 面板
 5. 进入主菜单->2 内核功能设置，设置如下：
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/31595cf6-d1d8-4def-bc96-c1da521a4d0d" width="60%"/>
