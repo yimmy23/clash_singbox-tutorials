@@ -10,10 +10,10 @@
 # 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)和路由规则文件
 可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》里的步骤《一、二》进行操作
 # 二、 导入配置文件
-1. 进入 ShellCrash->6 导入配置文件->1 在线生成 Clash 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
+1. 进入 ShellCrash->6 导入配置文件->1 在线生成 meta 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>  
 
-2. 进入 ShellCrash->6 导入配置文件->1 在线生成 Clash 配置文件，输入订阅链接后回车，再输入“1”并回车即可
+2. 进入 ShellCrash->6 导入配置文件->1 在线生成 meta 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义策略组和规则
 ## 1. 自定义 others.yaml
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
@@ -24,10 +24,10 @@ proxy-providers:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./proxies/airport1.yaml
+    path: ./providers/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
-    filter: "香港|台湾|日本|韩国|新加坡|美国"
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
       # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
@@ -38,16 +38,16 @@ proxy-providers:
   🛫 我的机场 2:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./proxies/airport2.yaml
+    path: ./providers/airport2.yaml
     interval: 43200
-    filter: "香港|台湾|日本|韩国|新加坡|美国"
+    filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
       enable: true
       lazy: true
       url: "https://www.gstatic.com/generate_204"
       interval: 600
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 2. 自定义 proxies.yaml
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
 注：
@@ -58,13 +58,13 @@ proxy-providers:
 - name: 🆓 免费节点
   # 节点类型
   type: vless
-  # 代理节点服务器（域名/ip）
+  # 代理节点服务器（域名/IP）
   server: example.com
   port: 443
   uuid: {uuid}
   network: ws
   tls: true
-  udp: true
+  udp: false
   sni: example.com
   client-fingerprint: chrome
   ws-opts:
@@ -72,7 +72,7 @@ proxy-providers:
     headers:
       host: example.com
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 3. 自定义 proxy-groups.yaml
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
@@ -83,11 +83,10 @@ proxy-providers:
   type: select
   proxies:
     - 🇭🇰 香港节点
-    - 🇹🇼 台湾节点
     # 添加 proxies.yaml 中的自定义节点
     - 🆓 免费节点
+    - 🇹🇼 台湾节点
     - 🇯🇵 日本节点
-    - 🇰🇷 韩国节点
     - 🇸🇬 新加坡节点
     - 🇺🇸 美国节点
 
@@ -97,9 +96,9 @@ proxy-providers:
   proxies:
     - 🎯 全球直连
     - 🇭🇰 香港节点
-    - 🇹🇼 台湾节点
     # 添加 proxies.yaml 中的自定义节点
     - 🆓 免费节点
+    - 🇹🇼 台湾节点
     - 🇯🇵 日本节点
     - 🇰🇷 韩国节点
     - 🇸🇬 新加坡节点
@@ -175,7 +174,7 @@ proxy-providers:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
   # 筛选出“香港”节点，支持正则表达式
-  filter: "香港"
+  filter: "(?i)港|hk|hongkong|hong kong"
 
 - name: 🇹🇼 台湾节点
   type: url-test
@@ -184,7 +183,7 @@ proxy-providers:
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
-  filter: "台湾"
+  filter: "(?i)台|tw|taiwan"
 
 - name: 🇯🇵 日本节点
   type: url-test
@@ -193,16 +192,7 @@ proxy-providers:
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
-  filter: "日本"
-
-- name: 🇰🇷 韩国节点
-  type: url-test
-  tolerance: 100
-  lazy: true
-  use:
-    - 🛫 我的机场 1
-    - 🛫 我的机场 2
-  filter: "韩国"
+  filter: "(?i)日本|jp|japan"
 
 - name: 🇸🇬 新加坡节点
   type: url-test
@@ -211,7 +201,7 @@ proxy-providers:
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
-  filter: "新加坡"
+  filter: "(?i)新|sg|singapore"
 
 - name: 🇺🇸 美国节点
   type: url-test
@@ -220,9 +210,9 @@ proxy-providers:
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
-  filter: "美国"
+  filter: "(?i)美|us|unitedstates|united states"
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 4. 自定义 rules.yaml
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
@@ -242,9 +232,10 @@ proxy-providers:
 - GEOIP,private,🔒 私有网络,no-resolve
 - GEOIP,cn,🇨🇳 国内 IP
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车  
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车  
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/13d52f81-9e84-460a-99c6-a2d1ea05750c" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/13d52f81-9e84-460a-99c6-a2d1ea05750c" width="60%"/>
+
 # 四、 修改策略组或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“netflix”  
@@ -267,9 +258,9 @@ proxy-providers:
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
-  filter: "日本|新加坡"
+  filter: "(?i)日本|jp|japan|新|sg|singapore"
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 2. 修改 rules.yaml 文件
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
 ```
@@ -279,7 +270,7 @@ proxy-providers:
 - GEOSITE,netflix,🎥 奈飞视频
 - GEOIP,netflix,🎥 奈飞视频
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 五、 添加小规则
 仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
 注：
@@ -298,4 +289,4 @@ proxy-providers:
 # 含有 ipv6 关键字的所有域名走直连
 - DOMAIN-KEYWORD,ipv6,DIRECT
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
