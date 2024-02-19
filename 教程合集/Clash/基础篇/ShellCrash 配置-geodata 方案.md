@@ -12,7 +12,7 @@
 
 连接 SSH 后执行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-arm64 -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && crash
+curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash-Meta 内核
 # 二、 导入路由规则文件
