@@ -234,7 +234,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 导入配置文件完成后不要启动 sing-box 服务  
 ⑧ 导入 DNS 配置 dns.json  
-连接 SSH 后执行如下命令：
+连接 SSH 后执行如下命令：  
 注：
 - 1. 由于 ShellCrash 采用的 DNS 模式为 `mix`，**ShellCrash 传给 AdGuardHome 的国外域名对应 IP 为假 IP**，会导致 AdGuardHome 检查更新和下载更新 DNS 黑名单时失败
 - 2. dns.json 中添加了 AdGuardHome 常用域名，包括：`adguardteam.github.io`（AdGuardHome 自带 DNS 黑名单下载域名）、`adrules.top`（常用广告拦截下载域名）、`anti-ad.net`（常用广告拦截下载域名）和 `static.adtidy.org`（AdGuardHome 检查更新域名）并使用国内 DNS 进行解析
