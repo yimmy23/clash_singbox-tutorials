@@ -189,7 +189,7 @@ ssh root@192.168.31.1
 ```
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
-③ 选择 1 安装到/data 目录（推荐，支持软固化功能）  
+③ 选择 1 安装到 /data 目录（推荐，支持软固化功能）  
 ④ 将下载的 mihomo-linux-arm64-xxx.gz 文件解压，得到 mihomo-linux-arm64 文件  
 ⑤ 将 mihomo-linux-arm64 文件移动到路由器的 */tmp* 目录中  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/96876189-b335-4267-ba80-617e5b3ead03" width="60%"/>  
