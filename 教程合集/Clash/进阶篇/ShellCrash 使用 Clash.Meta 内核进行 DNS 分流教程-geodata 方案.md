@@ -65,4 +65,4 @@ dns:
     'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
     'geosite:cn,private': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
 ```
-按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
