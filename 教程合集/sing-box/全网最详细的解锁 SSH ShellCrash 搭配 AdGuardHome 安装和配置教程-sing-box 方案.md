@@ -23,7 +23,7 @@
 ## 1. ShellCrash
 官方下载：https://raw.githubusercontent.com/juewuy/ShellCrash/master/bin/ShellCrash.tar.gz
 ## 2. sing-box PuerNya 版内核
-官方下载：https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/sing-box-puernya/sing-box-linux-armv8
+第三方下载：https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/sing-box-puernya/sing-box-linux-armv8
 ## 3. Termius
 官方下载：https://autoupdate.termius.com/windows/Termius.exe  
 ## 4. AdGuardHome
