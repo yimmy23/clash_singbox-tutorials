@@ -14,7 +14,7 @@
 ```
 curl -o /tmp/sing-box-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8 && crash
 ```
-此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer内核
+此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer 内核
 # 二、 导入路由规则文件
 连接 SSH 后执行如下命令：
 ```
@@ -37,7 +37,7 @@ curl -o $CRASHDIR/geoip.db -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rule
 根据需要是否选择 1 确认导入配置文件（此处选择 0）  
 根据需要是否选择 1 立即启动 clash 服务（此处选择 0）  
 输入 0 回车可返回到上级菜单（下同）  
-3. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer内核
+3. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer 内核
 4. 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版->1 Jsdelivr_CDN源（推荐）
 5. 进入主菜单->9 更新/卸载->4 安装本地 Dashboard 面板，选择 5 安装 MetaXD 面板
 6. 进入主菜单->2 内核功能设置，设置如下：
