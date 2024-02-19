@@ -32,24 +32,24 @@ dns:
     - "+.lan"
     - "+.local"
   default-nameserver:
-    - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   nameserver:
-    - https://dns.alidns.com/dns-query
+    - https://dns.alidns.com/dns-query#h3=true
     - https://doh.pub/dns-query
   nameserver-policy:
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
-    'rule-set:cn,private': [https://dns.alidns.com/dns-query, https://doh.pub/dns-query]
-    'rule-set:proxy': ['https://dns.google/dns-query#🪜 代理域名', 'https://cloudflare-dns.com/dns-query#🪜 代理域名']
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
+    'rule-set:cn,private': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
+    'rule-set:proxy': ['https://cloudflare-dns.com/dns-query#🪜 代理域名&h3=true', 'https://dns.google/dns-query#🪜 代理域名']
 ```
 # 三、 启动 Clash
 1. 进入 Clash Verge->设置->系统设置，点击“服务模式”右边的盾牌图标，点击“INSTALL”，完成后启用“服务模式”
 2. 进入设置->Clash 设置->Clash 字段，勾选带有感叹号的字段，“保存”即可
 3. 进入设置->系统设置，启用“Tun 模式”
-# 五、 在线 Dashboard 面板
-推荐使用在线面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://d.metacubex.one 
-1. 需要设置该网站“允许不安全内容”，以 [Chrome 浏览器](https://www.google.com/chrome)为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`  
+# 四、 在线 Dashboard 面板
+推荐使用在线面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd 
+1. 需要设置该网站“允许不安全内容”，以 [Chrome 浏览器](https://www.google.com/chrome)为例，进入设置-->隐私和安全-->网站设置-->更多内容设置-->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/3d1ed229-1d3a-4ccc-a7b4-adecc8fee8b4" width="60%"/>
 
-2. 首次进入 https://d.metacubex.one 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
+2. 首次进入 https://metacubex.github.io/metacubexd 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb27d6e2-d72b-4a4a-a038-0fd6d085a573" width="60%"/>
