@@ -231,7 +231,7 @@
   }
 }
 ```
-**贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**
+**贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/1c1a1866-1fc1-4277-92b7-d138e36a4a4b" width="60%"/>
 
 ### ② 添加 dns.json
@@ -516,13 +516,13 @@
 }
 ```
 # 四、 生成 .json 文件链接
-编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
+编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/c82de73b-7013-4f78-ba22-33fdb0892acb" width="60%"/>
 
 取出地址栏中的网址，删除后面的一串随机码，**完成后该 .json 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该 .json 文件并提交了 n 次也不会改变
 举例，这是原地址：
 `https://gist.githubusercontent.com/DustinWin/40c0611fda5d6fcd0795ee5a15de7c73/raw/b3c63051134510ae9825068bbcf5219817761f57/singboxlink.json`
-删除后面的一串随机码（当前编辑该文件生成的随机码“b3c63051134510ae9825068bbcf5219817761f57”）  
+删除后面的一串随机码（当前编辑该文件生成的随机码“b3c63051134510ae9825068bbcf5219817761f57”）
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/a409ace5-8f03-4776-b9e3-dce3ba804844" width="60%"/>
 
 删除后变成：
