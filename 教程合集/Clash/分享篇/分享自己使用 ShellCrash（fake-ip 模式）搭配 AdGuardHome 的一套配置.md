@@ -18,7 +18,7 @@ proxy-providers:
     type: http
     # 修改为你的 Clash 订阅链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./proxies/airport.yaml
+    path: ./providers/airport.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
@@ -26,10 +26,26 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
       interval: 600
 
-proxy-groups:
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+proxies:
+  - name: 🆓 免费节点
+    type: vless
+    server: example.com
+    port: 443
+    uuid: {uuid}
+    network: ws
+    tls: true
+    udp: false
+    sni: example.com
+    client-fingerprint: chrome
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        host: example.com
 
-  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+proxy-groups:
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
@@ -92,11 +108,9 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
 
 连接 SSH 后执行如下命令：  
 注：
-- 1. 由于 ShellCrash 采用的 DNS 模式为 `fake-ip`，**ShellCrash 传给 AdGuardHome 的域名对应 IP 为假 IP**，会造成“DNS 黑名单”下载失败
-- 2. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `adguardteam.github.io` 域名，以**解决在 AdGuardHome 自带的“DNS 黑名单”列表中添加规则失败的问题**
-- 3. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增 `anti-ad.net` 域名，在添加“DNS 黑名单”时可以修改成该域名，下载更稳定
-- 4. 定制的 user.yaml 中的 `fake-ip-filter` 列表内有 `static.adtidy.org` 域名（属 AdGuardHome 自带的版本检查域名），以**解决 AdGuardHome 右下角报错“检查更新失败”的问题**，但不推荐使用自带更新去更新，更推荐第《四》部通过定时任务去自动更新（AdGuardHome 程序已被压缩，节省空间）
-- 5. 定制的 [geodata 规则集文件](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#%E4%B8%80-geodata-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)中的 `geosite:cn` 包含 `static.adtidy.org`，以**彻底解决 AdGuardHome 右下角报错“检查更新失败”的问题**
+- 1. 由于 ShellCrash 采用的 DNS 模式为 `fake-ip`，**ShellCrash 传给 AdGuardHome 的域名对应 IP 为假 IP**，会导致 AdGuardHome 检查更新和下载更新 DNS 黑名单时失败
+- 2. 定制的 user.yaml 中的 `fake-ip-filter` 列表内新增了 AdGuardHome 常用域名，包括：`adguardteam.github.io`（AdGuardHome 自带 DNS 黑名单下载域名）、`adrules.top`（常用广告拦截下载域名）、`anti-ad.net`（常用广告拦截下载域名）和 `static.adtidy.org`（AdGuardHome 检查更新域名）
+- 3. 不推荐使用自带更新去更新，推荐第《四》步通过定时任务去自动更新（AdGuardHome 程序已被压缩，节省空间）
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/fa87cd47-f74b-40f1-a105-cc660e2f44ee" width="60%"/>
 
 ```
@@ -108,31 +122,31 @@ curl -o $CRASHDIR/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/ru
 # 四、 添加定时任务
 1. 连接 SSH 后执行 vi $CRASHDIR/task/task.user，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
-201#curl -o /data/ShellCrash/CrashCore -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && chmod +x /data/ShellCrash/CrashCore && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
+201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
 202#curl -o /data/ShellCrash/geosite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite-lite.dat && curl -o /data/ShellCrash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/Country-lite.mmdb && curl -o /data/ShellCrash/geoip.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geoip-lite.dat && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新geodata路由规则文件
 203#curl -o /data/ShellCrash/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geodata-fakeip-user.yaml.yaml && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新user.yaml
-204#curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 && chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1#更新AdGuardHome
+204#curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8 && /data/AdGuardHome/AdGuardHome -s restart >/dev/null 2>&1#更新AdGuardHome
 ```
-2. 按一下 Esc 键（退出键），输入英文冒号`:`，继续输入 `wq` 并回车
+2. 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 3. 执行 `crash`，进入 ShellCrash->5 配置自动任务->1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/79ba03d5-eab8-4b43-aef5-d1fa35a9bd75" width="60%"/>
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f4488f39-d423-469b-8df5-da6948510eaf" width="60%"/>
 
 # 五、 设置部分
 ## 1. ShellCrash 设置
 ① 设置可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处  
 ② 进入主菜单->2 内核功能设置，设置如下：  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/39920422-3d2b-4ee9-806a-5e9ac31fb7e9" width="60%"/>  
-③ 进入主菜单->6 导入配置文件->6 配置文件覆写->1 自定义端口及秘钥，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>  
+③ 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/512e61d1-23bb-4ff6-8a29-44506c470858" width="60%"/>  
 ④ 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4ec93fb8-1200-4baa-b3b4-29d164d7a743" width="60%"/>  
-⑤ 进入主菜单->6 导入配置文件->2 导入 Clash 配置文件链接，粘贴第一步中生成的配置文件 .yaml 文件直链，启动服务即可
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/d0af4a21-d653-45b4-bc1f-bceae36459c2" width="60%"/>  
+⑤ 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴第《一》步中生成的配置文件 .yaml 文件直链，启动服务即可
 ## 2. AdGuardHome 设置
 设置可参考《[全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程/AdGuardHome 配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86%E7%9A%84%E8%A7%A3%E9%94%81%20SSH%20ShellCrash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.md#2-adguardhome-%E9%85%8D%E7%BD%AE)》
 # 六、 在线 Dashboard 面板
-推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://d.metacubex.one
-1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://d.metacubex.one`  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/97ff3448-e6a1-45e2-aac9-46a5676e98fc" width="60%"/>
+推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd
+1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/0611d9e9-7895-4b45-866c-50ed42b65c85" width="60%"/>
 
-2. 首次进入 https://d.metacubex.one 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
+2. 首次进入 https://metacubex.github.io/metacubexd 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/5551bf56-4c3e-4b31-aed9-214074bf92e1" width="60%"/>
