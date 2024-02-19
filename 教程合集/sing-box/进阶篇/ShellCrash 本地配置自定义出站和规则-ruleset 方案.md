@@ -28,7 +28,7 @@
       "healthcheck_interval": "10m",
       // 机场订阅链接，使用 Clash 链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport1.yaml",
+      "path": "./providers/airport1.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT",
@@ -41,7 +41,7 @@
       "healthcheck_url": "https://www.gstatic.com/generate_204",
       "healthcheck_interval": "10m",
       "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport2.yaml",
+      "path": "./providers/airport2.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT",
@@ -83,7 +83,7 @@
 
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
 
-    // vless 出站
+    // 单个出站节点（以 vless 为例）
     {
       "tag": "🆓 免费节点",
       "type": "vless",
@@ -104,7 +104,7 @@
 
     { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
 
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
 
     { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
   ]
@@ -120,18 +120,18 @@
     // 规则
     "rules": [
       // 自定义规则优先放前面
-      { "rule_set": "ads", "outbound": "🛑 广告拦截" },
-      { "rule_set": "private", "outbound": "🔒 私有网络" },
-      { "rule_set": "microsoft-cn", "outbound": "Ⓜ️ 微软服务" },
-      { "rule_set": "apple-cn", "outbound": "🍎 苹果服务" },
-      { "rule_set": "google-cn", "outbound": "📢 谷歌服务" },
-      { "rule_set": "games-cn", "outbound": "🎮 游戏平台" },
-      { "rule_set": "networktest", "outbound": "📈 网络测速" },
-      { "rule_set": "proxy", "outbound": "🪜 代理域名" },
-      { "rule_set": "cn", "outbound": "🔗 直连域名" },
-      { "rule_set": "telegramip", "outbound": "📲 电报消息" },
-      { "rule_set": "privateip",  "outbound": "🔒 私有网络" },
-      { "rule_set": "cnip", "outbound": "🇨🇳 国内 IP" }
+      { "rule_set": [ "ads" ], "outbound": "🛑 广告拦截" },
+      { "rule_set": [ "private" ], "outbound": "🔒 私有网络" },
+      { "rule_set": [ "microsoft-cn" ], "outbound": "Ⓜ️ 微软服务" },
+      { "rule_set": [ "apple-cn" ], "outbound": "🍎 苹果服务" },
+      { "rule_set": [ "google-cn" ], "outbound": "📢 谷歌服务" },
+      { "rule_set": [ "games-cn" ], "outbound": "🎮 游戏平台" },
+      { "rule_set": [ "networktest" ], "outbound": "📈 网络测速" },
+      { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
+      { "rule_set": [ "cn" ], "outbound": "🔗 直连域名" },
+      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息" },
+      { "rule_set": [ "privateip" ],  "outbound": "🔒 私有网络" },
+      { "rule_set": [ "cnip" ], "outbound": "🇨🇳 国内 IP" }
     ],
     // 规则集（binary 文件每天自动更新）
     "rule_set": [
@@ -139,84 +139,84 @@
         "tag": "ads",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ads.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ads.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "private",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/private.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/private.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/microsoft-cn.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/microsoft-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/apple-cn.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/apple-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/google-cn.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/google-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/games-cn.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/games-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/networktest.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/networktest.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/proxy.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/proxy.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/cn.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/telegramip.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/telegramip.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/privateip.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/privateip.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/cnip.srs",
+        "url": "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/cnip.srs",
         "download_detour": "DIRECT"
       }
     ]
@@ -241,9 +241,6 @@
       // 国内 DNS
       { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
 
-      // 国外 DNS
-      { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
-
       // IP 格式的 DNS
       { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" },
 
@@ -253,8 +250,8 @@
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "global", "server": "dns_fakeip" },
-      { "clash_mode": "direct", "server": "dns_direct" },
+      { "clash_mode": "Direct", "server": "dns_direct" },
+      { "clash_mode": "Global", "server": "dns_fakeip" },
       // `rule_set` 规则集中必须包含 `ads` 规则
       { "rule_set": [ "ads" ], "server": "dns_block" },
       // `rule_set` 规则集中必须包含以下规则
@@ -264,7 +261,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
-    //本地网络有 IPv6 时可配置 `prefer_ipv6`
+    //本地网络有 IPv6 时可配置为 `prefer_ipv6`
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
@@ -290,7 +287,7 @@
   // 出站
   "outbounds": [
     // 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
-    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "日本|新加坡" ] }
+    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
   ]
 }
 ```
@@ -304,7 +301,7 @@
     // 规则
     "rules": [
       // 自定义规则优先放前面
-      { "rule_set": "netflix", "outbound": "🎥 奈飞视频" }
+      { "rule_set": [ "netflix" ], "outbound": "🎥 奈飞视频" }
     ],
     // 规则集（binary 文件每天自动更新）
     "rule_set": [
@@ -312,7 +309,7 @@
         "tag": "netflix",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Netflix.srs",
+        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Netflix.srs",
         "download_detour": "DIRECT"
       }
     ]
@@ -333,13 +330,13 @@
     // 规则
     "rules": [
       // 以 googleapis.cn 为后缀的所有域名走代理
-      { "domain_suffix": "googleapis.cn", "outbound": "🈯 节点指定" },
+      { "domain_suffix": [ "googleapis.cn" ], "outbound": "🈯 节点指定" },
 
       // 与哔哩哔哩相关的所有域名走直连
-      { "geosite": "bilibili", "outbound": "DIRECT" },
+      { "geosite": [ "bilibili" ], "outbound": "DIRECT" },
 
       // 含有 ipv6 关键字的所有域名走直连
-      { "domain_keyword": "ipv6", "outbound": "DIRECT" }
+      { "domain_keyword": [ "ipv6" ], "outbound": "DIRECT" }
     ]
   }
 }
