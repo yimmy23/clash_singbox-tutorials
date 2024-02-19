@@ -28,7 +28,7 @@
       "healthcheck_interval": "10m",
       // 机场订阅链接，使用 Clash 链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport1.yaml",
+      "path": "./providers/airport1.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT",
@@ -41,7 +41,7 @@
       "healthcheck_url": "https://www.gstatic.com/generate_204",
       "healthcheck_interval": "10m",
       "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./yamls/airport2.yaml",
+      "path": "./providers/airport2.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT",
@@ -83,7 +83,7 @@
 
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
 
-    // vless 出站
+    // 单个出站节点（以 vless 为例）
     {
       "tag": "🆓 免费节点",
       "type": "vless",
@@ -104,7 +104,7 @@
 
     { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
 
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
 
     { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
   ]
@@ -120,27 +120,27 @@
     // 规则
     "rules": [
       // 自定义规则优先放前面
-      { "geosite": "category-ads-all", "outbound": "🛑 广告拦截" },
-      { "geosite": "private", "outbound": "🔒 私有网络" },
-      { "geosite": "microsoft@cn", "outbound": "Ⓜ️ 微软服务" },
-      { "geosite": "apple-cn", "outbound": "🍎 苹果服务" },
-      { "geosite": "google-cn", "outbound": "📢 谷歌服务" },
-      { "geosite": "category-games@cn", "outbound": "🎮 游戏平台" },
-      { "geosite": "speedtest", "outbound": "📈 网络测速" },
-      { "geosite": "geolocation-!cn", "outbound": "🪜 代理域名" },
-      { "geosite": "cn", "outbound": "🔗 直连域名" },
-      { "geoip": "telegram", "outbound": "📲 电报消息" },
-      { "geoip": "private",  "outbound": "🔒 私有网络" },
-      { "geoip": "cn", "outbound": "🇨🇳 国内 IP" }
+      { "geosite": [ "category-ads-all" ], "outbound": "🛑 广告拦截" },
+      { "geosite": [ "private" ], "outbound": "🔒 私有网络" },
+      { "geosite": [ "microsoft@cn" ], "outbound": "Ⓜ️ 微软服务" },
+      { "geosite": [ "apple-cn" ], "outbound": "🍎 苹果服务" },
+      { "geosite": [ "google-cn" ], "outbound": "📢 谷歌服务" },
+      { "geosite": [ "category-games@cn" ], "outbound": "🎮 游戏平台" },
+      { "geosite": [ "speedtest" ], "outbound": "📈 网络测速" },
+      { "geosite": [ "geolocation-!cn" ], "outbound": "🪜 代理域名" },
+      { "geosite": [ "cn" ], "outbound": "🔗 直连域名" },
+      { "geoip": [ "telegram" ], "outbound": "📲 电报消息" },
+      { "geoip": [ "private" ],  "outbound": "🔒 私有网络" },
+      { "geoip": [ "cn" ], "outbound": "🇨🇳 国内 IP" }
     ],
     // geosite 配置项
     "geosite": {
-      "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
+      "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "DIRECT"
     },
     // geoip 配置项
     "geoip": {
-      "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
+      "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "DIRECT"
     }
   }
@@ -164,9 +164,6 @@
       // 国内 DNS
       { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
 
-      // 国外 DNS
-      { "tag": "dns_proxy", "address": "https://dns.google/dns-query", "address_resolver": "dns_ip" },
-
       // IP 格式的 DNS
       { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" },
 
@@ -176,18 +173,18 @@
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
-      //geosite.db 规则集文件内必须包含 `category-ads-all` 规则
+      { "clash_mode": "Global", "server": "dns_fakeip" },
+      // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
-      //geosite.db 规则集文件内必须包含以下规则
+      // geosite.db 规则集文件内必须包含以下规则
       { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      //geosite.db 规则集文件内必须包含 `geolocation-!cn` 规则
+      // geosite.db 规则集文件内必须包含 `geolocation-!cn` 规则
       { "geosite": [ "geolocation-!cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
     ],
-    //默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
+    // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
-    //本地网络有 IPv6 时可配置 `prefer_ipv6`
+    // 本地网络有 IPv6 时可配置 `prefer_ipv6`
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
@@ -213,7 +210,7 @@
   //出站
   "outbounds": [
     //打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
-    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "日本|新加坡" ] }
+    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
   ]
 }
 ```
@@ -227,7 +224,7 @@
     //规则
     "rules": [
       //自定义规则优先放前面
-      { "geosite": "netflix", "outbound": "🎥 奈飞视频" }
+      { "geosite": [ "netflix" ], "outbound": "🎥 奈飞视频" }
     ]
   }
 }
@@ -246,13 +243,13 @@
     //规则
     "rules": [
       //以 googleapis.cn 为后缀的所有域名走代理
-      { "domain_suffix": "googleapis.cn", "outbound": "🈯 节点指定" },
+      { "domain_suffix": [ "googleapis.cn" ], "outbound": "🈯 节点指定" },
 
       //与哔哩哔哩相关的所有域名走直连
-      { "geosite": "bilibili", "outbound": "DIRECT" },
+      { "geosite": [ "bilibili" ], "outbound": "DIRECT" },
 
       //含有 ipv6 关键字的所有域名走直连
-      { "domain_keyword": "ipv6", "outbound": "DIRECT" }
+      { "domain_keyword": [ "ipv6" ], "outbound": "DIRECT" }
     ]
   }
 }
