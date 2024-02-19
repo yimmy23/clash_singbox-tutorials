@@ -184,7 +184,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
-    // 本地网络有 IPv6 时可配置 `prefer_ipv6`
+    // 本地网络有 IPv6 时可配置为 `prefer_ipv6`
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
