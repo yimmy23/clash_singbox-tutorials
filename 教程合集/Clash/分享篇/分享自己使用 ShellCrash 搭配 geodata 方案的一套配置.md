@@ -131,7 +131,7 @@ curl -o $CRASHDIR/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/ru
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/be7debcc-2d5f-4379-9d09-3f6be133de29" width="60%"/>
 
 3. 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/feea34a4-3b25-4c3d-b814-c4bbd8186636" width="60%"/>
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/4265de3f-d91c-43f5-80ab-bcb107369c0a" width="60%"/>
 
 4. 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，设置如下：  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/5bc0ecb2-53ec-41f7-a3ca-a5630fe38442" width="60%"/>
