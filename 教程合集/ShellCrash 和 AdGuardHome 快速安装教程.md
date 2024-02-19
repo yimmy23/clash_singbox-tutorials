@@ -18,14 +18,14 @@ export url='https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@master' && sh -c "$
 ```
 # 二、 安装 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo) 或 [sing-box 内核](https://github.com/SagerNet/sing-box)
 **Clash.Meta 内核下载链接后缀和 CPU 架构对应关系如下：**
-|CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
+|CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8&ARM64&AArch64|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
 **sing-box 内核下载链接后缀和 CPU 架构对应关系如下：**
-|CPU 架构|AMD64|AMD64v3|ARMv7|ARMv8|
-|-----|-----|-----|-----|-----|
-|**链接后缀**|`amd64`|`amd64v3`|`armv7`|`armv8`|
+|CPU 架构|AMD64|AMD64v3|ARMv6|ARMv7|ARMv8&ARM64&AArch64|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|**链接后缀**|`amd64`|`amd64v3`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
 ## 1. 安装内核
 连接 SSH 后执行如下命令：
