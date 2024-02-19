@@ -8,13 +8,13 @@
 ## 1. 本地安装
 连接 SSH 后执行如下命令：
 ```
-curl -o /tmp/ShellCrash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@master/bin/ShellCrash.tar.gz
+curl -o /tmp/ShellCrash.tar.gz -L https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@master/bin/ShellCrash.tar.gz
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 ## 2. 在线安装
 连接 SSH 后执行如下命令：
 ```
-export url='https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
+export url='https://fastly.jsdelivr.net/gh/juewuy/ShellCrash@master' && sh -c "$(curl -kfsSl $url/install.sh)" && source /etc/profile &> /dev/null
 ```
 # 二、 安装 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo) 或 [sing-box 内核](https://github.com/SagerNet/sing-box)
 **Clash.Meta 内核下载链接后缀和 CPU 架构对应关系如下：**
@@ -27,29 +27,34 @@ export url='https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@master' && sh -c "$(cu
 |-----|-----|-----|-----|-----|
 |**链接后缀**|`amd64`|`amd64v3`|`armv7`|`armv8`|
 
+## 1. 安装内核
 连接 SSH 后执行如下命令：
 ```
 # Clash.Meta 内核 Release 版
-curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && clash
+curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && clash
 # Clash.Meta 内核 Alpha 版
-curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-alpha/clash.meta-linux-armv8 && clash
+curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-alpha/clash.meta-linux-armv8 && clash
 # sing-box 内核 Release 版
-curl -o /tmp/sing-box-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-release/sing-box-linux-armv8 && clash
+curl -o /tmp/sing-box-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-release/sing-box-linux-armv8 && clash
 # sing-box 内核 Pre-release 版
-curl -o /tmp/sing-box-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-prerelease/sing-box-linux-armv8 && clash
+curl -o /tmp/sing-box-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-prerelease/sing-box-linux-armv8 && clash
+# sing-box 内核 PuerNya 版
+curl -o /tmp/sing-box-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8 && clash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择对应的内核类型  
-或者执行如下命令：
+## 2. 升级内核
+连接 SSH 后执行如下命令：
 ```
 # Clash.Meta 内核 Release 版
-curl -o $CRASHDIR/CrashCore -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8
+curl -o $CRASHDIR/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
 # Clash.Meta 内核 Alpha 版
-curl -o $CRASHDIR/CrashCore -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-alpha/clash.meta-linux-armv8
+curl -o $CRASHDIR/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-alpha/clash.meta-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
 # sing-box 内核 Release 版
-curl -o $CRASHDIR/CrashCore -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-release/sing-box-linux-armv8
+curl -o $CRASHDIR/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-release/sing-box-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
 # sing-box 内核 Pre-release 版
-curl -o $CRASHDIR/CrashCore -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-prerelease/sing-box-linux-armv8
-chmod +x $CRASHDIR/CrashCore && $CRASHDIR/start.sh restart
+curl -o $CRASHDIR/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-prerelease/sing-box-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
+# sing-box 内核 PuerNya 版
+curl -o $CRASHDIR/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
 ```
 # 三、 安装 AdGuardHome
 ## 1. 安装 AdGuardHome
@@ -62,9 +67,9 @@ AdGuardHome CPU 架构和链接后缀对应关系如下：
 ```
 mkdir -p /data/AdGuardHome
 # AdGuardHome Release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-release/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-release/AdGuardHome_linux_armv8
 # AdGuardHome Pre-release 版
-curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
+curl -o /data/AdGuardHome/AdGuardHome -L https://fastly.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-prerelease/AdGuardHome_linux_armv8
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
