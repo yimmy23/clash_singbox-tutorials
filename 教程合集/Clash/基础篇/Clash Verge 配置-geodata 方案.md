@@ -42,8 +42,8 @@ dns:
     - "+.lan"
     - "+.local"
   default-nameserver:
-    - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
+    - https://1.12.12.12/dns-query
   nameserver:
     - https://dns.alidns.com/dns-query#h3=true
     - https://doh.pub/dns-query
