@@ -7,17 +7,17 @@
 3. 生成的订阅链接**自带规则集**，规则集来源 [DustinWin/ruleset_geodata/clash](https://github.com/DustinWin/ruleset_geodata#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 4. 请先**确定自己机场的订阅链接是否为 Clash 订阅链接**，若不是，需前往[肥羊在线订阅转换工具](https://suburl.v1.mk)进行转换，“生成类型”选择“Clash”，其它参数保持默认即可，转换后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件代理集合 `proxy-providers` 的 `url` 中
 ---
-# 一、 注册 [Gist](https://gist.github.com)
+# 一、 准备编辑 .yaml 直链文件
+1. 注册 [Gist](https://gist.github.com)
 进入 https://gist.github.com 网站并注册
-# 二、 准备编辑 .yaml 文件
-## 1. 打开编辑页面
+2. 打开编辑页面
 登录并打开 [Gist](https://gist.github.com) 可以直接编辑文件，或者鼠标点击页面右上角头像左边的“+”图标新建文件
-## 2. 输入描述和完整文件名
+3. 输入描述和完整文件名
 “Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 clashlink.yaml  
 <img src="https://user-images.githubusercontent.com/45238096/219593234-64833fcd-5200-4bea-849f-a1865d341fd2.png" width="60%"/>
-# 三、 编辑 .yaml 文件
-## 1. 选择规则集模式
-① 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）  
+
+# 二、 添加模板
+## 1. 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）  
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
@@ -25,7 +25,7 @@ proxy-providers:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./proxies/airport1.yaml
+    path: ./providers/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
@@ -39,7 +39,7 @@ proxy-providers:
   🛫 我的机场 2:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./proxies/airport2.yaml
+    path: ./providers/airport2.yaml
     interval: 43200
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
@@ -48,13 +48,30 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
       interval: 600
 
+# 单个出站代理节点（以 vless 为例）
+proxies:
+  - name: 🆓 免费节点
+    type: vless
+    server: example.com
+    port: 443
+    uuid: {uuid}
+    network: ws
+    tls: true
+    udp: false
+    sni: example.com
+    client-fingerprint: chrome
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        host: example.com
+
 # 策略组
 proxy-groups:
   # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 `proxies` 值进行增删改，须一一对应
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   # 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
-  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
@@ -75,7 +92,7 @@ proxy-groups:
 
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
 
-  # 若使用 ShellCrash，由于无法判断非本机进程，需删除此条`🖥️ 直连软件`
+  # 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `🖥️ 直连软件`
   - {name: 🖥️ 直连软件, type: select, proxies: [🎯 全球直连]}
 
   - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
@@ -103,49 +120,49 @@ rule-providers:
   ads:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ads.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ads.yaml"
     path: ./ruleset/ads.yaml
     interval: 86400
 
   private:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/private.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/private.yaml"
     path: ./ruleset/private.yaml
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/microsoft-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/microsoft-cn.yaml"
     path: ./ruleset/microsoft-cn.yaml
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/apple-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/apple-cn.yaml"
     path: ./ruleset/apple-cn.yaml
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/google-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/google-cn.yaml"
     path: ./ruleset/google-cn.yaml
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/games-cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/games-cn.yaml"
     path: ./ruleset/games-cn.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/networktest.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
@@ -153,48 +170,50 @@ rule-providers:
   applications:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/applications.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/applications.yaml"
     path: ./ruleset/applications.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/proxy.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   cn:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cn.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cn.yaml"
     path: ./ruleset/cn.yaml
     interval: 86400
 
   telegramip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/telegramip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/telegramip.yaml"
     path: ./ruleset/telegramip.yaml
     interval: 86400
 
   privateip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/privateip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/privateip.yaml"
     path: ./ruleset/privateip.yaml
     interval: 86400
 
   cnip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cnip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cnip.yaml"
     path: ./ruleset/cnip.yaml
     interval: 86400
 
 # 规则
 rules:
   - RULE-SET,ads,🛑 广告拦截
+  # 为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
+  - DST-PORT,6881-6889,🎯 全球直连
   - RULE-SET,private,🔒 私有网络
   - RULE-SET,microsoft-cn,Ⓜ️ 微软服务
   - RULE-SET,apple-cn,🍎 苹果服务
@@ -212,8 +231,9 @@ rules:
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中  
 **贴一张面板效果图（举个例子：我手动选择`🇹🇼 台湾节点`策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9bcbccf2-577b-43b4-b53c-e3fd911364dd" width="60%"/>  
-② 黑名单模式（只有命中规则的网络流量才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9bcbccf2-577b-43b4-b53c-e3fd911364dd" width="60%"/>
+
+## 2. 黑名单模式（只有命中规则的网络流量才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
@@ -221,7 +241,7 @@ proxy-providers:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./proxies/airport1.yaml
+    path: ./providers/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
@@ -235,7 +255,7 @@ proxy-providers:
   🛫 我的机场 2:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./proxies/airport2.yaml
+    path: ./providers/airport2.yaml
     interval: 43200
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
@@ -244,13 +264,30 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
       interval: 600
 
+# 单个出站代理节点（以 vless 为例）
+proxies:
+  - name: 🆓 免费节点
+    type: vless
+    server: example.com
+    port: 443
+    uuid: {uuid}
+    network: ws
+    tls: true
+    udp: false
+    sni: example.com
+    client-fingerprint: chrome
+    ws-opts:
+      path: "/?ed=2048"
+      headers:
+        host: example.com
+
 # 策略组
 proxy-groups:
   # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 `proxies` 值进行增删改，须一一对应
-  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   # 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
-  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
 
   - {name: 🐟 漏网之鱼, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
 
@@ -281,28 +318,28 @@ rule-providers:
   ads:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ads.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ads.yaml"
     path: ./ruleset/ads.yaml
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/networktest.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/networktest.yaml"
     path: ./ruleset/networktest.yaml
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/proxy.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/proxy.yaml"
     path: ./ruleset/proxy.yaml
     interval: 86400
 
   telegramip:
     type: http
     behavior: ipcidr
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/telegramip.yaml"
+    url: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/telegramip.yaml"
     path: ./ruleset/telegramip.yaml
     interval: 86400
 
@@ -314,18 +351,18 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
-## 2. 修改模板
-① 首先确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区策略组**”和 `🚀 节点选择` 策略组下的 `proxies` 里面的国家或地区进行增删改
+# 三、 修改模板
+1. 首先确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区策略组**”和 `🚀 节点选择` 策略组下的 `proxies` 里面的国家或地区进行增删改
 - 注：两者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）
 
-② 将代理集合中的 `url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）  
-③ 在“国家或地区策略组”中的 `filter` 支持[正则表达式](https://tool.oschina.net/regex)，可以精确地筛选出指定的国家或地区节点  
+2. 将代理集合 `proxy-providers` 中的 `url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）  
+3. 在“国家或地区策略组”中的 `filter` 支持[正则表达式](https://tool.oschina.net/regex)，可以精确地筛选出指定的国家或地区节点  
 例如：我想筛选出“香港 IPLC”节点，`filter` 可以这样写：
 `filter: "香港.*IPLC|IPLC.*香港"`  
 - 小窍门：使用 [ChatGPT](https://chat.openai.com) 等 AI 工具查询符合自己要求的正则表达式
 
-④ 在 `🚀 节点选择` 策略组下的 `proxies` 里，可以将最稳定的节点放在最前面，配置完成后会自动选择最稳定的节点  
-⑤ 在“国家或地区策略组”里，`type` 为 `url-test` 就是自动选择延迟最低的节点，将 `url-test` 改成 `select` 就是手动选择节点  
+4. 在 `🚀 节点选择` 策略组下的 `proxies` 里，可以将最稳定的节点放在最前面，配置完成后会自动选择最稳定的节点  
+5. 在“国家或地区策略组”里，`type` 为 `url-test` 就是自动选择延迟最低的节点，将 `url-test` 改成 `select` 就是手动选择节点  
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让[哔哩哔哩](https://www.bilibili.com)（B 站）自动选择延迟最低的香港节点，[AcFun](https://www.acfun.cn)（A 站）手动选择日本节点，这个需求怎么写？  
 我们可以进入 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 后按 Ctrl+F 组合键搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**  
 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 jsDelivr CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
@@ -353,14 +390,14 @@ rule-providers:
   bilibili:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml"
+    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml"
     path: ./ruleset/bilibili.yaml
     interval: 86400
 
   acfun:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AcFun/AcFun.yaml"
+    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AcFun/AcFun.yaml"
     path: ./ruleset/acfun.yaml
     interval: 86400
 
@@ -386,9 +423,9 @@ rules:
 `https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/clashlink.yaml`
 # 五、 导入订阅链接
 ## 1. 在 ShellCrash 中导入订阅链接
-进入 ShellCrash 配置脚本->6->2，粘贴最终生成的订阅链接即可，具体设置请参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
+进入 ShellCrash 配置脚本->6->2，粘贴最终生成的订阅链接即可，具体设置请参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
 ## 2. 在 Clash Verge（Windows 端）中导入订阅链接
-进入 Clash Verge->订阅，在“订阅文件链接”处粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
+进入 Clash Verge->订阅，在“订阅文件链接”处粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
@@ -411,14 +448,14 @@ rule-providers:
   netflix:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
+    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
     path: ./ruleset/netflix.yaml
     interval: 86400
 
   primevideo:
     type: http
     behavior: classical
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrimeVideo/PrimeVideo.yaml"
+    url: "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/PrimeVideo/PrimeVideo.yaml"
     path: ./ruleset/primevideo.yaml
     interval: 86400
 
