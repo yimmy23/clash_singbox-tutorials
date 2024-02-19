@@ -47,7 +47,7 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
       interval: 600
 
-# 单个出站节点（以 vless 为例）
+# 单个出站代理节点（以 vless 为例）
 proxies:
   - name: 🆓 免费节点
     type: vless
@@ -165,7 +165,7 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
       interval: 600
 
-# 单个出站节点（以 vless 为例）
+# 单个出站代理节点（以 vless 为例）
 proxies:
   - name: 🆓 免费节点
     type: vless
