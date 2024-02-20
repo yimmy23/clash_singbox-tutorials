@@ -174,13 +174,13 @@
     "rules": [
       { "outbound": "any", "server": "dns_ip" },
       { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       // geosite.db 规则集文件内必须包含以下规则
       { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
       // geosite.db 规则集文件内必须包含 `geolocation-!cn` 规则
-      { "geosite": [ "geolocation-!cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
+      { "geosite": [ "geolocation-!cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
