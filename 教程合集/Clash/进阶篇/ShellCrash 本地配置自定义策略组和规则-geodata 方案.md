@@ -282,10 +282,8 @@ proxy-providers:
 
 # 以 googleapis.cn 为后缀的所有域名走代理
 - DOMAIN-SUFFIX,googleapis.cn,🚀 节点选择
-
 # 与哔哩哔哩相关的所有域名走直连
 - GEOSITE,bilibili,DIRECT
-
 # 含有 ipv6 关键字的所有域名走直连
 - DOMAIN-KEYWORD,ipv6,DIRECT
 ```
