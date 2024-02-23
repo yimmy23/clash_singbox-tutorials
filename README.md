@@ -1,8 +1,8 @@
 **更新日志（2024-02-24）：**
 - 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 
-1. 完善 Clash 教程，添加 `include-all-providers: true` 参数，修改 ShellCrash 和 Clash verge 的自定义配置文件
-2. 完善 sing-box 教程，添加 `"use_all_providers": true` 参数，修改 ShellCrash 的 DNS 配置文件
+1. 完善 Clash 教程，策略组 `proxy-groups` 添加 `include-all-providers: true` 参数；rule-set 规则集 `rule-providers` 添加 `format: yaml` 并删除 `path` 参数；修改 ShellCrash 和 Clash verge 的自定义配置文件
+2. 完善 sing-box 教程，出站 `"outbounds"` 添加 `"use_all_providers": true` 参数；修改 ShellCrash 的 DNS 配置文件
 3. 配置文件格式优化
 
 **更新日志（2024-02-20）：**
