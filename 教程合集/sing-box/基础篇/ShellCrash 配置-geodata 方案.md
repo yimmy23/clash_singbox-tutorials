@@ -23,6 +23,8 @@ curl -o $CRASHDIR/geoip.db -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rule
 ```
 # 三、 添加定时任务
 连接 SSH 后执行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴（快捷键 Ctrl+Shift+V）如下内容：
+- 注：ShellCrash 安装路径为 */data/ShellCrash*
+
 ```
 201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新sing-box_PuerNya版内核
 202#curl -o /data/ShellCrash/geosite.db -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db && curl -o /data/ShellCrash/geoip.db -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新geodata路由规则文件
