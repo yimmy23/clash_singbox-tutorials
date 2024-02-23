@@ -180,7 +180,7 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
 # 三、 导入 DNS 配置 dns.json
 连接 SSH 后运行如下命令：
 ```
-curl -o $CRASHDIR/jsons/dns.json -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ruleset-dns.json
+curl -o $CRASHDIR/jsons/dns.json -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-dns.json
 ```
 # 四、 添加定时任务
 1. 连接 SSH 后运行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴如下内容：
