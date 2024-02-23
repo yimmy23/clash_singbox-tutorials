@@ -30,6 +30,29 @@ curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\geoip.dat -L https:/
 ① 进入 Clash Verge->订阅，点击“新建”，类型选择“Merge”，完成后点击“保存”，右击新建的 Merge 文件，点击“启用”  
 ② 再次右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
 ```
+mode: rule
+log-level: silent
+allow-lan: true
+unified-delay: false
+tcp-concurrent: true
+external-controller-tls: 127.0.0.1:9090
+global-client-fingerprint: chrome
+profile: {store-selected: true, store-fake-ip: true}
+
+geodata-mode: true
+geox-url:
+  geosite: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite.dat"
+  geoip: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geoip-lite.dat"
+  mmdb: "https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/Country-lite.mmdb"
+geo-auto-update: true
+geo-update-interval: 24
+
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+  skip-domain: ['Mijia Cloud']
+
 dns:
   enable: true
   prefer-h3: true
