@@ -55,7 +55,6 @@ dns:
   fake-ip-range: 198.18.0.1/16
   enhanced-mode: fake-ip
   fake-ip-filter:
-    - '*'
     - '*.lan'
     - '*.localdomain'
     - '*.example'
@@ -160,6 +159,9 @@ dns:
     - 'Mijia Cloud'
     - '+.cmbchina.com'
     - '+.cmbimg.com'
+    - 'adguardteam.github.io'
+    - 'adrules.top'
+    - 'anti-ad.net'
     - 'local.adguard.org'
     - 'static.adtidy.org'
     - '+.sandai.net'
