@@ -69,50 +69,32 @@ proxies:
 proxy-groups:
   # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 `proxies` 值进行增删改，须一一对应
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
-
   # 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
   - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
-
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
-
   - {name: 🔗 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
-
   - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
   - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
   - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
   - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
-
   # 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `🖥️ 直连软件`
   - {name: 🖥️ 直连软件, type: select, proxies: [🎯 全球直连]}
-
   - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
-
   - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
-
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
   # ----------------国家或地区策略组---------------------
-
   # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试；筛选出“香港”节点，支持正则表达式
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
-
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
-
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)日本|jp|japan"}
-
+  # 若有多个机场，可以使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, include-all-providers: true, filter: "(?i)日本|jp|japan"}
   - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
-
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
 
 # 规则集（yaml 文件每天自动更新）
@@ -285,32 +267,22 @@ proxies:
 proxy-groups:
   # 手动选择国家或地区节点；根据“国家或地区策略组”名称对 `proxies` 值进行增删改，须一一对应
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
-
   # 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
   - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
-
   - {name: 🐟 漏网之鱼, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
-
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
-
   - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
-
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
   # ----------------国家或地区策略组---------------------
-
   # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试；筛选出“香港”节点，支持正则表达式
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
-
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
-
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)日本|jp|japan"}
-
+  # 若有多个机场，可以使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, include-all-providers: true, filter: "(?i)日本|jp|japan"}
   - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
-
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
 
 # 规则集（yaml 文件每天自动更新）
@@ -373,16 +345,12 @@ rules:
 proxy-groups:
   # 默认选择香港节点
   - {name: 📺 哔哩哔哩, type: select, proxies: [🇭🇰 香港节点, 🎯 全球直连]}
-
   # 默认选择日本节点
   - {name: 📽️ AcFun, type: select, proxies: [🇯🇵 日本节点, 🎯 全球直连]}
-
   # 自动选择延迟最低的香港节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "(?i)港|hk|hongkong|hong kong"}
-
   # 手动选择日本节点
   - {name: 🇯🇵 日本节点, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan"}
-
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
 # 规则集（yaml 文件每天自动更新）
@@ -439,7 +407,6 @@ rules:
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
   - {name: 🎥 奈飞视频, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
-
   # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
   - {name: 🎬 Prime Video, type: url-test, tolerance: 100, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
 
