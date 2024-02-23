@@ -36,6 +36,7 @@ allow-lan: true
 unified-delay: false
 tcp-concurrent: true
 external-controller-tls: 127.0.0.1:9090
+find-process-mode: strict
 global-client-fingerprint: chrome
 profile: {store-selected: true, store-fake-ip: true}
 
