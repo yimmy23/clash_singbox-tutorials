@@ -1,9 +1,10 @@
 **更新日志（2024-02-24）：**
 - 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 
-1. 完善 Clash 教程，策略组 `proxy-groups` 添加 `include-all-providers: true` 参数；rule-set 规则集 `rule-providers` 添加 `format: yaml` 并删除 `path` 参数；修改 ShellCrash 和 Clash verge 的自定义配置文件
+1. 完善 Clash 教程，策略组 `proxy-groups` 添加 `include-all-providers: true` 参数；rule-set 规则集 `rule-providers` 添加 `format: yaml` 并删除 `path` 参数；修改 ShellCrash 和 Clash verge 的自定义配置文件（适配有无进程匹配模式和有无广告拦截）
 2. 完善 sing-box 教程，出站 `"outbounds"` 添加 `"use_all_providers": true` 参数；修改 ShellCrash 的 DNS 配置文件
-3. 配置文件格式优化
+3. 修改了大量错误
+4. 配置文件格式优化
 
 **更新日志（2024-02-20）：**
 1. 新增《[全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程-sing-box 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86%E7%9A%84%E8%A7%A3%E9%94%81%20SSH%20ShellCrash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B-sing-box%20%E6%96%B9%E6%A1%88.md)》
