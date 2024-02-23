@@ -91,16 +91,16 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
 
 连接 SSH 后运行如下命令：
 ```
-curl -o $CRASHDIR/geosite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite.dat
+curl -o $CRASHDIR/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite.dat
+curl -o $CRASHDIR/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geoip-lite.dat
 curl -o $CRASHDIR/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/Country-lite.mmdb
-curl -o $CRASHDIR/geoip.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geoip-lite.dat
 curl -o $CRASHDIR/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/geodata-fakeip-user-noprocess.yaml
 ```
 # 四、 添加定时任务
 1. 连接 SSH 后运行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
-202#curl -o /data/ShellCrash/geosite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite.dat && curl -o /data/ShellCrash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/Country-lite.mmdb && curl -o /data/ShellCrash/geoip.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geoip-lite.dat && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新geodata路由规则文件
+202#curl -o /data/ShellCrash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geosite.dat && curl -o /data/ShellCrash/GeoIP.dat -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/geoip-lite.dat && curl -o /data/ShellCrash/Country.mmdb -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/Country-lite.mmdb && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新geodata路由规则文件
 203#curl -o /data/ShellCrash/yamls/user.yaml -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/geodata-fakeip-user-noprocess.yaml && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新user.yaml
 ```
 2. 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
