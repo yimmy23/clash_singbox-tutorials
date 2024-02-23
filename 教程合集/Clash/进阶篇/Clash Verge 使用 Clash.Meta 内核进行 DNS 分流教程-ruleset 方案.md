@@ -73,6 +73,7 @@ dns:
   proxy-server-nameserver:
     - https://dns.alidns.com/dns-query#h3=true
   nameserver-policy:
+    'rule-set:ads': rcode://success
     'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
     'rule-set:cn,private': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
 ```
