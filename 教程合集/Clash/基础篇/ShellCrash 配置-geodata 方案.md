@@ -18,14 +18,16 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://fastly.jsdelivr.net/gh/DustinWin/
 # 二、 导入路由规则文件
 连接 SSH 后执行如下命令：
 ```
-curl -o $CRASHDIR/geosite.dat -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
+curl -o $CRASHDIR/GeoSite.dat -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat
 curl -o $CRASHDIR/Country.mmdb -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb
 ```
 # 三、 添加定时任务
 连接 SSH 后执行 `vi $CRASHDIR/task/task.user`，按一下 Ins 键（Insert 键），粘贴（快捷键 Ctrl+Shift+V）如下内容：
+- 注：ShellCrash 安装路径为 */data/ShellCrash*
+
 ```
 201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
-202#curl -o /data/ShellCrash/geosite.dat -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat && curl -o /data/ShellCrash/Country.mmdb -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新geodata路由规则文件
+202#curl -o /data/ShellCrash/GeoSite.dat -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat && curl -o /data/ShellCrash/Country.mmdb -L https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新geodata路由规则文件
 203#curl -o /tmp/metacubexd.tar.gz -L https://fastly.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-dashboard/metacubexd.tar.gz && rm -rf /data/ShellCrash/ui/* && tar -zxf /tmp/metacubexd.tar.gz -C /data/ShellCrash/ui && rm -f /tmp/metacubexd.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新metacubexd面板
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
