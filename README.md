@@ -1,3 +1,5 @@
+# Clash.Meta 内核（已更名为 mihomo）下载地址已变更，晚些时候同步到教程
+
 **更新日志（2024-02-24）：**
 - 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 
