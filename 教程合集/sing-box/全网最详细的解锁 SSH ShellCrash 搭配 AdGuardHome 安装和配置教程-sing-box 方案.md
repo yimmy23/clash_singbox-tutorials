@@ -83,7 +83,7 @@ nvram set boot_wait=on
 nvram commit
 /etc/init.d/dropbear enable & /etc/init.d/dropbear start
 mkdir -p /data/auto_ssh
-curl -o /data/auto_ssh/auto_ssh.sh -L https://fastly.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.sh
+curl -o /data/auto_ssh/auto_ssh.sh -L https://cdn.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.sh
 chmod +x /data/auto_ssh/auto_ssh.sh
 /data/auto_ssh/auto_ssh.sh install
 uci set system.@system[0].timezone='CST-8'
@@ -110,7 +110,7 @@ reboot
 
 ```
 mkdir -p /data/auto_ssh
-curl -o /data/auto_ssh/auto_ssh.sh -L https://fastly.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.sh
+curl -o /data/auto_ssh/auto_ssh.sh -L https://cdn.jsdelivr.net/gh/lemoeo/AX6S@main/auto_ssh.sh
 chmod +x /data/auto_ssh/auto_ssh.sh
 /data/auto_ssh/auto_ssh.sh install
 echo -e '12345678\n12345678' | passwd root
@@ -242,9 +242,9 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 ```
 # 规则集使用的是 geodata 方案
-curl -o $CRASHDIR/jsons/dns.json -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/geodata-dns.json
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/geodata-dns.json
 # 规则集使用的是 ruleset 方案
-curl -o $CRASHDIR/jsons/dns.json -L https://fastly.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ruleset-dns.json
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ruleset-dns.json
 ```
 导入 DNS 配置文件完成后，启动 sing-box 服务即可  
 **ShellCrash 配置成功！**  
