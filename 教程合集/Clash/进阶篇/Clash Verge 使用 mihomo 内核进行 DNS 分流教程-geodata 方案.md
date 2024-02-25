@@ -45,7 +45,7 @@ taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
 curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@main/Clash/geodata-fakeip-user.yaml
 ```
-③ 右击新建的 Merge 文件，点击“启用”
+③ 再次进入 Clash Verge->订阅，右击新建的 Merge 文件，点击“启用”
 ## 2. DNS 模式为 `redir-host`
 ① 进入 Clash Verge->订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
 ② 右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
