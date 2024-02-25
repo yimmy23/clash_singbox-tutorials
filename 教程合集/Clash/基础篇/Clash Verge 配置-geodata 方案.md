@@ -1,7 +1,7 @@
 # [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)（Windows 端）配置-geodata 方案
 - 注：此方案此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 ---
-# 一、 导入或更新 Clash Meta 内核
+# 一、 导入或更新 mihomo 内核
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
