@@ -8,11 +8,11 @@
 4. 请先**确定自己机场的订阅链接是否为 Clash 订阅链接**，若不是，需前往[肥羊在线订阅转换工具](https://suburl.v1.mk)进行转换，“生成类型”选择“Clash”，其它参数保持默认即可，转换后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件代理集合 `proxy-providers` 的 `url` 中
 ---
 # 一、 准备编辑 .yaml 直链文件
-1. 注册 [Gist](https://gist.github.com)
+## 1. 注册 [Gist](https://gist.github.com)
 进入 https://gist.github.com 网站并注册
-2. 打开编辑页面
+## 2. 打开编辑页面
 登录并打开 [Gist](https://gist.github.com) 可以直接编辑文件，或者鼠标点击页面右上角头像左边的“+”图标新建文件
-3. 输入描述和完整文件名
+## 3. 输入描述和完整文件名
 “Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 clashlink.yaml  
 <img src="https://user-images.githubusercontent.com/45238096/219593234-64833fcd-5200-4bea-849f-a1865d341fd2.png" width="60%"/>
 
