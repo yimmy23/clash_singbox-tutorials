@@ -120,12 +120,12 @@
     ],
     // geosite 配置项
     "geosite": {
-      "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
+      "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "DIRECT"
     },
     // geoip 配置项
     "geoip": {
-      "download_url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
+      "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "DIRECT"
     }
   }
