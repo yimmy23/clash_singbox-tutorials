@@ -83,7 +83,7 @@ dns:
 1. 进入 Clash Verge->设置->系统设置->服务模式，点击右边的盾牌图标，然后点击“INSTALL”，完成后启用“服务模式”
 2. 进入设置->系统设置->Tun 模式，点击右边的螺帽图标，“Tun 堆栈模式”选择“Mixed”，然后点击“保存”
 3. 进入设置->Clash 设置，启用“局域网连接”和“IPv6”
-4. 进入设置->Clash 设置->UWP 工具，点击“Exempt All”后点击“Save Changes”
+4. 进入设置->Clash 设置->UWP 工具，点击“Exempt All”后再点击“Save Changes”
 5. 进入设置->系统设置，启用“Tun 模式”
 # 五、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd
