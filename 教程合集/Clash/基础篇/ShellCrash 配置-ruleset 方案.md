@@ -5,7 +5,7 @@
 - 3. 查看 CPU 架构可连接 SSH 后执行命令 `uname -ms`，若执行结果是“linux aarch64”，就是搭载的 ARMv8 架构
 ---
 # 一、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)
-**mihomo 内核下载链接后缀和 CPU 架构对应关系如下：**
+**mihomo 内核下载链接后缀和 CPU 架构对应关系如下表：**
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8&ARM64&AArch64|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|:---:|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
