@@ -7,8 +7,8 @@
 4. 本教程最终效果媲美《[生成带有自定义策略组和规则的 Clash 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》（策略组更直观，操作更方便），但不依赖于网络
 5. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
 ---
-# 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)
-可参考《[ShellCrash 配置-ruleset 方案/导入 Clash.Meta 内核](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-clashmeta-%E5%86%85%E6%A0%B8)》里的步骤进行操作
+# 一、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)
+可参考《[ShellCrash 配置-ruleset 方案/导入 mihomo 内核](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-mihomo-%E5%86%85%E6%A0%B8)》里的步骤进行操作
 # 二、 导入配置文件
 1. 进入 ShellCrash->6 导入配置文件->1 在线生成 meta 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>
@@ -371,7 +371,7 @@ rule-providers:
 仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
 注：
 - 1. 以下内容只是举例，请根据自身需要进行增删改
-- 2. 其它规则请参考《[Clash.Meta Wiki](https://wiki.metacubex.one/config/rules)》
+- 2. 其它规则请参考《[mihomo Wiki](https://wiki.metacubex.one/config/rules)》
 
 ```
 # 规则
