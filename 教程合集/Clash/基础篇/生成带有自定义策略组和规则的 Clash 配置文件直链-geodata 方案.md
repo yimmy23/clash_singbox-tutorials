@@ -1,8 +1,8 @@
 # 生成带有自定义策略组和规则的 Clash 配置文件直链-geodata 方案
 - 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 前言：
-1. 本教程可以生成扩展名为 .yaml 文件的直链，可以**一键导入使用了 [Clash.Meta](https://github.com/MetaCubeX/mihomo) 内核的 Clash 客户端**  
-如：[ShellCrash](https://github.com/juewuy/ShellCrash)、[OpenClash](https://github.com/vernesong/OpenClash) 和 [Clash Verge](https://github.com/MetaCubeX/clash-verge) 等，详见[支持 Clash.Meta 的工具](https://wiki.metacubex.one/startup/client)
+1. 本教程可以生成扩展名为 .yaml 文件的直链，可以**一键导入使用了 [mihomo](https://github.com/MetaCubeX/mihomo) 内核的 Clash 客户端**  
+如：[ShellCrash](https://github.com/juewuy/ShellCrash)、[OpenClash](https://github.com/vernesong/OpenClash) 和 [Clash Verge](https://github.com/MetaCubeX/clash-verge) 等，详见[支持 mihomo 的工具](https://wiki.metacubex.one/startup/client)
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 4. 请先**确定自己机场的订阅链接是否为 Clash 订阅链接**，若不是，需前往[肥羊在线订阅转换工具](https://suburl.v1.mk)进行转换，“生成类型”选择“Clash”，其它参数保持默认即可，转换后的订阅链接需要在末尾添加 `&flag=clash`，然后添加到 .yaml 文件代理集合 `proxy-providers` 的 `url` 中
