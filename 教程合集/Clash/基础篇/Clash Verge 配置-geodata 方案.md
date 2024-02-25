@@ -29,7 +29,7 @@ curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\Country.mmdb -L http
 ③ 再次右击导入的配置文件，点击“使用”
 ## 2. 新建自定义配置
 ① 进入 Clash Verge->订阅，点击“新建”，类型选择“Merge”，完成后点击“保存”  
-② 再次右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
+② 右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
 ```
 mode: rule
 log-level: silent
