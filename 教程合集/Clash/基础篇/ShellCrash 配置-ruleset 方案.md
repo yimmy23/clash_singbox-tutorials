@@ -4,15 +4,15 @@
 - 2. 本教程中的下载链接以 CPU 架构 ARMv8 为例，请注意修改链接后缀
 - 3. 查看 CPU 架构可连接 SSH 后执行命令 `uname -ms`，若执行结果是“linux aarch64”，就是搭载的 ARMv8 架构
 ---
-# 一、 导入 [Clash.Meta 内核](https://github.com/MetaCubeX/mihomo)
-**Clash.Meta 内核下载链接后缀和 CPU 架构对应关系如下：**
+# 一、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)
+**mihomo 内核下载链接后缀和 CPU 架构对应关系如下：**
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8&ARM64&AArch64|mips-softfloat|mipsle-hardfloat|mipsle-softfloat|
 |-----|-----|-----|-----|-----|:---:|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-hardfloat`|`mipsle-softfloat`|
 
 连接 SSH 后执行如下命令：
 ```
-curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8 && crash
+curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/mihomo-release/mihomo-linux-armv8.tar.gz | tar -zx -C /tmp/ && mv -f /tmp/CrashCore /tmp/mihomo-linux-armv8 && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash-Meta 内核
 # 二、 添加定时任务
@@ -20,8 +20,8 @@ curl -o /tmp/clash.meta-linux-armv8 -L https://cdn.jsdelivr.net/gh/DustinWin/cla
 - 注：ShellCrash 安装路径为 */data/ShellCrash*
 
 ```
-201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash.Meta-release/clash.meta-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新Clash.Meta内核
-202#curl -o /tmp/metacubexd.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-dashboard/metacubexd.tar.gz && rm -rf /data/ShellCrash/ui/* && tar -zxf /tmp/metacubexd.tar.gz -C /data/ShellCrash/ui && rm -f /tmp/metacubexd.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新metacubexd面板
+201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/mihomo-release/mihomo-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新mihomo内核
+202#curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-dashboard/metacubexd.tar.gz | tar -zx -C $CRASHDIR/ui/ && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新metacubexd面板
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 三、 设置部分
