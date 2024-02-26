@@ -7,6 +7,7 @@
 3. 生成的订阅链接**自带规则集**，规则集来源 [DustinWin/ruleset_geodata/sing-box](https://github.com/DustinWin/ruleset_geodata#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 4. 本教程必须使用支持 `outbound_providers` 代理集合即 [Clash](https://github.com/Dreamacro/clash) 订阅链接的 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)，请先**确定自己机场的订阅链接是否为 Clash 订阅链接**，若不是，需前往[肥羊在线订阅转换工具](https://suburl.v1.mk)进行转换，“生成类型”选择“Clash”，其它参数保持默认即可，转换后的订阅链接需要在末尾添加 `&flag=clash`，然后添加到 .json 文件代理集合 `outbound_providers` 的 `download_url` 中
 5. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
+6. ShellCrash 支持本地导入配置文件，可以直接将下方的 .json 直链文件内容复制到 *$CRASHDIR/jsons/config.json* 文件中，可代替通过 ShellCrash 配置脚本->6->2 导入配置文件的方式
 ---
 # 一、 准备编辑 .json 直链文件
 1. 注册 [Gist](https://gist.github.com)
