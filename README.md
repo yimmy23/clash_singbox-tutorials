@@ -5,7 +5,9 @@
 2. 修改首次安装内核的执行命令
 3. 优化安装面板的执行命令
 4. 修改 [DNS 分流](https://github.com/DustinWin/clash_singbox-tutorials/tree/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E8%BF%9B%E9%98%B6%E7%AF%87)配置文件的下载路径（发布在 [Releases](https://github.com/DustinWin/clash_singbox-tutorials/releases)）
-5. 其它优化
+5. Clash Verge DNS 分流教程新增启用“严格路由”步骤
+6. 生成配置文件直链教程新增 ShellCrash 通过本地导入配置文件方式的提醒
+7. 其它优化
 
 **更新日志（2024-02-24）：**
 1. 完善 Clash 教程，策略组 `proxy-groups` 添加 `include-all-providers: true` 参数；rule-set 规则集 `rule-providers` 添加 `format: yaml` 并删除 `path` 参数；修改 ShellCrash 和 Clash verge 的自定义配置文件（适配有无进程匹配模式和有无广告拦截）
