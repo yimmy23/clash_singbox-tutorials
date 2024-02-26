@@ -8,7 +8,6 @@ on:
       - main
     paths-ignore:
       - "**.md"
-      - ".github/workflows/delete-old-workflows.yml"
 
 jobs:
   Update:
@@ -88,3 +87,11 @@ jobs:
         for file in $(ls); do
           curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@clash/${file}"
         done
+
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        repository: ${{ github.repository }}
+        retain_days: 3
+        keep_minimum_runs: 1
