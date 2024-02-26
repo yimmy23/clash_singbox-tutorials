@@ -34,7 +34,7 @@
 
 连接 SSH 后执行如下命令：
 ```
-curl -o $CRASHDIR/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@main/Clash/geodata-fakeip-user.yaml && $CRASHDIR/start.sh restart
+curl -o $CRASHDIR/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/geodata-fakeip-user.yaml && $CRASHDIR/start.sh restart
 ```
 ## 2. DNS 模式为 `redir-host`
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
