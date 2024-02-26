@@ -79,3 +79,5 @@ dns:
     'geosite:cn,private': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
 ```
 ③ 再次右击新建的 Merge 文件，点击“启用”
+# 四、 客户端设置
+进入 Clash Verge->系统设置->Tun 模式，点击右边的螺帽图标，启用“严格路由”，然后点击“保存”
