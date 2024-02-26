@@ -2,7 +2,7 @@
 - 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 
 1. Clash.Meta 内核更名为 mihomo 内核
-2. 修改首次安装内核的执行命令
+2. 修改 ShellCrash 首次安装内核的执行命令
 3. 优化安装面板的执行命令
 4. 修改 [DNS 分流](https://github.com/DustinWin/clash_singbox-tutorials/tree/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E8%BF%9B%E9%98%B6%E7%AF%87)配置文件的下载路径（发布在 [Releases](https://github.com/DustinWin/clash_singbox-tutorials/releases)）
 5. Clash Verge DNS 分流教程新增启用“严格路由”步骤
