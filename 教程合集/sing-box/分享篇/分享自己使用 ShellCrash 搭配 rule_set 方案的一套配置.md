@@ -86,84 +86,84 @@
         "tag": "ads",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ads.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "private",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/private.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/private.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/microsoft-cn.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/microsoft-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/apple-cn.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/apple-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/google-cn.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/google-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/games-cn.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/games-cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/networktest.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/networktest.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/proxy.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/proxy.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/cn.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cn.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/telegramip.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/telegramip.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/privateip.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/privateip.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/cnip.srs",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cnip.srs",
         "download_detour": "DIRECT"
       }
     ],
