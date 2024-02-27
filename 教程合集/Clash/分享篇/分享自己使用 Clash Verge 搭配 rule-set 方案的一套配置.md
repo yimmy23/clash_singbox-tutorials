@@ -67,92 +67,92 @@ rule-providers:
   ads:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/ads.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
     interval: 86400
 
   private:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/private.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/private.list"
     interval: 86400
 
   microsoft-cn:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/microsoft-cn.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/microsoft-cn.list"
     interval: 86400
 
   apple-cn:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/apple-cn.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/apple-cn.list"
     interval: 86400
 
   google-cn:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/google-cn.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/google-cn.list"
     interval: 86400
 
   games-cn:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/games-cn.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/games-cn.list"
     interval: 86400
 
   networktest:
     type: http
     behavior: classical
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/networktest.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
     interval: 86400
 
   applications:
     type: http
     behavior: classical
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/applications.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
     interval: 86400
 
   proxy:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/proxy.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/proxy.list"
     interval: 86400
 
   cn:
     type: http
     behavior: domain
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cn.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cn.list"
     interval: 86400
 
   telegramip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/telegramip.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/telegramip.list"
     interval: 86400
 
   privateip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/privateip.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/privateip.list"
     interval: 86400
 
   cnip:
     type: http
     behavior: ipcidr
-    format: yaml
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash/cnip.yaml"
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cnip.list"
     interval: 86400
 
 rules:
