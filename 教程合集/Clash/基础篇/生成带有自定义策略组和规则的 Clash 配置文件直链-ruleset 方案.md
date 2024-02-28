@@ -83,7 +83,7 @@ proxy-groups:
   - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
-  # 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `🖥️ 直连软件`
+  # 若使用 ShellCrash，由于无法判断本机进程（默认 `find-process-mode: off`），需删除此条 `🖥️ 直连软件`
   - {name: 🖥️ 直连软件, type: select, proxies: [🎯 全球直连]}
   - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
   - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
@@ -150,7 +150,7 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
     interval: 86400
 
-  # 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `applications`
+  # 若使用 ShellCrash，由于无法判断本机进程（默认 `find-process-mode: off`），需删除此条 `applications`
   applications:
     type: http
     behavior: classical
@@ -204,7 +204,7 @@ rules:
   - RULE-SET,google-cn,📢 谷歌服务
   - RULE-SET,games-cn,🎮 游戏平台
   - RULE-SET,networktest,📈 网络测试
-  # 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `RULE-SET`
+  # 若使用 ShellCrash，由于无法判断本机进程（默认 `find-process-mode: off`），需删除此条 `RULE-SET`
   - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
