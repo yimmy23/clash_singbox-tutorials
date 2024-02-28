@@ -38,7 +38,7 @@
     { "tag": "🍎 苹果服务", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
     { "tag": "🇨🇳 国内 IP", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
-    // 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `🖥️ 直连软件`
+    // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `🖥️ 直连软件`
     { "tag": "🖥️ 直连软件", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
@@ -117,7 +117,7 @@
       { "rule_set": [ "google-cn" ], "outbound": "📢 谷歌服务" },
       { "rule_set": [ "games-cn" ], "outbound": "🎮 游戏平台" },
       { "rule_set": [ "networktest" ], "outbound": "📈 网络测试" },
-      // 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `rule_set`
+      // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `rule_set`
       { "rule_set": [ "applications" ], "outbound": "🖥️ 直连软件" },
       { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
       { "rule_set": [ "cn" ], "outbound": "🔗 直连域名" },
@@ -176,7 +176,7 @@
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/networktest.srs",
         "download_detour": "DIRECT"
       },
-      // 若使用 ShellCrash，由于无法判断非本机进程，需删除此条 `applications`
+      // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `applications`
       {
         "tag": "applications",
         "type": "remote",
