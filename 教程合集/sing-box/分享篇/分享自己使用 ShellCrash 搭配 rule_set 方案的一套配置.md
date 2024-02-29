@@ -27,7 +27,7 @@
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🇬🇧 英国节点" ] },
     { "tag": "REJECT", "type": "block" },
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "dns-out", "type": "dns" },
     {
       "tag": "🆓 免费节点",
@@ -37,8 +37,7 @@
       "uuid": "{uuid}",
       "network": "tcp",
       "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
-      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } },
-      "domain_strategy": "prefer_ipv6"
+      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } }
     },
     { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "香港.*BGP" ] },
     { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "台湾" ] },
@@ -59,8 +58,7 @@
       "path": "./providers/airport.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT",
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+      "download_detour": "DIRECT"
     }
   ],
   "route": {
