@@ -9,15 +9,6 @@
 2. 修改 Clash 使用 ruleset 规则集文件的格式为 `format: text`，对应下载文件扩展名为 .list（看个人喜好，喜欢哪个用哪个）
 3. sing-box 生成配置文件直链教程新增 `🖥️ 直连软件`，适用于可判断进程的设备
 4. 其它优化
-
-**更新日志（2024-02-26）：**
-1. Clash.Meta 内核更名为 mihomo 内核
-2. 修改 ShellCrash 首次安装内核的执行命令
-3. 优化安装面板的执行命令
-4. 修改 [DNS 分流](https://github.com/DustinWin/clash_singbox-tutorials/tree/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E8%BF%9B%E9%98%B6%E7%AF%87)配置文件的下载路径（发布在 [Releases](https://github.com/DustinWin/clash_singbox-tutorials/releases)）
-5. Clash Verge DNS 分流教程新增启用“严格路由”步骤
-6. 生成配置文件直链教程新增 ShellCrash 通过本地导入配置文件方式的提醒
-7. 其它优化
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
 **ShellCrash（mix 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88mix%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
