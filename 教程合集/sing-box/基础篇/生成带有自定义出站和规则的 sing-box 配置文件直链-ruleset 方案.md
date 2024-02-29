@@ -109,6 +109,8 @@
       { "clash_mode": "Global", "outbound": "GLOBAL" },
       // 自定义规则优先放前面
       { "rule_set": [ "ads" ], "outbound": "🛑 广告拦截" },
+      // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `rule_set`
+      { "rule_set": [ "applications" ], "outbound": "🖥️ 直连软件" },
       // 为过滤 P2P 流量（BT 下载），可添加一条 `port_range` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
       { "port_range": [ "6881:6889" ], "outbound": "🎯 全球直连"},
       { "rule_set": [ "private" ], "outbound": "🔒 私有网络" },
@@ -117,8 +119,6 @@
       { "rule_set": [ "google-cn" ], "outbound": "📢 谷歌服务" },
       { "rule_set": [ "games-cn" ], "outbound": "🎮 游戏平台" },
       { "rule_set": [ "networktest" ], "outbound": "📈 网络测试" },
-      // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `rule_set`
-      { "rule_set": [ "applications" ], "outbound": "🖥️ 直连软件" },
       { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
       { "rule_set": [ "cn" ], "outbound": "🔗 直连域名" },
       { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息" },
@@ -132,6 +132,14 @@
         "type": "remote",
         "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
+        "download_detour": "DIRECT"
+      },
+      // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `applications`
+      {
+        "tag": "applications",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/applications.srs",
         "download_detour": "DIRECT"
       },
       {
@@ -174,14 +182,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/networktest.srs",
-        "download_detour": "DIRECT"
-      },
-      // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `applications`
-      {
-        "tag": "applications",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/applications.srs",
         "download_detour": "DIRECT"
       },
       {
