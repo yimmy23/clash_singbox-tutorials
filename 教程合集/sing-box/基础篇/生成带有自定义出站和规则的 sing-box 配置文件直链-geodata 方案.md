@@ -43,8 +43,7 @@
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "REJECT", "type": "block" },
-    // 本地网络有 IPv6 时可配置 `"domain_strategy": "prefer_ipv6"`
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "dns-out", "type": "dns" },
 
     // 单个出站节点（以 vless 为例）
@@ -56,8 +55,7 @@
       "uuid": "{uuid}",
       "network": "tcp",
       "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
-      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } },
-      "domain_strategy": "prefer_ipv6"
+      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } }
     },
 
     // -------------------- 国家或地区出站 --------------------
@@ -81,9 +79,7 @@
       "path": "./providers/airport1.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT",
-      // 若机场节点支持 IPv6，可添加此参数
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+      "download_detour": "DIRECT"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -94,8 +90,7 @@
       "path": "./providers/airport2.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT",
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+      "download_detour": "DIRECT"
     }
   ],
   // 路由
@@ -170,8 +165,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
-    // 本地网络有 IPv6 时可配置为 `prefer_ipv6`
-    "strategy": "prefer_ipv6",
+    "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
@@ -197,8 +191,7 @@
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "REJECT", "type": "block" },
-    // 本地网络有 IPv6 时可配置 `"domain_strategy": "prefer_ipv6"`
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "dns-out", "type": "dns" },
 
     // 单个出站节点（以 vless 为例）
@@ -210,8 +203,7 @@
       "uuid": "{uuid}",
       "network": "tcp",
       "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
-      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } },
-      "domain_strategy": "prefer_ipv6"
+      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } }
     },
 
     // -------------------- 国家或地区出站 --------------------
@@ -235,9 +227,7 @@
       "path": "./providers/airport1.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT",
-      // 若机场节点支持 IPv6，可添加此参数
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+      "download_detour": "DIRECT"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -248,8 +238,7 @@
       "path": "./providers/airport2.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT",
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+      "download_detour": "DIRECT"
     }
   ],
   // 路由
@@ -310,8 +299,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
-    // 本地网络有 IPv6 时可配置为 `prefer_ipv6`
-    "strategy": "prefer_ipv6",
+    "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
@@ -343,7 +331,7 @@
     // 手动选择日本节点
     { "tag": "🇯🇵 日本节点", "type": "selector", "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" }
+    { "tag": "DIRECT", "type": "direct" }
   ],
   // 路由
   "route": {
