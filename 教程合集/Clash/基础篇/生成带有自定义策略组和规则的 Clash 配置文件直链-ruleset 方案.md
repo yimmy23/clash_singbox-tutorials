@@ -108,6 +108,14 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
     interval: 86400
 
+  # 若使用 ShellCrash，由于无法判断本机进程（默认 `find-process-mode: off`），需删除此条 `applications`
+  applications:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
+    interval: 86400
+
   private:
     type: http
     behavior: domain
@@ -150,14 +158,6 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
     interval: 86400
 
-  # 若使用 ShellCrash，由于无法判断本机进程（默认 `find-process-mode: off`），需删除此条 `applications`
-  applications:
-    type: http
-    behavior: classical
-    format: text
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
-    interval: 86400
-
   proxy:
     type: http
     behavior: domain
@@ -196,6 +196,8 @@ rule-providers:
 # 规则
 rules:
   - RULE-SET,ads,🛑 广告拦截
+  # 若使用 ShellCrash，由于无法判断本机进程（默认 `find-process-mode: off`），需删除此条 `RULE-SET`
+  - RULE-SET,applications,🖥️ 直连软件
   # 为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
   - DST-PORT,6881-6889,🎯 全球直连
   - RULE-SET,private,🔒 私有网络
@@ -204,8 +206,6 @@ rules:
   - RULE-SET,google-cn,📢 谷歌服务
   - RULE-SET,games-cn,🎮 游戏平台
   - RULE-SET,networktest,📈 网络测试
-  # 若使用 ShellCrash，由于无法判断本机进程（默认 `find-process-mode: off`），需删除此条 `RULE-SET`
-  - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
   - RULE-SET,telegramip,📲 电报消息
