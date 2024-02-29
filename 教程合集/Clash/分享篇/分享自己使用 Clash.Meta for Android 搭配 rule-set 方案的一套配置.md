@@ -229,6 +229,13 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
     interval: 86400
 
+  applications:
+    type: http
+    behavior: classical
+    format: text
+    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
+    interval: 86400
+
   private:
     type: http
     behavior: domain
@@ -271,13 +278,6 @@ rule-providers:
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
     interval: 86400
 
-  applications:
-    type: http
-    behavior: classical
-    format: text
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
-    interval: 86400
-
   proxy:
     type: http
     behavior: domain
@@ -315,13 +315,13 @@ rule-providers:
 
 rules:
   - RULE-SET,ads,🛑 广告拦截
+  - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,private,🔒 私有网络
   - RULE-SET,microsoft-cn,Ⓜ️ 微软服务
   - RULE-SET,apple-cn,🍎 苹果服务
   - RULE-SET,google-cn,📢 谷歌服务
   - RULE-SET,games-cn,🎮 游戏平台
   - RULE-SET,networktest,📈 网络测试
-  - RULE-SET,applications,🖥️ 直连软件
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
   - RULE-SET,telegramip,📲 电报消息
