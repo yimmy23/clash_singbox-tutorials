@@ -1,6 +1,10 @@
-**更新日志（2024-02-28）：**
+**更新日志（2024-03-01）：**
 - 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 
+1. 修改 sing-box 里的 `dns.strategy`，改为 `"strategy": "prefer_ipv4"`（即 IPv4 优先，兼容性更好），并去除其它模块多此一举的 `domain_strategy` 相关设置
+2. 修改 sing-box for Android 教程，启用 `override_android_vpn`（使 Tun 经过 VPN）
+
+**更新日志（2024-02-28）：**
 1. 修改 Clash 和 sing-box 的 ruleset 规则集文件下载链接（**重要**）
 2. 修改 Clash 使用 ruleset 规则集文件的格式为 `format: text`，对应下载文件扩展名为 .list（看个人喜好，喜欢哪个用哪个）
 3. sing-box 生成配置文件直链教程新增 `🖥️ 直连软件`，适用于可判断进程的设备
