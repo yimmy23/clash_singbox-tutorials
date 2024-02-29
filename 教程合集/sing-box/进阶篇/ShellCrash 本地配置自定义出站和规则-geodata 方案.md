@@ -32,9 +32,7 @@
       "path": "./providers/airport1.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT",
-      // 若机场节点支持 IPv6，可添加此参数
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+      "download_detour": "DIRECT"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -45,8 +43,7 @@
       "path": "./providers/airport2.yaml",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT",
-      "override_dialer": { "domain_strategy": "prefer_ipv6" }
+      "download_detour": "DIRECT"
     }
   ]
 }
@@ -82,8 +79,7 @@
       "uuid": "{uuid}",
       "network": "tcp",
       "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
-      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } },
-      "domain_strategy": "prefer_ipv6"
+      "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } }
     },
 
     // -------------------- 国家或地区出站 --------------------
@@ -167,8 +163,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": "dns_direct",
-    // 本地网络有 IPv6 时可配置为 `prefer_ipv6`
-    "strategy": "prefer_ipv6",
+    "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
