@@ -63,7 +63,7 @@ curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clas
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |**链接后缀**|`amd64`|`armv5`|`armv6`|`armv7`|`armv8`|`mips-softfloat`|`mipsle-softfloat`|
 
-执行如下命令：
+连接 SSH 后执行如下命令：
 ```
 mkdir -p /data/AdGuardHome
 # AdGuardHome Release 版
@@ -73,9 +73,9 @@ curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/c
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
-vi /data/auto_ssh/auto_ssh.sh
 ```
 ## 2. 添加开机启动
+连接 SSH 后执行 `vi /data/auto_ssh/auto_ssh.sh`  
 按一下 Ins 键（Insert 键），在最下方粘贴如下命令：
 - 注：保留首尾的空行
 
@@ -89,7 +89,7 @@ vi /data/auto_ssh/auto_ssh.sh
 ## 3. 升级 AdGuardHome
 - 注：留意链接后缀是否与 CPU 架构匹配
 
-执行如下命令：
+连接 SSH 后执行如下命令：
 ```
 # AdGuardHome Release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash-tools/main/AdGuardHome-release/AdGuardHome_linux_armv8
