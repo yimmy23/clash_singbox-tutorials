@@ -13,7 +13,7 @@ proxy-providers:
     type: http
     # 修改为你的 Clash 订阅链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./providers/airport.yaml
+    path: ./proxies/airport.yaml
     interval: 43200
     filter: "香港|台湾|日本|韩国|新加坡|美国"
     health-check:
@@ -226,6 +226,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/ads.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
     interval: 86400
 
@@ -233,6 +234,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
+    path: ./rules/applications.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
     interval: 86400
 
@@ -240,6 +242,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/private.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/private.list"
     interval: 86400
 
@@ -247,6 +250,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/microsoft-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/microsoft-cn.list"
     interval: 86400
 
@@ -254,6 +258,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/apple-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/apple-cn.list"
     interval: 86400
 
@@ -261,6 +266,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/google-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/google-cn.list"
     interval: 86400
 
@@ -268,6 +274,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/games-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/games-cn.list"
     interval: 86400
 
@@ -275,6 +282,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
+    path: ./rules/networktest.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
     interval: 86400
 
@@ -282,6 +290,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/proxy.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/proxy.list"
     interval: 86400
 
@@ -289,6 +298,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cn.list"
     interval: 86400
 
@@ -296,6 +306,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
+    path: ./rules/telegramip.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/telegramip.list"
     interval: 86400
 
@@ -303,6 +314,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
+    path: ./rules/privateip.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/privateip.list"
     interval: 86400
 
@@ -310,6 +322,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
+    path: ./rules/cnip.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cnip.list"
     interval: 86400
 
