@@ -25,7 +25,7 @@ proxy-providers:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./providers/airport1.yaml
+    path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
@@ -39,7 +39,7 @@ proxy-providers:
   🛫 我的机场 2:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./providers/airport2.yaml
+    path: ./proxies/airport2.yaml
     interval: 43200
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
