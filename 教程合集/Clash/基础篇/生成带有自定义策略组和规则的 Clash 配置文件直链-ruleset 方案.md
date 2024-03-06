@@ -27,7 +27,7 @@ proxy-providers:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./providers/airport1.yaml
+    path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
@@ -41,7 +41,7 @@ proxy-providers:
   🛫 我的机场 2:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./providers/airport2.yaml
+    path: ./proxies/airport2.yaml
     interval: 43200
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
@@ -105,6 +105,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/ads.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
     interval: 86400
 
@@ -113,6 +114,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
+    path: ./rules/applications.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
     interval: 86400
 
@@ -120,6 +122,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/private.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/private.list"
     interval: 86400
 
@@ -127,6 +130,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/microsoft-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/microsoft-cn.list"
     interval: 86400
 
@@ -134,6 +138,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/apple-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/apple-cn.list"
     interval: 86400
 
@@ -141,6 +146,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/google-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/google-cn.list"
     interval: 86400
 
@@ -148,6 +154,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/games-cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/games-cn.list"
     interval: 86400
 
@@ -155,6 +162,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
+    path: ./rules/networktest.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
     interval: 86400
 
@@ -162,6 +170,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/proxy.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/proxy.list"
     interval: 86400
 
@@ -169,6 +178,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/cn.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cn.list"
     interval: 86400
 
@@ -176,6 +186,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
+    path: ./rules/telegramip.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/telegramip.list"
     interval: 86400
 
@@ -183,6 +194,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
+    path: ./rules/privateip.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/privateip.list"
     interval: 86400
 
@@ -190,6 +202,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
+    path: ./rules/cnip.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cnip.list"
     interval: 86400
 
@@ -225,7 +238,7 @@ proxy-providers:
     type: http
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./providers/airport1.yaml
+    path: ./proxies/airport1.yaml
     interval: 43200
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
@@ -239,7 +252,7 @@ proxy-providers:
   🛫 我的机场 2:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
-    path: ./providers/airport2.yaml
+    path: ./proxies/airport2.yaml
     interval: 43200
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     health-check:
@@ -293,6 +306,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/ads.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
     interval: 86400
 
@@ -300,6 +314,7 @@ rule-providers:
     type: http
     behavior: classical
     format: text
+    path: ./rules/networktest.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
     interval: 86400
 
@@ -307,6 +322,7 @@ rule-providers:
     type: http
     behavior: domain
     format: text
+    path: ./rules/proxy.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/proxy.list"
     interval: 86400
 
@@ -314,6 +330,7 @@ rule-providers:
     type: http
     behavior: ipcidr
     format: text
+    path: ./rules/telegramip.list
     url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/telegramip.list"
     interval: 86400
 
@@ -361,6 +378,7 @@ rule-providers:
     type: http
     behavior: classical
     format: yaml
+    path: ./rules/bilibili.yaml
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/BiliBili/BiliBili.yaml"
     interval: 86400
 
@@ -368,6 +386,7 @@ rule-providers:
     type: http
     behavior: classical
     format: yaml
+    path: ./rules/acfun.yaml
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/AcFun/AcFun.yaml"
     interval: 86400
 
@@ -418,6 +437,7 @@ rule-providers:
     type: http
     behavior: classical
     format: yaml
+    path: ./rules/netflix.yaml
     url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
     interval: 86400
 
