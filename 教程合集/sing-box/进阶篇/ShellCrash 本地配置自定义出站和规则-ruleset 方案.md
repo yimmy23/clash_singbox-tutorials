@@ -307,7 +307,7 @@
     // 规则
     "rules": [
       // 以 googleapis.cn 为后缀的所有域名走代理
-      { "domain_suffix": [ "googleapis.cn" ], "outbound": "🈯 节点指定" },
+      { "domain_suffix": [ ".googleapis.cn" ], "outbound": "🈯 节点指定" },
       // 与哔哩哔哩相关的所有域名走直连
       { "geosite": [ "bilibili" ], "outbound": "DIRECT" },
       // 含有 ipv6 关键字的所有域名走直连
