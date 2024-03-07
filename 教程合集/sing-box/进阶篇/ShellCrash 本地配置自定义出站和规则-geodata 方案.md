@@ -184,9 +184,9 @@
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbounds.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
-  //出站
+  // 出站
   "outbounds": [
-    //打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
+    // 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
     { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
   ]
 }
@@ -196,11 +196,11 @@
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），**优先在最上方**编辑如下内容并粘贴：
 ```
 {
-  //路由
+  // 路由
   "route": {
-    //规则
+    // 规则
     "rules": [
-      //自定义规则优先放前面
+      // 自定义规则优先放前面
       { "geosite": [ "netflix" ], "outbound": "🎥 奈飞视频" }
     ]
   }
@@ -215,15 +215,15 @@
 
 ```
 {
-  //路由
+  // 路由
   "route": {
-    //规则
+    // 规则
     "rules": [
-      //以 googleapis.cn 为后缀的所有域名走代理
-      { "domain_suffix": [ "googleapis.cn" ], "outbound": "🈯 节点指定" },
-      //与哔哩哔哩相关的所有域名走直连
+      // 以 googleapis.cn 为后缀的所有域名走代理
+      { "domain_suffix": [ ".googleapis.cn" ], "outbound": "🈯 节点指定" },
+      // 与哔哩哔哩相关的所有域名走直连
       { "geosite": [ "bilibili" ], "outbound": "DIRECT" },
-      //含有 ipv6 关键字的所有域名走直连
+      // 含有 ipv6 关键字的所有域名走直连
       { "domain_keyword": [ "ipv6" ], "outbound": "DIRECT" }
     ]
   }
