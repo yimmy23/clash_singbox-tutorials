@@ -65,7 +65,7 @@ dns:
     - https://1.12.12.12/dns-query
   nameserver-policy:
     'geosite:category-ads-all': rcode://refused
-    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': [https://223.5.5.5/dns-query#h3=true, https://1.12.12.12/dns-query]
+    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
     # # 策略组内必须有 `🪜 代理域名` 且不支持 IPv6
     'geosite:geolocation-!cn': ['https://1.1.1.1/dns-query#🪜 代理域名&h3=true', 'https://8.8.8.8/dns-query#🪜 代理域名']
 ```
