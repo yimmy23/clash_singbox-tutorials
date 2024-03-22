@@ -37,7 +37,7 @@ tun:
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/geodata-fakeip-user.yaml
+curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/fakeip-user.yaml
 ```
 ③ 再次进入 Clash Verge->订阅，右击新建的 Merge 文件，点击“启用”
 ## 2. DNS 模式为 `redir-host`
