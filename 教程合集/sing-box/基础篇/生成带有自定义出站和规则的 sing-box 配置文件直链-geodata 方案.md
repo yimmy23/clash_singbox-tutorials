@@ -118,11 +118,13 @@
     ],
     // geosite 配置项
     "geosite": {
+      "path": "./geodata/geosite.db",
       "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "DIRECT"
     },
     // geoip 配置项
     "geoip": {
+      "path": "./geodata/geoip.db",
       "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "DIRECT"
     },
@@ -143,28 +145,28 @@
     // DNS 服务器
     "servers": [
       // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://success" },
-      // 国内 DNS
-      { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
-      // IP 格式的 DNS
-      { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" },
+      { "tag": "dns_block", "address": "rcode://refused" },
+      // 阿里 DNS
+      { "tag": "dns_alidns", "address": "h3://223.5.5.5/dns-query", "detour": "DIRECT" },
+      // 腾讯 DNS
+      { "tag": "dns_dnspod", "address": "https://1.12.12.12/dns-query", "detour": "DIRECT" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
-      { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
+      { "outbound": "any", "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       // geosite.db 规则集文件内必须包含以下规则
-      { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       // geosite.db 规则集文件内必须包含 `geolocation-!cn` 规则
       { "geosite": [ "geolocation-!cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
-    "final": "dns_direct",
+    "final": [ "dns_alidns", "dns_dnspod" ],
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
@@ -256,11 +258,13 @@
     ],
     // geosite 配置项
     "geosite": {
+      "path": "./geodata/geosite.db",
       "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "DIRECT"
     },
     // geoip 配置项
     "geoip": {
+      "path": "./geodata/geoip.db",
       "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "DIRECT"
     },
@@ -279,18 +283,18 @@
     // DNS 服务器
     "servers": [
       // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://success" },
-      // 国内 DNS
-      { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
-      // IP 格式的 DNS
-      { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" },
+      { "tag": "dns_block", "address": "rcode://refused" },
+      // 阿里 DNS
+      { "tag": "dns_alidns", "address": "h3://223.5.5.5/dns-query", "detour": "DIRECT" },
+      // 腾讯 DNS
+      { "tag": "dns_dnspod", "address": "https://1.12.12.12/dns-query", "detour": "DIRECT" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
-      { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
+      { "outbound": "any", "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
@@ -298,7 +302,7 @@
       { "geosite": [ "gfw" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
-    "final": "dns_direct",
+    "final": [ "dns_alidns", "dns_dnspod" ],
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
