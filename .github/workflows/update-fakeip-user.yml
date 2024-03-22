@@ -1,4 +1,4 @@
-name: Update fake-ip-user.yaml
+name: Update fakeip-user.yaml
 on:
   workflow_dispatch:
   schedule:
@@ -16,11 +16,11 @@ jobs:
     - name: Clone Repository
       uses: actions/checkout@main
 
-    - name: Generate geodata-fakeip-user.yaml
+    - name: Generate fakeip-user.yaml
       run: |
         echo "update_version=$(date -d '+8 hours' +'%Y-%m-%d')" >> ${GITHUB_ENV}
         mkdir -p ./clash/fake-ip-config/
-        cat <<EOF > ./clash/geodata-fakeip-user.yaml
+        cat <<EOF > ./clash/fakeip-user.yaml
         sniffer:
           enable: true
           parse-pure-ip: true
@@ -36,27 +36,12 @@ jobs:
           enhanced-mode: fake-ip
           fake-ip-filter:
         EOF
-        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/master/public/fake_ip_filter.list | grep -v '#' | sed '/^\s*$/d' | sed "s/.*/'&'/" | sed 's/^/    - /' >> ./clash/geodata-fakeip-user.yaml
-        cat <<EOF >> ./clash/geodata-fakeip-user.yaml
-          default-nameserver:
-            - https://223.5.5.5/dns-query
-            - https://1.12.12.12/dns-query
+        curl -sSL https://raw.githubusercontent.com/juewuy/ShellCrash/dev/public/fake_ip_filter.list | grep -v '#' | sed '/^\s*$/d' | sed "s/.*/'&'/" | sed 's/^/    - /' >> ./clash/fakeip-user.yaml
+        cat <<EOF >> ./clash/fakeip-user.yaml
           nameserver:
-            - https://dns.alidns.com/dns-query#h3=true
-            - https://doh.pub/dns-query
-          nameserver-policy:
-            'geosite:category-ads-all': rcode://success
-            'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query,]
-            'geosite:cn,private': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
-            'geosite:geolocation-!cn': ['https://cloudflare-dns.com/dns-query#🪜 代理域名&h3=true', 'https://dns.google/dns-query#🪜 代理域名']
+            - 'https://223.5.5.5/dns-query#h3=true'
+            - https://1.12.12.12/dns-query
         EOF
-
-    - name: Generate ruleset-fakeip-user.yaml
-      run: |
-        sed -e 's/geosite:category-ads-all/rule-set:ads/' \
-        -e 's/geosite:microsoft@cn,apple-cn,google-cn,category-games@cn/rule-set:microsoft-cn,apple-cn,google-cn,games-cn/' \
-        -e 's/geosite:cn,private/rule-set:cn,private/' \
-        -e 's/geosite:geolocation-\!cn/rule-set:proxy/' ./clash/geodata-fakeip-user.yaml > ./clash/ruleset-fakeip-user.yaml
 
     - name: Release and upload `clash` assets
       uses: svenstaro/upload-release-action@v2
