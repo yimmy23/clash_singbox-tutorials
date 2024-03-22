@@ -31,6 +31,8 @@
 curl -o $CRASHDIR/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/fakeip-user.yaml && $CRASHDIR/start.sh restart
 ```
 ## 2. DNS 模式为 `redir-host`
+- 注：策略组内**必须有 `🪜 代理域名`，其选中的机场节点不能支持 IPv6**（可全局代理后进入 [IPv6 测试](https://www.test-ipv6.com)网站来测试机场某节点是否支持 IPv6）
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 sniffer:
