@@ -84,6 +84,7 @@
         "tag": "ads",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/ads.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
         "download_detour": "DIRECT"
       },
@@ -91,6 +92,7 @@
         "tag": "private",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/private.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/private.srs",
         "download_detour": "DIRECT"
       },
@@ -98,6 +100,7 @@
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/microsoft-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/microsoft-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -105,6 +108,7 @@
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/apple-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/apple-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -112,6 +116,7 @@
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/google-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/google-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -119,6 +124,7 @@
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/games-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/games-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -126,6 +132,7 @@
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/networktest.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/networktest.srs",
         "download_detour": "DIRECT"
       },
@@ -133,6 +140,7 @@
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/proxy.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/proxy.srs",
         "download_detour": "DIRECT"
       },
@@ -140,6 +148,7 @@
         "tag": "cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cn.srs",
         "download_detour": "DIRECT"
       },
@@ -147,6 +156,7 @@
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/telegramip.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/telegramip.srs",
         "download_detour": "DIRECT"
       },
@@ -154,6 +164,7 @@
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/privateip.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/privateip.srs",
         "download_detour": "DIRECT"
       },
@@ -161,6 +172,7 @@
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/cnip.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cnip.srs",
         "download_detour": "DIRECT"
       }
@@ -172,7 +184,7 @@
 # 二、 导入 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)
 连接 SSH 后运行如下命令：
 ```
-curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz | tar -zx -C /tmp/ && mv -f /tmp/CrashCore /tmp/sing-box-linux-armv8 && crash
+curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz | tar -zx -C /tmp/ && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer 内核
 # 三、 导入 DNS 配置 dns.json
