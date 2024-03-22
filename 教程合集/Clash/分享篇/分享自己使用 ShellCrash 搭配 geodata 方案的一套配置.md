@@ -83,7 +83,7 @@ rules:
 # 二、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)
 连接 SSH 后运行如下命令：
 ```
-curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/mihomo-release/mihomo-linux-armv8.tar.gz | tar -zx -C /tmp/ && mv -f /tmp/CrashCore /tmp/mihomo-linux-armv8 && crash
+curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/mihomo-release/mihomo-linux-armv8.tar.gz | tar -zx -C /tmp/ && crash
 ```
 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash-Meta 内核
 # 三、 导入路由规则文件和 user.yaml
