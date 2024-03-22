@@ -11,20 +11,20 @@
   "log": { "level": "error", "timestamp": true },
   "dns": {
     "servers": [
-      { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_direct", "address": "h3://dns.alidns.com/dns-query", "address_resolver": "dns_ip", "detour": "DIRECT" },
-      { "tag": "dns_ip", "address": "https://223.5.5.5/dns-query", "detour": "DIRECT" },
+      { "tag": "dns_block", "address": "rcode://refused" },
+      { "tag": "dns_alidns", "address": "h3://223.5.5.5/dns-query", "detour": "DIRECT" },
+      { "tag": "dns_dnspod", "address": "https://1.12.12.12/dns-query", "detour": "DIRECT" },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
-      { "outbound": "any", "server": "dns_ip" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
+      { "outbound": "any", "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "rule_set": [ "ads" ], "server": "dns_block" },
-      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "rule_set": [ "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
-    "final": "dns_direct",
+    "final": [ "dns_alidns", "dns_dnspod" ],
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
@@ -112,6 +112,7 @@
         "tag": "ads",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/ads.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
         "download_detour": "DIRECT"
       },
@@ -119,6 +120,7 @@
         "tag": "private",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/private.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/private.srs",
         "download_detour": "DIRECT"
       },
@@ -126,6 +128,7 @@
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/microsoft-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/microsoft-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -133,6 +136,7 @@
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/apple-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/apple-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -140,6 +144,7 @@
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/google-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/google-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -147,6 +152,7 @@
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/games-cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/games-cn.srs",
         "download_detour": "DIRECT"
       },
@@ -154,20 +160,15 @@
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/networktest.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/networktest.srs",
-        "download_detour": "DIRECT"
-      },
-      {
-        "tag": "applications",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/applications.srs",
         "download_detour": "DIRECT"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/proxy.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/proxy.srs",
         "download_detour": "DIRECT"
       },
@@ -175,6 +176,7 @@
         "tag": "cn",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/cn.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cn.srs",
         "download_detour": "DIRECT"
       },
@@ -182,6 +184,7 @@
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/telegramip.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/telegramip.srs",
         "download_detour": "DIRECT"
       },
@@ -189,6 +192,7 @@
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/privateip.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/privateip.srs",
         "download_detour": "DIRECT"
       },
@@ -196,6 +200,7 @@
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
+        "path": "./ruleset/cnip.srs",
         "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cnip.srs",
         "download_detour": "DIRECT"
       }
