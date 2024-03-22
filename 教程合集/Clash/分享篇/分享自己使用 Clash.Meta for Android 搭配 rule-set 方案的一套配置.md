@@ -167,17 +167,9 @@ dns:
     - '+.sandai.net'
     - '+.n0808.com'
     - '+.3gppnetwork.org'
-  default-nameserver:
-    - https://223.5.5.5/dns-query
+ nameserver:
+    - 'https://223.5.5.5/dns-query#h3=true'
     - https://1.12.12.12/dns-query
-  nameserver:
-    - https://dns.alidns.com/dns-query#h3=true
-    - https://doh.pub/dns-query
-  nameserver-policy:
-    'rule-set:ads': rcode://success
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
-    'rule-set:cn,private': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
-    'rule-set:proxy': ['https://cloudflare-dns.com/dns-query#🪜 代理域名&h3=true', 'https://dns.google/dns-query#🪜 代理域名']
 
 proxies:
   - name: 🆓 免费节点
