@@ -1,6 +1,11 @@
-**更新日志（2024-03-06）：**
+**更新日志（2024-03-23）：**
 - 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 
+1. 修改 Clash DNS 配置，简化 fake-ip 模式的 DNS 配置，优化 redir-host 模式的 DNS 配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
+2. 修改 sing-box DNS 配置，增加多个 DNS 并发的配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
+3. 修改 sing-box ruleset 配置，增加路径 `path`，目录结构更美观
+
+**更新日志（2024-03-06）：**
 1. 修改 Clash rule-set 的 `rule-providers`，新增 `path` 参数，方便核对已添加的规则集
 2. 修改 Clash 的 `proxy-providers` 里 `path` 的文件夹名称为 `proxies`，避免歧义
 
