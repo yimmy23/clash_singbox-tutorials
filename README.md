@@ -4,14 +4,11 @@
 1. 修改 Clash DNS 配置，简化 fake-ip 模式的 DNS 配置，优化 redir-host 模式的 DNS 配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
 2. 修改 sing-box DNS 配置，增加多个 DNS 并发的配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
 3. 修改 sing-box ruleset 配置，增加路径 `path`，目录结构更美观
+4. 修改 sing-box for Android 分享的配置，精简 `inbounds` 出站类型并增加 `always_resolve_udp` 参数
 
 **更新日志（2024-03-06）：**
 1. 修改 Clash rule-set 的 `rule-providers`，新增 `path` 参数，方便核对已添加的规则集
 2. 修改 Clash 的 `proxy-providers` 里 `path` 的文件夹名称为 `proxies`，避免歧义
-
-**更新日志（2024-03-01）：**
-1. 修改 sing-box 里的 `dns.strategy`，改为 `"strategy": "prefer_ipv4"`（即 IPv4 优先，兼容性更好），并去除其它模块多此一举的 `domain_strategy` 相关设置
-2. 修改 sing-box for Android 教程，启用 `override_android_vpn`（使 Tun 经过 VPN）
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
 **ShellCrash（mix 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88mix%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
