@@ -9,7 +9,7 @@
 连接 SSH 后执行如下命令：
 ```
 curl -o /tmp/ShellCrash.tar.gz -L https://cdn.jsdelivr.net/gh/juewuy/ShellCrash@master/bin/ShellCrash.tar.gz
-mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
+mkdir -p /tmp/SC_tmp/ && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 ## 2. 在线安装
 连接 SSH 后执行如下命令：
@@ -65,7 +65,7 @@ curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clas
 
 连接 SSH 后执行如下命令：
 ```
-mkdir -p /data/AdGuardHome
+mkdir -p /data/AdGuardHome/
 # AdGuardHome Release 版
 curl -o /data/AdGuardHome/AdGuardHome -L https://cdn.jsdelivr.net/gh/DustinWin/clash-tools@main/AdGuardHome-release/AdGuardHome_linux_armv8
 # AdGuardHome Pre-release 版
