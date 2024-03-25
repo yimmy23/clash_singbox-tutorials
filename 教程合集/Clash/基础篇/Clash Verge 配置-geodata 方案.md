@@ -7,8 +7,8 @@
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-# mihomo 内核 Release 版
-curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-release/mihomo-windows-amd64.exe
+# mihomo 内核 Meta 版
+curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
 # mihomo 内核 Alpha 版
 curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
 ```
@@ -66,17 +66,9 @@ dns:
     - "*"
     - "+.lan"
     - "+.local"
-  default-nameserver:
-    - https://223.5.5.5/dns-query
-    - https://1.12.12.12/dns-query
   nameserver:
-    - https://dns.alidns.com/dns-query#h3=true
-    - https://doh.pub/dns-query
-  nameserver-policy:
-    'geosite:category-ads-all': rcode://success
-    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
-    'geosite:cn,private': [https://dns.alidns.com/dns-query#h3=true, https://doh.pub/dns-query]
-    'geosite:geolocation-!cn': ['https://cloudflare-dns.com/dns-query#🪜 代理域名&h3=true', 'https://dns.google/dns-query#🪜 代理域名']
+    - https://223.5.5.5/dns-queryh3=true
+    - https://1.12.12.12/dns-query
 ```
 ③ 再次右击新建的 Merge 文件，点击“启用”
 # 四、 启动 Clash
