@@ -119,13 +119,11 @@
     ],
     // geosite 配置项
     "geosite": {
-      "path": "./geodata/geosite.db",
       "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
       "download_detour": "DIRECT"
     },
     // geoip 配置项
     "geoip": {
-      "path": "./geodata/geoip.db",
       "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
       "download_detour": "DIRECT"
     }
