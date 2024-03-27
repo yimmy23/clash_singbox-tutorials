@@ -35,7 +35,7 @@ proxy-providers:
       enable: true
       # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
       lazy: true
-      url: "https://www.gstatic.com/generate_204"
+      url: https://www.gstatic.com/generate_204
       interval: 600
 
   🛫 我的机场 2:
@@ -48,7 +48,7 @@ proxy-providers:
     health-check:
       enable: true
       lazy: true
-      url: "https://www.gstatic.com/generate_204"
+      url: https://www.gstatic.com/generate_204
       interval: 600
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
