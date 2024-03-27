@@ -57,6 +57,7 @@
       // 修改为你的 Clash 订阅链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
       "path": "./providers/airport.yaml",
+      "includes": [ "香港|台湾|日本|韩国|新加坡|美国|英国" ],
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT"
