@@ -34,8 +34,8 @@
     { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "sniff_override_destination": true, "always_resolve_udp": true }
   ],
   "outbounds": [
-    { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🇬🇧 英国节点" ] },
-    { "tag": "📈 网络测试", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🇬🇧 英国节点" ] },
+    { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "📈 网络测试", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "🐟 漏网之鱼", "type": "selector", "outbounds": [ "🚀 节点选择", "🎯 全球直连" ] },
     { "tag": "🔗 直连域名", "type": "selector", "outbounds": [ "🎯 全球直连", "🚀 节点选择" ] },
     { "tag": "🪜 代理域名", "type": "selector", "outbounds": [ "🚀 节点选择", "🎯 全球直连" ] },
@@ -49,7 +49,7 @@
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
-    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点", "🇬🇧 英国节点" ] },
+    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "REJECT", "type": "block" },
     { "tag": "DIRECT", "type": "direct" },
     { "tag": "dns-out", "type": "dns" },
@@ -63,13 +63,12 @@
       "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
       "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } }
     },
-    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "香港.*BGP" ] },
-    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "台湾" ] },
-    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "日本" ] },
-    { "tag": "🇰🇷 韩国节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "韩国" ] },
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "新加坡" ] },
-    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "美国" ] },
-    { "tag": "🇬🇧 英国节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "英国" ] }
+    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇭🇰.*BGP|🇭🇰.*Akari" ] },
+    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇹🇼" ] },
+    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇯🇵" ] },
+    { "tag": "🇰🇷 韩国节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇰🇷" ] },
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇸🇬" ] },
+    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇺🇸" ] }
   ],
   "outbound_providers": [
     {
@@ -80,7 +79,7 @@
       // 修改为你的 Clash 订阅链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
       "path": "./providers/airport.yaml",
-      "includes": [ "香港|台湾|日本|韩国|新加坡|美国|英国" ],
+      "includes": [ "🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸" ],
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT"
