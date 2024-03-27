@@ -1,8 +1,10 @@
-**更新日志（2024-03-27）：**
+**更新日志（2024-03-28）：**
 - 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 
 1. 同步最新版 sing-box PuerNya 版内核功能，`outbound_providers` 代理集合支持 `includes` 和 `excludes` 筛选节点的功能
 2. 修改 Clash proxy-providers 配置，新增 `exclude-filter` 排除节点的功能
+3. 修改 Clash 和 sing-box 分享篇的配置，以 emoji flag 对节点进行筛选
+4. 其它格式微调
 
 **更新日志（2024-03-23）：**
 1. 修改 Clash DNS 配置，简化 fake-ip 模式的 DNS 配置，优化 redir-host 模式的 DNS 配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
