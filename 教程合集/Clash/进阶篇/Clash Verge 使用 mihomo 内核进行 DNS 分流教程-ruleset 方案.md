@@ -20,7 +20,7 @@
 tun:
   enable: true
   stack: system
-  dns-hijack: ['any:53']
+  dns-hijack: [any:53]
   auto-route: true
   auto-detect-interface: true
   # 严格路由，可防止地址泄漏，启用后你的设备将无法被其他设备访问
@@ -50,7 +50,7 @@ sniffer:
   enable: true
   parse-pure-ip: true
   sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
-  skip-domain: ['Mijia Cloud']
+  skip-domain: [Mijia Cloud]
 
 dns:
   enable: true
