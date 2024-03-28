@@ -523,7 +523,7 @@
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
-1. 进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7) 后按 Ctrl+F 组合键分别搜索“netflix”和“primevideo”
+1. 进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7)（目前该规则集已被删除，可 [Fork 我的项目](https://github.com/DustinWin/ruleset_geodata/fork)后自行生成需要的规则集文件）后按 Ctrl+F 组合键分别搜索“netflix”和“primevideo”
 2. 可以**精确搜索**到“netflix”和“primevideo”
 3. 选择 .srs 文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 jsDelivr CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
 - 注：以下只是节选，请酌情套用
