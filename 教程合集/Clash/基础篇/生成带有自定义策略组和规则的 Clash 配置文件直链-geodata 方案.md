@@ -113,7 +113,7 @@ rules:
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,geolocation-!cn,🪜 代理域名
   - GEOSITE,cn,🔗 直连域名
-  - GEOIP,telegram,📲 电报消息
+  - GEOIP,telegram,📲 电报消息,no-resolve
   - GEOIP,private,🔒 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
@@ -200,7 +200,7 @@ rules:
   - GEOSITE,category-ads-all,🛑 广告拦截
   - GEOSITE,speedtest,📈 网络测速
   - GEOSITE,gfw,🧱 GFWList 域名
-  - GEOIP,telegram,📲 电报消息
+  - GEOIP,telegram,📲 电报消息,no-resolve
   - MATCH,🐟 漏网之鱼
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
@@ -274,6 +274,6 @@ proxy-groups:
 rules:
   # 自定义规则优先放前面
   - GEOSITE,netflix,🎥 奈飞视频
-  - GEOIP,netflix,🎥 奈飞视频
+  - GEOIP,netflix,🎥 奈飞视频,no-resolve
   - GEOSITE,primevideo,🎬 Prime Video
 ```
