@@ -224,7 +224,7 @@ rules:
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
-  - RULE-SET,telegramip,📲 电报消息
+  - RULE-SET,telegramip,📲 电报消息,no-resolve
   - RULE-SET,privateip,🔒 私有网络,no-resolve
   - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
@@ -344,7 +344,7 @@ rules:
   - RULE-SET,ads,🛑 广告拦截
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
-  - RULE-SET,telegramip,📲 电报消息
+  - RULE-SET,telegramip,📲 电报消息,no-resolve
   - MATCH,🐟 漏网之鱼
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
@@ -457,6 +457,6 @@ rule-providers:
 # 规则
 rules:
   # 自定义规则优先放前面
-  - RULE-SET,netflix,🎥 奈飞视频
+  - RULE-SET,netflix,🎥 奈飞视频,no-resolve
   - RULE-SET,primevideo,🎬 Prime Video
 ```
