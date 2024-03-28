@@ -120,8 +120,8 @@
       { "rule_set": [ "networktest" ], "outbound": "📈 网络测速" },
       { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
       { "rule_set": [ "cn" ], "outbound": "🔗 直连域名" },
-      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息" },
-      { "rule_set": [ "privateip" ],  "outbound": "🔒 私有网络" },
+      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息", "skip_resolve": true },
+      { "rule_set": [ "privateip" ],  "outbound": "🔒 私有网络", "skip_resolve": true },
       { "rule_set": [ "cnip" ], "outbound": "🇨🇳 国内 IP" }
     ],
     // 规则集（binary 文件每天自动更新）
@@ -271,7 +271,7 @@
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 四、 修改出站或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
-① 进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7) 后按 Ctrl+F 组合键搜索“netflix”  
+① 进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7)（目前该规则集已被删除，可 [Fork 我的项目](https://github.com/DustinWin/ruleset_geodata/fork)后自行生成需要的规则集文件）后按 Ctrl+F 组合键搜索“netflix”  
 ② 可以精确搜索到“netflix”  
 ③ 选择 .srs 文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
 注：
