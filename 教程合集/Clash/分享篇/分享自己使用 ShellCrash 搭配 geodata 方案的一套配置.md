@@ -75,7 +75,7 @@ rules:
   - GEOSITE,networktest,📈 网络测试
   - GEOSITE,proxy,🪜 代理域名
   - GEOSITE,cn,🔗 直连域名
-  - GEOIP,telegram,📲 电报消息
+  - GEOIP,telegram,📲 电报消息,no-resolve
   - GEOIP,private,🔒 私有网络,no-resolve
   - GEOIP,cn,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
