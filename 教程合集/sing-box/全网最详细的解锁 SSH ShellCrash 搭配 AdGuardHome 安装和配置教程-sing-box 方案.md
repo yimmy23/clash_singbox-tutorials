@@ -212,7 +212,6 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 ④ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
 ⑤ 进入主菜单-> 7 内核进阶设置-> 1 ipv6 相关，若机场节点支持 IPv6，可开启 2 ipv6 透明代理；根据自身需要开启 4 CNIP 绕过内核  
 <img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
-返回到 7 内核进阶设置，选择 4 启用域名嗅探  
 进入 6 配置内置 DNS 服务，选择 7 禁用 DNS 劫持  
 - 注：若单独使用 ShellCrash，请不要禁用 DNS 劫持
 
