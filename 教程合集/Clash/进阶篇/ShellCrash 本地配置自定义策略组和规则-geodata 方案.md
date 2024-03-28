@@ -232,7 +232,7 @@ proxy-providers:
 - GEOSITE,speedtest,📈 网络测速
 - GEOSITE,geolocation-!cn,🪜 代理域名
 - GEOSITE,cn,🔗 直连域名
-- GEOIP,telegram,📲 电报消息
+- GEOIP,telegram,📲 电报消息,no-resolve
 - GEOIP,private,🔒 私有网络,no-resolve
 - GEOIP,cn,🇨🇳 国内 IP
 ```
@@ -271,7 +271,7 @@ proxy-providers:
 
 # 自定义规则优先放前面
 - GEOSITE,netflix,🎥 奈飞视频
-- GEOIP,netflix,🎥 奈飞视频
+- GEOIP,netflix,🎥 奈飞视频,no-resolve
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 五、 添加小规则
