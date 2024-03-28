@@ -124,8 +124,8 @@
       { "rule_set": [ "networktest" ], "outbound": "📈 网络测试" },
       { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
       { "rule_set": [ "cn" ], "outbound": "🔗 直连域名" },
-      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息" },
-      { "rule_set": [ "privateip" ],  "outbound": "🔒 私有网络" },
+      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息", "skip_resolve": true },
+      { "rule_set": [ "privateip" ],  "outbound": "🔒 私有网络", "skip_resolve": true },
       { "rule_set": [ "cnip" ], "outbound": "🇨🇳 国内 IP" }
     ],
     // 规则集（binary 文件每天自动更新）
@@ -369,7 +369,7 @@
       { "rule_set": [ "ads" ], "outbound": "🛑 广告拦截" },
       { "rule_set": [ "networktest" ], "outbound": "📈 网络测试" },
       { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
-      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息" },
+      { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息", "skip_resolve": true },
     ],
     // 规则集（binary 文件每天自动更新）
     "rule_set": [
