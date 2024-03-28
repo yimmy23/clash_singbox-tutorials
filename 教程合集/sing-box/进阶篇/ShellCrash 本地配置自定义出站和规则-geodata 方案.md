@@ -119,8 +119,8 @@
       { "geosite": [ "speedtest" ], "outbound": "📈 网络测速" },
       { "geosite": [ "geolocation-!cn" ], "outbound": "🪜 代理域名" },
       { "geosite": [ "cn" ], "outbound": "🔗 直连域名" },
-      { "geoip": [ "telegram" ], "outbound": "📲 电报消息" },
-      { "geoip": [ "private" ],  "outbound": "🔒 私有网络" },
+      { "geoip": [ "telegram" ], "outbound": "📲 电报消息", "skip_resolve": true },
+      { "geoip": [ "private" ],  "outbound": "🔒 私有网络", "skip_resolve": true },
       { "geoip": [ "cn" ], "outbound": "🇨🇳 国内 IP" }
     ],
     // geosite 配置项
@@ -209,7 +209,8 @@
     // 规则
     "rules": [
       // 自定义规则优先放前面
-      { "geosite": [ "netflix" ], "outbound": "🎥 奈飞视频" }
+      { "geosite": [ "netflix" ], "outbound": "🎥 奈飞视频" },
+      { "geoip": [ "netflix" ], "outbound": "🎥 奈飞视频", "skip_resolve": true }
     ]
   }
 }
