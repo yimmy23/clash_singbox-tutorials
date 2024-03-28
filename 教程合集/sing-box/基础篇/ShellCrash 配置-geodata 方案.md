@@ -48,10 +48,9 @@ curl -o $CRASHDIR/geoip.db -L https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-d
 
 6. 进入主菜单->4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）
 7. 进入主菜单->5 配置自动任务->1 添加自动任务，可以看到末尾就有上述添加的定时任务，输入对应的数字并回车后可设置执行条件
-8. 进入主菜单->7 内核进阶设置，启用 4 启用域名嗅探
-9. 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，选择 4 一键配置加密（推荐）
-10. 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴《[生成带有自定义策略组和规则的 sing-box 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .json 文件直链，启动服务即可
-11. 访问 Dashboard 面板 [http://192.168.31.1:9999/ui](http://192.168.31.1:9999/ui)，首次打开需要添加“后端地址”，输入 `http://192.168.31.1:9999` 并点击“添加”即可  
+8. 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，选择 4 一键配置加密（推荐）
+9. 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴《[生成带有自定义策略组和规则的 sing-box 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》中生成的配置文件 .json 文件直链，启动服务即可
+10. 访问 Dashboard 面板 [http://192.168.31.1:9999/ui](http://192.168.31.1:9999/ui)，首次打开需要添加“后端地址”，输入 `http://192.168.31.1:9999` 并点击“添加”即可  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/91ebae62-df79-4d1d-9998-d47adb69cf43" width="60%"/>
 
-12. 进入 Dashboard 面板->代理->代理提供者，点击“转圈图标”（Update），也可手动更新节点
+11. 进入 Dashboard 面板->代理->代理提供者，点击“转圈图标”（Update），也可手动更新节点
