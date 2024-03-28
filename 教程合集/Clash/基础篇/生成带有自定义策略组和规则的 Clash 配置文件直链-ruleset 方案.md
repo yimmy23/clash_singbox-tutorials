@@ -32,7 +32,7 @@ proxy-providers:
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     # 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
-    exclude-filter: "高倍"
+    exclude-filter: "高倍|×10"
     health-check:
       enable: true
       # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
@@ -46,7 +46,7 @@ proxy-providers:
     path: ./proxies/airport2.yaml
     interval: 43200
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
-    exclude-filter: "高倍"
+    exclude-filter: "高倍|×10"
     health-check:
       enable: true
       lazy: true
@@ -246,7 +246,7 @@ proxy-providers:
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     # 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
-    exclude-filter: "高倍"
+    exclude-filter: "高倍|×10"
     health-check:
       enable: true
       # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
@@ -260,7 +260,7 @@ proxy-providers:
     path: ./proxies/airport2.yaml
     interval: 43200
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
-    exclude-filter: "高倍"
+    exclude-filter: "高倍|×10"
     health-check:
       enable: true
       lazy: true
