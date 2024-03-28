@@ -36,7 +36,7 @@
       // 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，若不筛选可删除此配置项
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       // 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
-      "excludes": [ "高倍" ],
+      "excludes": "高倍|×10",
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT"
@@ -49,7 +49,7 @@
       "download_url": "https://example.com/xxx/xxx&flag=clash",
       "path": "./providers/airport2.yaml",
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
-      "excludes": [ "高倍" ],
+      "excludes": 高倍|×10",
       "download_ua": "clash.meta",
       "download_interval": "24h",
       "download_detour": "DIRECT"
