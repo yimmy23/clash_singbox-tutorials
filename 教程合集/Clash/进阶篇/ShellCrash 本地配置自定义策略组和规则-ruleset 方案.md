@@ -329,7 +329,7 @@ rule-providers:
 - RULE-SET,networktest,📈 网络测试
 - RULE-SET,proxy,🪜 代理域名
 - RULE-SET,cn,🔗 直连域名
-- RULE-SET,telegramip,📲 电报消息
+- RULE-SET,telegramip,📲 电报消息,no-resolve
 - RULE-SET,privateip,🔒 私有网络,no-resolve
 - RULE-SET,cnip,🇨🇳 国内 IP
 ```
@@ -380,7 +380,7 @@ rule-providers:
 # 规则
 
 # 自定义规则优先放前面
-- RULE-SET,netflix,🎥 奈飞视频
+- RULE-SET,netflix,🎥 奈飞视频,no-resolve
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 五、 添加小规则
