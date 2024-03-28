@@ -265,7 +265,7 @@
       { "geosite": [ "category-ads-all" ], "outbound": "🛑 广告拦截" },
       { "geosite": [ "speedtest" ], "outbound": "📈 网络测速" },
       { "geosite": [ "gfw" ], "outbound": "🧱 GFWList 域名" },
-      { "geoip": [ "telegram" ], "outbound": "📲 电报消息" },
+      { "geoip": [ "telegram" ], "outbound": "📲 电报消息", "skip_resolve": true },
     ],
     // geosite 配置项
     "geosite": {
@@ -396,7 +396,7 @@
     "rules": [
       // 自定义规则优先放前面
       { "geosite": [ "netflix" ], "outbound": "🎥 奈飞视频" },
-      { "geoip": [ "netflix" ], "outbound": "🎥 奈飞视频" }
+      { "geoip": [ "netflix" ], "outbound": "🎥 奈飞视频", "skip_resolve": true }
       { "geosite": [ "primevideo" ], "outbound": "🎬 Prime Video" }
     ]
   }
