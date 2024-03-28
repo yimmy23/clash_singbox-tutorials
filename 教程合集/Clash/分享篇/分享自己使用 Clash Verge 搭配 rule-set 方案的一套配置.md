@@ -179,7 +179,7 @@ rules:
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🔗 直连域名
-  - RULE-SET,telegramip,📲 电报消息
+  - RULE-SET,telegramip,📲 电报消息,no-resolve
   - RULE-SET,privateip,🔒 私有网络,no-resolve
   - RULE-SET,cnip,🇨🇳 国内 IP
   - MATCH,🐟 漏网之鱼
