@@ -299,7 +299,7 @@
     // 规则
     "rules": [
       // 自定义规则优先放前面
-      { "rule_set": [ "netflix" ], "outbound": "🎥 奈飞视频" }
+      { "rule_set": [ "netflix" ], "outbound": "🎥 奈飞视频", "skip_resolve": true }
     ],
     // 规则集（binary 文件每天自动更新）
     "rule_set": [
