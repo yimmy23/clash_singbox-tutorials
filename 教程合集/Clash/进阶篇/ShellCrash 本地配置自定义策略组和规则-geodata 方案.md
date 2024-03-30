@@ -233,9 +233,8 @@ proxy-providers:
 
 # 四、 修改策略组或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
-① 进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“netflix”  
-② 进入 [Loyalsoldier/geoip/text](https://github.com/Loyalsoldier/geoip/tree/release/text) 后按 Ctrl+F 组合键搜索“netflix”  
-③ 在上述两个网站中都能**精确搜索到结果**，那么就可以进行如下操作：  
+① 进入 [MetaCubeX/meta-rules-dat/meta/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/meta/geo) 后在左侧“Go to file”搜索框内搜索“netflix”  
+② 输入“netflix”可以搜索到“geo/geosite/netflix”和“geo/geoip/netflix”，那么就可以进行如下操作：  
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
