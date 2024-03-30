@@ -26,15 +26,13 @@ proxy-providers:
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
-    interval: 43200
+    interval: 86400
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     # 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -42,12 +40,11 @@ proxy-providers:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
-    interval: 43200
+    interval: 86400
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -58,7 +55,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/ads.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/ads.list"
     interval: 86400
 
   private:
@@ -66,7 +63,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/private.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/private.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/private.list"
     interval: 86400
 
   microsoft-cn:
@@ -74,7 +71,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/microsoft-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/microsoft-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/microsoft-cn.list"
     interval: 86400
 
   apple-cn:
@@ -82,7 +79,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/apple-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/apple-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/apple-cn.list"
     interval: 86400
 
   google-cn:
@@ -90,7 +87,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/google-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/google-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/google-cn.list"
     interval: 86400
 
   games-cn:
@@ -98,7 +95,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/games-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/games-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/games-cn.list"
     interval: 86400
 
   networktest:
@@ -106,7 +103,7 @@ rule-providers:
     behavior: classical
     format: text
     path: ./rules/networktest.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/networktest.list"
     interval: 86400
 
   proxy:
@@ -114,7 +111,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/proxy.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/proxy.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/proxy.list"
     interval: 86400
 
   cn:
@@ -122,7 +119,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/cn.list"
     interval: 86400
 
   telegramip:
@@ -130,7 +127,7 @@ rule-providers:
     behavior: ipcidr
     format: text
     path: ./rules/telegramip.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/telegramip.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/telegramip.list"
     interval: 86400
 
   privateip:
@@ -138,7 +135,7 @@ rule-providers:
     behavior: ipcidr
     format: text
     path: ./rules/privateip.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/privateip.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/privateip.list"
     interval: 86400
 
   cnip:
@@ -146,7 +143,7 @@ rule-providers:
     behavior: ipcidr
     format: text
     path: ./rules/cnip.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cnip.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/cnip.list"
     interval: 86400
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
@@ -267,10 +264,8 @@ rule-providers:
 # 自动选择节点，即按照 url 测试结果使用延迟最低的节点
 - name: 🇭🇰 香港节点
   type: url-test
-  # 测试后容差大于 100ms 才会切换到延迟低的那个节点
-  tolerance: 100
-  # 未选择到当前策略组时不会进行延迟测试
-  lazy: true
+  # 测试后容差大于 50ms 才会切换到延迟低的那个节点
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -279,8 +274,7 @@ rule-providers:
 
 - name: 🇹🇼 台湾节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -288,8 +282,7 @@ rule-providers:
 
 - name: 🇯🇵 日本节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -297,8 +290,7 @@ rule-providers:
 
 - name: 🇸🇬 新加坡节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -306,8 +298,7 @@ rule-providers:
 
 - name: 🇺🇸 美国节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -340,7 +331,7 @@ rule-providers:
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 后按 Ctrl+F 组合键搜索“netflix”  
 ② 可以精确搜索到“netflix”  
-③ 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
+③ 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，那么就可以这样编写：
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
@@ -355,7 +346,7 @@ rule-providers:
     behavior: classical
     format: yaml
     path: ./rules/netflix.yaml
-    url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml"
+    url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Netflix/Netflix_Classical.yaml"
     interval: 86400
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
@@ -364,10 +355,10 @@ rule-providers:
 ```
 # 策略组
 
-# 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
+# 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 50ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
 - name: 🎥 奈飞视频
   type: url-test
-  tolerance: 100
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
