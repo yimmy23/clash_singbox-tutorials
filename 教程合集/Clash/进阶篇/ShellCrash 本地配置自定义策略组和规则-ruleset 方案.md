@@ -331,7 +331,7 @@ rule-providers:
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 后按 Ctrl+F 组合键搜索“netflix”  
 ② 可以精确搜索到“netflix”  
-③ 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，那么就可以这样编写：
+③ 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，那么就可以这样编写：  
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
