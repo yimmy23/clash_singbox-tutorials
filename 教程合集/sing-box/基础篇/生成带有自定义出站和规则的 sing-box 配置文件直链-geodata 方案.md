@@ -126,12 +126,12 @@
     ],
     // geosite 配置项
     "geosite": {
-      "download_url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box/geosite.db",
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db",
       "download_detour": "PROXY"
     },
     // geoip 配置项
     "geoip": {
-      "download_url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box/geoip.db",
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db",
       "download_detour": "PROXY"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
@@ -272,13 +272,13 @@
     // geosite 配置项
     "geosite": {
       "path": "./geodata/geosite.db",
-      "download_url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box/geosite.db",
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db",
       "download_detour": "PROXY"
     },
     // geoip 配置项
     "geoip": {
       "path": "./geodata/geoip.db",
-      "download_url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box/geoip.db",
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db",
       "download_detour": "PROXY"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
