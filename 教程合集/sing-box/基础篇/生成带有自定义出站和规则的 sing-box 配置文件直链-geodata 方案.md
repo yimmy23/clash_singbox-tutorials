@@ -332,7 +332,7 @@
 3. 在 `🚀 节点选择` 出站下的 `outbounds` 里，可以将最稳定的节点放在最前面，配置完成后会自动选择最稳定的节点
 4. 在“国家或地区出站”里，`type` 为 `urltest` 就是自动选择延迟最低的节点，将 `urltest` 改成 `selector` 就是手动选择节点
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让[哔哩哔哩](https://www.bilibili.com)（B 站）自动选择延迟最低的香港节点，[AcFun](https://www.acfun.cn)（A 站）可以手动选择日本节点，这个需求怎么写？
-我们可以进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**，那么就可以这样编写：
+我们可以进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**，输入“bilibili”可以搜索到“geo/geosite/bilibili”和“geo-lite/geoip/bilibili”（须下载后缀带有“-lite”的 geoip 规则集文件），输入“acfun”仅搜索到“geo/geosite/acfun”，那么就可以这样编写：
 - 注：以下只是节选，请酌情套用
 
 ```
@@ -356,6 +356,7 @@
     "rules": [
       // 自定义规则优先放前面
       { "geosite": [ "bilibili" ], "outbound": "📺 哔哩哔哩" },
+      { "geoip": [ "bilibili" ], "outbound": "📺 哔哩哔哩", "skip_resolve": true  },
       { "geosite": [ "acfun" ], "outbound": "📽️ AcFun" }
     ]
   }
@@ -378,9 +379,8 @@
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
-1. 进入 [v2fly/domain-list-community/data](https://github.com/v2fly/domain-list-community/tree/master/data) 后按 Ctrl+F 组合键分别搜索“netflix”和“primevideo”
-2. 进入 [Loyalsoldier/geoip/text](https://github.com/Loyalsoldier/geoip/tree/release/text) 后按 Ctrl+F 组合键分别搜索“netflix”和“primevideo”
-3. 在 v2fly/domain-list-community/data 中可以**精确搜索**到“netflix”和“primevideo”，但在 Loyalsoldier/geoip/text 中只能**精确搜索**到“netflix”，那么我们可以这样编写：
+1. 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“netflix”和“primevideo”
+2. 输入“netflix”可以搜索到“geo/geosite/netflix”和“geo/geoip/netflix”，输入“primevideo”仅搜索到“geo/geosite/primevideo”，那么我们可以这样编写：
 - 注：以下只是节选，请酌情套用
 
 ```
