@@ -38,7 +38,7 @@
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT"
+      "download_detour": "PROXY"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -51,7 +51,7 @@
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT"
+      "download_detour": "PROXY"
     }
   ]
 }
@@ -77,6 +77,7 @@
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🈯 节点指定" ] },
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
+    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
 
     // 单个出站节点（以 vless 为例）
     {
@@ -91,12 +92,12 @@
     },
 
     // -------------------- 国家或地区出站 --------------------
-    // 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
-    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
-    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)台|tw|taiwan" ] },
-    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
-    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
+    // 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 50ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
+    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)台|tw|taiwan" ] },
+    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
+    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
   ]
 }
 ```
@@ -125,13 +126,13 @@
     ],
     // geosite 配置项
     "geosite": {
-      "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.db",
-      "download_detour": "DIRECT"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db",
+      "download_detour": "PROXY"
     },
     // geoip 配置项
     "geoip": {
-      "download_url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.db",
-      "download_detour": "DIRECT"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db",
+      "download_detour": "PROXY"
     }
   }
 }
@@ -194,8 +195,8 @@
 {
   // 出站
   "outbounds": [
-    // 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
-    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
+    // 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 50ms 才会切换到延迟低的那个节点
+    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
   ]
 }
 ```
@@ -228,8 +229,8 @@
   "route": {
     // 规则
     "rules": [
-      // 以 googleapis.cn 为后缀的所有域名走代理
-      { "domain_suffix": [ ".googleapis.cn" ], "outbound": "🈯 节点指定" },
+      // 以 googleapis.cn 为后缀（包括 googleapis.cn）的所有域名走代理
+      { "domain_suffix": [ "googleapis.cn" ], "outbound": "🈯 节点指定" },
       // 与哔哩哔哩相关的所有域名走直连
       { "geosite": [ "bilibili" ], "outbound": "DIRECT" },
       // 含有 ipv6 关键字的所有域名走直连
