@@ -39,7 +39,7 @@
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT"
+      "download_detour": "PROXY"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -52,7 +52,7 @@
       "excludes": 高倍|×10",
       "download_ua": "clash.meta",
       "download_interval": "24h",
-      "download_detour": "DIRECT"
+      "download_detour": "PROXY"
     }
   ]
 }
@@ -78,6 +78,7 @@
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🈯 节点指定" ] },
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
+    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
 
     // 单个出站节点（以 vless 为例）
     {
@@ -92,12 +93,12 @@
     },
 
     // -------------------- 国家或地区出站 --------------------
-    // 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
-    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
-    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)台|tw|taiwan" ] },
-    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
-    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
+    // 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 50ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
+    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)台|tw|taiwan" ] },
+    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
+    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
   ]
 }
 ```
@@ -131,96 +132,96 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/ads.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/ads.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "private",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/private.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/private.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/private.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/microsoft-cn.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/microsoft-cn.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/microsoft-cn.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/apple-cn.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/apple-cn.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/apple-cn.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/google-cn.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/google-cn.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/google-cn.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/games-cn.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/games-cn.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/games-cn.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/networktest.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/networktest.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/proxy.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/proxy.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/cn.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cn.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cn.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/telegramip.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/telegramip.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/privateip.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/privateip.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/privateip.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/cnip.srs",
-        "url": "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-ruleset/cnip.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cnip.srs",
+        "download_detour": "PROXY"
       }
     ]
   }
@@ -271,9 +272,9 @@
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 四、 修改出站或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
-① 进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7)（目前该规则集已被删除，可 [Fork 我的项目](https://github.com/DustinWin/ruleset_geodata/fork)后自行生成需要的规则集文件）后按 Ctrl+F 组合键搜索“netflix”  
-② 可以精确搜索到“netflix”  
-③ 选择 .srs 文件，然后点击“Raw”获取下载地址，并将下载地址[转换为 CDN 链接](https://www.jsdelivr.com/github)，那么就可以这样编写：
+① 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内搜索“netflix”  
+② 输入“netflix”可以搜索到“geo/geosite/netflix.srs”和“geo/geoip/netflix.srs”
+③ 点击 .srs 文件，然后点击“Raw”获取下载地址，那么就可以这样编写：
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
@@ -284,8 +285,8 @@
 {
   // 出站
   "outbounds": [
-    // 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
-    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 100, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
+    // 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 50ms 才会切换到延迟低的那个节点
+    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
   ]
 }
 ```
@@ -299,7 +300,8 @@
     // 规则
     "rules": [
       // 自定义规则优先放前面
-      { "rule_set": [ "netflix" ], "outbound": "🎥 奈飞视频", "skip_resolve": true }
+      { "rule_set": [ "netflix" ], "outbound": "🎥 奈飞视频" }
+      { "rule_set": [ "netflixip" ], "outbound": "🎥 奈飞视频", "skip_resolve": true }
     ],
     // 规则集（binary 文件每天自动更新）
     "rule_set": [
@@ -308,8 +310,16 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/netflix.srs",
-        "url": "https://cdn.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/bm7/Netflix.srs",
-        "download_detour": "DIRECT"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/netflix.srs",
+        "download_detour": "PROXY"
+      },
+      {
+        "tag": "netflixip",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/netflixip.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs",
+        "download_detour": "PROXY"
       }
     ]
   }
@@ -328,8 +338,8 @@
   "route": {
     // 规则
     "rules": [
-      // 以 googleapis.cn 为后缀的所有域名走代理
-      { "domain_suffix": [ ".googleapis.cn" ], "outbound": "🈯 节点指定" },
+      // 以 googleapis.cn 为后缀（包括 googleapis.cn）的所有域名走代理
+      { "domain_suffix": [ "googleapis.cn" ], "outbound": "🈯 节点指定" },
       // 与哔哩哔哩相关的所有域名走直连
       { "geosite": [ "bilibili" ], "outbound": "DIRECT" },
       // 含有 ipv6 关键字的所有域名走直连
