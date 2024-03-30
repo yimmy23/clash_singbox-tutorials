@@ -14,7 +14,7 @@ proxy-providers:
     # 修改为你的 Clash 订阅链接
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport.yaml
-    interval: 43200
+    interval: 86400
     filter: "🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸"
     health-check:
       enable: true
@@ -36,7 +36,7 @@ profile: {store-selected: true, store-fake-ip: true}
 sniffer:
   enable: true
   parse-pure-ip: true
-  sniff: {HTTP: {ports: [80, 8080-8880], override-destination: true}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
+  sniff: {HTTP: {ports: [80, 8080-8880]}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
   skip-domain: [Mijia Cloud]
 
 tun:
@@ -205,13 +205,12 @@ proxy-groups:
   - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
-  # 采用节点负载均衡策略，优点是更稳定，速度可能有提升；推荐在节点复用比较多的情况下使用
-  - {name: 🇭🇰 香港节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "🇭🇰"}
-  - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "🇹🇼"}
-  - {name: 🇯🇵 日本节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "🇯🇵"}
-  - {name: 🇰🇷 韩国节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "🇰🇷"}
-  - {name: 🇸🇬 新加坡节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "🇸🇬"}
-  - {name: 🇺🇸 美国节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场], filter: "🇺🇸"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇭🇰"}
+  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇹🇼"}
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇯🇵"}
+  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇰🇷"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇸🇬"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇺🇸"}
 
 rule-providers:
   ads:
@@ -219,7 +218,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/ads.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/ads.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/ads.list"
     interval: 86400
 
   applications:
@@ -227,7 +226,7 @@ rule-providers:
     behavior: classical
     format: text
     path: ./rules/applications.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/applications.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/applications.list"
     interval: 86400
 
   private:
@@ -235,7 +234,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/private.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/private.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/private.list"
     interval: 86400
 
   microsoft-cn:
@@ -243,7 +242,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/microsoft-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/microsoft-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/microsoft-cn.list"
     interval: 86400
 
   apple-cn:
@@ -251,7 +250,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/apple-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/apple-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/apple-cn.list"
     interval: 86400
 
   google-cn:
@@ -259,7 +258,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/google-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/google-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/google-cn.list"
     interval: 86400
 
   games-cn:
@@ -267,7 +266,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/games-cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/games-cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/games-cn.list"
     interval: 86400
 
   networktest:
@@ -275,7 +274,7 @@ rule-providers:
     behavior: classical
     format: text
     path: ./rules/networktest.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/networktest.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/networktest.list"
     interval: 86400
 
   proxy:
@@ -283,7 +282,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/proxy.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/proxy.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/proxy.list"
     interval: 86400
 
   cn:
@@ -291,7 +290,7 @@ rule-providers:
     behavior: domain
     format: text
     path: ./rules/cn.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cn.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/cn.list"
     interval: 86400
 
   telegramip:
@@ -299,7 +298,7 @@ rule-providers:
     behavior: ipcidr
     format: text
     path: ./rules/telegramip.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/telegramip.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/telegramip.list"
     interval: 86400
 
   privateip:
@@ -307,7 +306,7 @@ rule-providers:
     behavior: ipcidr
     format: text
     path: ./rules/privateip.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/privateip.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/privateip.list"
     interval: 86400
 
   cnip:
@@ -315,7 +314,7 @@ rule-providers:
     behavior: ipcidr
     format: text
     path: ./rules/cnip.list
-    url: "https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-ruleset/cnip.list"
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/cnip.list"
     interval: 86400
 
 rules:
