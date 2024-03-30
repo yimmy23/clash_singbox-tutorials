@@ -1,10 +1,15 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0+ 版本编写
-
-**更新日志（2024-03-30）：**  
+**更新日志（2024-03-31）：**  
 注：
 - 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟（约 12 小时），请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 - 2. 近期更新过 [DustinWin/ruleset_geodata/rule_set](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#-sing-box-%E5%86%85%E6%A0%B8) 项目内规则集的用户，请及时更新规则集文件（**必须使用 sing-box PuerNya 版内核 v1.9.0+ 版本**）
 
+1. 修改 Clash rule-providers 配置，将 `url` 改为 `https://raw.githubusercontent.com` 地址，可以快速同步更新
+2. 修改 sing-box rule_set 配置，将 `url` 改为 `https://raw.githubusercontent.com` 地址，可以快速同步更新
+3. 修改 sing-box 配置，将 `download_detour` 全部设置为 `PROXY`
+4. 其它优化（包括文案描述，非重要参数删改等）
+
+**更新日志（2024-03-30）：**  
 1. 同步最新版 sing-box PuerNya 版内核功能，`outbound_providers` 代理集合支持 `includes` 和 `excludes` 筛选节点的功能
 2. 修改 Clash proxy-providers 配置，新增 `exclude-filter` 排除节点的功能
 3. 修改 Clash sniffer 配置，删除 `override-destination: true` 配置项（不建议开启）
@@ -13,12 +18,6 @@
 6. 修改使用 sing-box PuerNya 版内核的 ShellCrash 配置，关闭域名嗅探（ShellCrash 会默认打开域名嗅探，此关闭操作是设置 `"sniff_override_destination": false` 配置项）
 7. 修改 Clash 和 sing-box 分享篇的配置，以 emoji flag 对节点进行筛选，sing-box PuerNya for Android 删除 `"sniff_override_destination": true` 配置项
 8. 其它格式微调
-
-**更新日志（2024-03-23）：**
-1. 修改 Clash DNS 配置，简化 fake-ip 模式的 DNS 配置，优化 redir-host 模式的 DNS 配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
-2. 修改 sing-box DNS 配置，增加多个 DNS 并发的配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
-3. 修改 sing-box ruleset 配置，增加路径 `path`，目录结构更美观
-4. 修改 sing-box for Android 分享的配置，精简 `inbounds` 出站类型并增加 `always_resolve_udp` 参数
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
 **ShellCrash（mix 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88mix%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
