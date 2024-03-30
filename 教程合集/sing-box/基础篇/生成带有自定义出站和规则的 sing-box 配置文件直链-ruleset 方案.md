@@ -568,7 +568,6 @@
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/netflix.srs",
         "download_detour": "PROXY"
       },
-      "rule_set": [
       {
         "tag": "netflixip",
         "type": "remote",
