@@ -27,7 +27,7 @@ proxy-providers:
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
-    interval: 43200
+    interval: 86400
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     # 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
@@ -35,7 +35,6 @@ proxy-providers:
     health-check:
       enable: true
       # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -43,12 +42,11 @@ proxy-providers:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
-    interval: 43200
+    interval: 86400
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -91,13 +89,13 @@ proxy-groups:
 
   # ----------------国家或地区策略组---------------------
   # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试；筛选出“香港”节点，支持正则表达式
-  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
-  - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
+  - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
   # 若有多个机场，可以使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, include-all-providers: true, filter: "(?i)日本|jp|japan"}
-  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
-  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "(?i)日本|jp|japan"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
 
 # 规则
 rules:
@@ -131,7 +129,7 @@ proxy-providers:
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx=1&flag=clash"
     path: ./proxies/airport1.yaml
-    interval: 43200
+    interval: 86400
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     # 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
@@ -139,7 +137,6 @@ proxy-providers:
     health-check:
       enable: true
       # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -147,12 +144,11 @@ proxy-providers:
     type: http
     url: "https://example.com/xxx/xxx=2&flag=clash"
     path: ./proxies/airport2.yaml
-    interval: 43200
+    interval: 86400
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -187,13 +183,13 @@ proxy-groups:
 
   # ----------------国家或地区策略组---------------------
   # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；容差大于 100ms 就会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试；筛选出“香港”节点，支持正则表达式
-  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
-  - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
+  - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
   # 若有多个机场，可以使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 100, lazy: true, include-all-providers: true, filter: "(?i)日本|jp|japan"}
-  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
-  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "(?i)日本|jp|japan"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
 
 rules:
   # 自定义规则优先放前面
@@ -227,7 +223,7 @@ proxy-groups:
   # 默认选择日本节点
   - {name: 📽️ AcFun, type: select, proxies: [🇯🇵 日本节点, 🎯 全球直连]}
   # 自动选择延迟最低的香港节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "(?i)港|hk|hongkong|hong kong"}
   # 手动选择日本节点
   - {name: 🇯🇵 日本节点, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan"}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
@@ -268,7 +264,7 @@ proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
   - {name: 🎥 奈飞视频, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
   # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-  - {name: 🎬 Prime Video, type: url-test, tolerance: 100, lazy: true, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
+  - {name: 🎬 Prime Video, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
 
 # 规则
 rules:
