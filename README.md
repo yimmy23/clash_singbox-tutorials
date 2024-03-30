@@ -1,3 +1,5 @@
+# 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0+ 版本编写**
+
 **更新日志（2024-03-30）：**  
 注：
 - 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
