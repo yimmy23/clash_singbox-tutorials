@@ -34,7 +34,6 @@ proxy-providers:
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -88,7 +87,7 @@ proxy-groups:
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
   # ----------------国家或地区策略组---------------------
-  # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试；筛选出“香港”节点，支持正则表达式
+  # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 100ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
@@ -136,7 +135,6 @@ proxy-providers:
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -182,7 +180,7 @@ proxy-groups:
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
   # ----------------国家或地区策略组---------------------
-  # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；容差大于 100ms 就会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试；筛选出“香港”节点，支持正则表达式
+  # 自动选择节点，即按照 url 测试结果使用延迟最低的节点；容差大于 100ms 就会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
