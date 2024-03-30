@@ -1,13 +1,16 @@
-**更新日志（2024-03-29）：**
-- 注：[jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
+**更新日志（2024-03-30）：**  
+注：
+- 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟，请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
+- 2. 近期更新过 [DustinWin/ruleset_geodata/rule_set](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#-sing-box-%E5%86%85%E6%A0%B8) 项目内规则集的用户，请及时更新规则集文件（**必须使用 sing-box PuerNya 版内核 v1.9.0+ 版本**）
 
 1. 同步最新版 sing-box PuerNya 版内核功能，`outbound_providers` 代理集合支持 `includes` 和 `excludes` 筛选节点的功能
 2. 修改 Clash proxy-providers 配置，新增 `exclude-filter` 排除节点的功能
-3. 修改 Clash rules 配置，部分规则添加 `no-resolve`
-4. 修改 sing-box route.rules 配置，部分规则添加 `"skip_resolve": true`
-5. 修改使用 sing-box PuerNya 版内核的 ShellCrash 配置，关闭域名嗅探（ShellCrash 会默认打开域名嗅探，此关闭操作是设置 `"sniff_override_destination": false` 配置项）
-6. 修改 Clash 和 sing-box 分享篇的配置，以 emoji flag 对节点进行筛选，sing-box PuerNya for Android 删除 `"sniff_override_destination": true` 配置项
-7. 其它格式微调
+3. 修改 Clash sniffer 配置，删除 `override-destination: true` 配置项（不建议开启）
+4. 修改 Clash rules 配置，部分规则添加 `no-resolve`
+5. 修改 sing-box route.rules 配置，部分规则添加 `"skip_resolve": true`
+6. 修改使用 sing-box PuerNya 版内核的 ShellCrash 配置，关闭域名嗅探（ShellCrash 会默认打开域名嗅探，此关闭操作是设置 `"sniff_override_destination": false` 配置项）
+7. 修改 Clash 和 sing-box 分享篇的配置，以 emoji flag 对节点进行筛选，sing-box PuerNya for Android 删除 `"sniff_override_destination": true` 配置项
+8. 其它格式微调
 
 **更新日志（2024-03-23）：**
 1. 修改 Clash DNS 配置，简化 fake-ip 模式的 DNS 配置，优化 redir-host 模式的 DNS 配置，且全部改为 IP 性质的 DNS 服务器并启用 http/3 特性，提高效率
