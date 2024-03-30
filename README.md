@@ -1,4 +1,4 @@
-# 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0+ 版本编写**
+# 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0+ 版本编写
 
 **更新日志（2024-03-30）：**  
 注：
