@@ -204,10 +204,9 @@ taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
 curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/ruleset-fakeip-user.yaml
 ```
-4. 再次进入 Clash Verge->订阅，右击新建的 Merge 文件，点击“启用”
+4. 再次进入 Clash Verge->订阅，右击新建的 Merge 文件，点击“启用”  
 小窍门：
-- 1. 可以配置一键更新 mihomo 内核和自定义配置文件的脚本  
-- 2. 编辑本文文档，粘贴如下内容：
+- 1. 可以配置一键更新 mihomo 内核和自定义配置文件的脚本，编辑本文文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
@@ -217,7 +216,7 @@ curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghpr
 curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/ruleset-fakeip-user.yaml
 pause
 ```
-- 3. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
+- 2. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
 # 四、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd
 1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`  
