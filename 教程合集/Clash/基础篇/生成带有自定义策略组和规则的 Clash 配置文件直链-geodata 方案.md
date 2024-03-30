@@ -220,7 +220,7 @@ proxy-groups:
   - {name: 📺 哔哩哔哩, type: select, proxies: [🇭🇰 香港节点, 🎯 全球直连]}
   # 默认选择日本节点
   - {name: 📽️ AcFun, type: select, proxies: [🇯🇵 日本节点, 🎯 全球直连]}
-  # 自动选择延迟最低的香港节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
+  # 自动选择延迟最低的香港节点；容差大于 100ms 才会切换到延迟低的那个节点
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "(?i)港|hk|hongkong|hong kong"}
   # 手动选择日本节点
   - {name: 🇯🇵 日本节点, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan"}
@@ -261,7 +261,7 @@ rules:
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
   - {name: 🎥 奈飞视频, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
-  # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
+  # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点
   - {name: 🎬 Prime Video, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
 
 # 规则
