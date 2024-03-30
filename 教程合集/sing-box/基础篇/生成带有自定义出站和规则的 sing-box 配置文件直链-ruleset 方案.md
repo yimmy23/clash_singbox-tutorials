@@ -459,7 +459,7 @@
 3. 在 `🚀 节点选择` 出站下的 `outbounds` 里，可以将最稳定的节点放在最前面，配置完成后会自动选择最稳定的节点
 4. 在“国家或地区出站”里，`type` 为 `urltest` 就是自动选择延迟最低的节点，将 `urltest` 改成 `selector` 就是手动选择节点
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让[哔哩哔哩](https://www.bilibili.com)（B 站）自动选择延迟最低的香港节点，[AcFun](https://www.acfun.cn)（A 站）可以手动选择日本节点，这个需求怎么写？
-我们可以进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7) 后按 Ctrl+F 组合键搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**
+我们可以进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**，输入“bilibili”可以搜索到“geo/geosite/bilibili.srs”和“geo-lite/geoip/bilibili.srs”，输入“acfun”仅搜索到“geo/geosite/acfun.srs”
 选择 .srs 文件，然后点击“Raw”获取下载地址，那么就可以这样编写：
 - 注：以下只是节选，请酌情套用
 
@@ -484,6 +484,7 @@
     "rules": [
       // 自定义规则优先放前面
       { "rule_set": [ "bilibili" ], "outbound": "📺 哔哩哔哩" },
+      { "rule_set": [ "bilibiliip" ], "outbound": "📺 哔哩哔哩", "skip_resolve": true },
       { "rule_set": [ "acfun" ], "outbound": "📽️ AcFun" }
     ],
     // 规则集（binary 文件每天自动更新）
@@ -493,7 +494,15 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/bilibili.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/bm7/BiliBili.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bilibili.srs",
+        "download_detour": "PROXY"
+      },
+      {
+        "tag": "bilibiliip",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/bilibiliip.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/bilibili.srs",
         "download_detour": "PROXY"
       },
       {
@@ -501,7 +510,7 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/acfun.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/bm7/AcFun.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/acfun.srs",
         "download_detour": "PROXY"
       }
     ]
@@ -525,9 +534,8 @@
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
-1. 进入 [MetaCubeX/meta-rules-dat/sing/bm7](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/bm7)（目前该规则集已被删除，可 [Fork 我的项目](https://github.com/DustinWin/ruleset_geodata/fork)后自行生成需要的规则集文件）后按 Ctrl+F 组合键分别搜索“netflix”和“primevideo”
-2. 可以**精确搜索**到“netflix”和“primevideo”
-3. 选择 .srs 文件，然后点击“Raw”获取下载地址，那么就可以这样编写：
+1. 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“netflix”和“primevideo”
+2. 输入“netflix”可以搜索到“geo/geosite/netflix.srs”和“geo/geoip/netflix.srs”，输入“primevideo”仅搜索到“geo/geosite/primevideo.srs”，那么就可以这样编写：
 - 注：以下只是节选，请酌情套用
 
 ```
@@ -544,7 +552,8 @@
     // 规则
     "rules": [
       // 自定义规则优先放前面
-      { "rule_set": [ "netflix" ], "outbound": "🎥 奈飞视频", "skip_resolve": true },
+      { "rule_set": [ "netflix" ], "outbound": "🎥 奈飞视频" },
+      { "rule_set": [ "netflixip" ], "outbound": "🎥 奈飞视频", "skip_resolve": true },
       { "rule_set": [ "primevideo" ], "outbound": "🎬 Prime Video" }
     ],
     // 规则集（binary 文件每天自动更新）
@@ -554,7 +563,16 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/netflix.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/bm7/Netflix.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/netflix.srs",
+        "download_detour": "PROXY"
+      },
+      "rule_set": [
+      {
+        "tag": "netflixip",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/netflixip.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs",
         "download_detour": "PROXY"
       },
       {
@@ -562,7 +580,7 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/primevideo.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/bm7/PrimeVideo.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/primevideo.srs",
         "download_detour": "PROXY"
       }
     ]
