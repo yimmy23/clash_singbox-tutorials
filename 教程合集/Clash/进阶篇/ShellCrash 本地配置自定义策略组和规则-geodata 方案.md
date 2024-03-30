@@ -274,7 +274,7 @@ proxy-providers:
 ```
 # 规则
 
-# 以 googleapis.cn 为后缀的所有域名走代理
+# 以 googleapis.cn 为后缀（包括 googleapis.cn）的所有域名走代理
 - DOMAIN-SUFFIX,googleapis.cn,🚀 节点选择
 # 与哔哩哔哩相关的所有域名走直连
 - GEOSITE,bilibili,DIRECT
