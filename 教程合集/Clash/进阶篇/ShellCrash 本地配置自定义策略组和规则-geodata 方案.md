@@ -26,15 +26,13 @@ proxy-providers:
     # 机场订阅链接，使用 Clash 链接
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport1.yaml
-    interval: 43200
+    interval: 86400
     # 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，不筛选可删除此配置项
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     # 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      # 未选择到当前代理集合时，不会进行测试，有多个代理集合时可使用
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 
@@ -42,12 +40,11 @@ proxy-providers:
     type: http
     url: "https://example.com/xxx/xxx&flag=clash"
     path: ./proxies/airport2.yaml
-    interval: 43200
+    interval: 86400
     filter: "(?i)港|hk|hongkong|hong kong|台|tw|taiwan|日本|jp|japan|新|sg|singapore|美|us|unitedstates|united states"
     exclude-filter: "高倍|×10"
     health-check:
       enable: true
-      lazy: true
       url: https://www.gstatic.com/generate_204
       interval: 600
 ```
@@ -170,10 +167,8 @@ proxy-providers:
 # 自动选择节点，即按照 url 测试结果使用延迟最低的节点
 - name: 🇭🇰 香港节点
   type: url-test
-  # 测试后容差大于 100ms 才会切换到延迟低的那个节点
-  tolerance: 100
-  # 未选择到当前策略组时不会进行延迟测试
-  lazy: true
+  # 测试后容差大于 50ms 才会切换到延迟低的那个节点
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -182,8 +177,7 @@ proxy-providers:
 
 - name: 🇹🇼 台湾节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -191,8 +185,7 @@ proxy-providers:
 
 - name: 🇯🇵 日本节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -200,8 +193,7 @@ proxy-providers:
 
 - name: 🇸🇬 新加坡节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -209,8 +201,7 @@ proxy-providers:
 
 - name: 🇺🇸 美国节点
   type: url-test
-  tolerance: 100
-  lazy: true
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
@@ -254,10 +245,10 @@ proxy-providers:
 ```
 # 策略组
 
-# 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 100ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
+# 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 50ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
 - name: 🎥 奈飞视频
   type: url-test
-  tolerance: 100
+  tolerance: 50
   use:
     - 🛫 我的机场 1
     - 🛫 我的机场 2
