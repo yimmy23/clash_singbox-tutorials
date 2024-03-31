@@ -47,8 +47,7 @@
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
     { "tag": "DIRECT", "type": "direct" },
-    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
-    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "PROXY", "DIRECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
     // 单个出站节点（以 vless 为例）
@@ -87,8 +86,7 @@
       // 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -100,8 +98,7 @@
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       "excludes": [ "高倍|×10" ],
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     }
   ],
   // 路由
@@ -136,8 +133,7 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/ads.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs"
       },
       // 若使用 ShellCrash，由于无法判断本机进程（默认删除 `process_name` 规则），需删除此条 `applications`
       {
@@ -145,96 +141,84 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/applications.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/applications.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/applications.srs"
       },
       {
         "tag": "private",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/private.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/private.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/private.srs"
       },
       {
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/microsoft-cn.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/microsoft-cn.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/microsoft-cn.srs"
       },
       {
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/apple-cn.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/apple-cn.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/apple-cn.srs"
       },
       {
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/google-cn.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/google-cn.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/google-cn.srs"
       },
       {
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/games-cn.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/games-cn.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/games-cn.srs"
       },
       {
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/networktest.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/proxy.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs"
       },
       {
         "tag": "cn",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/cn.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cn.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cn.srs"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/telegramip.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs"
       },
       {
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/privateip.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/privateip.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/privateip.srs"
       },
       {
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/cnip.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cnip.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cnip.srs"
       }
     ],
     // 默认出站，即没有命中规则的域名或 IP 走该规则
@@ -303,8 +287,7 @@
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
     { "tag": "DIRECT", "type": "direct" },
-    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
-    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "PROXY", "DIRECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
     // 单个出站节点（以 vless 为例）
@@ -343,8 +326,7 @@
       // 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
       "excludes": [ "高倍|×10" ],
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -356,8 +338,7 @@
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       "excludes": [ "高倍|×10" ],
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     }
   ],
   // 路由
@@ -380,32 +361,28 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/ads.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs"
       },
       {
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/networktest.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/proxy.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/telegramip.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs"
       }
     ],
     // 默认出站，即没有命中规则的域名或 IP 走该规则
@@ -495,24 +472,21 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/bilibili.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bilibili.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/bilibili.srs"
       },
       {
         "tag": "bilibiliip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/bilibiliip.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/bilibili.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo-lite/geoip/bilibili.srs"
       },
       {
         "tag": "acfun",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/acfun.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/acfun.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/acfun.srs"
       }
     ]
   }
@@ -565,24 +539,21 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/netflix.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/netflix.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/netflix.srs"
       },
       {
         "tag": "netflixip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/netflixip.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/netflix.srs"
       },
       {
         "tag": "primevideo",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/primevideo.srs",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/primevideo.srs",
-        "download_detour": "PROXY"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/primevideo.srs"
       }
     ]
   }
