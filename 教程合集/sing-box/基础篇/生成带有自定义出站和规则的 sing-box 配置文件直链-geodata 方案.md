@@ -44,8 +44,7 @@
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
     { "tag": "DIRECT", "type": "direct" },
-    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
-    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "PROXY", "DIRECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
     // 单个出站节点（以 vless 为例）
@@ -84,8 +83,7 @@
       // 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -97,8 +95,7 @@
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     }
   ],
   // 路由
@@ -126,13 +123,11 @@
     ],
     // geosite 配置项
     "geosite": {
-      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db",
-      "download_detour": "PROXY"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db"
     },
     // geoip 配置项
     "geoip": {
-      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db",
-      "download_detour": "PROXY"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
     "final": "🐟 漏网之鱼"
@@ -199,8 +194,7 @@
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
     { "tag": "DIRECT", "type": "direct" },
-    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
-    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "PROXY", "DIRECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
     // 单个出站节点（以 vless 为例）
@@ -239,8 +233,7 @@
       // 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     },
     {
       "tag": "🛫 我的机场 2",
@@ -252,8 +245,7 @@
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       "excludes": "高倍|×10",
       "download_ua": "clash.meta",
-      "download_interval": "24h",
-      "download_detour": "PROXY"
+      "download_interval": "24h"
     }
   ],
   // 路由
@@ -272,14 +264,12 @@
     // geosite 配置项
     "geosite": {
       "path": "./geodata/geosite.db",
-      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db",
-      "download_detour": "PROXY"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db"
     },
     // geoip 配置项
     "geoip": {
       "path": "./geodata/geoip.db",
-      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db",
-      "download_detour": "PROXY"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
     "final": "🐟 漏网之鱼"
