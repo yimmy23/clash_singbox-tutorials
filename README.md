@@ -1,13 +1,15 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0+ 版本编写
-**更新日志（2024-03-31）：**  
+**更新日志（2024-04-01）：**  
 注：
 - 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟（约 12 小时），请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 - 2. 近期更新过 [DustinWin/ruleset_geodata/rule_set](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#-sing-box-%E5%86%85%E6%A0%B8) 项目内规则集的用户，请及时更新规则集文件（**必须使用 sing-box PuerNya 版内核 v1.9.0+ 版本**）
 
 1. 修改 Clash rule-providers 配置，将 `url` 改为 `https://raw.githubusercontent.com` 地址，可以快速同步更新
-2. 修改 sing-box rule_set 配置，将 `url` 改为 `https://raw.githubusercontent.com` 地址，可以快速同步更新
-3. 修改 sing-box 配置，将 `download_detour` 全部设置为 `PROXY`
-4. 其它优化（包括文案描述，非重要参数删改等）
+2. 修改 Clash dns 配置，删除 redir-host 模式下国外 DNS 服务器开启 http/3 特性的配置项，提高兼容性
+3. 修改 sing-box outbounds 配置，优化 `GLOBAL` 出站的配置，与 mihomo 内核的 `GLOBAL` 一致 
+4. 修改 sing-box rule_set 配置，将 `url` 改为 `https://raw.githubusercontent.com` 地址，可以快速同步更新
+5. 修改 sing-box 配置，~将 `download_detour` 全部设置为 `PROXY`~，删除 `download_detour` 配置项，使其对应项走默认出站（走代理）
+6. 其它优化（包括文案描述，非重要参数删改等）
 
 **更新日志（2024-03-30）：**  
 1. 同步最新版 sing-box PuerNya 版内核功能，`outbound_providers` 代理集合支持 `includes` 和 `excludes` 筛选节点的功能
