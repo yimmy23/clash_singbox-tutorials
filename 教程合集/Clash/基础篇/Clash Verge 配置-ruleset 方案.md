@@ -1,5 +1,5 @@
 # [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)（Windows 端）配置-ruleset 方案
-- 注：此方案此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
+- 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 ---
 # 一、 导入或更新 mihomo 内核
 以管理员身份运行 CMD，执行如下命令：
