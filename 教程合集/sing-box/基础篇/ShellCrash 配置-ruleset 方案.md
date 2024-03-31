@@ -1,6 +1,6 @@
 # [ShellCrash](https://github.com/juewuy/ShellCrash) 配置-ruleset  方案
 注：
-- 1. 此方案此方案适用于 [sing-box](https://github.com/PuerNya/sing-box)，采用 `rule_set` 规则
+- 1. 此方案适用于 [sing-box](https://github.com/PuerNya/sing-box)，采用 `rule_set` 规则
 - 2. 本教程中的下载链接以 CPU 架构 ARMv8 为例，请注意修改链接后缀
 - 3. 查看 CPU 架构可连接 SSH 后执行命令 `uname -ms`，若执行结果是“linux aarch64”，就是搭载的 ARMv8 架构
 ---
