@@ -1,5 +1,5 @@
 # [ShellCrash](https://github.com/juewuy/ShellCrash) 本地配置自定义规则和代理组-ruleset 方案
-- 注：此方案此方案此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
+- 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 # 前言：
 1. 本教程只适用于 ShellCrash
 2. 自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
