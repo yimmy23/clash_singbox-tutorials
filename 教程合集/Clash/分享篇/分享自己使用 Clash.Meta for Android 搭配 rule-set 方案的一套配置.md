@@ -31,13 +31,12 @@ tcp-concurrent: true
 external-controller-tls: 127.0.0.1:9090
 find-process-mode: strict
 global-client-fingerprint: chrome
-profile: {store-selected: true, store-fake-ip: true}
 
 sniffer:
   enable: true
   parse-pure-ip: true
   sniff: {HTTP: {ports: [80, 8080-8880]}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
-  skip-domain: [Mijia Cloud]
+  skip-domain: ['Mijia Cloud']
 
 tun:
   enable: true
