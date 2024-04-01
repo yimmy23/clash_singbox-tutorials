@@ -42,7 +42,7 @@ dns:
     - 'https://8.8.8.8/dns-query#🪜 代理域名'
   nameserver-policy:
     'geosite:category-ads-all': rcode://refused
-    'rule-set:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
+    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
 ```
 # 二、 方案二（兼容性差）
 `rules` 中所有 `GEOIP` 规则全部添加 `no-resolve`，例如：
