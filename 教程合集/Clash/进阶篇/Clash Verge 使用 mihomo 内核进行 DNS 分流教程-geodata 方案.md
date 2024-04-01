@@ -48,7 +48,7 @@ sniffer:
   enable: true
   parse-pure-ip: true
   sniff: {HTTP: {ports: [80, 8080-8880]}, TLS: {ports: [443, 8443]}, QUIC: {ports: [443, 8443]}}
-  skip-domain: [Mijia Cloud]
+  skip-domain: ['Mijia Cloud']
 
 dns:
   enable: true
@@ -64,7 +64,7 @@ dns:
   nameserver-policy:
     'geosite:category-ads-all': rcode://refused
     'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
-    'geosite:geolocation-!cn': ['https://8.8.8.8/dns-query#🪜 代理域名', 'https://1.1.1.1/dns-query#🪜 代理域名']
+    'geosite:geolocation-!cn': ['https://1.1.1.1/dns-query#🪜 代理域名&h3=true', 'https://8.8.8.8/dns-query#🪜 代理域名']
 ```
 ③ 再次右击新建的 Merge 文件，点击“启用”
 # 四、 客户端设置
