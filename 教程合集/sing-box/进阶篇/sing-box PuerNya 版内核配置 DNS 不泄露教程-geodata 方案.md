@@ -24,7 +24,7 @@
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "geosite": [ "geolocation-!cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 },
-      { "fallback_rules": [ { "rule_set": [ "cnip" ], "invert": true } ], "server": [ "dns_cloudflare", "dns_google" ] }
+      { "fallback_rules": [ { "geoip": [ "cn" ], "invert": true } ], "server": [ "dns_cloudflare", "dns_google" ] }
     ],
     "final": [ "dns_cloudflare", "dns_google" ],
     "strategy": "prefer_ipv4",
