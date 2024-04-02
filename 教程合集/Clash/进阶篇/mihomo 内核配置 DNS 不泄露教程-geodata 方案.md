@@ -24,6 +24,8 @@
 # 四、 user.yaml 配置
 ## 1. fake-ip 模式
 连接 SSH 后执行 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+- 注： `proxy-groups` 策略组内必须含有 `🪜 代理域名`
+
 ```
 dns:
   enable: true
@@ -43,6 +45,8 @@ dns:
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 2. redir-host 模式
 连接 SSH 后执行 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+- 注： `proxy-groups` 策略组内必须含有 `🪜 代理域名`
+
 ```
 dns:
   enable: true
