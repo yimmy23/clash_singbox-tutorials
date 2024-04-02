@@ -41,7 +41,7 @@
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
-      { "domain_regex": [ ".*" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 },
+      { "geosite": [ "cn" ], "invert": true, "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "fallback_rules": [ { "geoip": [ "cn" ], "invert": true } ], "server": [ "dns_cloudflare", "dns_google" ] }
     ],
     "final": [ "dns_cloudflare", "dns_google" ],
