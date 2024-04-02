@@ -29,7 +29,7 @@
       { "type": "logical", "mode": "and", "rules": [ { "domain_keyword": [ "xbox" ], "query_type": [ "A", "AAAA" ] }, { "domain_keyword": [ "com" ], "query_type": [ "A", "AAAA" ] } ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "domain_keyword": [ "stun" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
-      { "domain_regex": [ ".*" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
+      { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
     "final": [ "dns_alidns", "dns_dnspod" ],
     "strategy": "prefer_ipv4",
