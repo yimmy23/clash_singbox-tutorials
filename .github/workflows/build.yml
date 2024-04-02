@@ -91,7 +91,7 @@ jobs:
 
     - name: Generate ruleset-dns.json
       run: |
-        sed -e 's/geosite/rule_set/' -e 's/microsoft@cn/microsoft-cn/' -e 's/category-games@cn/games-cn/' ./sing-box/geodata-dns.json > ./sing-box/ruleset-dns.json
+        sed -e 's/geosite/rule_set/' -e 's/category-ads-all/ads/' -e 's/microsoft@cn/microsoft-cn/' -e 's/category-games@cn/games-cn/' ./sing-box/geodata-dns.json > ./sing-box/ruleset-dns.json
 
     - name: Release and upload `clash` assets
       uses: svenstaro/upload-release-action@v2
