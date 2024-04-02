@@ -66,7 +66,7 @@ jobs:
               { "geosite": [ "category-ads-all" ], "server": "dns_block" },
         EOF
         curl -sSL ${fake_ip_filter} | grep -Ev '#|\..*\*\.' | grep -E '\*|\+' | sed 's/^\*.//' | sed 's/^+.//' | awk '{printf "\"%s\", ",$1}' | sed 's/, $//' > ./tmp/domain_suffix.txt
-        curl -sSL ${fake_ip_filter} | grep -Ev '#|\..*\*\.' | grep -Ev '\*|\+' | awk '{printf "\"%s\", ",$1}' | sed 's/Mijia/Mijia Cloud/' > ./tmp/domain.txt
+        curl -sSL ${fake_ip_filter} | grep -Ev '#|\..*\*\.' | grep -Ev '\*|\+' | awk '{printf "\"%s\", ",$1}' | sed 's/Mijia/Mijia Cloud/' | sed 's/, $//' > ./tmp/domain.txt
         domain_suffix=$(cat ./tmp/domain_suffix.txt)
         domain=$(cat ./tmp/domain.txt)
         cat <<EOF >> ./sing-box/geodata-dns.json
@@ -110,7 +110,7 @@ jobs:
         curl -sSL ${fake_ip_filter} | grep -Ev '#|\..*\*\.' | grep -Ev '\*|\+' | awk '{printf "\"%s\", ",$1}' | sed 's/Mijia/Mijia Cloud/' > ./tmp/domain.txt
         domain_suffix=$(cat ./tmp/domain_suffix.txt)
         domain=$(cat ./tmp/domain.txt)
-        cat <<EOF >> ./sing-box/geodata-dns.json
+        cat <<EOF >> ./sing-box/ruleset-dns.json
               { "domain_keyword": ".", "invert": true, "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
               { "domain_suffix": [ ${domain_suffix} ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
               { "domain": [ ${domain} ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
