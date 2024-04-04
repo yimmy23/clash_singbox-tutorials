@@ -1,10 +1,10 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0+ 版本编写
-**更新日志（2024-04-03）：**  
+**更新日志（2024-04-04）：**  
 注：
 - 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟（约 12 小时），请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 - 2. 近期更新过 [DustinWin/ruleset_geodata/rule_set](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#-sing-box-%E5%86%85%E6%A0%B8) 项目内规则集的用户，请及时更新规则集文件（**必须使用 sing-box PuerNya 版内核 v1.9.0+ 版本**）
 
-1. 修改 sing-box 配置，进阶篇分流设置和分享篇兜底走 `fakeip`（没有命中的域名通通走 `fakeip`，添加了 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/dev/public/fake_ip_filter.list)提高兼容性）
+1. 修改 sing-box 配置，进阶篇分流设置和分享篇兜底走 `fakeip`（没有命中的域名通通走 `fakeip`，`dns.rules` 中的 `"rule_set": [ "private" ]` 已添加[常用 fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/dev/public/fake_ip_filter.list)里的所有 AdGuardHome 相关域名，防止作为下游时检查更新和下载“DNS 黑名单”失败；`dns.rules` 中的 `"rule_set": [ "private" ]` 已添加 [TrackersList](https://github.com/XIU2/TrackersListCollection/blob/master/all.txt)，防止 [BT 下载](https://github.com/c0re100/qBittorrent-Enhanced-Edition)无法连接 TrackersList UDP 协议）
 2. 修改 Clash 和 sing-box 设置，删除进阶篇分流设置中跳过 DNS 解析的步骤
 3. 优化 sing-box for Android 的 `dns.rules` 配置
 
