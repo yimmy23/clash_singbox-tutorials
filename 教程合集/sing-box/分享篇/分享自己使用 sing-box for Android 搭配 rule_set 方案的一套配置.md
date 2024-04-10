@@ -22,7 +22,6 @@
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "rule_set": [ "ads" ], "server": "dns_block" },
       { "domain_keyword": ".", "invert": true, "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
-      { "protocol": [ "stun" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
