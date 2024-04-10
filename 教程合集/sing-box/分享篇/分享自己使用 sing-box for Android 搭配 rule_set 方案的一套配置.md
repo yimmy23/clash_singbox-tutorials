@@ -21,7 +21,6 @@
       { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "rule_set": [ "ads" ], "server": "dns_block" },
-      { "domain_keyword": ".", "invert": true, "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
@@ -91,13 +90,13 @@
       { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "clash_mode": "Direct", "outbound": "DIRECT" },
       { "rule_set": [ "ads" ], "outbound": "🛑 广告拦截" },
+      { "rule_set": [ "applications" ], "outbound": "🖥️ 直连软件" },
       { "rule_set": [ "private" ], "outbound": "🔒 私有网络" },
       { "rule_set": [ "microsoft-cn" ], "outbound": "Ⓜ️ 微软服务" },
       { "rule_set": [ "apple-cn" ], "outbound": "🍎 苹果服务" },
       { "rule_set": [ "google-cn" ], "outbound": "📢 谷歌服务" },
       { "rule_set": [ "games-cn" ], "outbound": "🎮 游戏平台" },
       { "rule_set": [ "networktest" ], "outbound": "📈 网络测试" },
-      { "rule_set": [ "applications" ], "outbound": "🖥️ 直连软件" },
       { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
       { "rule_set": [ "cn" ], "outbound": "🔗 直连域名" },
       { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息", "skip_resolve": true },
@@ -111,6 +110,13 @@
         "format": "binary",
         "path": "./ruleset/ads.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs"
+      },
+      {
+        "tag": "applications",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/applications.srs",
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/applications.srs"
       },
       {
         "tag": "private",
