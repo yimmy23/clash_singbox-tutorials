@@ -21,7 +21,7 @@
       { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "rule_set": [ "ads" ], "server": "dns_block" },
-      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
     "final": [ "dns_alidns", "dns_dnspod" ],
@@ -152,6 +152,13 @@
         "format": "binary",
         "path": "./ruleset/games-cn.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/games-cn.srs"
+      },
+      {
+        "tag": "fakeip-filter",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/fakeip-filter.srs",
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/fakeip-filter.srs"
       },
       {
         "tag": "networktest",
