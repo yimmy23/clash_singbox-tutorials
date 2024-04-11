@@ -4,21 +4,13 @@
 - 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟（约 12 小时），请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 - 2. 近期更新过 [DustinWin/ruleset_geodata/rule_set](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#-sing-box-%E5%86%85%E6%A0%B8) 项目内规则集的用户，请及时更新规则集文件（**必须使用 sing-box PuerNya 版内核 v1.9.0+ 版本**）
 
+1. sing-box 新增规则集 `fakeip-filter`，并在 `dns.rules` 中设置其走国内 DNS 解析，兜底走 fakeip（类似于 [mihomo 内核](https://github.com/MetaCubeX/mihomo)中的 `fake-ip-filter` 设定），提高兼容性
+2. 其它文案优化
+
+**更新日志（2024-04-04）：**  
 1. 修改 sing-box 配置，进阶篇分流设置和分享篇兜底走 `fakeip`（没有命中的域名通通走 `fakeip`，`dns.rules` 中的 `"rule_set": [ "private" ]` 已添加[常用 fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/dev/public/fake_ip_filter.list)里的所有 AdGuardHome 相关域名，防止作为下游时检查更新和下载“DNS 黑名单”失败；`dns.rules` 中的 `"rule_set": [ "private" ]` 已添加 [TrackersList](https://github.com/XIU2/TrackersListCollection/blob/master/all.txt)，防止 [BT 下载](https://github.com/c0re100/qBittorrent-Enhanced-Edition)无法连接 TrackersList UDP 协议）
 2. 修改 Clash 和 sing-box 设置，删除进阶篇分流设置中跳过 DNS 解析的步骤
 3. 优化 sing-box for Android 的 `dns.rules` 配置
-
-**更新日志（2024-04-02）：**  
-1. sing-box 进阶篇新增《ShellCrash 使用 sing-box PuerNya 版内核进行 DNS 分流教程》（分享篇已同步更新，强烈推荐！）
-2. 进阶篇新增《Clash 配置 DNS 不泄露的教程》和《sing-box 配置 DNS 不泄露的教程》（兼容性较差，慎用！）
-3. 修改 Clash rule-providers 配置，将 `url` 改为 `https://raw.githubusercontent.com` 地址，可以快速同步更新
-4. 修改 Clash profile 配置，删除 `profile` 配置项（经测试，`store-fake-ip: true` 此配置项会导致支持 IPv6 的机场节点无法解析开启 HTTP/3 特性的 DNS 服务器）
-5. 修改 Clash dns 配置，~删除 redir-host 模式下国外 DNS 服务器开启 HTTP/3 特性的配置项，提高兼容性~，开启 redir-host 模式下国外 DNS 服务器的 HTTP/3 特性
-6. 修改 sing-box outbounds 配置，优化 `GLOBAL` 出站的配置，与 mihomo 内核的 `GLOBAL` 一致
-7. 修改 sing-box rule_set 配置，将 `url` 改为 `https://raw.githubusercontent.com` 地址，可以快速同步更新
-8. 修改 sing-box 配置，~将 `download_detour` 全部设置为 `PROXY`~，删除 `download_detour` 配置项，使其对应项走默认出站（走代理）
-9. 修改 sing-box for Android 配置，删除 `experimental.cache_file` 配置项（经测试，`"store_fakeip": true` 此配置项会导致支持 IPv6 的机场节点无法解析开启 HTTP/3 特性的 DNS 服务器）
-10. 其它优化（包括文案描述，非重要参数删改等）
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
 **ShellCrash（mix 模式）搭配 AdGuardHome 的完美方案，现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88mix%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
