@@ -27,7 +27,7 @@
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
-    { "tag": "DIRECT", "type": "direct" },
+    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
     {
@@ -198,10 +198,10 @@ curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/rulese
 # 五、 设置部分
 ## 1. ShellCrash 设置
 ① 设置可参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处  
-② 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/3db93862-f201-4734-af57-01c543c22dbf" width="60%"/>  
-③ 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，设置如下：  
+② 进入主菜单->2 内核功能设置->2 切换 DNS 运行模式->4 DNS 进阶设置，设置如下：  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f839435e-68bd-402a-a51b-fdfe81ffe767" width="60%"/>  
+③ 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/3db93862-f201-4734-af57-01c543c22dbf" width="60%"/>  
 ④ 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴第《一》步中生成的配置文件 .json 文件直链，启动服务即可
 ## 2. AdGuardHome 设置
 设置可参考《[全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程-sing-box 方案/AdGuardHome 配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86%E7%9A%84%E8%A7%A3%E9%94%81%20SSH%20ShellCrash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B-sing-box%20%E6%96%B9%E6%A1%88.md#2-adguardhome-%E9%85%8D%E7%BD%AE)》
