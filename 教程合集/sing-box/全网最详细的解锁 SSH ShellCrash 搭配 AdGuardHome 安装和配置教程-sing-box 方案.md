@@ -188,8 +188,8 @@ ssh root@192.168.31.1
 mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && source /tmp/SC_tmp/init.sh
 ```
 ③ 选择 1 安装到 /data 目录（推荐，支持软固化功能）  
-④ 将 sing-box-linux-armv8 文件移动到路由器的 */tmp* 目录中  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/6bef824e-9a4f-4174-a509-ced5249a216a" width="60%"/>  
+④ 将 CrashCore 文件移动到路由器的 */tmp* 目录中  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/168fc27d-3423-4c73-8fe0-ae10bddadb14" width="60%"/>  
 **ShellCrash 安装成功！**
 ## 2. ShellCrash 配置
 ① 连接 SSH 后执行 `crash` 命令打开 ShellCrash 配置脚本  
@@ -203,7 +203,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
 
 ② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer 内核  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/adfb062e-94a4-479f-9d75-b2d6143cd2a8" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/b44eefa8-a25a-44ab-a34f-3ebf0fb90390" width="60%"/>  
 ③ 内核加载完成后根据需要是否保留相关数据库文件（此处选择 0）  
 ④ 进入主菜单-> 2 内核功能设置-> 1 切换防火墙运行模式，选择 3 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
@@ -211,8 +211,11 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 进入 1 切换防火墙运行模式-> 9 ipv6 设置，若机场节点支持 IPv6，可开启 1 ipv6 透明代理；根据自身需要开启 3 CNV6 绕过内核  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e49bf44f-6f71-4c02-ab18-d762c67f1b41" width="60%"/>  
 进入 2 切换 DNS 运行模式，选择 3 mix 混合模式  
-进入 4 DNS 进阶设置，选择 7 禁用 DNS 劫持
-- 注：若单独使用 ShellCrash，请不要禁用 DNS 劫持
+进入 4 DNS 进阶设置，选择 7 禁用 DNS 劫持  
+注：
+- 1. 若单独使用 ShellCrash，请不要禁用 DNS 劫持
+- 2. 推荐设置 DNS 分流（单独使用 ShellCrash 以及 ShellCrash 搭配 AdGuardHome 都适用），请看《[ShellCrash 使用 sing-box PuerNya 版内核进行 DNS 分流教程-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20sing-box%20PuerNya%20%E7%89%88%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geodata%20%E6%96%B9%E6%A1%88.md)》或《[ShellCrash 使用 sing-box PuerNya 版内核进行 DNS 分流教程-ruleset方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20sing-box%20PuerNya%20%E7%89%88%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%E6%96%B9%E6%A1%88.md)》
+
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/5c929cdb-c8cd-4020-9a9f-c73b899e1857" width="60%"/>
 
 返回到 2 内核功能设置，根据自身需要开启 8 CN_IP 绕过内核  
