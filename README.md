@@ -1,5 +1,5 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0+ 版本编写
-**更新日志（2024-04-12）：**  
+**更新日志（2024-04-13）：**  
 注：
 - 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟（约 12 小时），请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 - 2. 近期更新过 [DustinWin/ruleset_geodata/rule_set](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#-sing-box-%E5%86%85%E6%A0%B8) 项目内规则集的用户，请及时更新规则集文件（**必须使用 sing-box PuerNya 版内核 v1.9.0+ 版本**）
@@ -7,7 +7,8 @@
 1. sing-box 新增规则集 `fakeip-filter`，并在 `dns.rules` 中设置其走国内 DNS 解析，兜底走 fakeip（类似于 [mihomo 内核](https://github.com/MetaCubeX/mihomo)中的 `fake-ip-filter` 设定），提高兼容性
 2. sing-box 新增 IPv6 优先设置，使用上述方案时（国内域名走了 fakeip）需要配置（本地网络不支持 IPv6 可忽略）
 3. 修改 Clash 和 sing-box 教程，适配新版 ShellCrash 的步骤
-4. 其它文案优化
+4. **修改 Clash 和 sing-box《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》，适配新版 ShellCrash 的步骤，并修改了诸多错误和过时内容**
+5. 其它文案优化
 
 **更新日志（2024-04-04）：**  
 1. 修改 sing-box 配置，进阶篇分流设置和分享篇兜底走 `fakeip`（没有命中的域名通通走 `fakeip`，`dns.rules` 中的 `"rule_set": [ "private" ]` 已添加[常用 fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/dev/public/fake_ip_filter.list)里的所有 AdGuardHome 相关域名，防止作为下游时检查更新和下载“DNS 黑名单”失败；`dns.rules` 中的 `"rule_set": [ "private" ]` 已添加 [TrackersList](https://github.com/XIU2/TrackersListCollection/blob/master/all.txt)，防止 [BT 下载](https://github.com/c0re100/qBittorrent-Enhanced-Edition)无法连接 TrackersList UDP 协议）
