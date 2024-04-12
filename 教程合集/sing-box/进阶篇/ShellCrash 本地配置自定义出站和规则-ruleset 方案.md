@@ -247,6 +247,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": [ "dns_alidns", "dns_dnspod" ],
+    // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
