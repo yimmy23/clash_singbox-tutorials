@@ -27,7 +27,7 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    { "tag": "DIRECT", "type": "direct" },
+    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
     {
@@ -198,11 +198,11 @@ curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/rulese
 
 # 五、 设置部分
 1. 设置可参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
-2. 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/fea803f3-8cad-4962-be77-83ed506a9347" width="60%"/>
-
-3. 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，设置如下：
+2. 进入主菜单->2 内核功能设置->2 切换 DNS 运行模式->4 DNS 进阶设置，设置如下：
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/d620860f-2319-4274-a7a8-13502e28a049" width="60%"/>
+
+3. 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/fea803f3-8cad-4962-be77-83ed506a9347" width="60%"/>
 
 4. 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴第《一》步中生成的配置文件 .json 文件直链，启动服务即可
 # 六、 在线 Dashboard 面板
