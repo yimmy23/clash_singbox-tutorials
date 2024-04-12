@@ -1,6 +1,6 @@
 # 分享自己使用 [sing-box for Android](https://github.com/PuerNya/sing-box/actions/workflows/sfa.yml) 搭配 rule_set 方案的一套配置
 # 声明：
-1. 此方案适用于搭载 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)的 sing-box for Android，采用 `rule_set` 规则，**属高度定制，仅供参考**
+1. 此方案适用于搭载 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)的 sing-box for Android，采用 `rule_set` 规则，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 3. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
 ---
