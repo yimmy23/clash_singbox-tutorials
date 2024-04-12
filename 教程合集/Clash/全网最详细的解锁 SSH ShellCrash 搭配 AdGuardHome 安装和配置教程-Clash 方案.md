@@ -4,7 +4,7 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](https://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellCrash](https://github.com/juewuy/ShellCrash) v1.9.0 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](https://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellCrash](https://github.com/juewuy/ShellCrash) v1.9.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellCrash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
 3. 安装 [mihomo](https://github.com/MetaCubeX/mihomo) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
@@ -25,15 +25,15 @@
 官方下载：https://raw.githubusercontent.com/juewuy/ShellCrash/master/bin/ShellCrash.tar.gz
 ## 2. mihomo 内核
 官方下载：https://github.com/MetaCubeX/mihomo/releases  
-下载 mihomo-linux-arm64-xxx.gz 文件  
+下载 mihomo-linux-arm64-xxx.gz 文件
 ## 3. Termius
-官方下载：https://autoupdate.termius.com/windows/Termius.exe  
+官方下载：https://autoupdate.termius.com/windows/Termius.exe
 ## 4. AdGuardHome
 官方下载：https://github.com/AdguardTeam/AdGuardHome/releases  
-下载 AdGuardHome_linux_arm64.tar.gz 文件  
+下载 AdGuardHome_linux_arm64.tar.gz 文件
 ## 5. UPX
 官方下载：https://github.com/upx/upx/releases  
-下载 upx-xxx-win64.zip 文件  
+下载 upx-xxx-win64.zip 文件
 ## 6. WinSCP
 官方下载：https://winscp.net/eng/downloads.php
 - 注：中文绿色版请下载打包文件
@@ -207,29 +207,28 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 ② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash-Meta 内核  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/243b381a-a1c2-4744-b3ce-9f2e651c7fe1" width="60%"/>  
-③ 进入主菜单-> 2 内核功能设置-> 1 切换 Clash 运行模式，选择 5 Tproxy 模式
+③ 内核加载完成后根据需要是否保留相关数据库文件（此处选择 0）  
+④ 进入主菜单-> 2 内核功能设置-> 1 切换防火墙运行模式，选择 3 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 
-进入 2 切换 DNS 运行模式，选择 2 redir_host 模式  
-注：
-- 1. 更推荐使用 redir-host 模式，兼容性更高，与 AdGuardHome 搭配更简单
-- 2. 根据自身需要开启 8 CN_IP 绕过内核
+进入 1 切换防火墙运行模式-> 9 ipv6 设置，若机场节点支持 IPv6，可开启 1 ipv6 透明代理；根据自身需要开启 3 CNV6 绕过内核  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/2bf5c392-d473-449e-b667-dc0194ed0604" width="60%"/>  
 
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/211e8667-c137-4ea3-ba43-ba2b5ec3e4a2" width="60%"/>
+进入 2 切换 DNS 运行模式，选择选择 2 redir_host 模式
+- 注：更推荐使用 redir-host 模式，兼容性更高，与 AdGuardHome 搭配更简单
 
-④ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
-⑤ 进入主菜单-> 7 内核进阶设置-> 1 ipv6 相关，若机场节点支持 IPv6，可开启 2 ipv6 透明代理；根据自身需要开启 4 CNIP 绕过内核  
-<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
-返回到 7 内核进阶设置，选择 4 启用域名嗅探  
-进入 6 配置内置 DNS 服务，选择 4 一键配置加密 DNS，选择 7 禁用 DNS 劫持  
+进入 4 DNS 进阶设置，选择 4 一键配置加密 DNS，选择 7 禁用 DNS 劫持  
 注：
 - 1. 若单独使用 ShellCrash，请不要禁用 DNS 劫持
 - 2. 推荐设置 DNS 分流（单独使用 ShellCrash 以及 ShellCrash 搭配 AdGuardHome 都适用），请看《[ShellCrash 使用 mihomo 内核进行 DNS 分流教程-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20mihomo%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geodata%20%E6%96%B9%E6%A1%88.md)》或《[ShellCrash 使用 mihomo 内核进行 DNS 分流教程-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20mihomo%20%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%20%E6%96%B9%E6%A1%88.md)》
-
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/abdb37f1-eb60-4f37-a098-5a72395d4f69" width="60%"/>
 
-⑥ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版->1 Jsdelivr_CDN源，追求新版可选择 c 切换至开发版（可能不稳定）  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/854b7cc3-af6d-4e6e-837d-6eaabd45ad3f" width="60%"/>  
+返回到 2 内核功能设置，根据自身需要开启 8 CN_IP 绕过内核  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/689c9b6e-cab5-401a-9b8b-e9ce5f2f27d0" width="60%"/>  
+⑤ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
+⑥ 进入主菜单-> 7 内核进阶设置，选择 4 启用域名嗅探  
+⑦ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版-master-> 1 Jsdelivr_CDN源，追求新版可选择 c 切换至开发版（可能不稳定）  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/b2e601e6-84b6-4fcb-8123-9af244734fff" width="60%"/>  
 进入 4 安装本地 Dashboard 面板，选择 3 安装 MetaXD 面板  
 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
@@ -237,7 +236,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f0b7b76a-ead0-49ce-9e7a-56cded971b37" width="60%"/>
 
-⑦ 进入主菜单-> 6 导入配置文件  
+⑧ 进入主菜单-> 6 导入配置文件  
 注：
 - 1. 选择 1 在线生成 meta 配置文件，粘贴你的订阅链接并回车，输入“1”并再次回车即可
 - 2. 选择 2 在线获取完整配置文件，需要一定的 Clash 知识储备，请查看《[生成带有自定义策略组和规则的 Clash 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义策略组和规则的 Clash 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》
@@ -273,7 +272,7 @@ crash -h
 ```
 ## 3. ShellCrash 升级
 进入主菜单-> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/fac11138-6158-4f7a-988a-6abda3bec655" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/6b8717cd-acc4-46f1-a61b-04eafde0e71a" width="60%"/>
 ## 4. ShellCrash 卸载
 ① 通过脚本命令进行卸载（任选一）  
 连接 SSH 后，直接粘贴如下所有命令：
