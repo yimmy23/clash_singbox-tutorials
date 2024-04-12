@@ -4,9 +4,9 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](https://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellCrash](https://github.com/juewuy/ShellCrash) v1.9.0 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+1. 本教程基于 Redmi AX6000 [官方固件](https://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellCrash](https://github.com/juewuy/ShellCrash) v1.9.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
 2. 恢复 SSH，安装 ShellCrash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
-3. 安装 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
+3. 安装 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
 若执行结果是“linux aarch64”，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
 4. ShellCrash 和 AdGuardHome 中所有没有提到的配置保持默认即可
@@ -25,13 +25,13 @@
 ## 2. sing-box PuerNya 版内核
 第三方下载：https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/sing-box-puernya/sing-box-linux-armv8
 ## 3. Termius
-官方下载：https://autoupdate.termius.com/windows/Termius.exe  
+官方下载：https://autoupdate.termius.com/windows/Termius.exe
 ## 4. AdGuardHome
 官方下载：https://github.com/AdguardTeam/AdGuardHome/releases  
-下载 AdGuardHome_linux_arm64.tar.gz 文件  
+下载 AdGuardHome_linux_arm64.tar.gz 文件
 ## 5. UPX
 官方下载：https://github.com/upx/upx/releases  
-下载 upx-xxx-win64.zip 文件  
+下载 upx-xxx-win64.zip 文件
 ## 6. WinSCP
 官方下载：https://winscp.net/eng/downloads.php
 - 注：中文绿色版请下载打包文件
@@ -203,22 +203,23 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 - 注：强烈建议选择 0，待以下配置完成后，最后一步启动 clash 服务
 
 ② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer 内核  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/9ac46812-dd6e-4e24-818a-366551871874" width="60%"/>  
-③ 进入主菜单-> 2 内核功能设置-> 1 切换 Clash 运行模式，选择 5 Tproxy 模式
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/adfb062e-94a4-479f-9d75-b2d6143cd2a8" width="60%"/>  
+③ 内核加载完成后根据需要是否保留相关数据库文件（此处选择 0）  
+④ 进入主菜单-> 2 内核功能设置-> 1 切换防火墙运行模式，选择 3 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 
-进入 2 切换 DNS 运行模式，选择 3 mix 混合模式；根据自身需要开启 8 CN_IP 绕过内核  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/19fcec27-2d96-45c4-9c2d-0a3cfa1243f7" width="60%"/>  
-④ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
-⑤ 进入主菜单-> 7 内核进阶设置-> 1 ipv6 相关，若机场节点支持 IPv6，可开启 2 ipv6 透明代理；根据自身需要开启 4 CNIP 绕过内核  
-<img src="https://user-images.githubusercontent.com/45238096/224112024-7b149b2f-9364-4a9e-94a6-0146b5f7445c.png" width="60%"/>  
-进入 6 配置内置 DNS 服务，选择 7 禁用 DNS 劫持  
+进入 1 切换防火墙运行模式-> 9 ipv6 设置，若机场节点支持 IPv6，可开启 1 ipv6 透明代理；根据自身需要开启 3 CNV6 绕过内核  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e49bf44f-6f71-4c02-ab18-d762c67f1b41" width="60%"/>  
+进入 2 切换 DNS 运行模式，选择 3 mix 混合模式  
+进入 4 DNS 进阶设置，选择 7 禁用 DNS 劫持
 - 注：若单独使用 ShellCrash，请不要禁用 DNS 劫持
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/5c929cdb-c8cd-4020-9a9f-c73b899e1857" width="60%"/>
 
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/3d9dbd54-f8c2-4fe3-9494-cbf367748f40" width="60%"/>
-
-⑥ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版->1 Jsdelivr_CDN源，追求新版可选择 c 切换至开发版（可能不稳定）  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/854b7cc3-af6d-4e6e-837d-6eaabd45ad3f" width="60%"/>  
+返回到 2 内核功能设置，根据自身需要开启 8 CN_IP 绕过内核  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/dfd1d2b5-22fd-410d-b73e-a67aefea6d3e" width="60%"/>  
+⑤ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
+⑥ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版-master-> 1 Jsdelivr_CDN 源，追求新版可选择 c 切换至开发版（可能不稳定）  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/969fc778-13fe-4b41-a490-cdc3f13a6f73" width="60%"/>  
 进入 4 安装本地 Dashboard 面板，选择 3 安装 MetaXD 面板  
 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
@@ -241,9 +242,9 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 ```
 # 规则集使用的是 geodata 方案
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/geodata-dns.json
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/geodata-dns-lite.json
 # 规则集使用的是 ruleset 方案
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box/ruleset-dns.json
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-dns-lite.json
 ```
 导入 DNS 配置文件完成后，启动 sing-box 服务即可  
 **ShellCrash 配置成功！**  
@@ -276,7 +277,7 @@ crash -h
 ```
 ## 3. ShellCrash 升级
 进入主菜单-> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/fac11138-6158-4f7a-988a-6abda3bec655" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/27c492a9-160d-45e9-92a1-5ea6d056d808" width="60%"/>
 ## 4. ShellCrash 卸载
 ① 通过脚本命令进行卸载（任选一）  
 连接 SSH 后，直接粘贴如下所有命令：
