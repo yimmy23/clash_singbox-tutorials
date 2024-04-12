@@ -176,7 +176,7 @@
   }
 }
 ```
-# 二、 导入 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)
+# 二、 导入 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)
 连接 SSH 后运行如下命令：
 ```
 curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz | tar -zx -C /tmp/ && crash
