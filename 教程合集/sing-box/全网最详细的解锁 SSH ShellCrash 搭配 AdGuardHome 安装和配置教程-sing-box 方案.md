@@ -222,7 +222,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/dfd1d2b5-22fd-410d-b73e-a67aefea6d3e" width="60%"/>  
 ⑤ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
 ⑥ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版-master-> 1 Jsdelivr_CDN 源，追求新版可选择 c 切换至开发版（可能不稳定）  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/969fc778-13fe-4b41-a490-cdc3f13a6f73" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/a5ef2c45-e3f9-4099-9ed6-d75dcac978a8" width="60%"/>  
 进入 4 安装本地 Dashboard 面板，选择 3 安装 MetaXD 面板  
 注：
 - 1. 启动 Clash 服务后，面板 Dashboard 访问链接为：http://192.168.31.1:9999/ui
