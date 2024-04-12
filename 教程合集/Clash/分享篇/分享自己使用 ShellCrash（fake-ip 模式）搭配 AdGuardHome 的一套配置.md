@@ -117,11 +117,11 @@ curl -o $CRASHDIR/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/rules
 ## 1. ShellCrash 设置
 ① 设置可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处  
 ② 进入主菜单->2 内核功能设置，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/39920422-3d2b-4ee9-806a-5e9ac31fb7e9" width="60%"/>  
-③ 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/512e61d1-23bb-4ff6-8a29-44506c470858" width="60%"/>  
-④ 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，设置如下：  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/2c830d59-6a66-4e13-9ca4-13204a131ac7" width="60%"/>  
+③ 进入主菜单->2 内核功能设置->2 切换 DNS 运行模式->4 DNS 进阶设置，设置如下：  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/d0af4a21-d653-45b4-bc1f-bceae36459c2" width="60%"/>  
+④ 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/512e61d1-23bb-4ff6-8a29-44506c470858" width="60%"/>  
 ⑤ 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴第《一》步中生成的配置文件 .yaml 文件直链，启动服务即可
 ## 2. AdGuardHome 设置
 设置可参考《[全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程-Clash 方案/AdGuardHome 配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6%E7%BB%86%E7%9A%84%E8%A7%A3%E9%94%81%20SSH%20ShellCrash%20%E6%90%AD%E9%85%8D%20AdGuardHome%20%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B-Clash%20%E6%96%B9%E6%A1%88.md#2-adguardhome-%E9%85%8D%E7%BD%AE)》
