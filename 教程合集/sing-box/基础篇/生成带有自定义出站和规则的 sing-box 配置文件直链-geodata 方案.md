@@ -43,7 +43,8 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    { "tag": "DIRECT", "type": "direct" },
+    // 若本地网络支持 IPv6，可添加 `"domain_strategy": "prefer_ipv6"` 配置项
+    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
@@ -168,6 +169,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": [ "dns_alidns", "dns_dnspod" ],
+    // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
@@ -193,7 +195,8 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    { "tag": "DIRECT", "type": "direct" },
+    // 若本地网络支持 IPv6，可添加 `"domain_strategy": "prefer_ipv6"` 配置项
+    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
@@ -306,6 +309,7 @@
     ],
     // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
     "final": [ "dns_alidns", "dns_dnspod" ],
+    // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
@@ -338,7 +342,8 @@
     // 手动选择日本节点
     { "tag": "🇯🇵 日本节点", "type": "selector", "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
-    { "tag": "DIRECT", "type": "direct" }
+    // 若本地网络支持 IPv6，可添加 `"domain_strategy": "prefer_ipv6"` 配置项
+    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" }
   ],
   // 路由
   "route": {
