@@ -109,13 +109,13 @@ curl -o $CRASHDIR/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/rules
 # 五、 设置部分
 1. 设置可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
 2. 进入主菜单->2 内核功能设置，设置如下：  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/be7debcc-2d5f-4379-9d09-3f6be133de29" width="60%"/>
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/53a2842a-c0bf-498a-a7ee-5b06602f4c9d" width="60%"/>
 
-3. 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/4265de3f-d91c-43f5-80ab-bcb107369c0a" width="60%"/>
-
-4. 进入主菜单->7 内核进阶设置->6 配置内置 DNS 服务，设置如下：  
+3. 进入主菜单->2 内核功能设置->2 切换 DNS 运行模式->4 DNS 进阶设置，设置如下：
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/5bc0ecb2-53ec-41f7-a3ca-a5630fe38442" width="60%"/>
+
+4. 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/4265de3f-d91c-43f5-80ab-bcb107369c0a" width="60%"/>
 
 5. 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴第《一》步中生成的配置文件 .yaml 文件直链，启动服务即可
 # 六、 在线 Dashboard 面板
