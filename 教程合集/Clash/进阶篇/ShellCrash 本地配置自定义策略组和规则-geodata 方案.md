@@ -105,7 +105,7 @@ proxy-providers:
     - 🇸🇬 新加坡节点
     - 🇺🇸 美国节点
 
-- name: 🔗 直连域名
+- name: 🇨🇳 直连域名
   type: select
   proxies:
     - 🎯 全球直连
@@ -117,7 +117,7 @@ proxy-providers:
     - 🈯 节点指定
     - 🎯 全球直连
 
-- name: 🎮 游戏平台
+- name: 🎮 游戏服务
   type: select
   proxies:
     - 🎯 全球直连
@@ -141,7 +141,7 @@ proxy-providers:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: 🇨🇳 国内 IP
+- name: 🇨🇳 直连 IP
   type: select
   proxies:
     - 🎯 全球直连
@@ -219,13 +219,13 @@ proxy-providers:
 - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
 - GEOSITE,apple-cn,🍎 苹果服务
 - GEOSITE,google-cn,📢 谷歌服务
-- GEOSITE,category-games@cn,🎮 游戏平台
+- GEOSITE,category-games@cn,🎮 游戏服务
 - GEOSITE,speedtest,📈 网络测速
 - GEOSITE,geolocation-!cn,🪜 代理域名
-- GEOSITE,cn,🔗 直连域名
+- GEOSITE,cn,🇨🇳 直连域名
 - GEOIP,telegram,📲 电报消息,no-resolve
 - GEOIP,private,🔒 私有网络,no-resolve
-- GEOIP,cn,🇨🇳 国内 IP
+- GEOIP,cn,🇨🇳 直连 IP
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车  
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
