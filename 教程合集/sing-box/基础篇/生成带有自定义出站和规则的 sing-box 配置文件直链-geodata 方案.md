@@ -124,10 +124,12 @@
     ],
     // geosite 配置项
     "geosite": {
+      "path": "./geosite.db",
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db"
     },
     // geoip 配置项
     "geoip": {
+      "path": "./geoip.db",
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
@@ -266,12 +268,12 @@
     ],
     // geosite 配置项
     "geosite": {
-      "path": "./geodata/geosite.db",
+      "path": "./geosite.db",
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db"
     },
     // geoip 配置项
     "geoip": {
-      "path": "./geodata/geoip.db",
+      "path": "./geoip.db",
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
