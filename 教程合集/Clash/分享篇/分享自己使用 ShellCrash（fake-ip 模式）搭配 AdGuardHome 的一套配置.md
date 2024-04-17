@@ -47,13 +47,13 @@ proxy-groups:
   - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
-  - {name: 🔗 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🇨🇳 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
-  - {name: 🎮 游戏平台, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🎮 游戏服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-  - {name: 🇨🇳 国内 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🇨🇳 直连 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
   - {name: 🔒 私有网络, type: select, proxies: [🎯 全球直连]}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
@@ -70,13 +70,13 @@ rules:
   - GEOSITE,microsoft-cn,Ⓜ️ 微软服务
   - GEOSITE,apple-cn,🍎 苹果服务
   - GEOSITE,google-cn,📢 谷歌服务
-  - GEOSITE,games-cn,🎮 游戏平台
+  - GEOSITE,games-cn,🎮 游戏服务
   - GEOSITE,networktest,📈 网络测试
   - GEOSITE,proxy,🪜 代理域名
-  - GEOSITE,cn,🔗 直连域名
+  - GEOSITE,cn,🇨🇳 直连域名
   - GEOIP,telegram,📲 电报消息,no-resolve
   - GEOIP,private,🔒 私有网络,no-resolve
-  - GEOIP,cn,🇨🇳 国内 IP
+  - GEOIP,cn,🇨🇳 直连 IP
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)  
