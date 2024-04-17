@@ -199,7 +199,7 @@ proxy-groups:
   - {name: 🪜 代理域名, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
   - {name: 🎮 游戏服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-  - {name: 📢 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🇬 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🇨🇳 直连 IP, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 📲 电报消息, type: select, proxies: [🚀 节点选择]}
@@ -326,7 +326,7 @@ rules:
   - RULE-SET,private,🔒 私有网络
   - RULE-SET,microsoft-cn,Ⓜ️ 微软服务
   - RULE-SET,apple-cn,🍎 苹果服务
-  - RULE-SET,google-cn,📢 谷歌服务
+  - RULE-SET,google-cn,🇬 谷歌服务
   - RULE-SET,games-cn,🎮 游戏服务
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
