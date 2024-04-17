@@ -129,7 +129,7 @@ proxy-providers:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: 📢 谷歌服务
+- name: 🇬 谷歌服务
   type: select
   proxies:
     - 🎯 全球直连
@@ -218,7 +218,7 @@ proxy-providers:
 - GEOSITE,private,🔒 私有网络
 - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
 - GEOSITE,apple-cn,🍎 苹果服务
-- GEOSITE,google-cn,📢 谷歌服务
+- GEOSITE,google-cn,🇬 谷歌服务
 - GEOSITE,category-games@cn,🎮 游戏服务
 - GEOSITE,speedtest,📈 网络测速
 - GEOSITE,geolocation-!cn,🪜 代理域名
