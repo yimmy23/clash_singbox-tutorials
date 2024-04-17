@@ -123,10 +123,12 @@
     ],
     // geosite 配置项
     "geosite": {
+      "path": "./geosite.db",
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db"
     },
     // geoip 配置项
     "geoip": {
+      "path": "./geoip.db",
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
     }
   }
