@@ -14,7 +14,7 @@
 ```
   - RULE-SET,telegramip,📲 电报消息,no-resolve
   - RULE-SET,privateip,🔒 私有网络,no-resolve
-  - RULE-SET,cnip,🇨🇳 国内 IP,no-resolve
+  - RULE-SET,cnip,🇨🇳 直连 IP,no-resolve
 ```
 # 三、 ShellCrash 设置
 1. 进入主菜单->2 内核功能设置->2 切换 DNS 运行模式->4 DNS 进阶设置，将“当前基础 DNS”和“PROXY-DNS”都设置为“null”  
