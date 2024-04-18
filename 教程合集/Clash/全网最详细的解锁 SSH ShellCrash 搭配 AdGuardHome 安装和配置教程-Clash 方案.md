@@ -127,10 +127,10 @@ passwd root
 # 四、 连接 SSH
 ## 1. 给 Windows 操作系统添加 SSH 支持（任选一）
 ① 启用 Telnet 客户端  
-进入控制面板->程序和功能->启用或关闭 Windows 功能，勾选“Telnet 客户端”  
+进入控制面板 -> 程序和功能 -> 启用或关闭 Windows 功能，勾选“Telnet 客户端”  
 <img src="https://user-images.githubusercontent.com/45238096/224110758-b3f85378-39dc-407d-82ba-7b1faaf12753.png" width="60%"/>  
 ② 启用 OpenSSH 服务器  
-进入设置->应用->可选功能->查看功能->搜索“ssh”，勾选“OpenSSH 服务器”并安装  
+进入设置 -> 应用 -> 可选功能 -> 查看功能 -> 搜索“ssh”，勾选“OpenSSH 服务器”并安装  
 <img src="https://user-images.githubusercontent.com/45238096/224110859-c869fed4-05bb-495b-a13c-aa3f78bb0ef7.png" width="60%"/>  
 重启系统  
 ③ 连接 Telnet  
@@ -208,10 +208,10 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 ② 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 3 Clash-Meta 内核  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/243b381a-a1c2-4744-b3ce-9f2e651c7fe1" width="60%"/>  
 ③ 内核加载完成后根据需要是否保留相关数据库文件（此处选择 0）  
-④ 进入主菜单-> 2 内核功能设置-> 1 切换防火墙运行模式，选择 3 Tproxy 模式
+④ 进入主菜单 -> 2 内核功能设置 -> 1 切换防火墙运行模式，选择 3 Tproxy 模式
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 
-进入 1 切换防火墙运行模式-> 9 ipv6 设置，若机场节点支持 IPv6，可开启 1 ipv6 透明代理；根据自身需要开启 3 CNV6 绕过内核  
+进入 1 切换防火墙运行模式 -> 9 ipv6 设置，若机场节点支持 IPv6，可开启 1 ipv6 透明代理；根据自身需要开启 3 CNV6 绕过内核  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/2bf5c392-d473-449e-b667-dc0194ed0604" width="60%"/>  
 
 进入 2 切换 DNS 运行模式，选择选择 2 redir_host 模式
@@ -225,9 +225,9 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 返回到 2 内核功能设置，根据自身需要开启 8 CN_IP 绕过内核  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/689c9b6e-cab5-401a-9b8b-e9ce5f2f27d0" width="60%"/>  
-⑤ 进入主菜单-> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
-⑥ 进入主菜单-> 7 内核进阶设置，选择 4 启用域名嗅探  
-⑦ 进入主菜单-> 9 更新/卸载-> 7 切换安装源及安装版本，选择 b 切换至公测版-master-> 1 Jsdelivr_CDN源，追求新版可选择 c 切换至开发版（可能不稳定）  
+⑤ 进入主菜单 -> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
+⑥ 进入主菜单 -> 7 内核进阶设置，选择 4 启用域名嗅探  
+⑦ 进入主菜单 -> 9 更新/卸载 -> 7 切换安装源及安装版本，选择 b 切换至公测版-master -> 1 Jsdelivr_CDN源，追求新版可选择 c 切换至开发版（可能不稳定）  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/d58f1ac5-1da4-4655-b0ce-535d779642be" width="60%"/>  
 进入 4 安装本地 Dashboard 面板，选择 3 安装 MetaXD 面板  
 注：
@@ -271,7 +271,7 @@ $CRASHDIR/start.sh update_config
 crash -h
 ```
 ## 3. ShellCrash 升级
-进入主菜单-> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
+进入主菜单 -> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/6b8717cd-acc4-46f1-a61b-04eafde0e71a" width="60%"/>
 ## 4. ShellCrash 卸载
 ① 通过脚本命令进行卸载（任选一）  
@@ -280,7 +280,7 @@ crash -h
 $CRASHDIR/start.sh stop && crash -u
 ```
 ② 通过 ShellCrash 配置进行卸载（任选一）  
-进入主菜单-> 9 更新/卸载，选择 9 卸载 ShellCrash
+进入主菜单 -> 9 更新/卸载，选择 9 卸载 ShellCrash
 # 六 、 AdGuardHome 安装和配置
 ## 1. AdGuardHome 安装
 ① 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\\[用户名]\Desktop\upx*  
@@ -340,9 +340,9 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 点击“开始配置”，**“网页管理界面端口”输入“3000”，“DNS 服务器端口”输入“5353”**  
 “身份认证”设置用户名和密码  
 ② 点击“打开仪表盘”后输入刚才设置的用户名和密码“登入”，就可以进入 AdGuardHome 管理页面  
-③ 进入设置->常规设置  
+③ 进入设置 -> 常规设置  
 取消勾选“启用日志”并点击“保存”（日志非常占用空间）  
-④ 进入设置 ->DNS 设置  
+④ 进入设置 -> DNS 设置  
 “上游 DNS 服务器”设置为 `127.0.0.1:1053`，并选择“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
@@ -364,7 +364,7 @@ https://doh.pub/dns-query
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e665285c-8792-420d-805e-cba534c00e22" width="60%"/>  
 勾选“乐观缓存”，并点击“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f857800a-ebf4-4031-994f-27cd6b3e7b53" width="60%"/>  
-⑤ 进入过滤器->DNS 黑名单->添加黑名单->从列表中选择，推荐勾选“区域”里的“CHN: anti-AD”，然后点击“保存”
+⑤ 进入过滤器 -> DNS 黑名单 -> 添加黑名单 -> 从列表中选择，推荐勾选“区域”里的“CHN: anti-AD”，然后点击“保存”
 - 注：若下载不稳定或失败，可手动将下载地址 URL 更改为 `https://anti-ad.net/easylist.txt`
 
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a0b4dff7-df3d-4b50-9d10-3fdffe004581" width="60%"/>
@@ -373,7 +373,14 @@ https://doh.pub/dns-query
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/201d8e2b-104b-4687-b0e8-aa5bf4660e24" width="60%"/>
 
 添加成功  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/56c133e1-6298-4cf8-a565-f1171959f20f" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/56c133e1-6298-4cf8-a565-f1171959f20f" width="60%"/>
+
+⑥ 进入过滤器 -> DNS 重写 -> 添加 DNS 重写，“输入域”填写 `miwifi.com`，“输入 IP 地址或域名”填写 `192.168.31.1`，然后点击“保存”
+- 注：此步骤可解决访问 http://miwifi.com 时无法打开小米或红米路由器管理页面的问题，其它型号路由器请根据自身需要填写
+
+添加成功  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f320054c-77ee-4133-b9a6-de07c47f9040" width="60%"/>
+
 **AdGuardHome 配置成功！**  
 
 **拓展：**  
