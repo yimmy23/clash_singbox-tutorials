@@ -3,11 +3,11 @@
 注：
 - 1. [jsDelivr 源](https://www.jsdelivr.com/github)有延迟（约 12 小时），请耐心等待同步完成，或者使用其它代理加速工具，比如：https://mirror.ghproxy.com
 - 2. 近期更新过 [DustinWin/ruleset_geodata/rule_set](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#-sing-box-%E5%86%85%E6%A0%B8) 项目内规则集的用户，请及时更新规则集文件（**必须使用 sing-box PuerNya 版内核 v1.9.0+ 版本**）
-- 3. 《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》中的 AdGuardHome 配置新增 DNS 重写步骤，以解决访问 http://miwifi.com 时无法打开小米或红米路由器管理页面的问题
 
 1. 新增 sing-box 分享篇《[分享自己使用 ShellCrash 搭配 geodata 方案的一套配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%20%E6%90%AD%E9%85%8D%20geodata%20%E6%96%B9%E6%A1%88%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)》
 2. 修改 sing-box 分享篇《[分享自己使用 ShellCrash（mix 模式）搭配 AdGuardHome 的一套配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88mix%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)》为 geodata 方案，更适合路由器使用
 3. 修改 sing-box `route.geosite` 和 `route.geoip` 内的 `path` 路径，以适配 ShellCrash
+4. 《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》中的 AdGuardHome 配置新增“DNS 重写”步骤，以解决访问 http://miwifi.com 时无法打开小米或红米路由器管理页面的问题
 
 **更新日志（2024-04-17）：**  
 1. sing-box 新增规则集 `fakeip-filter`，并在 `dns.rules` 中设置其走国内 DNS 解析，兜底走 fakeip（类似于 [mihomo 内核](https://github.com/MetaCubeX/mihomo)中的 `fake-ip-filter` 设定），提高兼容性
