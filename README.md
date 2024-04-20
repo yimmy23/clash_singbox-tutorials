@@ -6,7 +6,7 @@
 
 1. 新增 sing-box 分享篇《[分享自己使用 ShellCrash 搭配 geodata 方案的一套配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%20%E6%90%AD%E9%85%8D%20geodata%20%E6%96%B9%E6%A1%88%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)》
 2. 修改 sing-box 分享篇《[分享自己使用 ShellCrash（mix 模式）搭配 AdGuardHome 的一套配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88mix%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)》为 geodata 方案，更适合路由器使用
-3. 修改 sing-box 分享篇 ShellCrash 的 DNS 模式改为 fake-ip
+3. 修改 sing-box 分享篇 ShellCrash 的 DNS 模式改为 `fake-ip`
 4. 修改 sing-box `route.geosite` 和 `route.geoip` 内的 `path` 路径，以适配 ShellCrash
 5. 《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》中的 AdGuardHome 配置新增“DNS 重写”步骤，以解决访问 http://miwifi.com 时无法打开小米或红米路由器管理页面的问题
 
