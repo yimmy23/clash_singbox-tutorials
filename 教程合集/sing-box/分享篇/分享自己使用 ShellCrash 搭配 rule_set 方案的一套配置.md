@@ -193,21 +193,24 @@ curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/rulese
 201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新sing-box_PuerNya版内核
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-2. 执行 `crash`，进入 ShellCrash->5 配置自动任务->1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件  
+2. 执行 `crash`，进入 ShellCrash -> 5 配置自动任务 -> 1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/3f65431a-bdff-48d3-addb-82e6888fbfaa" width="60%"/>
 
 # 五、 设置部分
 1. 设置可参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
-2. 进入主菜单->2 内核功能设置->2 切换 DNS 运行模式->4 DNS 进阶设置，设置如下：
+2. 进入主菜单 -> 2 内核功能设置 -> 2 切换 DNS 模式，选择 1 fake-ip 模式
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/df72c0a0-5a46-4db3-a724-751c16fb16c6" width="60%"/>
+
+3. 返回到 2 切换 DNS 运行模式，进入 4 DNS 进阶设置，设置如下：
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/d620860f-2319-4274-a7a8-13502e28a049" width="60%"/>
 
-3. 进入主菜单->7 内核进阶设置->5 自定义端口及秘钥，设置如下：  
+4. 进入主菜单 -> 7 内核进阶设置 -> 5 自定义端口及秘钥，设置如下：  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/fea803f3-8cad-4962-be77-83ed506a9347" width="60%"/>
 
-4. 进入主菜单->6 导入配置文件->2 在线获取完整配置文件，粘贴第《一》步中生成的配置文件 .json 文件直链，启动服务即可
+5. 进入主菜单 -> 6 导入配置文件 -> 2 在线获取完整配置文件，粘贴第《一》步中生成的配置文件 .json 文件直链，启动服务即可
 # 六、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd
-1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`  
+1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置 -> 隐私和安全 -> 网站设置 -> 更多内容设置 -> 不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e6d6d92f-130d-474e-867e-9e66c39706b2" width="60%"/>
 
 2. 首次进入 https://metacubex.github.io/metacubexd 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板  
