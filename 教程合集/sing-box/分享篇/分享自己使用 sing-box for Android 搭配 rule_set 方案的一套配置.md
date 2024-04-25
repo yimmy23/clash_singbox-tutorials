@@ -208,6 +208,7 @@
     "override_android_vpn": true
   },
   "experimental": {
+    "cache_file": { "enabled": true },
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
