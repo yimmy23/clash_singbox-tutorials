@@ -98,6 +98,14 @@ rule-providers:
     url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/games-cn.list"
     interval: 86400
 
+  ai:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/ai.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/ai.list"
+    interval: 86400
+
   networktest:
     type: http
     behavior: classical
@@ -197,6 +205,16 @@ rule-providers:
     - 🇭🇰 香港节点
     # 添加 proxies.yaml 中的自定义节点
     - 🆓 免费节点
+    - 🇹🇼 台湾节点
+    - 🇯🇵 日本节点
+    - 🇸🇬 新加坡节点
+    - 🇺🇸 美国节点
+
+- name: 🤖 人工智能
+  type: select
+  proxies:
+    - 🈯 节点指定
+    - 🇭🇰 香港节点
     - 🇹🇼 台湾节点
     - 🇯🇵 日本节点
     - 🇸🇬 新加坡节点
@@ -317,6 +335,7 @@ rule-providers:
 - RULE-SET,apple-cn,🍎 苹果服务
 - RULE-SET,google-cn,🇬 谷歌服务
 - RULE-SET,games-cn,🎮 游戏服务
+- RULE-SET,ai,🤖 人工智能
 - RULE-SET,networktest,📈 网络测试
 - RULE-SET,proxy,🪜 代理域名
 - RULE-SET,cn,🇨🇳 直连域名
