@@ -40,6 +40,7 @@ proxies:
 proxy-groups:
   - {name: 🚀 节点选择, type: select, proxies: [🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
   - {name: 📈 网络测试, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
+  - {name: 🤖 人工智能, type: select, proxies: [🚀 节点选择, 🇭🇰 香港节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点, 🇬🇧 英国节点]}
   # 若机场的 UDP 质量不是很好，导致某游戏无法登录或进入房间，可以添加 `disable-udp: true` 配置项解决
   - {name: 🐟 漏网之鱼, type: select, proxies: [🚀 节点选择, 🎯 全球直连]}
   - {name: 🇨🇳 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
@@ -119,6 +120,14 @@ rule-providers:
     url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/games-cn.list"
     interval: 86400
 
+  ai:
+    type: http
+    behavior: domain
+    format: text
+    path: ./rules/ai.list
+    url: "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-ruleset/ai.list"
+    interval: 86400
+
   networktest:
     type: http
     behavior: classical
@@ -175,6 +184,7 @@ rules:
   - RULE-SET,apple-cn,🍎 苹果服务
   - RULE-SET,google-cn,🇬 谷歌服务
   - RULE-SET,games-cn,🎮 游戏服务
+  - RULE-SET,ai,🤖 人工智能
   - RULE-SET,networktest,📈 网络测试
   - RULE-SET,proxy,🪜 代理域名
   - RULE-SET,cn,🇨🇳 直连域名
