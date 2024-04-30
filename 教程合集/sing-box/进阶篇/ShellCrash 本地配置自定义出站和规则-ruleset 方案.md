@@ -66,6 +66,7 @@
     { "tag": "🈯 节点指定", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     // 选择`🎯 全球直连`为测试本地网络（运营商网络速度和 IPv6 支持情况），可选择其它节点用于测试机场节点速度和 IPv6 支持情况
     { "tag": "📈 网络测试", "type": "selector", "outbounds": [ "🎯 全球直连", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "🤖 人工智能", "type": "selector", "outbounds": [ "🈯 节点指定", "🇭🇰 香港节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "🇨🇳 直连域名", "type": "selector", "outbounds": [ "🎯 全球直连", "🈯 节点指定" ] },
     { "tag": "🪜 代理域名", "type": "selector", "outbounds": [ "🈯 节点指定", "🎯 全球直连" ] },
     { "tag": "🎮 游戏服务", "type": "selector", "outbounds": [ "🎯 全球直连", "🈯 节点指定" ] },
@@ -115,7 +116,8 @@
       { "rule_set": [ "apple-cn" ], "outbound": "🍎 苹果服务" },
       { "rule_set": [ "google-cn" ], "outbound": "🇬 谷歌服务" },
       { "rule_set": [ "games-cn" ], "outbound": "🎮 游戏服务" },
-      { "rule_set": [ "networktest" ], "outbound": "📈 网络测速" },
+      { "rule_set": [ "ai" ], "outbound": "🤖 人工智能" },
+      { "rule_set": [ "networktest" ], "outbound": "📈 网络测试" },
       { "rule_set": [ "proxy" ], "outbound": "🪜 代理域名" },
       { "rule_set": [ "cn" ], "outbound": "🇨🇳 直连域名" },
       { "rule_set": [ "telegramip" ], "outbound": "📲 电报消息", "skip_resolve": true },
@@ -165,6 +167,13 @@
         "format": "binary",
         "path": "./ruleset/games-cn.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/games-cn.srs"
+      },
+      {
+        "tag": "ai",
+        "type": "remote",
+        "format": "binary",
+        "path": "./ruleset/ai.srs",
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ai.srs"
       },
       {
         "tag": "networktest",
