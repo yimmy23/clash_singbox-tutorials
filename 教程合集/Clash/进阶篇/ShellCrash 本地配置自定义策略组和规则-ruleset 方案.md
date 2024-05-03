@@ -220,18 +220,6 @@ rule-providers:
     - 🇸🇬 新加坡节点
     - 🇺🇸 美国节点
 
-- name: 🇨🇳 直连域名
-  type: select
-  proxies:
-    - 🎯 全球直连
-    - 🈯 节点指定
-
-- name: 🪜 代理域名
-  type: select
-  proxies:
-    - 🈯 节点指定
-    - 🎯 全球直连
-
 - name: 🎮 游戏服务
   type: select
   proxies:
@@ -256,11 +244,23 @@ rule-providers:
     - 🎯 全球直连
     - 🈯 节点指定
 
+- name: 🇨🇳 直连域名
+  type: select
+  proxies:
+    - 🎯 全球直连
+    - 🈯 节点指定
+
 - name: 🇨🇳 直连 IP
   type: select
   proxies:
     - 🎯 全球直连
     - 🚀 节点选择
+
+- name: 🪜 代理域名
+  type: select
+  proxies:
+    - 🈯 节点指定
+    - 🎯 全球直连
 
 - name: 📲 电报消息
   type: select
