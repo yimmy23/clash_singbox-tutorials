@@ -23,6 +23,7 @@
 {
   "dns": {
     "servers": [
+      { "tag": "dns_block", "address": "rcode://refused" },
       { "tag": "dns_alidns", "address": "h3://223.5.5.5/dns-query", "detour": "DIRECT" },
       { "tag": "dns_dnspod", "address": "https://1.12.12.12/dns-query", "detour": "DIRECT" },
       { "tag": "dns_fakeip", "address": "fakeip" }
@@ -31,7 +32,8 @@
       { "outbound": "any", "server": [ "dns_alidns", "dns_dnspod" ] },
       { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
-      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "rule_set": [ "ads" ], "server": "dns_block" },
+      { "rule_set": [ "fakeip-filter", "private", "cn" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
     "final": [ "dns_alidns", "dns_dnspod" ],
