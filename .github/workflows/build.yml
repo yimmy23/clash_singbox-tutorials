@@ -19,7 +19,7 @@ jobs:
     - name: Set variables
       run: |
         echo "update_version=$(date -d '+8 hours' +%Y-%m-%d)" >> ${GITHUB_ENV}
-        echo "fake_ip_filter=https://raw.githubusercontent.com/juewuy/ShellCrash/dev/public/fake_ip_filter.list" >> $GITHUB_ENV
+        echo "fakeip_filter=https://raw.githubusercontent.com/juewuy/ShellCrash/dev/public/fake_ip_filter.list" >> $GITHUB_ENV
       shell: bash
 
     - name: Generate fakeip-user.yaml
@@ -42,7 +42,7 @@ jobs:
           fake-ip-filter:
             - '*'
         EOF
-        curl -sSL ${fake_ip_filter} | grep -v '#' | sed -e '/^\s*$/d' -e "s/.*/'&'/" -e 's/^/    - /' >> ./clash/fakeip-user.yaml
+        curl -sSL ${fakeip_filter} | grep -v '#' | sed -e '/^\s*$/d' -e "s/.*/'&'/" -e 's/^/    - /' >> ./clash/fakeip-user.yaml
         cat <<EOF >> ./clash/fakeip-user.yaml
           nameserver:
             - 'https://223.5.5.5/dns-query#h3=true'
