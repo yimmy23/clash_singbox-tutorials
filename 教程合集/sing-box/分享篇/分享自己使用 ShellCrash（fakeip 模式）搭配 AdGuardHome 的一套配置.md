@@ -1,10 +1,10 @@
-# 分享自己使用 [ShellCrash](https://github.com/juewuy/ShellCrash)（mix 模式）搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 的一套配置
+# 分享自己使用 [ShellCrash](https://github.com/juewuy/ShellCrash)（fakeip 模式）搭配 [AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) 的一套配置
 # 声明：
 1. 此方案采用 ShellCrash 作为上游，AdGuardHome 作为下游的模式
 2. 此方案适用于 [sing-box](https://github.com/SagerNet/sing-box)，采用 `geosite` 和 `geoip` 规则搭配 geosite.db 和 geoip.db [路由规则文件](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#%E4%B8%80-geodata-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)，**属高度定制，仅供参考**
 3. 自定义规则参考 [DustinWin/ruleset_geodata/geodata](https://github.com/DustinWin/ruleset_geodata?tab=readme-ov-file#%E4%B8%80-geodata-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 4. 请根据自身情况进行修改，**适合自己的方案才是最好的方案**，如无特殊需求，可以照搬
-5. 此方案中 ShellCrash 采用的 **DNS 模式为 `mix 混合模式`**（仍与 AdGuardHome 配合完美）
+5. 此方案中 ShellCrash 采用的 **DNS 模式为 `fakeip 模式`**（仍与 AdGuardHome 配合完美）
 6. 此方案适用于 ShellCrash（以 arm64 架构为例，且安装路径为 */data/ShellCrash*）
 7. 此方案适用于 AdGuardHome（以 arm64 架构为例，且安装路径为 */data/AdGuardHome*）
 8. 在导入配置前，连接 SSH 后执行命令 `mkdir -p $CRASHDIR/providers/`
@@ -101,7 +101,7 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 # 三、 导入路由规则文件和 dns.json
 连接 SSH 后执行如下命令：  
 注：
-- 1. 由于 ShellCrash 采用的 DNS 模式为 `mix`，**ShellCrash 传给 AdGuardHome 的国外域名对应 IP 为假 IP**，会导致 AdGuardHome 检查更新和下载更新 DNS 黑名单时失败
+- 1. 由于 ShellCrash 采用的 DNS 模式为 `fakeip`，**ShellCrash 传给 AdGuardHome 的国外域名对应 IP 为假 IP**，会导致 AdGuardHome 检查更新和下载更新 DNS 黑名单时失败
 - 2. dns.json 中添加了 AdGuardHome 常用域名，包括：`adguardteam.github.io`（AdGuardHome 自带 DNS 黑名单下载域名）、`adrules.top`（常用广告拦截下载域名）、`anti-ad.net`（常用广告拦截下载域名）和 `static.adtidy.org`（AdGuardHome 检查更新域名）并使用国内 DNS 进行解析
 - 3. 不推荐使用自带更新去更新，推荐第《四》步通过定时任务去自动更新（AdGuardHome 程序已被压缩，节省空间）
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/fa87cd47-f74b-40f1-a105-cc660e2f44ee" width="60%"/>
