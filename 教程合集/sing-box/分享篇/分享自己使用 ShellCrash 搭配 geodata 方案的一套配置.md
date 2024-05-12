@@ -43,16 +43,16 @@
       "tls": { "enabled": true, "server_name": "example.com", "insecure": false },
       "transport": { "type": "ws", "path": "/?ed=2048", "headers": { "Host": "example.com" } }
     },
-    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 50, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇭🇰.*BGP|🇭🇰.*Akari" ] },
-    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 50, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇹🇼" ] },
-    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 50, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇯🇵" ] },
-    { "tag": "🇰🇷 韩国节点", "type": "urltest", "tolerance": 50, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇰🇷" ] },
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 50, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇸🇬" ] },
-    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 50, "providers": [ "🅱️ Bitz Net" ], "includes": [ "🇺🇸" ] }
+    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场" ], "includes": [ "🇭🇰" ] },
+    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场" ], "includes": [ "🇹🇼" ] },
+    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场" ], "includes": [ "🇯🇵" ] },
+    { "tag": "🇰🇷 韩国节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场" ], "includes": [ "🇰🇷" ] },
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场" ], "includes": [ "🇸🇬" ] },
+    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场" ], "includes": [ "🇺🇸" ] }
   ],
   "outbound_providers": [
     {
-      "tag": "🅱️ Bitz Net",
+      "tag": "🛫 我的机场",
       "type": "http",
       "healthcheck_url": "https://www.gstatic.com/generate_204",
       "healthcheck_interval": "10m",
