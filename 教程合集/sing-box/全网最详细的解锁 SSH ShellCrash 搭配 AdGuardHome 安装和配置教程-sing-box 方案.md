@@ -351,10 +351,10 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ③ 进入设置 -> 常规设置  
 取消勾选“启用日志”并点击“保存”（日志非常占用空间）  
 ④ 进入设置 -> DNS 设置  
-“上游 DNS 服务器”设置为 `127.0.0.1:53`，并选择“并行请求”
+“上游 DNS 服务器”设置为 `127.0.0.1:1053`，并选择“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/b6de38a8-d45b-49a4-a139-29819d222a3d" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d211440f-23f2-45d1-8319-4292ea6e85f8" width="60%"/>
 
 “后备 DNS 服务器”设置为：
 ```
