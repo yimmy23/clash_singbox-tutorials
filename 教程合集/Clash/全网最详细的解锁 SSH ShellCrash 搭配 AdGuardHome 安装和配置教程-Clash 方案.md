@@ -346,7 +346,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 “上游 DNS 服务器”设置为 `127.0.0.1:1053`，并选择“并行请求”
 - 注：此时页面右下角可能会弹出报错信息，但不用理会
 
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/cce1d34e-c96c-4c62-9793-ec7947ef6a28" width="60%"/>
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/d211440f-23f2-45d1-8319-4292ea6e85f8" width="60%"/>
 
 “后备 DNS 服务器”设置为：
 ```
