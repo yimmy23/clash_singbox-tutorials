@@ -56,12 +56,12 @@ proxy-groups:
   - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
-  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇭🇰"}
-  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇹🇼"}
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇯🇵"}
-  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇰🇷"}
-  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇸🇬"}
-  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇺🇸"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇭🇰"}
+  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇹🇼"}
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇯🇵"}
+  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇰🇷"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇸🇬"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇺🇸"}
 
 rule-providers:
   ads:
@@ -199,36 +199,36 @@ rules:
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
-curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
 ```
 # 三、 设置部分
 1. 设置可参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处
-2. 进入 Clash Verge->订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”
+2. 进入 Clash Verge -> 订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”
 3. 进入文件夹 *%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles*，找到与上一步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的 `{Merge 文件名}`
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/ruleset-fakeip-user.yaml
+curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml" -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/ruleset-fakeip-user.yaml
 ```
-4. 再次进入 Clash Verge->订阅，右击新建的 Merge 文件，点击“启用”  
+4. 再次进入 Clash Verge -> 订阅，右击新建的 Merge 文件，点击“启用”  
 小窍门：
 - 1. 可以配置一键更新 mihomo 内核和自定义配置文件的脚本，编辑本文文档，粘贴如下内容：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
-curl -o "%LOCALAPPDATA%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/ruleset-fakeip-user.yaml
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
+curl -o "%PROGRAMFILES%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
+curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml" -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/ruleset-fakeip-user.yaml
 pause
 ```
 - 2. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
 # 四、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd
-1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置->隐私和安全->网站设置->更多内容设置->不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`  
+1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置 -> 隐私和安全 -> 网站设置 -> 更多内容设置 -> 不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/4ab824d5-9a7f-4aa8-9b1e-71a8deacdbc5" width="60%"/>
 
 2. 首次进入 https://metacubex.github.io/metacubexd 需要添加“host url”，输入 `http://127.0.0.1:9090` 并点击“添加”，最后点击下方新增的 http://127.0.0.1:9090 即可访问 Dashboard 面板  
