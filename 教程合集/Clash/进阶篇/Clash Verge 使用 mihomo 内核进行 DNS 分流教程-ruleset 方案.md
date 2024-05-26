@@ -11,18 +11,18 @@
 ## 1. DNS 模式为 `fake-ip`
 - 注：该模式不需要进行 DNS 分流，推荐导入我生成的 fakeip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/dev/public/fake_ip_filter.list)，提高了兼容性）
 
-① 进入 Clash Verge->订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
+① 进入 Clash Verge -> 订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
 ② 进入文件夹 *%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles*，找到与上一步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的 `{Merge 文件名}`  
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o %APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/fakeip-user.yaml
+curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml" -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/fakeip-user.yaml
 ```
-③ 再次进入 Clash Verge->订阅，右击新建的 Merge 文件，点击“启用”
+③ 再次进入 Clash Verge -> 订阅，右击新建的 Merge 文件，点击“启用”
 ## 2. DNS 模式为 `redir-host`
-① 进入 Clash Verge->订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
+① 进入 Clash Verge -> 订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
 ② 右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
 ```
 sniffer:
@@ -49,4 +49,4 @@ dns:
 ```
 ③ 再次右击新建的 Merge 文件，点击“启用”
 # 三、 客户端设置
-进入 Clash Verge->系统设置->Tun 模式，点击右边的螺帽图标，启用“严格路由”，然后点击“保存”
+进入 Clash Verge -> 系统设置 -> Tun 模式，点击右边的螺帽图标，启用“严格路由”，然后点击“保存”
