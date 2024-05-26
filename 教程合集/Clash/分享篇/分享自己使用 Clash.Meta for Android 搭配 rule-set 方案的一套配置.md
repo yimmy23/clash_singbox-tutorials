@@ -115,6 +115,7 @@ dns:
     - 'localhost.sec.qq.com'
     - '+.qq.com'
     - '+.tencent.com'
+    - '+.steamcontent.com'
     - '+.srv.nintendo.net'
     - '*.n.n.srv.nintendo.net'
     - '+.cdn.nintendo.net'
@@ -209,12 +210,12 @@ proxy-groups:
   - {name: 🛑 广告拦截, type: select, proxies: [REJECT]}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
-  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇭🇰"}
-  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇹🇼"}
-  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇯🇵"}
-  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇰🇷"}
-  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇸🇬"}
-  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "🇺🇸"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇭🇰"}
+  - {name: 🇹🇼 台湾节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇹🇼"}
+  - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇯🇵"}
+  - {name: 🇰🇷 韩国节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇰🇷"}
+  - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇸🇬"}
+  - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "🇺🇸"}
 
 rule-providers:
   ads:
@@ -347,6 +348,6 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 # 二、 导入配置文件并启动 Clash
-1. 进入 Clash Meta for Android->配置->创建配置->从 URL 导入，“URL”输入第《一》中生成的配置文件 .yaml 直链，“自动更新”填写“1440”，最后点击右上角的“保存图标”
-2. 进入 Clash Meta for Android->设置->网络，将“系统代理”关闭
+1. 进入 Clash Meta for Android -> 配置 -> 创建配置 -> 从 URL 导入，“URL”输入第《一》中生成的配置文件 .yaml 直链，“自动更新”填写“1440”，最后点击右上角的“保存图标”
+2. 进入 Clash Meta for Android -> 设置 -> 网络，将“系统代理”关闭
 3. 返回到主界面，点击“点此启用”即可启动 Clash 服务
