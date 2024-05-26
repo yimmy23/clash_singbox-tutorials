@@ -13,10 +13,10 @@
 # 一、 导入 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)和路由规则文件
 可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》里的步骤《一、二》进行操作
 # 二、 导入配置文件
-1. 进入 ShellCrash->6 导入配置文件->1 在线生成 singbox 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）
+1. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 singbox 配置文件 -> 4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/70e60a4d-6819-43aa-9f6c-0a0ab4384db6" width="60%"/>
 
-2. 进入 ShellCrash->6 导入配置文件->1 在线生成 singbox 配置文件，输入订阅链接后回车，再输入“1”并回车即可
+2. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 singbox 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义出站和规则
 ## 1. 自定义代理集合 outbound_providers.json
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
@@ -90,11 +90,11 @@
 
     // -------------------- 国家或地区出站 --------------------
     // 自动选择节点，即按照 url 测试结果使用延迟最低的节点；测试后容差大于 50ms 才会切换到延迟低的那个节点；筛选出“香港”节点，支持正则表达式
-    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
-    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)台|tw|taiwan" ] },
-    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan" ] },
-    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)新|sg|singapore" ] },
-    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)美|us|unitedstates|united states" ] }
+    { "tag": "🇭🇰 香港节点", "type": "urltest", "tolerance": 50, "use_all_providers": true, "includes": [ "(?i)港|hk|hongkong|hong kong" ] },
+    { "tag": "🇹🇼 台湾节点", "type": "urltest", "tolerance": 50, "use_all_providers": true, "includes": [ "(?i)台|tw|taiwan" ] },
+    { "tag": "🇯🇵 日本节点", "type": "urltest", "tolerance": 50, "use_all_providers": true, "includes": [ "(?i)日本|jp|japan" ] },
+    { "tag": "🇸🇬 新加坡节点", "type": "urltest", "tolerance": 50, "use_all_providers": true, "includes": [ "(?i)新|sg|singapore" ] },
+    { "tag": "🇺🇸 美国节点", "type": "urltest", "tolerance": 50, "use_all_providers": true, "includes": [ "(?i)美|us|unitedstates|united states" ] }
   ]
 }
 ```
@@ -193,7 +193,7 @@
   // 出站
   "outbounds": [
     // 打开奈飞后自动选择延迟最低的日本或新加坡节点；容差大于 50ms 才会切换到延迟低的那个节点
-    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 50, "providers": [ "🛫 我的机场 1", "🛫 我的机场 2" ], "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
+    { "tag": "🎥 奈飞视频", "type": "urltest", "tolerance": 50, "use_all_providers": true, "includes": [ "(?i)日本|jp|japan|新|sg|singapore" ] }
   ]
 }
 ```
