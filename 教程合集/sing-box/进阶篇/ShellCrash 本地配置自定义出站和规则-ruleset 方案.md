@@ -269,7 +269,7 @@
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内搜索“netflix”  
 ② 输入“netflix”可以搜索到“geo/geosite/netflix.srs”和“geo/geoip/netflix.srs”  
-③ 点击 .srs 文件，然后点击“Raw”获取下载地址，那么就可以这样编写：
+③ 点击 .srs 文件，然后点击“Raw”获取下载地址，那么就可以这样编写：  
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
