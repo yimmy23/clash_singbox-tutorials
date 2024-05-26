@@ -11,10 +11,10 @@
 # 一、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)
 可参考《[ShellCrash 配置-ruleset 方案/导入 mihomo 内核](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-mihomo-%E5%86%85%E6%A0%B8)》里的步骤进行操作
 # 二、 导入配置文件
-1. 进入 ShellCrash->6 导入配置文件->1 在线生成 meta 配置文件->4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
+1. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 meta 配置文件 -> 4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>
 
-2. 进入 ShellCrash->6 导入配置文件->1 在线生成 meta 配置文件，输入订阅链接后回车，再输入“1”并回车即可
+2. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 meta 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义策略组和规则
 ## 1. 自定义 others.yaml
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
@@ -284,42 +284,32 @@ rule-providers:
   type: url-test
   # 测试后容差大于 50ms 才会切换到延迟低的那个节点
   tolerance: 50
-  use:
-    - 🛫 我的机场 1
-    - 🛫 我的机场 2
+  include-all-providers: true
   # 筛选出“香港”节点，支持正则表达式
   filter: "(?i)港|hk|hongkong|hong kong"
 
 - name: 🇹🇼 台湾节点
   type: url-test
   tolerance: 50
-  use:
-    - 🛫 我的机场 1
-    - 🛫 我的机场 2
+  include-all-providers: true
   filter: "(?i)台|tw|taiwan"
 
 - name: 🇯🇵 日本节点
   type: url-test
   tolerance: 50
-  use:
-    - 🛫 我的机场 1
-    - 🛫 我的机场 2
+  include-all-providers: true
   filter: "(?i)日本|jp|japan"
 
 - name: 🇸🇬 新加坡节点
   type: url-test
   tolerance: 50
-  use:
-    - 🛫 我的机场 1
-    - 🛫 我的机场 2
+  include-all-providers: true
   filter: "(?i)新|sg|singapore"
 
 - name: 🇺🇸 美国节点
   type: url-test
   tolerance: 50
-  use:
-    - 🛫 我的机场 1
-    - 🛫 我的机场 2
+  include-all-providers: true
   filter: "(?i)美|us|unitedstates|united states"
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
@@ -378,9 +368,7 @@ rule-providers:
 - name: 🎥 奈飞视频
   type: url-test
   tolerance: 50
-  use:
-    - 🛫 我的机场 1
-    - 🛫 我的机场 2
+  include-all-providers: true
   filter: "(?i)日本|jp|japan|新|sg|singapore"
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
