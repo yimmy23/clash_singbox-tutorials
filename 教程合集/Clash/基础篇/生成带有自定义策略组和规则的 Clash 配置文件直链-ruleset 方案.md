@@ -7,7 +7,7 @@
 3. 生成的订阅链接**自带规则集**，规则集来源 [DustinWin/ruleset_geodata/clash](https://github.com/DustinWin/ruleset_geodata#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 4. 请先**确定自己机场的订阅链接是否为 Clash 订阅链接**，若不是，需前往[肥羊在线订阅转换工具](https://suburl.v1.mk)进行转换，“生成类型”选择“Clash”，其它参数保持默认即可，转换后的订阅链接需要在末尾添加`&flag=clash`，然后添加到 .yaml 文件代理集合 `proxy-providers` 的 `url` 中
 5. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
-6. ShellCrash 支持本地导入配置文件，可以直接将下方的 .yaml 直链文件内容复制到 *$CRASHDIR/yamls/config.yaml* 文件中，可代替通过 ShellCrash 配置脚本->6->2 导入配置文件的方式
+6. ShellCrash 支持本地导入配置文件，可以直接将下方的 .yaml 直链文件内容复制到 *$CRASHDIR/yamls/config.yaml* 文件中，可代替通过 ShellCrash 配置脚本 -> 6 -> 2 导入配置文件的方式
 ---
 # 一、 准备编辑 .yaml 直链文件
 ## 1. 注册 [Gist](https://gist.github.com)
@@ -95,7 +95,7 @@ proxy-groups:
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
-  # 若有多个机场，可以使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`
+  # 可使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`，意思为引入所有代理集合
   - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "(?i)日本|jp|japan"}
   - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
@@ -306,7 +306,7 @@ proxy-groups:
   - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)港|hk|hongkong|hong kong"}
   # 节点负载均衡，即将请求均匀分配到多个节点上，优点是更稳定，速度可能有提升；将相同顶级域名的请求分配给策略组内的同一个代理节点；推荐在节点复用比较多的情况下使用
   - {name: 🇹🇼 台湾节点, type: load-balance, strategy: consistent-hashing, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)台|tw|taiwan"}
-  # 若有多个机场，可以使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`
+  # 可使用 `include-all-providers: true` 代替 `use: [🛫 我的机场 1, 🛫 我的机场 2, ...]`，意思为引入所有代理集合
   - {name: 🇯🇵 日本节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "(?i)日本|jp|japan"}
   - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
@@ -387,9 +387,9 @@ proxy-groups:
   # 默认选择日本节点
   - {name: 📽️ AcFun, type: select, proxies: [🇯🇵 日本节点, 🎯 全球直连]}
   # 自动选择延迟最低的香港节点；容差大于 50ms 才会切换到延迟低的那个节点
-  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 🇭🇰 香港节点, type: url-test, tolerance: 50, include-all-providers: true, filter: "(?i)港|hk|hongkong|hong kong"}
   # 手动选择日本节点
-  - {name: 🇯🇵 日本节点, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan"}
+  - {name: 🇯🇵 日本节点, type: select, include-all-providers: true, filter: "(?i)日本|jp|japan"}
   - {name: 🎯 全球直连, type: select, proxies: [DIRECT]}
 
 # 规则集（yaml 文件每天自动更新）
@@ -432,9 +432,9 @@ rules:
 `https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/clashlink.yaml`
 # 五、 导入订阅链接
 ## 1. 在 ShellCrash 中导入订阅链接
-进入 ShellCrash 配置脚本->6->2，粘贴最终生成的订阅链接即可，具体设置请参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
+进入 ShellCrash 配置脚本 -> 6 -> 2，粘贴最终生成的订阅链接即可，具体设置请参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
 ## 2. 在 Clash Verge（Windows 端）中导入订阅链接
-进入 Clash Verge->订阅，在“订阅文件链接”处粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
+进入 Clash Verge -> 订阅，在“订阅文件链接”处粘贴最终生成的订阅链接，直接“导入”即可，具体设置请参考《[Clash Verge 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》
 # 六、 私人定制
 到了这里，相信你对里面的机制已经有了一定的认识，那么我们可以对自己的需求进行定制了  
 最常见的有：我购买的机场支持[奈飞](https://www.netflix.com)和[亚马逊](https://www.primevideo.com)，但仅新加坡这一个节点支持亚马逊，日本和韩国节点支持奈飞，这个规则怎么写？
@@ -447,9 +447,9 @@ rules:
 # 策略组
 proxy-groups:
   # 打开奈飞后手动选择日本或韩国节点
-  - {name: 🎥 奈飞视频, type: select, use: [🛫 我的机场], filter: "(?i)日本|jp|japan|韩|kr|korea"}
+  - {name: 🎥 奈飞视频, type: select, include-all-providers: true, filter: "(?i)日本|jp|japan|韩|kr|korea"}
   # 打开亚马逊后自动选择延迟最低的新加坡节点；容差大于 50ms 才会切换到延迟低的那个节点；未选择到当前策略组时不会进行延迟测试
-  - {name: 🎬 Prime Video, type: url-test, tolerance: 50, use: [🛫 我的机场], filter: "(?i)新|sg|singapore"}
+  - {name: 🎬 Prime Video, type: url-test, tolerance: 50, include-all-providers: true, filter: "(?i)新|sg|singapore"}
 
 # 规则集（yaml 文件每天自动更新）
 rule-providers:
