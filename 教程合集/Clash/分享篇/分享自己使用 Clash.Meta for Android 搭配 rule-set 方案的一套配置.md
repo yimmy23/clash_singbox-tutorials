@@ -23,7 +23,7 @@ proxy-providers:
 
 mode: rule
 ipv6: true
-log-level: silent
+log-level: error
 allow-lan: true
 mixed-port: 7890
 unified-delay: false
