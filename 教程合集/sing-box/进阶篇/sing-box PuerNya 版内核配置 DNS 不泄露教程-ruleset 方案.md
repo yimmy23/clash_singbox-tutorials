@@ -30,22 +30,20 @@
   "dns": {
     "servers": [
       { "tag": "dns_block", "address": "rcode://refused" },
-      { "tag": "dns_alidns", "address": "h3://223.5.5.5/dns-query", "detour": "DIRECT" },
-      { "tag": "dns_dnspod", "address": "https://1.12.12.12/dns-query", "detour": "DIRECT" },
-      { "tag": "dns_cloudflare", "address": "h3://1.1.1.1/dns-query" },
-      { "tag": "dns_google", "address": "https://8.8.8.8/dns-query" },
+      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_proxy", "address": [ "h3://1.1.1.1/dns-query", "https://8.8.8.8/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
-      { "outbound": "any", "server": [ "dns_alidns", "dns_dnspod" ] },
-      { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "outbound": "any", "server": "dns_direct" },
+      { "clash_mode": "Direct", "server": "dns_direct" },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "rule_set": [ "ads" ], "server": "dns_block" },
-      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
-      { "fallback_rules": [ { "rule_set": [ "cnip" ], "invert": true } ], "server": [ "dns_cloudflare", "dns_google" ] },
+      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "fallback_rules": [ { "rule_set": [ "cnip" ], "invert": true } ], "server": "dns_proxy" },
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
-    "final": [ "dns_cloudflare", "dns_google" ],
+    "final": "dns_proxy",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
