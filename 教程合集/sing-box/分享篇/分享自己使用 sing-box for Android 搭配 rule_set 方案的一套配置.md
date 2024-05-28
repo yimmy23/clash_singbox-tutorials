@@ -24,7 +24,7 @@
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
     "final": "dns_direct",
-    "strategy": "prefer_ipv4",
+    "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
