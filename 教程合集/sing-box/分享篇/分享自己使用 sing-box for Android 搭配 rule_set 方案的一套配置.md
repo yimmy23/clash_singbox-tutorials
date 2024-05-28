@@ -12,26 +12,25 @@
   "dns": {
     "servers": [
       { "tag": "dns_block", "address": "rcode://refused" },
-      { "tag": "dns_alidns", "address": "h3://223.5.5.5/dns-query", "detour": "DIRECT" },
-      { "tag": "dns_dnspod", "address": "https://1.12.12.12/dns-query", "detour": "DIRECT" },
+      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
-      { "outbound": "any", "server": [ "dns_alidns", "dns_dnspod" ] },
-      { "clash_mode": "Direct", "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "outbound": "any", "server": "dns_direct" },
+      { "clash_mode": "Direct", "server": "dns_direct" },
       { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
       { "rule_set": [ "ads" ], "server": "dns_block" },
-      { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": [ "dns_alidns", "dns_dnspod" ] },
+      { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
     ],
-    "final": [ "dns_alidns", "dns_dnspod" ],
+    "final": "dns_direct",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   },
   "inbounds": [
-    { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "always_resolve_udp": true }
+    { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "domain_strategy": "prefer_ipv6", "always_resolve_udp": true }
   ],
   "outbounds": [
     { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
@@ -51,7 +50,7 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
     {
