@@ -173,6 +173,7 @@
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
+    "mapping_override": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   }
 }
@@ -311,6 +312,7 @@
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
+    "mapping_override": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   }
 }
