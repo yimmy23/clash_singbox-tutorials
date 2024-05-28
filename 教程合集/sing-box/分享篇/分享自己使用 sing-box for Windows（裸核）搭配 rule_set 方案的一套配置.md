@@ -225,7 +225,8 @@
 }
 ```
 # 二、 导入 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)和配置文件并启动 sing-box
-1. 编辑本文文档，粘贴如下内容：  
+## 1. 导入内核和配置文件
+① 编辑本文文档，粘贴如下内容：  
 注：
 - 1. 将第《一》步生成的配置文件 .json 文件直链替换下面命令中的 `{配置文件 .json 文件直链}`
 - 2. 或者删除此条命令，直接进入 *%PROGRAMFILES%\sing-box* 文件夹，新建 config.json 文件并粘贴配置内容
@@ -244,16 +245,28 @@ icacls "%PROGRAMFILES%\sing-box" /grant[:r] Users:(OI)(CI)F
 curl -o "%PROGRAMFILES%\sing-box\sing-box.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/sing-box-puernya/sing-box-windows-amd64v3.exe
 curl -o "%PROGRAMFILES%\sing-box\config.json" -L {配置文件 .json 文件直链}
 ```
-
-另存为 .bat 文件，右击并选择“以管理员身份运行”  
-2. 编辑本文文档，粘贴如下内容：
+② 另存为 .bat 文件，右击并选择“以管理员身份运行”  
+## 2. 启动 sing-box
+① 编辑本文文档，粘贴如下内容：
 ```
 cd "%PROGRAMFILES%\sing-box"
 start /min sing-box.exe run
 ```
-另存为 run.bat 文件并复制到 *%PROGRAMFILES%\sing-box* 文件夹中  
-3. 右击 run.bat 文件并选择“以管理员身份运行”即可  
+② 另存为 run.bat 文件并复制到 *%PROGRAMFILES%\sing-box* 文件夹中  
+③ 右击 run.bat 文件并选择“以管理员身份运行”即可  
 小窍门：
 - 1. 右击 run.bat 文件并选择“发送到桌面快捷方式”
 - 2. 右击快捷方式并点击“属性” -> “高级”，勾选“以管理员身份运行”并“确定”
+# 三、 更新 sing-box PuerNya 版内核和配置文件
+编辑本文文档，粘贴如下内容：  
+注：
+- 1. 将第《一》步生成的配置文件 .json 文件直链替换下面命令中的 `{配置文件 .json 文件直链}`
+- 2. 或者删除此条命令，直接进入 *%PROGRAMFILES%\sing-box* 文件夹，修改 config.json 文件内的配置内容
 
+```
+taskkill /f /t /im sing-box*
+curl -o "%PROGRAMFILES%\sing-box\sing-box.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/sing-box-puernya/sing-box-windows-amd64v3.exe
+curl -o "%PROGRAMFILES%\sing-box\config.json" -L {配置文件 .json 文件直链}
+pause
+```
+另存为 .bat 文件，右击并选择“以管理员身份运行” 
