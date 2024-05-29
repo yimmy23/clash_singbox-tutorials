@@ -33,6 +33,7 @@
     { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
+    // 若没有单个出站节点，须删除所有 `🆓 免费节点` 相关内容
     {
       "tag": "🆓 免费节点",
       "type": "vless",
@@ -53,15 +54,15 @@
   "outbound_providers": [
     {
       "tag": "🛫 我的机场",
-      "type": "http",
-      "healthcheck_url": "https://www.gstatic.com/generate_204",
-      "healthcheck_interval": "10m",
+      "type": "remote",
       // 修改为你的 Clash 订阅链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
       "path": "./providers/airport.yaml",
-      "includes": [ "🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸" ],
+      "download_interval": "24h",
       "download_ua": "clash.meta",
-      "download_interval": "24h"
+      "includes": [ "🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸" ],
+      "healthcheck_url": "https://www.gstatic.com/generate_204",
+      "healthcheck_interval": "10m"
     }
   ],
   "route": {
