@@ -244,6 +244,8 @@ icacls "%PROGRAMFILES%\sing-box" /grant[:r] Administrators:(OI)(CI)F
 icacls "%PROGRAMFILES%\sing-box" /grant[:r] Users:(OI)(CI)F
 curl -o "%PROGRAMFILES%\sing-box\sing-box.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/sing-box-puernya/sing-box-windows-amd64v3.exe
 curl -o "%PROGRAMFILES%\sing-box\config.json" -L {配置文件 .json 文件直链}
+echo 导入 sing-box 内核和配置文件成功
+pause
 ```
 ② 另存为 .bat 文件，右击并选择“以管理员身份运行”  
 ## 2. 启动 sing-box
