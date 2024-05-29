@@ -4,7 +4,8 @@
 2. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-7ec15dbd），**`outbound_providers.type` 配置改动较大**
 3. 新增 sing-box 教程分享篇《[分享自己使用 sing-box for Windows（裸核）搭配 rule_set 方案的一套配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20sing-box%20for%20Windows%EF%BC%88%E8%A3%B8%E6%A0%B8%EF%BC%89%E6%90%AD%E9%85%8D%20rule_set%20%E6%96%B9%E6%A1%88%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)》
 4. 修改 sing-box 教程分享篇（Android 端和 Windows 端），删除 `tun` 入站里的 `"domain_strategy": "prefer_ipv6"` 配置项，并将此配置项添加到出站 `direct` 内
-5. 其它文案优化
+5. 修改 Clash 和 sing-box 教程分享篇（Windows 端），优化更新内核和配置文件脚本
+6. 其它文案优化
 
 **更新日志（2024-05-26）：**  
 1. ruleset 方案新增 `rule-set,ai,🤖 人工智能` 规则
