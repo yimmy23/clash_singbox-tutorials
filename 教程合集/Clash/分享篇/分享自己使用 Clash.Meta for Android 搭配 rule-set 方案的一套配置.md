@@ -44,6 +44,7 @@ tun:
   dns-hijack: [any:53]
   auto-route: true
   auto-detect-interface: true
+  device: Meta
   strict-route: true
 
 dns:
