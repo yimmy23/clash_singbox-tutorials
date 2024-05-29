@@ -30,7 +30,7 @@
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   },
   "inbounds": [
-    { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "domain_strategy": "prefer_ipv6", "always_resolve_udp": true }
+    { "tag": "tun-in", "type": "tun", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true, "always_resolve_udp": true }
   ],
   "outbounds": [
     { "tag": "🚀 节点选择", "type": "selector", "outbounds": [ "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
@@ -50,7 +50,7 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    { "tag": "DIRECT", "type": "direct" },
+    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
     {
