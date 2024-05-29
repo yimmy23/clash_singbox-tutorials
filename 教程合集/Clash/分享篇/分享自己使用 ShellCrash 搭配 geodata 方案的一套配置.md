@@ -24,6 +24,7 @@ proxy-providers:
       url: https://www.gstatic.com/generate_204
       interval: 600
 
+# 若没有单个出站代理节点，须删除所有 `🆓 免费节点` 相关内容
 proxies:
   - name: 🆓 免费节点
     type: vless
