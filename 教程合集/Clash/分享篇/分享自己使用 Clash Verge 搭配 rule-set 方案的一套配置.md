@@ -217,12 +217,16 @@ curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文
 小窍门：
 - 1. 可以配置一键更新 mihomo 内核和自定义配置文件的脚本，编辑本文文档，粘贴如下内容：
 ```
+curl -o "%USERPROFILE%\Downloads\clash-meta.exe" -L https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
+curl -o "%USERPROFILE%\Downloads\clash-meta-alpha.exe" -L https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
+curl -o "%USERPROFILE%\Downloads\{Merge 文件名}.yaml" -L https://raw.githubusercontent.com/DustinWin/ruleset_geodata/clash-config/ruleset-fakeip-user.yaml
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-meta/mihomo-windows-amd64.exe
-curl -o "%PROGRAMFILES%\Clash Verge\clash-meta-alpha.exe" -L https://mirror.ghproxy.com/https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/mihomo-alpha/mihomo-windows-amd64.exe
-curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml" -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@clash-config/ruleset-fakeip-user.yaml
+copy /y "%USERPROFILE%\Downloads\clash-meta.exe" "%PROGRAMFILES%\Clash Verge"
+copy /y "%USERPROFILE%\Downloads\clash-meta-alpha.exe" "%PROGRAMFILES%\Clash Verge"
+copy /y "%USERPROFILE%\Downloads\{Merge 文件名}.yaml" "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles"
+echo 更新 mihomo 内核和配置文件成功
 pause
 ```
 - 2. 另存为 .bat 文件，右击并选择“以管理员身份运行”即可
