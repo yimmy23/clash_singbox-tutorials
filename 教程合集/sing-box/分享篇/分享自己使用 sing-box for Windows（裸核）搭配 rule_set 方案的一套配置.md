@@ -18,15 +18,16 @@
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
       { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip", "rewrite_ttl": 1 },
+      { "clash_mode": "Global", "server": "dns_fakeip" },
       { "rule_set": [ "ads" ], "server": "dns_block" },
       { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 }
+      { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
     ],
     "final": "dns_direct",
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
+    "mapping_override": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   },
   "inbounds": [
