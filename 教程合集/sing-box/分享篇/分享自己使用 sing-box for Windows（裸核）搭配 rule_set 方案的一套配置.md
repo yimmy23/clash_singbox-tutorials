@@ -274,7 +274,10 @@ curl -o "%USERPROFILE%\Downloads\config.json" -L {配置文件 .json 文件直�
 taskkill /f /t /im sing-box*
 copy /y "%USERPROFILE%\Downloads\sing-box.exe" "%PROGRAMFILES%\sing-box"
 copy /y "%USERPROFILE%\Downloads\config.json" "%PROGRAMFILES%\sing-box"
-echo 更新 sing-box 内核和配置文件成功
+echo 更新 sing-box 内核和配置文件成功，等待 10 秒启动 sing-box 服务
+timeout /t 10 /nobreak
+cd "%PROGRAMFILES%\sing-box"
+start /min sing-box.exe run
 pause
 ```
 另存为 .bat 文件，右击并选择“以管理员身份运行” 
