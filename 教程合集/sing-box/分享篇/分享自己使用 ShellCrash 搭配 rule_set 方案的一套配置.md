@@ -204,8 +204,8 @@ curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/rulese
 ```
 201#curl -o /data/ShellCrash/CrashCore.tar.gz -L https://raw.githubusercontent.com/DustinWin/clash_singbox-tools/main/sing-box-puernya/sing-box-linux-armv8.tar.gz && /data/ShellCrash/start.sh restart >/dev/null 2>&1#更新sing-box_PuerNya版内核
 ```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-2. 执行 `crash`，进入 ShellCrash -> 5 配置自动任务 -> 1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件  
+2. 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+3. 执行 `crash`，进入 ShellCrash -> 5 配置自动任务 -> 1 添加自动任务，可以看到末尾就有添加的定时任务，输入对应的数字并回车后可设置执行条件  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/3f65431a-bdff-48d3-addb-82e6888fbfaa" width="60%"/>
 
 # 五、 设置部分
