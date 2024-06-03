@@ -43,8 +43,8 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    // 若本地网络支持 IPv6，可添加 `"domain_strategy": "prefer_ipv6"` 配置项
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+    // 若需强制开启直连域名 IPv6 优先，可添加 `"domain_strategy": "prefer_ipv6"` 配置项（不推荐）
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
@@ -151,7 +151,7 @@
       // 广告 DNS
       { "tag": "dns_block", "address": "rcode://refused" },
       // 国内 DNS
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
@@ -196,8 +196,8 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    // 若本地网络支持 IPv6，可添加 `"domain_strategy": "prefer_ipv6"` 配置项
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+    // 若需强制开启直连域名 IPv6 优先，可添加 `"domain_strategy": "prefer_ipv6"` 配置项（不推荐）
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
@@ -292,7 +292,7 @@
       // 广告 DNS
       { "tag": "dns_block", "address": "rcode://refused" },
       // 国内 DNS
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
