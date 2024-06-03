@@ -12,7 +12,8 @@
   "dns": {
     "servers": [
       { "tag": "dns_block", "address": "rcode://refused" },
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_proxy", "address": [ "https://1.1.1.1/dns-query", "https://8.8.8.8/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
@@ -21,7 +22,8 @@
       { "clash_mode": "Global", "server": "dns_fakeip" },
       { "rule_set": [ "ads" ], "server": "dns_block" },
       { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
+      { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" },
+      { "fallback_rules": [ { "rule_set": [ "cnip" ] } ], "invert": true, "server": "dns_proxy" }
     ],
     "final": "dns_direct",
     "strategy": "prefer_ipv6",
@@ -51,7 +53,7 @@
     { "tag": "🛑 广告拦截", "type": "selector", "outbounds": [ "REJECT" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
     { "tag": "REJECT", "type": "block" },
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" },
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
     // 若没有单个出站节点，须删除所有 `🆓 免费节点` 相关内容
