@@ -149,7 +149,7 @@
       // 广告 DNS
       { "tag": "dns_block", "address": "rcode://refused" },
       // 国内 DNS
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
