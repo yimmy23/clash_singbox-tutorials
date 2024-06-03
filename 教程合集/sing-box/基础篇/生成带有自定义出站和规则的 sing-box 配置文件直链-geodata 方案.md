@@ -342,8 +342,8 @@
     // 手动选择日本节点
     { "tag": "🇯🇵 日本节点", "type": "selector", "use_all_providers": true, "includes": [ "(?i)日本|jp|japan" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
-    // 若本地网络支持 IPv6，可添加 `"domain_strategy": "prefer_ipv6"` 配置项
-    { "tag": "DIRECT", "type": "direct", "domain_strategy": "prefer_ipv6" }
+    // 若需强制开启直连域名 IPv6 优先，可添加 `"domain_strategy": "prefer_ipv6"` 配置项（不推荐）
+    { "tag": "DIRECT", "type": "direct" }
   ],
   // 路由
   "route": {
