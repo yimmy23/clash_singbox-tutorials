@@ -9,8 +9,9 @@
 7. 修改 Clash 和 sing-box 教程分享篇（Windows 端），优化更新内核和配置文件脚本
 8. 修改 Clash 和 sing-box 教程分享篇（ShellCrash），定时任务中的下载地址修改为 `https://raw.githubusercontent.com` 地址，**须确保 Clash 或 sing-box 服务正常运行**
 9. 修改 Clash 和 sing-box 教程，`dns` 不启用 HTTP/3 特性
-10. 修改 sing-box 教程，`outbounds` 删除 `"domain_strategy": "prefer_ipv6"` 配置项；**dns 分流优化（既防止了 DNS 泄露又保证了兼容性）**
-11. 其它文案优化
+10. 修改 sing-box 教程，`outbounds` 删除 `"domain_strategy": "prefer_ipv6"` 配置项
+11. 修改 sing-box 教程分享篇，**dns 分流优化（既防止了 DNS 泄露又保证了兼容性）**
+12. 其它文案优化
 
 **更新日志（2024-05-26）：**  
 1. ruleset 方案新增 `rule-set,ai,🤖 人工智能` 规则
