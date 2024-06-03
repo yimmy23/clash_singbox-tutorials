@@ -39,7 +39,7 @@ dns:
     - '+.lan'
     - '+.local'
   nameserver:
-    - 'https://1.1.1.1/dns-query#🪜 代理域名&h3=true'
+    - 'https://1.1.1.1/dns-query#🪜 代理域名'
     - 'https://8.8.8.8/dns-query#🪜 代理域名'
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
@@ -57,10 +57,10 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - 'https://1.1.1.1/dns-query#🪜 代理域名&h3=true'
+    - 'https://1.1.1.1/dns-query#🪜 代理域名'
     - 'https://8.8.8.8/dns-query#🪜 代理域名'
   nameserver-policy:
     'rule-set:category-ads-all': rcode://refused
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://223.5.5.5/dns-query, https://1.12.12.12/dns-query]
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
