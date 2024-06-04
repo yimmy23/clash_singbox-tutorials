@@ -43,7 +43,7 @@ dns:
     - https://223.5.5.5/dns-query
     - https://1.12.12.12/dns-query
   nameserver-policy:
-    'rule-set:ads': rcode://refused
+    'rule-set:ads': rcode://success
     'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://223.5.5.5/dns-query, https://1.12.12.12/dns-query]
     'rule-set:proxy': ['https://1.1.1.1/dns-query#🪜 代理域名', 'https://8.8.8.8/dns-query#🪜 代理域名']
 ```
