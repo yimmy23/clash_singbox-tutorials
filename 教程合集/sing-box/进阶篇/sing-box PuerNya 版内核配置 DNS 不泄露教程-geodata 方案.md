@@ -28,7 +28,7 @@
 {
   "dns": {
     "servers": [
-      { "tag": "dns_block", "address": "rcode://refused" },
+      { "tag": "dns_block", "address": "rcode://success" },
       { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       { "tag": "dns_proxy", "address": [ "https://1.1.1.1/dns-query", "https://8.8.8.8/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
