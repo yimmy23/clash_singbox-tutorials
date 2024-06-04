@@ -149,7 +149,7 @@
     // DNS 服务器
     "servers": [
       // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://refused" },
+      { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       // FakeIP
@@ -290,7 +290,7 @@
     // DNS 服务器
     "servers": [
       // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://refused" },
+      { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       // FakeIP
