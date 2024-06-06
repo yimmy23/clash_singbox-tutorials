@@ -1,5 +1,5 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0-0981be0a+ 版本编写
-**更新日志（2024-06-04）：**  
+**更新日志（2024-06-06）：**  
 1. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-rc.22-8fd2d823），**`dns` 改动较大**
 2. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-7ec15dbd），**`outbound_providers.type` 配置改动较大**
 3. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-0981be0a），**`dns.rules` 里的 `fakeip` 默认重写 ttl 为 1**
@@ -12,7 +12,8 @@
 10. 修改 sing-box 教程，`outbounds` 删除 `"domain_strategy": "prefer_ipv6"` 配置项
 11. 修改 sing-box 教程分享篇，**dns 分流优化（既防止了 DNS 泄露又保证了兼容性）**
 12. 修改 Clash 和 sing-box 教程，将 DNS 拦截广告 RCode 修改为 `success`
-13. 其它文案优化
+13. 修改 Clash 和 sing-box 教程，将 `Ⓜ️ 微软服务` 修改为 `🪟 微软服务`
+14. 其它文案优化
 
 **更新日志（2024-05-26）：**  
 1. ruleset 方案新增 `rule-set,ai,🤖 人工智能` 规则
