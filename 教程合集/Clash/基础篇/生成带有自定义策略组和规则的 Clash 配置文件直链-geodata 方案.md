@@ -75,7 +75,7 @@ proxy-groups:
   # Speedtest 测速网站：选择`🎯 全球直连` 为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
   - {name: 📈 网络测速, type: select, proxies: [🎯 全球直连, 🇭🇰 香港节点, 🆓 免费节点, 🇹🇼 台湾节点, 🇯🇵 日本节点, 🇸🇬 新加坡节点, 🇺🇸 美国节点]}
   - {name: 🎮 游戏服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
-  - {name: Ⓜ️ 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
+  - {name: 🪟 微软服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🇬 谷歌服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🍎 苹果服务, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
   - {name: 🇨🇳 直连域名, type: select, proxies: [🎯 全球直连, 🚀 节点选择]}
@@ -103,7 +103,7 @@ rules:
   # 为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
   - DST-PORT,6881-6889,🎯 全球直连
   - GEOSITE,private,🔒 私有网络
-  - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
+  - GEOSITE,microsoft@cn,🪟 微软服务
   - GEOSITE,apple-cn,🍎 苹果服务
   - GEOSITE,google-cn,🇬 谷歌服务
   - GEOSITE,category-games@cn,🎮 游戏服务
