@@ -111,7 +111,7 @@ proxy-providers:
     - 🎯 全球直连
     - 🈯 节点指定
 
-- name: Ⓜ️ 微软服务
+- name: 🪟 微软服务
   type: select
   proxies:
     - 🎯 全球直连
@@ -206,7 +206,7 @@ proxy-providers:
 # 自定义规则优先放前面
 - GEOSITE,category-ads-all,🛑 广告拦截
 - GEOSITE,private,🔒 私有网络
-- GEOSITE,microsoft@cn,Ⓜ️ 微软服务
+- GEOSITE,microsoft@cn,🪟 微软服务
 - GEOSITE,apple-cn,🍎 苹果服务
 - GEOSITE,google-cn,🇬 谷歌服务
 - GEOSITE,category-games@cn,🎮 游戏服务
