@@ -30,8 +30,8 @@
   "dns": {
     "servers": [
       { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
-      { "tag": "dns_proxy", "address": [ "https://1.1.1.1/dns-query", "https://8.8.8.8/dns-query" ] },
+      { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
@@ -41,9 +41,9 @@
       { "rule_set": [ "ads" ], "server": "dns_block" },
       { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
       { "rule_set": [ "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
-      { "fallback_rules": [ { "rule_set": [ "cnip" ], "invert": true } ], "server": "dns_proxy", "rewrite_ttl": 1 }
+      { "fallback_rules": [ { "rule_set": [ "cnip" ] } ], "invert": true, "server": "dns_proxy", "rewrite_ttl": 1 }
     ],
-    "final": "dns_proxy",
+    "final": "dns_direct",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
