@@ -1,4 +1,9 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0-0981be0a+ 版本编写
+**更新日志（2024-06-12）：** 
+1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案**）
+2. 部分教程增加使用在线 Dashboard 面板的步骤
+3. 其它文案优化
+
 **更新日志（2024-06-06）：**  
 1. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-rc.22-8fd2d823），**`dns.servers.address` 支持多 DNS 并发，原 `dns.final` 和 `dns.rules.server` 不再支持多 DNS 并发**
 2. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-7ec15dbd），**`outbound_providers.type` 由 `http` 改为 `remote`（订阅）以及 `local`（本地）**
@@ -8,18 +13,10 @@
 6. 修改 Clash 和 sing-box 教程分享篇（Windows 端），优化更新内核和配置文件脚本
 7. 修改 Clash 和 sing-box 教程分享篇（ShellCrash），定时任务中的下载地址修改为 `https://raw.githubusercontent.com` 地址，**须确保 Clash 或 sing-box 服务正常运行**
 8. 修改 Clash 和 sing-box 教程，`dns` 不启用 HTTP/3 特性
-9. 修改 sing-box 教程分享篇，**dns 分流优化（既防止了 DNS 泄露又保证了兼容性）**
+9. 修改 sing-box 教程~分享篇~进阶篇（防止 dns 泄露），**dns 分流优化（既防止了 DNS 泄露又保证了兼容性）**
 10. 修改 Clash 和 sing-box 教程，将 DNS 拦截广告 RCode 修改为 `success`
 11. 修改 Clash 和 sing-box 教程，将 `Ⓜ️ 微软服务` 修改为 `🪟 微软服务`
 12. 其它文案优化
-
-**更新日志（2024-05-26）：**  
-1. ruleset 方案新增 `rule-set,ai,🤖 人工智能` 规则
-2. 分享篇 geodata 方案新增 `geosite,ai,🤖 人工智能` 规则
-3. 修改 sing-box 分享篇，完善了 `fakeip-filter`，仅 `fakeip-filter` 和 `private` 走 realip，且同时保证了 Steam 下载速度和结束游戏时云同步都正常
-4. 修改 Clash 策略组和 sing-box 出站的顺序，排序更合理
-5. 修改 Clash 教程，优先使用 `include-all-providers` 参数代替 `use`
-6. 修改 sing-box 教程，优先使用 `use_all_providers` 参数代替 `providers`
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案（Clash），现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
 **ShellCrash（fakeip 模式）搭配 AdGuardHome 的完美方案（sing-box），现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fakeip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
