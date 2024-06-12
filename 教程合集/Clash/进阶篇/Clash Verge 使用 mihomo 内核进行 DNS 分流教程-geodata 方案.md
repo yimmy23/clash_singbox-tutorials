@@ -24,6 +24,8 @@ curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文
 ## 2. DNS 模式为 `redir-host`
 ① 进入 Clash Verge -> 订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
 ② 右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
+- 注：`proxy-groups` 策略组内必须含有 `🪜 代理域名`
+
 ```
 sniffer:
   enable: true
@@ -40,12 +42,12 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - 'https://223.5.5.5/dns-query#h3=true'
     - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
   nameserver-policy:
     'geosite:category-ads-all': rcode://success
-    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
-    'geosite:geolocation-!cn': ['https://1.1.1.1/dns-query#h3=true', 'https://8.8.8.8/dns-query']
+    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': [https://1.12.12.12/dns-query, https://223.5.5.5/dns-query]
+    'geosite:geolocation-!cn': ['https://8.8.8.8/dns-query#🪜 代理域名', 'https://1.1.1.1/dns-query#🪜 代理域名']
 ```
 ③ 再次右击新建的 Merge 文件，点击“启用”
 # 三、 客户端设置
