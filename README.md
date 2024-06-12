@@ -2,7 +2,8 @@
 **更新日志（2024-06-12）：** 
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案**）
 2. 部分教程增加使用在线 Dashboard 面板的步骤
-3. 其它文案优化
+3. 优化《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》里的 AdGuardHome DNS 设置
+4. 其它文案优化
 
 **更新日志（2024-06-06）：**  
 1. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-rc.22-8fd2d823），**`dns.servers.address` 支持多 DNS 并发，原 `dns.final` 和 `dns.rules.server` 不再支持多 DNS 并发**
