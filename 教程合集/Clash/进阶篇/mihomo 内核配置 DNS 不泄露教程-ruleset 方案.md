@@ -55,8 +55,8 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - 'https://1.1.1.1/dns-query#🪜 代理域名'
     - 'https://8.8.8.8/dns-query#🪜 代理域名'
+    - 'https://1.1.1.1/dns-query#🪜 代理域名'
   proxy-server-nameserver:
     - https://1.12.12.12/dns-query
     - https://223.5.5.5/dns-query
