@@ -40,12 +40,12 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - https://223.5.5.5/dns-query
+    - 'https://223.5.5.5/dns-query#h3=true'
     - https://1.12.12.12/dns-query
   nameserver-policy:
     'rule-set:ads': rcode://success
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://223.5.5.5/dns-query, https://1.12.12.12/dns-query]
-    'rule-set:proxy': ['https://1.1.1.1/dns-query#🪜 代理域名', 'https://8.8.8.8/dns-query#🪜 代理域名']
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
+    'rule-set:proxy': ['https://1.1.1.1/dns-query#h3=true', 'https://8.8.8.8/dns-query']
 ```
 ③ 再次右击新建的 Merge 文件，点击“启用”
 # 三、 客户端设置
