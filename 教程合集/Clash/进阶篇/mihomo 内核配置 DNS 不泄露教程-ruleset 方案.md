@@ -24,8 +24,6 @@
 # 四、 user.yaml 配置
 ## 1. fake-ip 模式
 连接 SSH 后执行 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
-- 注： `proxy-groups` 策略组内必须含有 `🪜 代理域名`
-
 ```
 dns:
   enable: true
@@ -39,8 +37,8 @@ dns:
     - '+.lan'
     - '+.local'
   nameserver:
-    - 'https://1.1.1.1/dns-query#🪜 代理域名'
-    - 'https://8.8.8.8/dns-query#🪜 代理域名'
+    - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 2. redir-host 模式
@@ -59,8 +57,11 @@ dns:
   nameserver:
     - 'https://1.1.1.1/dns-query#🪜 代理域名'
     - 'https://8.8.8.8/dns-query#🪜 代理域名'
+  proxy-server-nameserver:
+    - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
   nameserver-policy:
     'rule-set:category-ads-all': rcode://success
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://223.5.5.5/dns-query, https://1.12.12.12/dns-query]
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://1.12.12.12/dns-query, https://223.5.5.5/dns-query]
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
