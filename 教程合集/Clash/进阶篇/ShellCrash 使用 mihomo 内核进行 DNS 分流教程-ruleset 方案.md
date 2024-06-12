@@ -24,6 +24,8 @@ curl -o $CRASHDIR/yamls/user.yaml -L https://cdn.jsdelivr.net/gh/DustinWin/clash
 ```
 ## 2. DNS 模式为 `redir-host`
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
+- 注：`proxy-groups` 策略组内必须含有 `🪜 代理域名`
+
 ```
 sniffer:
   enable: true
@@ -40,11 +42,11 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - 'https://223.5.5.5/dns-query#h3=true'
     - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
   nameserver-policy:
     'rule-set:ads': rcode://success
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': ['https://223.5.5.5/dns-query#h3=true', https://1.12.12.12/dns-query]
-    'rule-set:proxy': ['https://1.1.1.1/dns-query#h3=true', 'https://8.8.8.8/dns-query']
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://1.12.12.12/dns-query, https://223.5.5.5/dns-query]
+    'rule-set:proxy': ['https://8.8.8.8/dns-query#🪜 代理域名', 'https://1.1.1.1/dns-query#🪜 代理域名']
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
