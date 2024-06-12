@@ -350,18 +350,18 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 “后备 DNS 服务器”设置为：
 ```
-h3://dns.alidns.com/dns-query
-https://doh.pub/dns-query
+quic://223.5.5.5
+https://1.12.12.12/dns-query
 ```
 “Bootstrap DNS 服务器”设置为：
 ```
-223.5.5.5
-1.12.12.12
+quic://223.5.5.5
+https://1.12.12.12/dns-query
 ```
 直接点击“应用”即可  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/c2a8519a-da98-4863-bc10-14148b043650" width="60%"/>  
-“速度限制”输入“0”，勾选“启用 EDNS 客户端子网”和“启用 DNSSEC”，然后点击下方的“保存”  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e665285c-8792-420d-805e-cba534c00e22" width="60%"/>  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/6838a849-088b-4cec-b286-949ef63a8343" width="60%"/>  
+“速度限制”输入“0”，勾选“启用 EDNS 客户端子网”，然后点击下方的“保存”  
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e0a3daa8-d66c-49dc-a0be-2ae12e92a63d" width="60%"/>  
 勾选“乐观缓存”，并点击“保存”  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/f857800a-ebf4-4031-994f-27cd6b3e7b53" width="60%"/>  
 ⑤ 进入过滤器 -> DNS 黑名单 -> 添加黑名单 -> 从列表中选择，推荐勾选“区域”里的“CHN: anti-AD”，然后点击“保存”
