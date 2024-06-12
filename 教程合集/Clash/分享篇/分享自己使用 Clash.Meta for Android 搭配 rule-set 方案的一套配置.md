@@ -173,8 +173,8 @@ dns:
     - '+.uu.163.com'
     - 'ps.res.netease.com'
  nameserver:
-    - https://223.5.5.5/dns-query
     - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
 
 # 若没有单个出站代理节点，须删除所有 `🆓 免费节点` 相关内容
 proxies:
