@@ -35,7 +35,7 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 2. 此时脚本会自动“发现可用的内核文件”，选择 1 加载，后选择 5 Sing-Box-Puer 内核
 3. 内核加载完成后根据需要是否保留相关数据库文件（此处选择 0）
 4. 进入主菜单 -> 9 更新/卸载 -> 7 切换安装源及安装版本，选择 b 切换至公测版 -> 1 Jsdelivr_CDN源（推荐）
-5. 进入主菜单 -> 9 更新/卸载 -> 4 安装本地 Dashboard 面板，选择 3 安装 MetaXD 面板
+5. 进入主菜单 -> 9 更新/卸载 -> 4 安装本地 Dashboard 面板，选择 3 安装 MetaXD 面板（可跳过此步，使用第《四》中的在线 Dashboard 面板）
 6. 进入主菜单 -> 2 内核功能设置，设置如下：
 - 注：有“Tproxy 模式”就选“Tproxy 模式”，否则推荐选“混合模式”，宽带在 300M 内推荐 Tun 模式
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/cf9a90e3-d6ca-41e2-a42d-e7cd496782b2" width="60%"/>
@@ -48,3 +48,10 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/2785f9a1-4d64-435c-864c-c0dcd4eb69fc" width="60%"/>
 
 12. 进入 Dashboard 面板 -> 代理 -> 代理提供者，点击“转圈图标”（Update），也可手动更新节点
+# 四、 在线 Dashboard 面板
+推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd
+1. 需要设置该网站“允许不安全内容”，以 Chrome 浏览器为例，进入设置 -> 隐私和安全 -> 网站设置 -> 更多内容设置 -> 不安全内容（或者直接打开 `chrome://settings/content/insecureContent` 进行设置），在“允许显示不安全内容”内添加 `https://metacubex.github.io`
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/b138cf9f-4b61-44e6-8b3b-0874ddcba8d8" width="60%"/>
+
+2. 首次进入 https://metacubex.github.io/metacubexd 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb27d6e2-d72b-4a4a-a038-0fd6d085a573" width="60%"/>
