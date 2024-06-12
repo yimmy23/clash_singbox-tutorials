@@ -12,8 +12,8 @@
   "dns": {
     "servers": [
       { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_direct", "address": [ "https://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
-      { "tag": "dns_proxy", "address": [ "https://1.1.1.1/dns-query", "https://8.8.8.8/dns-query" ] },
+      { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
@@ -23,9 +23,9 @@
       { "rule_set": [ "ads" ], "server": "dns_block" },
       { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
       { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" },
-      { "fallback_rules": [ { "rule_set": [ "cnip" ] } ], "invert": true, "server": "dns_proxy" }
+      { "fallback_rules": [ { "rule_set": [ "cnip" ], "invert": true } ], "server": "dns_direct" }
     ],
-    "final": "dns_direct",
+    "final": "dns_proxy",
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
@@ -233,3 +233,7 @@
 1. 进入 sing-box for Android -> Profiles -> New Profile，“Type”选择“Remote”，在“URL”处粘贴第《一》中生成的配置文件 .json 直链，“Auto Update Interval”填写“1440”，最后点击“Create”
 2. 进入 sing-box for Android -> Dashboard，点击“▶️”图标即可启动 sing-box 服务
 - 注：首次启用可能会报错，重试几次即可
+# 三、 在线 Dashboard 面板
+推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd  
+首次进入 https://metacubex.github.io/metacubexd 需要添加“后端地址”，输入 `http://192.168.31.1:9090` 并点击“添加”即可访问 Dashboard 面板
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/bb27d6e2-d72b-4a4a-a038-0fd6d085a573" width="60%"/>
