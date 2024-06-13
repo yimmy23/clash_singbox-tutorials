@@ -19,7 +19,7 @@
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
       { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Global", "server": "dns_proxy" },
       { "rule_set": [ "ads" ], "server": "dns_block", "rewrite_ttl": 1, "disable_cache": true },
       { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
       { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 },
