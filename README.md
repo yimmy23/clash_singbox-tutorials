@@ -1,4 +1,4 @@
-# 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核 v1.9.0-0981be0a+ 版本编写
+# 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核，请尽量使用[最新版](https://github.com/DustinWin/clash_singbox-tools/tree/main/sing-box-puernya)
 **更新日志（2024-06-13）：** 
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
 2. 部分教程增加使用在线 Dashboard 面板的步骤
