@@ -20,12 +20,12 @@
       { "outbound": "any", "server": "dns_direct" },
       { "clash_mode": "Direct", "server": "dns_direct" },
       { "clash_mode": "Global", "server": "dns_fakeip" },
-      { "rule_set": [ "ads" ], "server": "dns_block" },
+      { "rule_set": [ "ads" ], "server": "dns_block", "rewrite_ttl": 1, "disable_cache": true },
       { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" },
-      { "fallback_rules": [ { "rule_set": [ "cnip" ], "invert": true } ], "server": "dns_direct" }
+      { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 },
+      { "fallback_rules": [ { "rule_set": [ "cnip" ], "invert": true } ], "server": "dns_proxy" }
     ],
-    "final": "dns_proxy",
+    "final": "dns_direct",
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "reverse_mapping": true,
