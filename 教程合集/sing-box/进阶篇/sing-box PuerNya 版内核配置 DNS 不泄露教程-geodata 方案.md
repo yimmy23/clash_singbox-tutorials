@@ -36,13 +36,12 @@
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
       { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Global", "server": "dns_proxy" },
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "geosite": [ "geolocation-!cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" },
-      { "fallback_rules": [ { "geoip": [ "cn" ] } ], "invert": true, "server": "dns_proxy", "rewrite_ttl": 1 }
+      { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
     ],
-    "final": "dns_direct",
+    "final": "dns_proxy",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true,
