@@ -3,7 +3,7 @@
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
 2. 部分教程增加使用在线 Dashboard 面板的步骤
 3. 优化《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》里的 AdGuardHome DNS 设置
-4. 修改《分享自己使用 ShellCrash（fakeip 模式）搭配 AdGuardHome 的一套配置》，由 `geodata` 方案改为 `rule_set` 方案
+4. 修改 sing-box 分享篇中的《分享自己使用 ShellCrash（fakeip 模式）搭配 AdGuardHome 的一套配置》，由 `geodata` 方案改为 `rule_set` 方案
 5. 其它文案优化
 
 **更新日志（2024-06-06）：**  
