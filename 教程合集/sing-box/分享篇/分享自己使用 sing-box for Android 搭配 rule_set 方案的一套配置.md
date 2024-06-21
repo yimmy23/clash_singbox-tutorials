@@ -80,7 +80,7 @@
       "type": "remote",
       // 修改为你的 Clash 订阅链接
       "download_url": "https://example.com/xxx/xxx&flag=clash",
-      "path": "./providers/airport.yaml",
+      "path": "./airport.yaml",
       "download_interval": "24h",
       "download_ua": "clash.meta",
       "includes": [ "🇭🇰|🇹🇼|🇯🇵|🇰🇷|🇸🇬|🇺🇸" ],
@@ -113,105 +113,105 @@
         "tag": "fakeip-filter",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/fakeip-filter.srs",
+        "path": "./fakeip-filter.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/fakeip-filter.srs"
       },
       {
         "tag": "ads",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/ads.srs",
+        "path": "./ads.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs"
       },
       {
         "tag": "applications",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/applications.srs",
+        "path": "./applications.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/applications.srs"
       },
       {
         "tag": "private",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/private.srs",
+        "path": "./private.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/private.srs"
       },
       {
         "tag": "microsoft-cn",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/microsoft-cn.srs",
+        "path": "./microsoft-cn.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/microsoft-cn.srs"
       },
       {
         "tag": "apple-cn",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/apple-cn.srs",
+        "path": "./apple-cn.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/apple-cn.srs"
       },
       {
         "tag": "google-cn",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/google-cn.srs",
+        "path": "./google-cn.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/google-cn.srs"
       },
       {
         "tag": "games-cn",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/games-cn.srs",
+        "path": "./games-cn.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/games-cn.srs"
       },
       {
         "tag": "ai",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/ai.srs",
+        "path": "./ai.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ai.srs"
       },
       {
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/networktest.srs",
+        "path": "./networktest.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/proxy.srs",
+        "path": "./proxy.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs"
       },
       {
         "tag": "cn",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/cn.srs",
+        "path": "./cn.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cn.srs"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/telegramip.srs",
+        "path": "./telegramip.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs"
       },
       {
         "tag": "privateip",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/privateip.srs",
+        "path": "./privateip.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/privateip.srs"
       },
       {
         "tag": "cnip",
         "type": "remote",
         "format": "binary",
-        "path": "./ruleset/cnip.srs",
+        "path": "./cnip.srs",
         "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/cnip.srs"
       }
     ],
