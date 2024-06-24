@@ -28,7 +28,9 @@
     { "tag": "📲 电报消息", "type": "selector", "outbounds": [ "🚀 节点选择" ] },
     { "tag": "🔒 私有网络", "type": "selector", "outbounds": [ "🎯 全球直连" ] },
     { "tag": "🎯 全球直连", "type": "selector", "outbounds": [ "DIRECT" ] },
+    { "tag": "DIRECT", "type": "direct" },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇰🇷 韩国节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
+    { "tag": "dns-out", "type": "dns" },
     // 若没有单个出站节点，须删除所有 `🆓 免费节点` 相关内容
     {
       "tag": "🆓 免费节点",
@@ -63,6 +65,7 @@
   ],
   "route": {
     "rules": [
+      { "protocol": [ "dns" ], "outbound": "dns-out" },
       { "clash_mode": "Direct", "outbound": "DIRECT" },
       { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "rule_set": [ "private" ], "outbound": "🔒 私有网络" },
