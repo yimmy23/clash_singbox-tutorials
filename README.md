@@ -32,8 +32,8 @@
 ---
 # 教程合集:
 注：
-- 1. geodata 方案更适用于路由器等无法判断非本机进程的设备，配置方便简单，对小白用户友好
-- 2. ruleset 方案适用于对分流规则要求比较严格的用户，按需配置且配置灵活
+- 1. geodata 方案更适用于路由器等设备（连接多台设备而无法判断设备进程，仅推荐路由器搭载 mihomo 内核时使用），配置文件编写简单，对小白用户友好
+- 2. ruleset 方案适用于对分流规则要求比较严格的用户，配置文件编写复杂，可按需配置且配置灵活
 - 3. [Clash](https://github.com/Dreamacro/clash) 搭配 geodata 方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） 路由规则文件
 - 4. Clash 搭配 rule-set 方案采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 - 5. [sing-box](https://github.com/SagerNet/sing-box) 搭配 geodata 方案采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.db 和 geoip.db 路由规则文件
