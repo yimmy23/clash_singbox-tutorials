@@ -6,7 +6,7 @@
 4. 修改 sing-box 分享篇中的《分享自己使用 ShellCrash（fakeip 模式）搭配 AdGuardHome 的一套配置》，由 `geodata` 方案改为 `rule_set` 方案
 5. 修改 sing-box 分享篇中的《分享自己使用 sing-box for Android 搭配 rule_set 方案的一套配置》，删除 `outbound_providers.path` 和 `rule_set.path` 中的文件夹路径，提高兼容性
 6. 修改 sing-box 分享篇，再次优化 `dns` 配置，**防止 DNS 泄露（可进入 https://ipleak.net 测试），同时也可保证兼容性**
-7. 修改 sing-box 分享篇，修改 `dns.rules` 中的 `rewrite_ttl` 为 `0`
+7. 修改 sing-box 分享篇，修改 `dns.rules` 中的 `rewrite_ttl` 为 `0`，添加 `route.concurrent_dial` 配置项
 8. 其它文案优化
 
 **更新日志（2024-06-06）：**  
