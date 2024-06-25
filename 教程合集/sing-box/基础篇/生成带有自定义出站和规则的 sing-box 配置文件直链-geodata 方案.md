@@ -133,7 +133,8 @@
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
-    "final": "🐟 漏网之鱼"
+    "final": "🐟 漏网之鱼",
+    "auto_detect_interface": true
   }
 }
 ```
@@ -276,7 +277,8 @@
       "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
-    "final": "🐟 漏网之鱼"
+    "final": "🐟 漏网之鱼",
+    "auto_detect_interface": true
   }
 }
 ```
