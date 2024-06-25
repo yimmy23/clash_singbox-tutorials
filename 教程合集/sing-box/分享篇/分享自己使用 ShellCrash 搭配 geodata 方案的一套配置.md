@@ -93,6 +93,7 @@
       "download_url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box/geoip-lite.db"
     },
     "final": "🐟 漏网之鱼",
+    "auto_detect_interface": true
     "concurrent_dial": true
   }
 }
