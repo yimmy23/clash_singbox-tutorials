@@ -217,7 +217,8 @@
     ],
     "final": "🐟 漏网之鱼",
     "auto_detect_interface": true,
-    "override_android_vpn": true
+    "override_android_vpn": true,
+    "concurrent_dial": true
   },
   "experimental": {
     "cache_file": { "enabled": true },
