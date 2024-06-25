@@ -20,9 +20,9 @@
       { "outbound": "any", "server": "dns_direct" },
       { "clash_mode": "Direct", "server": "dns_direct" },
       { "clash_mode": "Global", "server": "dns_proxy" },
-      { "rule_set": [ "ads" ], "server": "dns_block", "rewrite_ttl": 1, "disable_cache": true },
+      { "rule_set": [ "ads" ], "server": "dns_block", "disable_cache": true, "rewrite_ttl": 0 },
       { "rule_set": [ "fakeip-filter", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 1 },
+      { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 0 },
       { "fallback_rules": [ { "rule_set": [ "cnip" ], "server": "dns_direct" }, { "match_all": true } ], "server": "dns_proxy" }
     ],
     "final": "dns_proxy",
