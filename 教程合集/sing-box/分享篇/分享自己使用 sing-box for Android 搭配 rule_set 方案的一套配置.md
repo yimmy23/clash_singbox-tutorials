@@ -33,6 +33,7 @@
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
   },
   "inbounds": [
+    // 启动服务时如果出现 `tun-in` 报错，可将 `"stack": "mixed"`修改为 `"stack": "system"`
     { "tag": "tun-in", "type": "tun", "interface_name": "sing-box", "inet4_address": "172.19.0.1/30", "inet6_address": "fdfe:dcba:9876::1/126", "auto_route": true, "strict_route": true, "stack": "mixed", "sniff": true }
   ],
   "outbounds": [
