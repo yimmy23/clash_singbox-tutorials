@@ -28,6 +28,7 @@
     "final": "dns_proxy",
     "strategy": "prefer_ipv6",
     "independent_cache": true,
+    "lazy_cache": true,
     "reverse_mapping": true,
     "mapping_override": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
