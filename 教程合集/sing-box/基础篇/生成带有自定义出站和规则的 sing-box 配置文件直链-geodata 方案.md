@@ -153,14 +153,16 @@
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      // 国外 DNS
+      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       // geosite.db 规则集文件内必须包含以下规则
@@ -199,6 +201,7 @@
     { "tag": "REJECT", "type": "block" },
     // 若需强制开启直连域名 IPv6 优先，可添加 `"domain_strategy": "prefer_ipv6"` 配置项（不推荐）
     { "tag": "DIRECT", "type": "direct" },
+    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "use_all_providers": true },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
@@ -233,6 +236,7 @@
       "path": "./providers/airport1.yaml",
       "download_interval": "24h",
       "download_ua": "clash.meta",
+      "download_detour": "PROXY",
       // 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，若不筛选可删除此配置项
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       // 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
@@ -247,6 +251,7 @@
       "path": "./providers/airport2.yaml",
       "download_interval": "24h",
       "download_ua": "clash.meta",
+      "download_detour": "PROXY",
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       "excludes": "高倍|×10",
       "healthcheck_url": "https://www.gstatic.com/generate_204",
@@ -259,22 +264,24 @@
     "rules": [
       { "protocol": [ "dns" ], "outbound": "dns-out" },
       { "clash_mode": "Direct", "outbound": "DIRECT" },
-      { "clash_mode": "Global", "outbound": "🚀 节点选择" },
+      { "clash_mode": "Global", "outbound": "GLOBAL" },
       // 自定义规则优先放前面
       { "geosite": [ "category-ads-all" ], "outbound": "🛑 广告拦截" },
       { "geosite": [ "speedtest" ], "outbound": "📈 网络测速" },
       { "geosite": [ "gfw" ], "outbound": "🧱 GFWList 域名" },
-      { "geoip": [ "telegram" ], "outbound": "📲 电报消息", "skip_resolve": true },
+      { "geoip": [ "telegram" ], "outbound": "📲 电报消息", "skip_resolve": true }
     ],
     // geosite 配置项
     "geosite": {
       "path": "./geosite.db",
-      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db",
+      "download_detour": "PROXY"
     },
     // geoip 配置项
     "geoip": {
       "path": "./geoip.db",
-      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db"
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geoip.db",
+      "download_detour": "PROXY"
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
     "final": "🐟 漏网之鱼",
@@ -295,14 +302,16 @@
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      // 国外 DNS
+      { "tag": "dns_direct", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ], "detour": "PROXY" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       // geosite.db 规则集文件内必须包含 `gfw` 规则
