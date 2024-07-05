@@ -1,5 +1,5 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核，请尽量使用[最新版](https://github.com/DustinWin/clash_singbox-tools/tree/main/sing-box-puernya)
-**更新日志（2024-07-03）：** 
+**更新日志（2024-07-05）：** 
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
 2. 部分教程增加使用在线 Dashboard 面板的步骤
 3. 优化《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》里的 AdGuardHome DNS 设置
@@ -9,7 +9,8 @@
 7. 修改 sing-box 分享篇，修改 `dns.rules` 中的 `rewrite_ttl` 为 `0`，添加 `route.concurrent_dial` 配置项
 8. 修改 sing-box 分享篇，`dns` 添加 `lazy_cache` 配置项
 9. 修改 sing-box 分享篇，`dns.fallback_rules` 修改为混合模式
-10. 其它文案优化
+10. 修改 sing-box 分享篇，调整需要走 realip 的域名到 `dns.fakeip.exclude_rule` 中
+11. 其它文案优化
 
 **更新日志（2024-06-06）：**  
 1. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-rc.22-8fd2d823），**`dns.servers.address` 支持多 DNS 并发，原 `dns.final` 和 `dns.rules.server` 不再支持多 DNS 并发**
