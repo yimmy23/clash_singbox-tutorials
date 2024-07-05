@@ -35,8 +35,8 @@
     ],
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_proxy" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
       { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
