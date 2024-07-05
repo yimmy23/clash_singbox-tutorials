@@ -253,14 +253,16 @@
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      // 国外 DNS
+      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       // `rule_set` 规则集中必须包含 `ads` 规则
       { "rule_set": [ "ads" ], "server": "dns_block" },
       // `rule_set` 规则集中必须包含以下规则
@@ -300,6 +302,7 @@
     { "tag": "REJECT", "type": "block" },
     // 若需强制开启直连域名 IPv6 优先，可添加 `"domain_strategy": "prefer_ipv6"` 配置项（不推荐）
     { "tag": "DIRECT", "type": "direct" },
+    { "tag": "PROXY", "type": "urltest", "tolerance": 50, "use_all_providers": true },
     { "tag": "GLOBAL", "type": "selector", "outbounds": [ "DIRECT", "REJECT", "🇭🇰 香港节点", "🆓 免费节点", "🇹🇼 台湾节点", "🇯🇵 日本节点", "🇸🇬 新加坡节点", "🇺🇸 美国节点" ] },
     { "tag": "dns-out", "type": "dns" },
 
@@ -334,6 +337,7 @@
       "path": "./providers/airport1.yaml",
       "download_interval": "24h",
       "download_ua": "clash.meta",
+      "download_detour": "PROXY",
       // 初步筛选需要的节点，可有效减轻路由器压力，支持正则表达式，若不筛选可删除此配置项
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       // 初步排除不需要的节点，支持正则表达式，若不排除可删除此配置项
@@ -348,6 +352,7 @@
       "path": "./providers/airport2.yaml",
       "download_interval": "24h",
       "download_ua": "clash.meta",
+      "download_detour": "PROXY",
       "includes": [ "香港|台湾|日本|新加坡|美国" ],
       "excludes": "高倍|×10",
       "healthcheck_url": "https://www.gstatic.com/generate_204",
@@ -375,35 +380,40 @@
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/ads.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ads.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "ai",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/ai.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ai.srs"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/ai.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "networktest",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/networktest.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/networktest.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "proxy",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/proxy.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/proxy.srs",
+        "download_detour": "PROXY"
       },
       {
         "tag": "telegramip",
         "type": "remote",
         "format": "binary",
         "path": "./ruleset/telegramip.srs",
-        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs"
+        "url": "https://raw.githubusercontent.com/DustinWin/ruleset_geodata/sing-box-ruleset/telegramip.srs",
+        "download_detour": "PROXY"
       }
     ],
     // 默认出站，即没有命中规则的域名或 IP 走该规则
@@ -425,14 +435,16 @@
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      // 国外 DNS
+      { "tag": "dns_direct", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ], "detour": "PROXY" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       // `rule_set` 规则集中必须包含 `ads` 规则
       { "rule_set": [ "ads" ], "server": "dns_block" },
       // `rule_set` 规则集中必须包含 `proxy` 规则
