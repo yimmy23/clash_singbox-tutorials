@@ -237,14 +237,16 @@
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      // 国外 DNS
+      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       // `rule_set` 规则集中必须包含 `ads` 规则
       { "rule_set": [ "ads" ], "server": "dns_block" },
       // `rule_set` 规则集中必须包含以下规则
