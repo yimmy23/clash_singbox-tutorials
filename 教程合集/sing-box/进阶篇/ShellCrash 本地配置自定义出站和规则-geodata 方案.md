@@ -150,14 +150,16 @@
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      // 国外 DNS
+      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     // DNS 规则
     "rules": [
       { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_fakeip" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
       { "geosite": [ "category-ads-all" ], "server": "dns_block" },
       // geosite.db 规则集文件内必须包含以下规则
