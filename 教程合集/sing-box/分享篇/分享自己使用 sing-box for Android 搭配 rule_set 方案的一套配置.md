@@ -17,12 +17,12 @@
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
-      { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "server": "dns_direct" },
-      { "clash_mode": "Global", "server": "dns_proxy" },
+      { "outbound": "any", "stop_fallthrough": true, "server": "dns_direct" },
+      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       { "rule_set": [ "ads" ], "server": "dns_block", "disable_cache": true, "rewrite_ttl": 0 },
       { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 0 },
-      { "fallback_rules": [ { "rule_set": [ "cnip" ], "server": "dns_direct" }, { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 }, { "match_all": true } ], "server": "dns_proxy" }
+      { "fallback_rules": [ { "rule_set": [ "cnip" ], "server": "dns_direct" }, { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 } ], "server": "dns_proxy" }
     ],
     "final": "dns_proxy",
     "strategy": "prefer_ipv6",
@@ -92,8 +92,8 @@
   "route": {
     "rules": [
       { "protocol": [ "dns" ], "outbound": "dns-out" },
-      { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "clash_mode": "Direct", "outbound": "DIRECT" },
+      { "clash_mode": "Global", "outbound": "GLOBAL" },
       { "rule_set": [ "ads" ], "outbound": "🛑 广告拦截" },
       { "rule_set": [ "applications" ], "outbound": "🖥️ 直连软件" },
       { "rule_set": [ "private" ], "outbound": "🔒 私有网络" },
