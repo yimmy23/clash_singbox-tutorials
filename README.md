@@ -12,7 +12,8 @@
 10. 修改 sing-box 分享篇，调整需要走 realip 的域名到 `dns.fakeip.exclude_rule` 中
 11. 修改 sing-box 基础篇，优化“黑名单模式”，可以完美运行了
 12. 修改 sing-box，`dns` 配置再次进行了优化，推荐使用最新方案（须更新到 sing-box PuerNya 版内核最新版本）
-13. 其它文案优化
+13. 修改 sing-box 分享篇，`dns.rules` 迁移 `stop_fallthrough` 到 `allow_fallthrough`
+14. 其它文案优化
 
 **更新日志（2024-06-06）：**  
 1. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-rc.22-8fd2d823），**`dns.servers.address` 支持多 DNS 并发，原 `dns.final` 和 `dns.rules.server` 不再支持多 DNS 并发**
