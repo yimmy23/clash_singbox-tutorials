@@ -44,7 +44,7 @@ tun:
   dns-hijack: [any:53]
   auto-route: true
   auto-detect-interface: true
-  device: Meta
+  device: mihomo
   strict-route: true
 
 dns:
@@ -160,6 +160,7 @@ dns:
     - '+.media.dssott.com'
     - 'shark007.net'
     - 'Mijia Cloud'
+    - 'weatherapi.market.xiaomi.com'
     - '+.cmbchina.com'
     - '+.cmbimg.com'
     - 'adguardteam.github.io'
@@ -172,9 +173,10 @@ dns:
     - '+.3gppnetwork.org'
     - '+.uu.163.com'
     - 'ps.res.netease.com'
+    - '+.oray.com'
  nameserver:
-    - https://1.12.12.12/dns-query
-    - https://223.5.5.5/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 
 # 若没有单个出站代理节点，须删除所有 `🆓 免费节点` 相关内容
 proxies:
