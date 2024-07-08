@@ -3,8 +3,7 @@
 - 1. 此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 GEOSITE 和 GEOIP 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 - 2. 此方案从心理乃至物理层面防止了 DNS 泄露（心理上 DNS 泄露指的是 DNS 模式已经使用了 fake-ip 的情况下仍觉得 DNS 发生了泄露），配置简单粗暴，兼容性无法保证，请慎用
 - 3. 可进入 https://ipleak.net 测试 DNS 是否泄露，“DNS Addresses” 栏目下没有中国国旗，即代表 DNS 没有发生泄露
-- 4. 此方案自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
-- 5. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
+- 4. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
 ---
 # 一、 导入 mihomo 内核和路由规则文件
 可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》里的步骤《一、二》进行操作
@@ -37,14 +36,12 @@ dns:
     - '+.lan'
     - '+.local'
   nameserver:
-    - https://1.12.12.12/dns-query
-    - https://223.5.5.5/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 2. redir-host 模式
 连接 SSH 后执行 `vi $CRASHDIR/yamls/user.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
-- 注： `proxy-groups` 策略组内必须含有 `🪜 代理域名`
-
 ```
 dns:
   enable: true
@@ -55,13 +52,13 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - 'https://8.8.8.8/dns-query#🪜 代理域名'
-    - 'https://1.1.1.1/dns-query#🪜 代理域名'
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
-    - https://1.12.12.12/dns-query
-    - https://223.5.5.5/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'geosite:category-ads-all': rcode://success
-    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': [https://1.12.12.12/dns-query, https://223.5.5.5/dns-query]
+    'geosite:microsoft@cn,apple-cn,google-cn,category-games@cn,cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
