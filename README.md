@@ -1,4 +1,11 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核，请尽量使用[最新版](https://github.com/DustinWin/clash_singbox-tools/tree/main/sing-box-puernya)
+**更新日志（2024-07-09）：** 
+1. 修改 Clash 教程，适配新版 Clash Verge，精简流程
+2. 修改 Clash 教程，优化 `dns` 配置，全部使用纯域名 DNS 服务器
+3. 修改 Clash 分享篇，添加 `hosts` 配置项，将 `miwifi.com` 指向 `192.168.31.1`
+4. 修改 sing-box 分享篇，添加 `dns.hosts` 配置项
+5. 其它步骤和文案优化
+
 **更新日志（2024-07-05）：** 
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
 2. 部分教程增加使用在线 Dashboard 面板的步骤
@@ -14,20 +21,6 @@
 12. 修改 sing-box，`dns` 配置再次进行了优化，推荐使用最新方案（须更新到 sing-box PuerNya 版内核最新版本）
 13. 修改 sing-box 分享篇，`dns.rules` 迁移 `stop_fallthrough` 到 `allow_fallthrough`
 14. 其它文案优化
-
-**更新日志（2024-06-06）：**  
-1. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-rc.22-8fd2d823），**`dns.servers.address` 支持多 DNS 并发，原 `dns.final` 和 `dns.rules.server` 不再支持多 DNS 并发**
-2. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-7ec15dbd），**`outbound_providers.type` 由 `http` 改为 `remote`（订阅）以及 `local`（本地）**
-3. 修改 sing-box 教程，以适配最新版 sing-box PuerNya 版内核（v1.9.0-0981be0a），`dns` 添加 `"mapping_override": true` 配置项，`dns.rules` 里的 `fakeip` 默认重写 ttl 为 1
-4. 新增 sing-box 教程分享篇《[分享自己使用 sing-box for Windows（裸核）搭配 rule_set 方案的一套配置](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20sing-box%20for%20Windows%EF%BC%88%E8%A3%B8%E6%A0%B8%EF%BC%89%E6%90%AD%E9%85%8D%20rule_set%20%E6%96%B9%E6%A1%88%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)》
-5. 修改 sing-box 教程分享篇（Android 端和 Windows 端），删除 `tun` 入站里的 `"domain_strategy": "prefer_ipv6"` 配置项，`outbounds` 删除 `"domain_strategy": "prefer_ipv6"` 配置项
-6. 修改 Clash 和 sing-box 教程分享篇（Windows 端），优化更新内核和配置文件脚本
-7. 修改 Clash 和 sing-box 教程分享篇（ShellCrash），定时任务中的下载地址修改为 `https://raw.githubusercontent.com` 地址，**须确保 Clash 或 sing-box 服务正常运行**
-8. 修改 Clash 和 sing-box 教程，`dns` 不启用 HTTP/3 特性
-9. 修改 sing-box 教程~分享篇~进阶篇（防止 dns 泄露），**dns 分流优化（既防止了 DNS 泄露又保证了兼容性）**
-10. 修改 Clash 和 sing-box 教程，将 DNS 拦截广告 RCode 修改为 `success`
-11. 修改 Clash 和 sing-box 教程，将 `Ⓜ️ 微软服务` 修改为 `🪟 微软服务`
-12. 其它文案优化
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案（Clash），现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
 **ShellCrash（fakeip 模式）搭配 AdGuardHome 的完美方案（sing-box），现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fakeip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
