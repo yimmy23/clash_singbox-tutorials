@@ -5,27 +5,19 @@
 - 3. DNS 分流简单来说就是**指定国内域名走国内 DNS 解析，国外域名走国外 DNS 解析**
 - 4. 此方案自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 ---
-# 一、 导入 mihomo 内核
-可参考《[Clash Verge 配置-ruleset 方案/导入或更新 mihomo 内核](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/Clash%20Verge%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5%E6%88%96%E6%9B%B4%E6%96%B0-mihomo-%E5%86%85%E6%A0%B8)》进行操作
-# 二、 编辑自定义配置
+# 一、 编辑自定义配置
 ## 1. DNS 模式为 `fake-ip`
 - 注：该模式不需要进行 DNS 分流，推荐导入我生成的 fakeip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/dev/public/fake_ip_filter.list)，提高了兼容性）
 
-① 进入 Clash Verge -> 订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
-② 进入文件夹 *%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles*，找到与上一步新建的 Merge 文件相对应的 .yaml 文件，复制其文件名并替换下面命令中的 `{Merge 文件名}`  
 以管理员身份运行 CMD，执行如下命令：
 ```
 taskkill /f /t /im "Clash Verge*"
 taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
-curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\{Merge 文件名}.yaml" -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/fakeip-user.yaml
+curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\Merge.yaml" -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/fakeip-user.yaml
 ```
-③ 再次进入 Clash Verge -> 订阅，右击新建的 Merge 文件，点击“启用”
 ## 2. DNS 模式为 `redir-host`
-① 进入 Clash Verge -> 订阅，点击“新建”（若已有该文件，则忽略此步），类型选择“Merge”，完成后点击“保存”  
-② 右击新建的 Merge 文件，选择“编辑文件”，粘贴如下内容并“保存”：
-- 注：`proxy-groups` 策略组内必须含有 `🪜 代理域名`
-
+进入 Clash Verge -> 订阅，右击“全局扩展配置”，选择“编辑文件”，将原配置全部删除后粘贴如下内容并“保存”：
 ```
 sniffer:
   enable: true
@@ -42,13 +34,12 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - https://1.12.12.12/dns-query
-    - https://223.5.5.5/dns-query
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:ads': rcode://success
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://1.12.12.12/dns-query, https://223.5.5.5/dns-query]
-    'rule-set:proxy': ['https://8.8.8.8/dns-query#🪜 代理域名', 'https://1.1.1.1/dns-query#🪜 代理域名']
+    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:proxy': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query]
 ```
-③ 再次右击新建的 Merge 文件，点击“启用”
-# 三、 客户端设置
+# 二、 客户端设置
 进入 Clash Verge -> 系统设置 -> Tun 模式，点击右边的螺帽图标，启用“严格路由”，然后点击“保存”
