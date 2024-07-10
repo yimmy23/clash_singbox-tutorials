@@ -303,7 +303,7 @@
       // 国内 DNS
       { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
       // 国外 DNS
-      { "tag": "dns_direct", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ], "detour": "PROXY" },
+      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ], "detour": "PROXY" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
