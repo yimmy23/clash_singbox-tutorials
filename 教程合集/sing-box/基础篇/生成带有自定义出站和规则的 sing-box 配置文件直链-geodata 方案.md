@@ -134,7 +134,8 @@
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
     "final": "🐟 漏网之鱼",
-    "auto_detect_interface": true
+    "auto_detect_interface": true,
+    "concurrent_dial": true
   }
 }
 ```
@@ -286,7 +287,8 @@
     },
     // 默认出站，即没有命中规则的域名或 IP 走该规则
     "final": "🐟 漏网之鱼",
-    "auto_detect_interface": true
+    "auto_detect_interface": true,
+    "concurrent_dial": true
   }
 }
 ```
