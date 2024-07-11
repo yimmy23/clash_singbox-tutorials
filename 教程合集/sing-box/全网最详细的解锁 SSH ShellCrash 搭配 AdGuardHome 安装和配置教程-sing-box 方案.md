@@ -358,17 +358,16 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 “后备 DNS 服务器”设置为：
 ```
-quic://223.5.5.5
-https://1.12.12.12/dns-query
+quic://dns.alidns.com:853
+https://doh.pub/dns-query
 ```
 “Bootstrap DNS 服务器”设置为：
 ```
-quic://223.5.5.5
+quic://223.5.5.5:853
 https://1.12.12.12/dns-query
 ```
 直接点击“应用”即可  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/b35a909d-baab-400f-808e-e3c6ef4b91a9" width="60%"/>  
-
+<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/4f3e405d-dcdf-4b7d-861c-1bc0c94614c1" width="60%"/>  
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”，然后点击下方的“保存”  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e7924612-6dbe-423c-9967-15bdc31e6ef7" width="60%"/>  
 勾选“乐观缓存”，并点击“保存”  
@@ -384,8 +383,10 @@ https://1.12.12.12/dns-query
 添加成功  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/56c133e1-6298-4cf8-a565-f1171959f20f" width="60%"/>
 
-⑥ 进入过滤器 -> DNS 重写 -> 添加 DNS 重写，“输入域”填写 `miwifi.com`，“输入 IP 地址或域名”填写 `192.168.31.1`，然后点击“保存”
-- 注：此步骤可解决访问 http://miwifi.com 时无法打开小米或红米路由器管理页面的问题，其它型号路由器请根据自身需要填写
+⑥ 进入过滤器 -> DNS 重写 -> 添加 DNS 重写，“输入域”填写 `miwifi.com`，“输入 IP 地址或域名”填写 `192.168.31.1`，然后点击“保存”  
+注：
+- 1. 此步骤可解决访问 http://miwifi.com 时无法打开小米或红米路由器管理页面的问题，其它型号路由器请根据自身需要填写
+- 2. 若已在 ShellCrash 配置文件自行添加了 `dns.hosts`，可跳过此步骤
 
 添加成功  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/7afe4816-93d6-426f-9e5a-82ace37e4b91" width="60%"/>
