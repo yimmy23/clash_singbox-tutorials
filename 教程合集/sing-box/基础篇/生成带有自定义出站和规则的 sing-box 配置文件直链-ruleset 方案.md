@@ -233,7 +233,8 @@
     ],
     // 默认出站，即没有命中规则的域名或 IP 走该规则
     "final": "🐟 漏网之鱼",
-    "auto_detect_interface": true
+    "auto_detect_interface": true,
+    "concurrent_dial": true
   }
 }
 ```
@@ -252,9 +253,9 @@
       // 广告 DNS
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
-      { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       // 国外 DNS
-      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
+      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ] },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
@@ -275,6 +276,7 @@
     // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
     "strategy": "prefer_ipv4",
     "independent_cache": true,
+    "lazy_cache": true,
     "reverse_mapping": true,
     "mapping_override": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
@@ -418,7 +420,8 @@
     ],
     // 默认出站，即没有命中规则的域名或 IP 走该规则
     "final": "🐟 漏网之鱼",
-    "auto_detect_interface": true
+    "auto_detect_interface": true,
+    "concurrent_dial": true
   }
 }
 ```
@@ -434,9 +437,9 @@
       // 广告 DNS
       { "tag": "dns_block", "address": "rcode://success" },
       // 国内 DNS
-      { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
       // 国外 DNS
-      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ], "detour": "PROXY" },
+      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ], "detour": "PROXY" },
       // FakeIP
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
@@ -455,6 +458,7 @@
     // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
     "strategy": "prefer_ipv4",
     "independent_cache": true,
+    "lazy_cache": true,
     "reverse_mapping": true,
     "mapping_override": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
