@@ -19,8 +19,8 @@
     },
     "servers": [
       { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_direct", "address": [ "https://doh.pub/dns-query", "https://dns.alidns.com/dns-query" ], "detour": "DIRECT" },
-      { "tag": "dns_proxy", "address": [ "https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query" ] },
+      { "tag": "dns_direct", "address": [ "h3://dns.alidns.com/dns-query", "https://doh.pub/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_proxy", "address": [ "h3://dns.google/dns-query", "h3://cloudflare-dns.com/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
@@ -31,7 +31,7 @@
       { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 0 },
       { "fallback_rules": [ { "rule_set": [ "cnip" ], "server": "dns_direct" }, { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 } ], "allow_fallthrough": true, "server": "dns_proxy" }
     ],
-    "final": "dns_proxy",
+    "final": "dns_direct",
     "strategy": "prefer_ipv6",
     "independent_cache": true,
     "lazy_cache": true,
