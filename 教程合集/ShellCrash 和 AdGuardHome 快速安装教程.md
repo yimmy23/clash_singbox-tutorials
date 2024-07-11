@@ -56,7 +56,21 @@ curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clas
 # sing-box 内核 PuerNya 版
 curl -o $CRASHDIR/CrashCore.tar.gz -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-puernya/sing-box-linux-armv8.tar.gz && $CRASHDIR/start.sh restart
 ```
-# 三、 安装 AdGuardHome
+# 三、 安装 Clash dashboard 面板
+**Clash dashboard 面板对应文件名和在线地址关系如下表：**
+|面板类型|文件名|在线地址|
+|-----|-----|-----|
+|Clash 官方面板|`clash-dashboard.tar.gz`|https://clash.razord.top|
+|Razord-meta 面板|`Razord-meta.tar.gz`|https://clash.metacubex.one|
+|yacd 面板|`yacd.tar.gz`|https://yacd.haishan.me|
+|Yacd-meta 面板|`Yacd-meta.tar.gz`|https://yacd.metacubex.one|
+|metacubexd 面板|`metacubexd.tar.gz`|https://metacubex.github.io/metacubexd|
+
+连接 SSH 后执行如下命令：
+```
+curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/Clash-dashboard/metacubexd.tar.gz | tar -zx -C $CRASHDIR/ui/ && $CRASHDIR/start.sh restart
+```
+# 四、 安装 AdGuardHome
 ## 1. 安装 AdGuardHome
 **AdGuardHome CPU 架构和链接后缀对应关系如下表：**
 |CPU 架构|AMD64|ARMv5|ARMv6|ARMv7|ARMv8|mips-softfloat|mipsle-softfloat|
