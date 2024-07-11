@@ -34,12 +34,12 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
+    - quic://dns.alidns.com:853
     - https://doh.pub/dns-query
-    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:ads': rcode://success
-    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
-    'rule-set:proxy': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query]
+    'rule-set:cn': [quic://dns.alidns.com:853, https://doh.pub/dns-query]
+    'rule-set:proxy': ['https://dns.google/dns-query#h3=true', 'https://cloudflare-dns.com/dns-query#h3=true']
 ```
 # 二、 客户端设置
 进入 Clash Verge -> 系统设置 -> Tun 模式，点击右边的螺帽图标，启用“严格路由”，然后点击“保存”
