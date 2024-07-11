@@ -1,10 +1,15 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核，请尽量使用[最新版](https://github.com/DustinWin/clash_singbox-tools/tree/main/sing-box-puernya)
-**更新日志（2024-07-09）：** 
+**更新日志（2024-07-12）：** 
 1. 修改 Clash 教程，适配新版 Clash Verge，精简流程
 2. 修改 Clash 教程，优化 `dns` 配置，全部使用纯域名 DNS 服务器
-3. 修改 Clash 分享篇，添加 `hosts` 配置项，将 `miwifi.com` 指向 `192.168.31.1`
-4. 修改 sing-box 分享篇，添加 `dns.hosts` 配置项
-5. 其它步骤和文案优化
+3. 修改 Clash 教程，优化 `dns.servers` 配置，启用 HTTP/3 特性或 QUIC 协议
+4. 修改 Clash 分享篇，添加 `hosts` 配置项，将 `miwifi.com` 指向 `192.168.31.1`
+5. 修改 sing-box 分享篇，添加 `dns.hosts` 配置项
+6. 修改 sing-box 基础篇，添加 `dns.lazy_cache` 和 `route.concurrent_dial` 配置项
+7. 修改 sing-box 教程，优化 `dns.servers` 配置，启用 HTTP/3 特性，
+8. 优化 `dns.servers` 配置，启用 HTTP/3 特性
+9. 修改 sing-box 分享篇，修改 `dns.final` 为 `dns_direct`
+10. 其它步骤和文案优化
 
 **更新日志（2024-07-05）：** 
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
