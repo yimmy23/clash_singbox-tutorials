@@ -9,7 +9,8 @@
 7. 修改 sing-box 教程，优化 `dns.servers` 配置，启用 HTTP/3 特性，
 8. 优化 `dns.servers` 配置，启用 HTTP/3 特性
 9. 修改 sing-box 分享篇，修改 `dns.final` 为 `dns_direct`
-10. 其它步骤和文案优化
+10. 《ShellCrash 和 AdGuardHome 快速安装教程》新增“安装 Clash dashboard 面板”的步骤
+11. 其它步骤和文案优化
 
 **更新日志（2024-07-05）：** 
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
