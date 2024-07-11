@@ -29,8 +29,8 @@
   "dns": {
     "servers": [
       { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_direct", "address": [ "https://1.12.12.12/dns-query", "https://223.5.5.5/dns-query" ], "detour": "DIRECT" },
-      { "tag": "dns_proxy", "address": [ "https://8.8.8.8/dns-query", "https://1.1.1.1/dns-query" ] },
+      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
@@ -44,6 +44,7 @@
     "final": "dns_proxy",
     "strategy": "prefer_ipv4",
     "independent_cache": true,
+    "lazy_cache": true,
     "reverse_mapping": true,
     "mapping_override": true,
     "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
