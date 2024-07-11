@@ -45,8 +45,8 @@ jobs:
         curl -sSL ${fakeip_filter} | grep -v '#' | sed -e '/^\s*$/d' -e "s/.*/'&'/" -e 's/^/    - /' >> ./clash/fakeip-user.yaml
         cat <<EOF >> ./clash/fakeip-user.yaml
           nameserver:
+            - quic://dns.alidns.com:853
             - https://doh.pub/dns-query
-            - https://dns.alidns.com/dns-query
         EOF
 
     - name: Release and upload `clash` assets
