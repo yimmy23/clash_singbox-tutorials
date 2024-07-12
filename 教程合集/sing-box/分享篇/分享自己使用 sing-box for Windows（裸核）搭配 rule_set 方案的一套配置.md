@@ -29,7 +29,7 @@
       { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
       { "rule_set": [ "ads" ], "server": "dns_block", "disable_cache": true, "rewrite_ttl": 0 },
       { "rule_set": [ "cn", "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip", "rewrite_ttl": 0 },
-      { "fallback_rules": [ { "rule_set": [ "cnip" ], "server": "dns_direct" }, { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 } ], "allow_fallthrough": true, "server": "dns_proxy" }
+      { "fallback_rules": [ { "match_all": true, "server": "dns_fakeip", "rewrite_ttl": 0 } ], "allow_fallthrough": true, "server": "dns_proxy" }
     ],
     "final": "dns_direct",
     "strategy": "prefer_ipv6",
