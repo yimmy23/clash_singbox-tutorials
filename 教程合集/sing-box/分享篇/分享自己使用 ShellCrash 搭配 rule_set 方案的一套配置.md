@@ -197,7 +197,7 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 # 三、 导入 DNS 配置 dns.json
 连接 SSH 后运行如下命令：
 ```
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-dns.json
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-fakeip-dns.json
 ```
 # 四、 添加定时任务
 - 注：须确保 sing-box 服务正常运行
