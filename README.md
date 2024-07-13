@@ -11,7 +11,7 @@
 9. 修改 sing-box 分享篇，修改 `dns.final` 为 `dns_direct`
 10. 修改 sing-box 分享篇，修改 `dns.rules` 为全 fakeip 模式
 11. 修改 sing-box 基础篇，删除添加 dns.json 配置文件的步骤
-12. 修改 sing-box 进阶篇，优化 `dns` 分流，引入 `dns.fakeip.exclude_rule`，提高兼容
+12. 修改 sing-box 进阶篇，优化 `dns` 分流，引入 `dns.fakeip.exclude_rule`，提高兼容性；本地配置删除添加 dns.json 配置文件的步骤
 13. 《ShellCrash 和 AdGuardHome 快速安装教程》新增“安装 Clash dashboard 面板”的步骤
 14. 其它步骤和文案优化
 
