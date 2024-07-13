@@ -172,3 +172,6 @@
 # 给作者加鸡腿：
 ## 支付宝
 <img src="https://user-images.githubusercontent.com/45238096/219877760-b385af34-ebbd-438e-a31f-cd2b985047bb.png" width=20%/>
+
+# 机场推荐
+[Bitz Net](https://j1.bnaffloop.com/#/register?code=HT0ALWZq)（仅次于一线机场，推荐打折时购买）
