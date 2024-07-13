@@ -14,11 +14,15 @@
 
 2. 其它设置可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》
 # 三、 导入 dns.json 文件
-注：
-- 1. `dns.fakeip.exclude_rule`已集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellCrash/blob/dev/public/fake_ip_filter.list)，提高了兼容性
-- 2. 将下面命令中的 `{DNS 模式}` 替换为正在使用的 DNS 模式（`mix` 或 `fakeip`）
+## 1. DNS 模式为 `fake-ip`
+- 注：该模式不需要进行 DNS 分流，推荐导入我生成的 geodata-fakeip-dns.json（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellCrash/blob/dev/public/fake_ip_filter.list)，提高了兼容性）
 
 连接 SSH 后执行如下命令：
 ```
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@sing-box/geodata-{DNS 模式}-dns.json && $CRASHDIR/start.sh restart
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@sing-box/geodata-fakeip-dns.json && $CRASHDIR/start.sh restart
+```
+## 2. DNS 模式为 `mix`
+连接 SSH 后执行如下命令：
+```
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@sing-box/geodata-mix-dns.json && $CRASHDIR/start.sh restart
 ```
