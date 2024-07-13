@@ -49,7 +49,7 @@ jobs:
             - https://doh.pub/dns-query
         EOF
 
-    - name: Generate `sing-box` mix-dns-geodata.json
+    - name: Generate `sing-box` geodata-mix-dns.json
       run: |
         mkdir -p ./sing-box/
         fake_ip_filter_domain=$(curl -sSL ${fakeip_filter} | grep -Ev '#|\*|\+|Mijia' | sed '/^\s*$/d' | awk '{printf "\"%s\", ",$1}' | sed 's/, $//')
@@ -58,7 +58,7 @@ jobs:
         echo "fake_ip_filter_suffix=${fake_ip_filter_suffix}" >> ${GITHUB_ENV}
         fake_ip_filter_regex=$(curl -sSL ${fakeip_filter} | grep '.\*' | sed 's/^*/.\*/' | sed 's/^+/.\+/' | awk '{printf "\"%s\", ",$1}' | sed 's/, $//')
         echo "fake_ip_filter_regex=${fake_ip_filter_regex}" >> ${GITHUB_ENV}
-        cat <<EOF > ./sing-box/mix-dns-geodata.json
+        cat <<EOF > ./sing-box/geodata-mix-dns.json
         {
           "dns": {
             "servers": [
@@ -95,17 +95,17 @@ jobs:
         }
         EOF
 
-    - name: Generate `sing-box` mix-dns-ruleset.json
+    - name: Generate `sing-box` ruleset-mix-dns.json
       run: |
-        sed 's/geosite/rule_set/' ./sing-box/mix-dns-geodata.json | sed 's/category-ads-all/ads/' > ./sing-box/mix-dns-ruleset.json
+        sed 's/geosite/rule_set/' ./sing-box/geodata-mix-dns.json | sed 's/category-ads-all/ads/' > ./sing-box/ruleset-mix-dns.json
 
-    - name: Generate `sing-box` fakeip-dns-geodata.json
+    - name: Generate `sing-box` geodata-fakeip-dns.json
       run: |
-        grep -v '"geosite": \[ "cn" \]' ./sing-box/mix-dns-geodata.json > ./sing-box/fakeip-dns-geodata.json
+        grep -v '"geosite": \[ "cn" \]' ./sing-box/geodata-mix-dns.json > ./sing-box/geodata-fakeip-dns.json
 
-    - name: Generate `sing-box` fakeip-dns-ruleset.json
+    - name: Generate `sing-box` ruleset-fakeip-dns.json
       run: |
-        sed 's/geosite/rule_set/' ./sing-box/fakeip-dns-geodata.json | sed 's/category-ads-all/ads/' > ./sing-box/fakeip-dns-ruleset.json
+        sed 's/geosite/rule_set/' ./sing-box/geodata-fakeip-dns.json | sed 's/category-ads-all/ads/' > ./sing-box/ruleset-fakeip-dns.json
 
     - name: Release and upload `clash` assets
       uses: svenstaro/upload-release-action@v2
