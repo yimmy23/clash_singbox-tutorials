@@ -22,9 +22,9 @@ jobs:
         echo "fakeip_filter=https://raw.githubusercontent.com/juewuy/ShellCrash/dev/public/fake_ip_filter.list" >> $GITHUB_ENV
       shell: bash
 
-    - name: Generate fakeip-user.yaml
+    - name: Generate `clash` fakeip-user.yaml
       run: |
-        mkdir -p ./tmp/ ./clash/ ./sing-box/
+        mkdir -p ./tmp/ ./clash/
         cat <<EOF > ./clash/fakeip-user.yaml
         sniffer:
           enable: true
@@ -49,6 +49,63 @@ jobs:
             - https://doh.pub/dns-query
         EOF
 
+    - name: Generate `sing-box` mix-dns-geodata.json
+      run: |
+        mkdir -p ./sing-box/
+        fake_ip_filter_domain=$(curl -sSL ${fakeip_filter} | grep -Ev '#|\*|\+|Mijia' | sed '/^\s*$/d' | awk '{printf "\"%s\", ",$1}' | sed 's/, $//')
+        echo "fake_ip_filter_domain=${fake_ip_filter_domain}" >> ${GITHUB_ENV}
+        fake_ip_filter_suffix=$(curl -sSL ${fakeip_filter} | grep -v '.\*' | grep -E '\*|\+' | sed 's/^[*+]\.//' | awk '{printf "\"%s\", ",$1}' | sed 's/, $//')
+        echo "fake_ip_filter_suffix=${fake_ip_filter_suffix}" >> ${GITHUB_ENV}
+        fake_ip_filter_regex=$(curl -sSL ${fakeip_filter} | grep '.\*' | sed 's/^*/.\*/' | sed 's/^+/.\+/' | awk '{printf "\"%s\", ",$1}' | sed 's/, $//')
+        echo "fake_ip_filter_regex=${fake_ip_filter_regex}" >> ${GITHUB_ENV}
+        cat <<EOF > ./sing-box/mix-dns-geodata.json
+        {
+          "dns": {
+            "servers": [
+              { "tag": "dns_block", "address": "rcode://success" },
+              { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
+              { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ] },
+              { "tag": "dns_fakeip", "address": "fakeip" }
+            ],
+            "rules": [
+              { "outbound": "any", "server": "dns_direct" },
+              { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+              { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
+              { "geosite": [ "category-ads-all" ], "server": "dns_block" },
+              { "geosite": [ "cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
+              { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
+            ],
+            "final": "dns_direct",
+            "strategy": "prefer_ipv4",
+            "independent_cache": true,
+            "lazy_cache": true,
+            "reverse_mapping": true,
+            "mapping_override": true,
+            "fakeip": {
+              "enabled": true,
+              "inet4_range": "198.18.0.0/15",
+              "inet6_range": "fc00::/18",
+              "exclude_rule": {
+                "domain": [ ${fake_ip_filter_domain} ],
+                "domain_suffix": [ ${fake_ip_filter_suffix} ],
+                "domain_regex": [ ${fake_ip_filter_regex} ]
+                }
+              }
+          }
+        }
+
+    - name: Generate `sing-box` mix-dns-ruleset.json
+      run: |
+        sed -e 's/geosite/rule_set/' -e 's/category-ads-all/ads' ./sing-box/mix-dns-geodata.json > ./sing-box/mix-dns-ruleset.json
+
+    - name: Generate `sing-box` fakeip-dns-geodata.json
+      run: |
+        grep -v '"geosite": \[ "cn" \]' ./sing-box/mix-dns-geodata.json > ./sing-box/fakeip-dns-geodata.json
+
+    - name: Generate `sing-box` fakeip-dns-ruleset.json
+      run: |
+        sed -e 's/geosite/rule_set/' -e 's/category-ads-all/ads' ./sing-box/fakeip-dns-geodata.json > ./sing-box/fakeip-dns-ruleset.json
+
     - name: Release and upload `clash` assets
       uses: svenstaro/upload-release-action@v2
       with:
@@ -72,11 +129,38 @@ jobs:
         git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
         git push -f -u origin clash
 
+    - name: Release and upload `sing-box` assets
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        release_name: sing-box
+        tag: sing-box
+        overwrite: true
+        body: "[sing-box](https://github.com/SagerNet/sing-box) 配置文件"
+        file_glob: true
+        file: ./sing-box/*
+
+    - name: Git push assets to "clash" branch
+      run: |
+        cd ./sing-box/ || exit 1
+        git init
+        git config --local user.name "github-actions[bot]"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout -b sing-box
+        git add .
+        git commit -m "sing-box 配置文件更新于 ${update_version}"
+        git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+        git push -f -u origin sing-box
+
     - name: Purge jsDelivr CDN
       run: |
         cd ./clash/ || exit 1
         for file in $(ls); do
           curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@clash/${file}"
+        done
+        cd ../sing-box/ || exit 1
+        for file in $(ls); do
+          curl -i "https://purge.jsdelivr.net/gh/${{ github.repository }}@sing-box/${file}"
         done
 
     - name: Delete old workflow runs
