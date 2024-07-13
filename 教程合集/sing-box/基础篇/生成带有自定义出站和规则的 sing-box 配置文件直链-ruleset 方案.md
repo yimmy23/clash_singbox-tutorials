@@ -21,8 +21,6 @@
 
 # 二、 添加模板和配置文件
 ## 1. 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
-### ① 添加 .json 模板
-将模板内容复制到自己 Gist 新建的 .json 文件中：
 ```
 {
   // 出站
@@ -238,55 +236,11 @@
   }
 }
 ```
+将模板内容复制到自己 Gist 新建的 .json 文件中  
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/1c1a1866-1fc1-4277-92b7-d138e36a4a4b" width="60%"/>
 
-### ② 添加 dns.json
-• 作用是使 DNS 能够精确解析国内外域名，国内域名走 realip，国外域名走 fakeip（属 sing-box 内核的核心功能）  
-• 连接 SSH 后执行 `vi $CRASHDIR/jsons/dns.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
-```
-{
-  // DNS
-  "dns": {
-    // DNS 服务器
-    "servers": [
-      // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://success" },
-      // 国内 DNS
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
-      // 国外 DNS
-      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ] },
-      // FakeIP
-      { "tag": "dns_fakeip", "address": "fakeip" }
-    ],
-    // DNS 规则
-    "rules": [
-      { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
-      // `rule_set` 规则集中必须包含 `ads` 规则
-      { "rule_set": [ "ads" ], "server": "dns_block" },
-      // `rule_set` 规则集中必须包含以下规则
-      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      // `rule_set` 规则集中必须包含 `proxy` 规则
-      { "rule_set": [ "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
-    ],
-    // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
-    "final": "dns_direct",
-    // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
-    "strategy": "prefer_ipv4",
-    "independent_cache": true,
-    "lazy_cache": true,
-    "reverse_mapping": true,
-    "mapping_override": true,
-    "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
-  }
-}
-```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 2. 黑名单模式（只有命中规则的网络流量才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）
-### ① 添加 .json 模板
-将模板内容复制到自己 Gist 新建的 .json 文件中：
 ```
 {
   // 出站
@@ -425,48 +379,8 @@
   }
 }
 ```
-### ② 添加 dns.json
-• 作用是使 DNS 能够精确解析国内外域名，国内域名走 realip，国外域名走 fakeip（属 sing-box 内核的核心功能）  
-• 连接 SSH 后执行 `vi $CRASHDIR/jsons/dns.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
-```
-{
-  // DNS
-  "dns": {
-    // DNS 服务器
-    "servers": [
-      // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://success" },
-      // 国内 DNS
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
-      // 国外 DNS
-      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ], "detour": "PROXY" },
-      // FakeIP
-      { "tag": "dns_fakeip", "address": "fakeip" }
-    ],
-    // DNS 规则
-    "rules": [
-      { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
-      // `rule_set` 规则集中必须包含 `ads` 规则
-      { "rule_set": [ "ads" ], "server": "dns_block" },
-      // `rule_set` 规则集中必须包含 `proxy` 规则
-      { "rule_set": [ "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
-    ],
-    // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
-    "final": "dns_direct",
-    // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
-    "strategy": "prefer_ipv4",
-    "independent_cache": true,
-    "lazy_cache": true,
-    "reverse_mapping": true,
-    "mapping_override": true,
-    "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
-  }
-}
-```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-# 三、 修改模板和配置文件
+将模板内容复制到自己 Gist 新建的 .json 文件中
+# 三、 修改模板
 1. 将代理集合 `outbound_providers` 中的 `download_url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）
 2. 确定自己机场中有哪些国家或地区的节点，然后对模板文件里 `outbounds` 中“**国家或地区出站**”以及 `🚀 节点选择`、`📈 网络测速` 和 `GLOBAL` 出站下的 `outbounds` 里面的国家或地区进行增删改
 - 注：两者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）
