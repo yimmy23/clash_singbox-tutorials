@@ -97,7 +97,7 @@ jobs:
 
     - name: Generate `sing-box` mix-dns-ruleset.json
       run: |
-        sed 's/geosite/rule_set/' ./sing-box/mix-dns-geodata.json | sed 's/category-ads-all/ads' > ./sing-box/mix-dns-ruleset.json
+        sed 's/geosite/rule_set/' ./sing-box/mix-dns-geodata.json | sed 's/category-ads-all/ads/' > ./sing-box/mix-dns-ruleset.json
 
     - name: Generate `sing-box` fakeip-dns-geodata.json
       run: |
@@ -105,7 +105,7 @@ jobs:
 
     - name: Generate `sing-box` fakeip-dns-ruleset.json
       run: |
-        sed 's/geosite/rule_set/' ./sing-box/fakeip-dns-geodata.json | sed 's/category-ads-all/ads' > ./sing-box/fakeip-dns-ruleset.json
+        sed 's/geosite/rule_set/' ./sing-box/fakeip-dns-geodata.json | sed 's/category-ads-all/ads/' > ./sing-box/fakeip-dns-ruleset.json
 
     - name: Release and upload `clash` assets
       uses: svenstaro/upload-release-action@v2
