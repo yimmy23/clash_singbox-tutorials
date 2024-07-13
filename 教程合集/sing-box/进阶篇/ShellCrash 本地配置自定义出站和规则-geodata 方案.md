@@ -139,48 +139,6 @@
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 出站，而该出站是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e04a650c-5c88-4852-bbaa-38cc85ec5036" width="60%"/>
 
-## 4. 自定义 DNS dns.json
-连接 SSH 后执行命令 `vi $CRASHDIR/jsons/dns.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
-```
-{
-  // DNS
-  "dns": {
-    // DNS 服务器
-    "servers": [
-      // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://success" },
-      // 国内 DNS
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
-      // 国外 DNS
-      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ] },
-      // FakeIP
-      { "tag": "dns_fakeip", "address": "fakeip" }
-    ],
-    // DNS 规则
-    "rules": [
-      { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
-      // geosite.db 规则集文件内必须包含 `category-ads-all` 规则
-      { "geosite": [ "category-ads-all" ], "server": "dns_block" },
-      // geosite.db 规则集文件内必须包含以下规则
-      { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      // geosite.db 规则集文件内必须包含 `geolocation-!cn` 规则
-      { "geosite": [ "geolocation-!cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
-    ],
-    // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
-    "final": "dns_direct",
-    // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
-    "strategy": "prefer_ipv4",
-    "independent_cache": true,
-    "lazy_cache": true,
-    "reverse_mapping": true,
-    "mapping_override": true,
-    "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
-  }
-}
-```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 四、 修改出站或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“netflix”  
