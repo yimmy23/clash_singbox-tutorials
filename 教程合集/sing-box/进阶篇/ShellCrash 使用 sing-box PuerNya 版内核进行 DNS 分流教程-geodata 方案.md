@@ -14,32 +14,11 @@
 
 2. 其它设置可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》
 # 三、 导入 dns.json 文件
-连接 SSH 后执行 `vi $CRASHDIR/jsons/dns.json`，按一下 Ins 键（Insert 键），粘贴如下内容：
+注：
+- 1. `dns.fakeip.exclude_rule`已集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellCrash/blob/dev/public/fake_ip_filter.list)，提高了兼容性
+- 2. 将下面命令中的 `{DNS 模式}` 替换为正在使用的 DNS 模式（`mix` 或 `fakeip`）
+
+连接 SSH 后执行如下命令：
 ```
-{
-  "dns": {
-    "servers": [
-      { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
-      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ] },
-      { "tag": "dns_fakeip", "address": "fakeip" }
-    ],
-    "rules": [
-      { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
-      { "geosite": [ "category-ads-all" ], "server": "dns_block" },
-      { "geosite": [ "microsoft@cn", "apple-cn", "google-cn", "category-games@cn", "private", "cn" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
-    ],
-    "final": "dns_direct",
-    "strategy": "prefer_ipv4",
-    "independent_cache": true,
-    "lazy_cache": true,
-    "reverse_mapping": true,
-    "mapping_override": true,
-    "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
-  }
-}
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@sing-box/geodata-{DNS 模式}-dns.json && $CRASHDIR/start.sh restart
 ```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
