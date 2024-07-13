@@ -93,6 +93,7 @@ jobs:
               }
           }
         }
+        EOF
 
     - name: Generate `sing-box` mix-dns-ruleset.json
       run: |
