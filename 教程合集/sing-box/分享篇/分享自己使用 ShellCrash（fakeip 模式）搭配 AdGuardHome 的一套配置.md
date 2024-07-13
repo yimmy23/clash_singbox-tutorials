@@ -195,7 +195,7 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/fa87cd47-f74b-40f1-a105-cc660e2f44ee" width="60%"/>
 
 ```
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-dns-lite.json
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-fakeip-dns-lite.json
 ```
 # 四、 添加定时任务
 - 注：须确保 sing-box 服务正常运行
