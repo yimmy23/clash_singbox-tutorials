@@ -5,7 +5,7 @@
 2. 自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 3. 本教程**仅适合白名单模式**（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 4. 本教程最终效果媲美《[生成带有自定义出站和规则的 sing-box 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BA%E7%AB%99%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》（出站分组更直观，操作更方便），但不依赖于网络
-5. 代理集合 outbound_providers.json、出站 outbounds.json 和规则 route.json 为合并模式（在基础配置上新增），DNS dns.json 为替换模式（覆盖原有配置）
+5. 代理集合 outbound_providers.json、出站 outbounds.json 和规则 route.json 为合并模式（在基础配置上新增）
 6. `outbound_providers` 代理集合配置 `path` 路径后，若路径中含有文件夹如：*./providers/airport.yaml*，需要手动新建此文件夹 *providers* 才能使 .yaml 文件保存到本地，否则将保存到内存中（ 每次启动服务都要重新下载），而在 ShellCrash 中可以连接 SSH 后执行命令 `mkdir -p $CRASHDIR/providers/` 来新建文件夹 *providers*
 7. `rule_set` 规则集配置 `path` 路径后，若路径中含有文件夹如：*./ruleset/ads.srs*，需要手动新建此文件夹 *ruleset* 才能使 .srs 规则集文件保存到本地，否则将保存到内存中（ 每次启动服务都要重新下载），而在 ShellCrash 中可以连接 SSH 后执行命令 `mkdir -p $CRASHDIR/ruleset/` 来新建文件夹 *ruleset*
 8. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
@@ -226,48 +226,6 @@
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 出站，而该出站是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e04a650c-5c88-4852-bbaa-38cc85ec5036" width="60%"/>
 
-## 4. 自定义 DNS dns.json
-连接 SSH 后执行命令 `vi $CRASHDIR/jsons/dns.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
-```
-{
-  // DNS
-  "dns": {
-    // DNS 服务器
-    "servers": [
-      // 广告 DNS
-      { "tag": "dns_block", "address": "rcode://success" },
-      // 国内 DNS
-      { "tag": "dns_direct", "address": [ "h3://223.5.5.5/dns-query", "https://1.12.12.12/dns-query" ], "detour": "DIRECT" },
-      // 国外 DNS
-      { "tag": "dns_proxy", "address": [ "h3://8.8.8.8/dns-query", "h3://1.1.1.1/dns-query" ] },
-      // FakeIP
-      { "tag": "dns_fakeip", "address": "fakeip" }
-    ],
-    // DNS 规则
-    "rules": [
-      { "outbound": "any", "server": "dns_direct" },
-      { "clash_mode": "Direct", "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      { "clash_mode": "Global", "query_type": [ "A", "AAAA" ], "server": "dns_proxy" },
-      // `rule_set` 规则集中必须包含 `ads` 规则
-      { "rule_set": [ "ads" ], "server": "dns_block" },
-      // `rule_set` 规则集中必须包含以下规则
-      { "rule_set": [ "microsoft-cn", "apple-cn", "google-cn", "games-cn", "cn", "private" ], "query_type": [ "A", "AAAA" ], "server": "dns_direct" },
-      // `rule_set` 规则集中必须包含 `proxy` 规则
-      { "rule_set": [ "proxy" ], "query_type": [ "A", "AAAA" ], "server": "dns_fakeip" }
-    ],
-    // 默认 DNS 服务器，即上述 DNS 规则外的域名使用该 DNS 解析
-    "final": "dns_direct",
-    // 若本地网络支持 IPv6，可设置为 `prefer_ipv6`
-    "strategy": "prefer_ipv4",
-    "independent_cache": true,
-    "lazy_cache": true,
-    "reverse_mapping": true,
-    "mapping_override": true,
-    "fakeip": { "enabled": true, "inet4_range": "198.18.0.0/15", "inet6_range": "fc00::/18" }
-  }
-}
-```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 # 四、 修改出站或规则
 **举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
 ① 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内搜索“netflix”  
