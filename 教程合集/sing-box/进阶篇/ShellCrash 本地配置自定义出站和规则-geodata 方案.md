@@ -5,7 +5,7 @@
 2. 自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 3. 本教程**仅适合白名单模式**（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 4. 本教程最终效果媲美《[生成带有自定义出站和规则的 sing-box 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BA%E7%AB%99%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》（出站分组更直观，操作更方便），但不依赖于网络
-5. 代理集合 outbound_providers.json、出站 outbounds.json 和规则 route.json 为合并模式（在基础配置上新增），DNS dns.json 为替换模式（覆盖原有配置）
+5. 代理集合 outbound_providers.json、出站 outbounds.json 和规则 route.json 为合并模式（在基础配置上新增）
 6. `outbound_providers` 代理集合配置 `path` 路径后，若路径中含有文件夹如：*./providers/airport.yaml*，需要手动新建此文件夹 *providers* 才能使 .yaml 文件保存到本地，否则将保存到内存中（ 每次启动服务都要重新下载），而在 ShellCrash 中可以连接 SSH 后执行命令 `mkdir -p $CRASHDIR/providers/` 来新建文件夹 *providers*
 7. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
 8. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
