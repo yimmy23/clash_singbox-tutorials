@@ -1,5 +1,5 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核，请尽量使用[最新版](https://github.com/DustinWin/clash_singbox-tools/tree/main/sing-box-puernya)
-**更新日志（2024-07-13）：** 
+**更新日志（2024-07-14）：** 
 1. 修改 Clash 教程，适配新版 Clash Verge，精简流程
 2. 修改 Clash 教程，优化 `dns` 配置，全部使用纯域名 DNS 服务器
 3. 修改 Clash 教程，优化 `dns.servers` 配置，启用 HTTP/3 特性或 QUIC 协议
@@ -9,7 +9,7 @@
 7. 修改 sing-box 教程，优化 `dns.servers` 配置，启用 HTTP/3 特性，
 8. 修改 sing-box 分享篇，修改 `dns.final` 为 `dns_direct`
 9. 修改 sing-box 分享篇，修改 `dns.rules` 为全 fakeip 模式
-10. 修改 sing-box 基础篇，删除添加 dns.json 配置文件的步骤
+10. 修改 sing-box 基础篇和《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程-sing-box 方案》，删除添加 dns.json 配置文件的步骤
 11. 修改 sing-box 进阶篇，优化 `dns` 分流，引入 `dns.fakeip.exclude_rule`，提高兼容性；本地配置删除添加 dns.json 配置文件的步骤
 12. 《ShellCrash 和 AdGuardHome 快速安装教程》新增“安装 Clash dashboard 面板”的步骤
 13. 其它步骤和文案优化
