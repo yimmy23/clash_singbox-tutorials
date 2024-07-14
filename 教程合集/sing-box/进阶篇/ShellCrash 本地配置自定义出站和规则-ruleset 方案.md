@@ -101,7 +101,7 @@
 }
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 3. 自定义规则 route.yaml
+## 3. 自定义规则 route.json
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
