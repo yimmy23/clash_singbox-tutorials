@@ -195,7 +195,7 @@ curl -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tools@main/sing-box-
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/fa87cd47-f74b-40f1-a105-cc660e2f44ee" width="60%"/>
 
 ```
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-fakeip-dns-lite.json
+curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-mix-dns-lite.json
 ```
 # 四、 添加定时任务
 - 注：须确保 sing-box 服务正常运行
@@ -212,7 +212,7 @@ curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/rulese
 # 五、 设置部分
 ## 1. ShellCrash 设置
 ① 设置可参考《[ShellCrash 配置-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md)》，此处只列举配置的不同之处  
-② 进入主菜单 -> 2 内核功能设置 -> 2 切换 DNS 模式，选择 1 fake-ip 模式  
+② 进入主菜单 -> 2 内核功能设置 -> 2 切换 DNS 模式，选择 1 fake-ip 模式（不会与导入 mix 模式的 dns.json 冲突）  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/a1cb1322-f0c4-4527-b82a-2d211c77a907" width="60%"/>  
 ③ 返回到 2 切换 DNS 运行模式，进入 4 DNS 进阶设置，设置如下：  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f839435e-68bd-402a-a51b-fdfe81ffe767" width="60%"/>  
