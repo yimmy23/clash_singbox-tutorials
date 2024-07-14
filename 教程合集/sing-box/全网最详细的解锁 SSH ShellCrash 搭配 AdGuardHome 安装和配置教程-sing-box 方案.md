@@ -235,21 +235,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 - 1. 选择 1 在线生成 singboxp 配置文件，粘贴你的订阅链接并回车，输入“1”并再次回车即可
 - 2. 选择 2 在线获取完整配置文件，需要一定的 sing-box 知识储备，请查看《[生成带有自定义策略组和规则的 sing-box 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BA%E7%AB%99%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义策略组和规则的 sing-box 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BA%E7%AB%99%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》
 
-导入配置文件完成后不要启动 sing-box 服务  
-⑧ 导入 DNS 配置 dns.json  
-连接 SSH 后执行如下命令：  
-注：
-- 1. 由于 ShellCrash 采用的 DNS 模式为 `mix`，**ShellCrash 传给 AdGuardHome 的国外域名对应 IP 为假 IP**，会导致 AdGuardHome 检查更新和下载更新 DNS 黑名单时失败
-- 2. dns.json 中添加了 AdGuardHome 常用域名，包括：`adguardteam.github.io`（AdGuardHome 自带 DNS 黑名单下载域名）、`adrules.top`（常用广告拦截下载域名）、`anti-ad.net`（常用广告拦截下载域名）和 `static.adtidy.org`（AdGuardHome 检查更新域名）并使用国内 DNS 进行解析
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f21e2e04-304b-4c12-8e79-a87ed96e1363" width="60%"/>
-
-```
-# 规则集使用的是 geodata 方案
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/geodata-dns-lite.json
-# 规则集使用的是 ruleset 方案
-curl -o $CRASHDIR/jsons/dns.json -L https://cdn.jsdelivr.net/gh/DustinWin/ruleset_geodata@sing-box-config/ruleset-dns-lite.json
-```
-导入 DNS 配置文件完成后，启动 sing-box 服务即可  
+导入配置文件完成后启动 sing-box 服务即可  
 **ShellCrash 配置成功！**  
 
 **拓展：**  
