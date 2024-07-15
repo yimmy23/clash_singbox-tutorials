@@ -174,7 +174,7 @@ dns:
     - '+.uu.163.com'
     - 'ps.res.netease.com'
     - '+.oray.com'
- nameserver:
+  nameserver:
     - https://doh.pub/dns-query
     - https://dns.alidns.com/dns-query
 
