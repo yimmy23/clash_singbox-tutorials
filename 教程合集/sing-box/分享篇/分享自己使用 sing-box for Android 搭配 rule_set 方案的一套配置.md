@@ -19,8 +19,8 @@
     },
     "servers": [
       { "tag": "dns_block", "address": "rcode://success" },
-      { "tag": "dns_direct", "address": [ "h3://dns.alidns.com/dns-query", "https://doh.pub/dns-query" ], "detour": "DIRECT" },
-      { "tag": "dns_proxy", "address": [ "h3://dns.google/dns-query", "h3://cloudflare-dns.com/dns-query" ] },
+      { "tag": "dns_direct", "address": [ "https://doh.pub/dns-query", "https://dns.alidns.com/dns-query" ], "detour": "DIRECT" },
+      { "tag": "dns_proxy", "address": [ "https://dns.google/dns-query", "https://cloudflare-dns.com/dns-query" ] },
       { "tag": "dns_fakeip", "address": "fakeip" }
     ],
     "rules": [
