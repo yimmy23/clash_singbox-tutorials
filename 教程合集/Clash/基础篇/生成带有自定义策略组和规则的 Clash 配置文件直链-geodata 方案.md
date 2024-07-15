@@ -1,7 +1,7 @@
 # 生成带有自定义策略组和规则的 Clash 配置文件直链-geodata 方案
 - 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 前言：
-1. 本教程可以生成扩展名为 .yaml 文件的直链，可以**一键导入使用了 [mihomo](https://github.com/MetaCubeX/mihomo) 内核的 Clash 客户端**  
+1. 本教程可以生成扩展名为 .yaml 配置文件直链，可以**一键导入使用了 [mihomo](https://github.com/MetaCubeX/mihomo) 内核的 Clash 客户端**  
 如：[ShellCrash](https://github.com/juewuy/ShellCrash)、[OpenClash](https://github.com/vernesong/OpenClash) 和 [Clash Verge](https://github.com/MetaCubeX/clash-verge) 等，详见[支持 mihomo 的工具](https://wiki.metacubex.one/startup/client)
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
@@ -13,10 +13,11 @@
 ## 1. 注册 [Gist](https://gist.github.com)
 进入 https://gist.github.com 网站并注册
 ## 2. 打开编辑页面
-登录并打开 Gist 可以直接编辑文件，或者鼠标点击页面右上角头像左边的“+”图标新建文件
+登录并打开 Gist 可以直接编辑文件，或者点击页面右上角头像左边的“+”图标新建文件
 ## 3. 输入描述和完整文件名
 “Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 clashlink.yaml  
 <img src="https://user-images.githubusercontent.com/45238096/219593234-64833fcd-5200-4bea-849f-a1865d341fd2.png" width="60%"/>
+
 # 二、 添加模板
 ## 1. 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 ```
@@ -100,7 +101,7 @@ proxy-groups:
 rules:
   # 自定义规则优先放前面
   - GEOSITE,category-ads-all,🛑 广告拦截
-  # 为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
+  # 为过滤 P2P 流量（BT 下载），可添加一条 `DST-PORT` 规则（ShellCrash 会默认开启“只代理常用端口”，可删除此条 `DST-PORT`）
   - DST-PORT,6881-6889,🎯 全球直连
   - GEOSITE,private,🔒 私有网络
   - GEOSITE,microsoft@cn,🪟 微软服务
@@ -189,6 +190,7 @@ proxy-groups:
   - {name: 🇸🇬 新加坡节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)新|sg|singapore"}
   - {name: 🇺🇸 美国节点, type: url-test, tolerance: 50, use: [🛫 我的机场 1, 🛫 我的机场 2], filter: "(?i)美|us|unitedstates|united states"}
 
+# 规则
 rules:
   # 自定义规则优先放前面
   - GEOSITE,category-ads-all,🛑 广告拦截
@@ -199,10 +201,10 @@ rules:
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
 # 三、 修改模板
-1. 首先确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区策略组**”和 `🚀 节点选择` 策略组下的 `proxies` 里面的国家或地区进行增删改
+1. 将代理集合 `proxy-providers` 中的 `url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）  
+2. 确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区策略组**”和 `🚀 节点选择` 策略组下的 `proxies` 里面的国家或地区进行增删改
 - 注：两者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）
 
-2. 将代理集合 `proxy-providers` 中的 `url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）  
 3. 在“国家或地区策略组”中的 `filter` 支持[正则表达式](https://tool.oschina.net/regex)，可以精确地筛选出指定的国家或地区节点  
 例如：我想筛选出“香港 IPLC”节点，`filter` 可以这样写：`filter: "香港.*IPLC|IPLC.*香港"`  
 - 小窍门：使用 [ChatGPT](https://chatgpt.com) 等 AI 工具查询符合自己要求的正则表达式
