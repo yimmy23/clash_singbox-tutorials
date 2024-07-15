@@ -1,8 +1,8 @@
  # 生成带有自定义出站和规则的 sing-box 配置文件直链-geodata 方案
 - 注：此方案适用于 [sing-box](https://github.com/SagerNet/sing-box)，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb） [路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 前言：
-1. 本教程可以生成扩展名为 .json 文件的直链，可以**一键导入使用了 sing-box 内核的客户端**
-如：[ShellCrash](https://github.com/juewuy/ShellCrash) 和 [sing-box for Android and Apple platforms](https://github.com/SagerNet/sing-box/releases) 等，详见[支持 sing-box 的工具](https://sing-box.sagernet.org/zh/clients)
+1. 本教程可以生成扩展名为 .json 配置文件直链，可以**一键导入使用了 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)的客户端**
+如：[ShellCrash](https://github.com/juewuy/ShellCrash) 和 [sing-box for Android](https://github.com/PuerNya/sing-box/actions/workflows/sfa.yml) 等
 2. 生成的订阅链接地址不会改变，支持更新订阅，**支持国内访问，支持同步机场节点**
 3. 生成的订阅链接**自带规则集**，规则集来源 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 4. 本教程必须使用支持 `outbound_providers` 代理集合（即 [Clash](https://github.com/Dreamacro/clash) 订阅链接）的 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)，请先**确定自己机场的订阅链接是否为 Clash 订阅链接**，若不是，需前往[肥羊在线订阅转换工具](https://suburl.v1.mk)进行转换，“生成类型”选择“Clash”，其它参数保持默认即可，转换后的订阅链接需要在末尾添加 `&flag=clash`，然后添加到 .json 文件 `outbound_providers` 代理集合的 `download_url` 中
@@ -13,7 +13,7 @@
 # 一、 准备编辑 .json 直链文件
 ## 1. 注册 [Gist](https://gist.github.com)
 ## 2. 打开编辑页面
-登录并打开 Gist 可以直接编辑文件，或者鼠标点击页面右上角头像左边的“+”图标新建文件
+登录并打开 Gist 可以直接编辑文件，或者点击页面右上角头像左边的“+”图标新建文件
 ## 3. 输入描述和完整文件名
 “Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 singboxlink.json
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/13346166-85cf-474c-9da7-55182e095758" width="60%"/>
@@ -106,7 +106,7 @@
       { "clash_mode": "Global", "outbound": "GLOBAL" },
       // 自定义规则优先放前面
       { "geosite": [ "category-ads-all" ], "outbound": "🛑 广告拦截" },
-      // 为过滤 P2P 流量（BT 下载），可添加一条 `port_range` 规则（ShellCrash 会默认开启“只代理常用端口”，可忽略此项）
+      // 为过滤 P2P 流量（BT 下载），可添加一条 `port_range` 规则（ShellCrash 会默认开启“只代理常用端口”，可删除此条 `port_range`）
       { "port_range": [ "6881:6889" ], "outbound": "🎯 全球直连" },
       { "geosite": [ "private" ], "outbound": "🔒 私有网络" },
       { "geosite": [ "microsoft@cn" ], "outbound": "🪟 微软服务" },
@@ -253,8 +253,12 @@
 2. 确定自己机场中有哪些国家或地区的节点，然后对模板文件里 `outbounds` 中的“**国家或地区出站**”以及 `🚀 节点选择`、`📈 网络测速` 和 `GLOBAL` 下的 `outbounds` 里面的国家或地区进行增删改
 - 注：两者中的国家或地区必须一一对应，新增就全部新增，删除就全部删除，修改就全部修改（重要）
 
-3. 在 `🚀 节点选择` 出站下的 `outbounds` 里，可以将最稳定的节点放在最前面，配置完成后会自动选择最稳定的节点
-4. 在“国家或地区出站”里，`type` 为 `urltest` 就是自动选择延迟最低的节点，将 `urltest` 改成 `selector` 就是手动选择节点
+3. 在“国家或地区出站”中的 `includes` 支持[正则表达式](https://tool.oschina.net/regex)，可以精确地筛选出指定的国家或地区节点  
+例如：我想筛选出“香港 IPLC”节点，`includes` 可以这样写：`"includes": [ "香港.*IPLC|IPLC.*香港" ]`  
+- 小窍门：使用 [ChatGPT](https://chatgpt.com) 等 AI 工具查询符合自己要求的正则表达式
+
+4. 在 `🚀 节点选择` 出站下的 `outbounds` 里，可以将最稳定的节点放在最前面，配置完成后会自动选择最稳定的节点
+5. 在“国家或地区出站”里，`type` 为 `urltest` 就是自动选择延迟最低的节点，将 `urltest` 改成 `selector` 就是手动选择节点
 举个例子：我的机场有 2 个节点，分别是香港节点和日本节点，我想让[哔哩哔哩](https://www.bilibili.com)（B 站）自动选择延迟最低的香港节点，[AcFun](https://www.acfun.cn)（A 站）可以手动选择日本节点，这个需求怎么写？
 我们可以进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“bilibili”和“acfun”，显然可以**精确搜索到结果**，输入“bilibili”可以搜索到“geo/geosite/bilibili”和“geo-lite/geoip/bilibili”（须下载后缀带有“-lite”的 geoip 规则集文件），输入“acfun”仅搜索到“geo/geosite/acfun”，那么就可以这样编写：
 - 注：以下只是节选，请酌情套用
