@@ -16,7 +16,7 @@
 
 2. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 meta 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义策略组和规则
-## 1. 自定义 others.yaml
+## 1. 自定义 others.yaml（用于编写自定义的锚点、入站、`proxy-providers`、`sub-rules`、`rule-set`、script 等功能）
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
@@ -155,7 +155,7 @@ rule-providers:
     interval: 86400
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 2. 自定义 proxies.yaml
+## 2. 自定义 proxies.yaml（用于添加自定义出站代理）
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
 注：
 - 1. 此处以“vless”节点类型为例，其它节点类型写法可参考[通用字段](https://wiki.metacubex.one/config/proxies)
@@ -180,7 +180,7 @@ rule-providers:
       host: example.com
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 3. 自定义 proxy-groups.yaml
+## 3. 自定义 proxy-groups.yaml（用于添加自定义策略组）
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
@@ -313,7 +313,7 @@ rule-providers:
   filter: "(?i)美|us|unitedstates|united states"
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 4. 自定义 rules.yaml
+## 4. 自定义 rules.yaml（用于添加自定义规则）
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 规则
