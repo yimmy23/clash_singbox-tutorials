@@ -34,10 +34,10 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - quic://dns.alidns.com:853
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:ads': rcode://success
-    'rule-set:cn': [quic://dns.alidns.com:853, https://doh.pub/dns-query]
-    'rule-set:proxy': ['https://dns.google/dns-query#h3=true', 'https://cloudflare-dns.com/dns-query#h3=true']
+    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'rule-set:proxy': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query]
 ```
