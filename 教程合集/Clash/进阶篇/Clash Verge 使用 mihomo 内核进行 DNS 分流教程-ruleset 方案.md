@@ -5,8 +5,8 @@
 - 3. DNS 分流简单来说就是**指定国内域名走国内 DNS 解析，国外域名走国外 DNS 解析**
 - 4. 此方案自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 ---
-# 一、 编辑自定义配置
-## 1. DNS 模式为 `fake-ip`
+
+# 一、 DNS 模式为 `fake-ip`
 - 注：该模式不需要进行 DNS 分流，推荐导入我生成的 fakeip-user.yaml（集成 [fake-ip 地址过滤列表](https://github.com/juewuy/ShellClash/blob/dev/public/fake_ip_filter.list)，提高了兼容性）
 
 以管理员身份运行 CMD，执行如下命令：
@@ -16,7 +16,7 @@ taskkill /f /t /im Clash-Verge*
 taskkill /f /t /im clash-meta*
 curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\Merge.yaml" -L https://cdn.jsdelivr.net/gh/DustinWin/clash_singbox-tutorials@clash/fakeip-user.yaml
 ```
-## 2. DNS 模式为 `redir-host`
+# 二、 DNS 模式为 `redir-host`
 进入 Clash Verge -> 订阅，右击“全局扩展配置”，选择“编辑文件”，将原配置全部删除后粘贴如下内容并“保存”：
 ```
 sniffer:
@@ -41,5 +41,3 @@ dns:
     'rule-set:cn': [quic://dns.alidns.com:853, https://doh.pub/dns-query]
     'rule-set:proxy': ['https://dns.google/dns-query#h3=true', 'https://cloudflare-dns.com/dns-query#h3=true']
 ```
-# 二、 客户端设置
-进入 Clash Verge -> 系统设置 -> Tun 模式，点击右边的螺帽图标，启用“严格路由”，然后点击“保存”
