@@ -32,10 +32,10 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - quic://dns.alidns.com:853
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'geosite:category-ads-all': rcode://success
-    'geosite:cn': [quic://dns.alidns.com:853, https://doh.pub/dns-query]
-    'geosite:geolocation-!cn': ['https://dns.google/dns-query#h3=true', 'https://cloudflare-dns.com/dns-query#h3=true']
+    'geosite:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
+    'geosite:geolocation-!cn': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query]
 ```
