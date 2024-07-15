@@ -350,16 +350,16 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 “后备 DNS 服务器”设置为：
 ```
-quic://dns.alidns.com:853
 https://doh.pub/dns-query
+https://dns.alidns.com/dns-query
 ```
 “Bootstrap DNS 服务器”设置为：
 ```
-quic://223.5.5.5:853
 https://1.12.12.12/dns-query
+https://223.5.5.5/dns-query
 ```
 直接点击“应用”即可  
-<img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/cb757efd-9bb4-4088-b49d-661edb0d90e7" width="60%"/>  
+<img src="https://github.com/user-attachments/assets/63f54e5a-f18b-49cf-b28f-36b5526e60d8" width="60%"/>  
 “速度限制”输入“0”，勾选“启用 EDNS 客户端子网”，然后点击下方的“保存”  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e0a3daa8-d66c-49dc-a0be-2ae12e92a63d" width="60%"/>  
 勾选“乐观缓存”，并点击“保存”  
