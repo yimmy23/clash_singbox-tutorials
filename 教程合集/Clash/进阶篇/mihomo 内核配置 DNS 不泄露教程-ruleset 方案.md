@@ -36,8 +36,8 @@ dns:
     - '+.lan'
     - '+.local'
   nameserver:
-    - quic://dns.alidns.com:853
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
 ## 2. DNS 模式为 `redir-host`
@@ -52,13 +52,13 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-filter: ['+.*']
   nameserver:
-    - 'https://dns.google/dns-query#h3=true'
-    - 'https://cloudflare-dns.com/dns-query#h3=true'
+    - https://dns.google/dns-query
+    - https://cloudflare-dns.com/dns-query
   proxy-server-nameserver:
-    - quic://dns.alidns.com:853
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:category-ads-all': rcode://success
-    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [quic://dns.alidns.com:853, https://doh.pub/dns-query]
+    'rule-set:microsoft-cn,apple-cn,google-cn,games-cn,cn,private': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
