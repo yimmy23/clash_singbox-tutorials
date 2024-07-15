@@ -18,7 +18,7 @@
 
 2. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 singbox 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义出站和规则
-## 1. 自定义代理集合 outbound_providers.json
+## 1. 自定义代理集合 outbound_providers.json（用于添加自定义出站提供者）
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
@@ -55,7 +55,7 @@
 }
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 2. 自定义出站 outbounds.json
+## 2. 自定义出站 outbounds.json（用于添加自定义出站）
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbounds.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：  
 ```
 {
@@ -99,7 +99,7 @@
 }
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 3. 自定义规则 route.json
+## 3. 自定义规则 route.json（用于添加自定义路由和规则）
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
@@ -193,7 +193,12 @@
       { "geosite": [ "bilibili" ], "outbound": "DIRECT" },
       // 含有 ipv6 关键字的所有域名走直连
       { "domain_keyword": [ "ipv6" ], "outbound": "DIRECT" }
-    ]
+    ],
+    // geosite 配置项
+    "geosite": {
+      "path": "./geosite.db",
+      "download_url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/release/geosite.db"
+    }
   }
 }
 ```
