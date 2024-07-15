@@ -12,7 +12,7 @@
 10. 修改 sing-box 基础篇和《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程-sing-box 方案》，删除添加 dns.json 配置文件的步骤
 11. 修改 sing-box 进阶篇，优化 `dns` 分流，引入 `dns.fakeip.exclude_rule`，提高兼容性；本地配置删除添加 dns.json 配置文件的步骤
 12. 《ShellCrash 和 AdGuardHome 快速安装教程》新增“安装 Clash dashboard 面板”的步骤
-13. 其它步骤和文案优化
+13. 修改了大量内容
 
 **更新日志（2024-07-05）：** 
 1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
