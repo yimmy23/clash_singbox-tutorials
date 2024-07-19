@@ -1,4 +1,8 @@
 # 特别说明：所有 sing-box 相关教程都是基于 sing-box PuerNya 版内核，请尽量使用[最新版](https://github.com/DustinWin/clash_singbox-tools/tree/main/sing-box-puernya)
+**更新日志（2024-07-20）：** 
+1. 修改 sing-box 进阶篇，优化《sing-box PuerNya 版内核配置 DNS 不泄露教程》，提高兼容性，强烈推荐
+2. 修改 Clash 和 sing-box 教程，`dns` 中，将 `cn` 和 `proxy`（或 `geolocation-!cn`）对调，提高兼容性
+
 **更新日志（2024-07-16）：** 
 1. 修改 Clash 教程，适配新版 Clash Verge，精简流程
 2. 修改 Clash 教程，优化 `dns` 配置，全部使用纯域名 DNS 服务器
@@ -13,22 +17,6 @@
 11. 修改 sing-box 进阶篇，优化 `dns` 分流，引入 `dns.fakeip.exclude_rule`，提高兼容性；本地配置删除添加 dns.json 配置文件的步骤
 12. 《ShellCrash 和 AdGuardHome 快速安装教程》新增“安装 Clash dashboard 面板”的步骤
 13. 修改了大量内容
-
-**更新日志（2024-07-05）：** 
-1. 优化了 `dns` 设置，更加合理（**强烈推荐使用最新方案，sing-box 防止 dns 泄露已更新**）
-2. 部分教程增加使用在线 Dashboard 面板的步骤
-3. 优化《全网最详细的解锁 SSH ShellCrash 搭配 AdGuardHome 安装和配置教程》里的 AdGuardHome DNS 设置
-4. 修改 sing-box 分享篇中的《分享自己使用 ShellCrash（fakeip 模式）搭配 AdGuardHome 的一套配置》，由 `geodata` 方案改为 `rule_set` 方案
-5. 修改 sing-box 分享篇中的《分享自己使用 sing-box for Android 搭配 rule_set 方案的一套配置》，删除 `outbound_providers.path` 和 `rule_set.path` 中的文件夹路径，提高兼容性
-6. 修改 sing-box 分享篇，再次优化 `dns` 配置，**防止 DNS 泄露（可进入 https://ipleak.net 测试），同时也可保证兼容性**
-7. 修改 sing-box 分享篇，修改 `dns.rules` 中的 `rewrite_ttl` 为 `0`，添加 `route.concurrent_dial` 配置项
-8. 修改 sing-box 分享篇，`dns` 添加 `lazy_cache` 配置项
-9. 修改 sing-box 分享篇，`dns.fallback_rules` 修改为混合模式
-10. 修改 sing-box 分享篇，调整需要走 realip 的域名到 `dns.fakeip.exclude_rule` 中
-11. 修改 sing-box 基础篇，优化“黑名单模式”，可以完美运行了
-12. 修改 sing-box，`dns` 配置再次进行了优化，推荐使用最新方案（须更新到 sing-box PuerNya 版内核最新版本）
-13. 修改 sing-box 分享篇，`dns.rules` 迁移 `stop_fallthrough` 到 `allow_fallthrough`
-14. 其它文案优化
 ---
 **ShellCrash（fake-ip 模式）搭配 AdGuardHome 的完美方案（Clash），现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88fake-ip%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**  
 **ShellCrash（mix 模式）搭配 AdGuardHome 的完美方案（sing-box），现已[出炉](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%88%86%E4%BA%AB%E7%AF%87/%E5%88%86%E4%BA%AB%E8%87%AA%E5%B7%B1%E4%BD%BF%E7%94%A8%20ShellCrash%EF%BC%88mix%20%E6%A8%A1%E5%BC%8F%EF%BC%89%E6%90%AD%E9%85%8D%20AdGuardHome%20%E7%9A%84%E4%B8%80%E5%A5%97%E9%85%8D%E7%BD%AE.md)，强烈推荐！**
