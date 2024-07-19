@@ -44,7 +44,7 @@ dns:
     - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:ads': rcode://success
-    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:proxy': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query]
+    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
