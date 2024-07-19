@@ -36,6 +36,6 @@ dns:
     - https://dns.alidns.com/dns-query
   nameserver-policy:
     'geosite:category-ads-all': rcode://success
-    'geosite:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'geosite:geolocation-!cn': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query]
+    'geosite:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
