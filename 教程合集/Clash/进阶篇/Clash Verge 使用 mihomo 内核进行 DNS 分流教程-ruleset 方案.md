@@ -38,6 +38,6 @@ dns:
     - https://dns.alidns.com/dns-query
   nameserver-policy:
     'rule-set:ads': rcode://success
-    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
     'rule-set:proxy': [https://dns.google/dns-query, https://cloudflare-dns.com/dns-query]
+    'rule-set:cn': [https://doh.pub/dns-query, https://dns.alidns.com/dns-query]
 ```
