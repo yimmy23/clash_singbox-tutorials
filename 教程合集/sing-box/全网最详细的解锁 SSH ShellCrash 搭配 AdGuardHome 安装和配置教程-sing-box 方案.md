@@ -363,9 +363,6 @@ https://223.5.5.5/dns-query
 
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a0b4dff7-df3d-4b50-9d10-3fdffe004581" width="60%"/>
 
-- 注：添加较大规则时，点击“保存”按钮后需要加载很长时间，如果页面右下角弹出报错信息，直接刷新页面就可以看到该规则已经添加成功  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/201d8e2b-104b-4687-b0e8-aa5bf4660e24" width="60%"/>
-
 添加成功  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/56c133e1-6298-4cf8-a565-f1171959f20f" width="60%"/>
 
