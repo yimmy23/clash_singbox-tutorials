@@ -51,4 +51,4 @@ dns:
 # 三、 在线 Dashboard 面板
 推荐使用在线 Dashboard 面板 [metacubexd](https://github.com/metacubex/metacubexd)，访问地址：https://metacubex.github.io/metacubexd  
 首次进入需要添加“后端地址”，输入 `http://127.0.0.1:9090` 并点击“添加”即可访问 Dashboard 面板  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/eb57b6b6-6af6-4c19-8077-68f0037803a3" width="60%"/>
+<img src="https://github.com/user-attachments/assets/50f53070-dd17-4c6b-ace5-5e2a4f5bd019" width="60%"/>
