@@ -209,4 +209,4 @@ curl -o "%APPDATA%\io.github.clash-verge-rev.clash-verge-rev\profiles\Merge.yaml
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/4ab824d5-9a7f-4aa8-9b1e-71a8deacdbc5" width="60%"/>
 
 2. 首次进入 https://metacubex.github.io/metacubexd 需要添加“host url”，输入 `http://127.0.0.1:9090` 并点击“添加”，最后点击下方新增的 http://127.0.0.1:9090 即可访问 Dashboard 面板  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/eb57b6b6-6af6-4c19-8077-68f0037803a3" width="60%"/>
+<img src="https://github.com/user-attachments/assets/e59953da-2226-4f50-a32c-f2bc5377b344" width="60%"/>
