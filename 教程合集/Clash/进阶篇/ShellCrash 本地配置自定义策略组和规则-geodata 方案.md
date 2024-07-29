@@ -84,12 +84,12 @@ proxy-providers:
   type: select
   proxies:
     - 🇭🇰 香港节点
-    # 添加 proxies.yaml 中的自定义节点
-    - 🆓 免费节点
     - 🇹🇼 台湾节点
     - 🇯🇵 日本节点
     - 🇸🇬 新加坡节点
     - 🇺🇸 美国节点
+    # 添加 proxies.yaml 中的自定义节点
+    - 🆓 免费节点
 
 # Speedtest 测速网站：选择 `🎯 全球直连` 为测试本地网络速度（运营商网络速度），可选择其它节点用于测试机场节点速度
 - name: 📈 网络测速
@@ -97,13 +97,13 @@ proxy-providers:
   proxies:
     - 🎯 全球直连
     - 🇭🇰 香港节点
-    # 添加 proxies.yaml 中的自定义节点
-    - 🆓 免费节点
     - 🇹🇼 台湾节点
     - 🇯🇵 日本节点
     - 🇰🇷 韩国节点
     - 🇸🇬 新加坡节点
     - 🇺🇸 美国节点
+    # 添加 proxies.yaml 中的自定义节点
+    - 🆓 免费节点
 
 - name: 🎮 游戏服务
   type: select
