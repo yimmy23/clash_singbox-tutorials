@@ -1,4 +1,4 @@
-# 分享自己使用 sing-box for Windows（裸核）搭配 rule_set 方案的一套配置
+# 分享自己使用 [sing-box for Windows](https://github.com/DustinWin/clash_singbox-tools/tree/main/sing-box-puernya)（裸核）搭配 ruleset 方案的一套配置
 # 声明：
 1. 此方案适用于搭载 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building)（**裸核**）的 sing-box for Windows，使用 `rule_set` 规则搭配 `route.rule_set` 配置项，**属高度定制，仅供参考**
 2. 规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata/tree/master#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
