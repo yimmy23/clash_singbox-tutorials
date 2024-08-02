@@ -15,11 +15,14 @@
 ## 2. 打开编辑页面
 登录并打开 Gist 可以直接编辑文件，或者点击页面右上角头像左边的“+”图标新建文件
 ## 3. 输入描述和完整文件名
-“Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 singboxlink.json
+“Gist description...”输入描述，随意填写；“Filename including extension...”输入完整文件名**包括扩展名**，如 singboxlink.json  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/13346166-85cf-474c-9da7-55182e095758" width="60%"/>
 
 # 二、 添加模板和配置文件
-## 1. 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
+## 1. 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户，推荐）
+<details>
+<summary>展开/收起</summary>
+
 ```
 {
   // 出站
@@ -140,8 +143,12 @@
 将模板内容复制到自己 Gist 新建的 .json 文件中  
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/1c1a1866-1fc1-4277-92b7-d138e36a4a4b" width="60%"/>
+</details>
 
 ## 2. 黑名单模式（只有命中规则的网络流量才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）
+<details>
+<summary>展开/收起</summary>
+
 ```
 {
   // 出站
@@ -248,6 +255,8 @@
 }
 ```
 将模板内容复制到自己 Gist 新建的 .json 文件中
+</details>
+
 # 三、 修改模板
 1. 将代理集合 `outbound_providers` 中的 `download_url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）
 2. 确定自己机场中有哪些国家或地区的节点，然后对模板文件里 `outbounds` 中的“**国家或地区出站**”以及 `🚀 节点选择`、`📈 网络测速` 和 `GLOBAL` 下的 `outbounds` 里面的国家或地区进行增删改

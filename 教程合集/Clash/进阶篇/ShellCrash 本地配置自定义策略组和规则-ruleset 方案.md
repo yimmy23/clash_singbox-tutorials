@@ -1,12 +1,13 @@
 # [ShellCrash](https://github.com/juewuy/ShellCrash) 本地配置自定义规则和代理组-ruleset 方案
-- 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
+- 注：此方案适用于 Clash，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 # 前言：
 1. 本教程只适用于 ShellCrash
 2. 自定义规则参考 [DustinWin/ruleset_geodata/ruleset](https://github.com/DustinWin/ruleset_geodata#%E4%BA%8C-ruleset-%E8%A7%84%E5%88%99%E9%9B%86%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E)
 3. 本教程**仅适合白名单模式**（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 4. 本教程最终效果媲美《[生成带有自定义策略组和规则的 Clash 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》（策略组更直观，操作更方便），但不依赖于网络
-5. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
-6. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
+5. 若仅配置自定义策略组和规则，可直接跳过第《二》步
+6. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
+7. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
 ---
 # 一、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)
 可参考《[ShellCrash 配置-ruleset 方案/导入 mihomo 内核](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-ruleset%20%E6%96%B9%E6%A1%88.md#%E4%B8%80-%E5%AF%BC%E5%85%A5-mihomo-%E5%86%85%E6%A0%B8)》里的步骤进行操作
@@ -17,6 +18,9 @@
 2. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 meta 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义策略组和规则
 ## 1. 自定义 others.yaml（用于编写自定义的锚点、入站、`proxy-providers`、`sub-rules`、`rule-set`、script 等功能）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
@@ -155,7 +159,12 @@ rule-providers:
     interval: 86400
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 2. 自定义 proxies.yaml（用于添加自定义出站代理）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
 注：
 - 1. 此处以“vless”节点类型为例，其它节点类型写法可参考[通用字段](https://wiki.metacubex.one/config/proxies)
@@ -180,7 +189,12 @@ rule-providers:
       host: example.com
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 3. 自定义 proxy-groups.yaml（用于添加自定义策略组）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
@@ -312,7 +326,12 @@ rule-providers:
   filter: "(?i)美|us|unitedstates|united states"
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 4. 自定义 rules.yaml（用于添加自定义规则）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 规则
@@ -332,20 +351,25 @@ rule-providers:
 - RULE-SET,privateip,🔒 私有网络,no-resolve
 - RULE-SET,cnip,🇨🇳 直连 IP
 ```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车  
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/cc640bd9-c691-4387-8ddb-d10fcb2bf4f2" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/cc640bd9-c691-4387-8ddb-d10fcb2bf4f2" width="60%"/>
+
 # 四、 修改策略组或规则
-**举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
-① 进入 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 后按 Ctrl+F 组合键搜索“netflix”  
-② 可以精确搜索到“netflix”  
-③ 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，那么就可以这样编写：  
+**举例：我想添加一个规则，使奈飞走日本和新加坡节点**
+1. 进入 [blackmatrix7/ios_rule_script/rule/Clash](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Clash) 后按 Ctrl+F 组合键搜索“netflix”  
+2. 可以精确搜索到“netflix”  
+3. 进入指定目录，优先使用“xxx_Classical.yaml”文件，然后点击“Raw”获取下载地址，那么就可以这样编写：  
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
 
-## 1. 修改 others.yaml 文件
-① 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），在 `rule-providers` 内粘贴如下内容：
+<details>
+<summary>① 修改 others.yaml 文件</summary>
+
+连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），在 `rule-providers` 内粘贴如下内容：
 ```
 # 规则集（yaml 文件每天自动更新）
 
@@ -358,7 +382,10 @@ rule-providers:
     interval: 86400
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 2. 修改 proxy-groups.yaml 文件
+</details>
+<details>
+<summary>② 修改 proxy-groups.yaml 文件</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
@@ -371,7 +398,10 @@ rule-providers:
   filter: "(?i)日本|jp|japan|新|sg|singapore"
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 3. 修改 rules.yaml 文件
+</details>
+<details>
+<summary>③ 修改 rules.yaml 文件</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
 ```
 # 规则
@@ -380,6 +410,8 @@ rule-providers:
 - RULE-SET,netflix,🎥 奈飞视频,no-resolve
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 # 五、 添加小规则
 仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
 注：
