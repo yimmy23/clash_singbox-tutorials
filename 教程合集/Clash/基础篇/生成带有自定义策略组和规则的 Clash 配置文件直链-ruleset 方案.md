@@ -1,5 +1,5 @@
 # 生成带有自定义策略组和规则的 Clash 配置文件直链-ruleset 方案
-- 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
+- 注：此方案适用于 Clash，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 # 前言：
 1. 本教程可以生成扩展名为 .yaml 配置文件直链，可以**一键导入使用了 [mihomo](https://github.com/MetaCubeX/mihomo) 内核的 Clash 客户端**  
 如：[ShellCrash](https://github.com/juewuy/ShellCrash)、[OpenClash](https://github.com/vernesong/OpenClash)、[Clash Verge](https://github.com/MetaCubeX/clash-verge) 和 [Clash.Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid) 等，详见[支持 mihomo 的工具](https://wiki.metacubex.one/startup/client)
@@ -19,7 +19,10 @@
 <img src="https://user-images.githubusercontent.com/45238096/219593234-64833fcd-5200-4bea-849f-a1865d341fd2.png" width="60%"/>
 
 # 二、 添加模板
-## 1. 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）  
+## 1. 白名单模式（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户，推荐）
+<details>
+<summary>展开/收起</summary>
+
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
@@ -239,8 +242,12 @@ rules:
 将模板内容复制到自己 Gist 新建的 .yaml 文件中  
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9bcbccf2-577b-43b4-b53c-e3fd911364dd" width="60%"/>
+</details>
 
 ## 2. 黑名单模式（只有命中规则的网络流量才使用代理，适用于服务器线路网络质量不稳定或不够快，或服务器流量紧缺的用户。通常也是软路由用户、家庭网关用户的常用模式）
+<details>
+<summary>展开/收起</summary>
+
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
 proxy-providers:
@@ -363,6 +370,8 @@ rules:
   - MATCH,🐟 漏网之鱼
 ```
 将模板内容复制到自己 Gist 新建的 .yaml 文件中
+</details>
+
 # 三、 修改模板
 1. 将代理集合 `proxy-providers` 中的 `url` 链接改成自己机场的订阅链接（必须为 Clash 订阅链接，详见《前言：4》）  
 2. 确定自己机场中有哪些国家或地区的节点，然后对模板文件中“**国家或地区策略组**”和 `🚀 节点选择` 策略组下的 `proxies` 里面的国家或地区进行增删改
@@ -418,17 +427,15 @@ rules:
   - RULE-SET,acfun,📽️ AcFun
 ```
 # 四、 生成 .yaml 文件链接
-## 1. 生成链接
 编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
-<img src="https://user-images.githubusercontent.com/45238096/233839417-51d1ab65-3e6b-4ae8-bf01-9d342029b423.png" width="60%"/>
-## 2. 生成 .yaml 文件链接
-编辑完成后，点击右下角的“Create secret gist”按钮，然后点击右上角的“Raw”按钮  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/ed151cc8-1bae-4b9f-a598-2a2687e8acc5" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/ed151cc8-1bae-4b9f-a598-2a2687e8acc5" width="60%"/>
+
 取出地址栏中的网址，删除后面的一串随机码，**完成后该 .yaml 文件直链才是最终生成的订阅链接**，该订阅链接地址不会改变，在不更改文件名的情况下即使编辑该 .yaml 文件并提交了 n 次也不会改变  
 举例，这是原地址：  
 `https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/064134b248dddb3a77d85acf45d084751c57ed11/clashlink.yaml`  
 删除后面的一串随机码（当前编辑该文件生成的随机码“064134b248dddb3a77d85acf45d084751c57ed11”）  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/12b17493-119d-40b7-8bf6-4d05ceaf7a8c" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/12b17493-119d-40b7-8bf6-4d05ceaf7a8c" width="60%"/>
+
 删除后变成：  
 `https://gist.githubusercontent.com/DustinWin/f5995e5002fb729380c02dbc38669149/raw/clashlink.yaml`
 # 五、 导入订阅链接

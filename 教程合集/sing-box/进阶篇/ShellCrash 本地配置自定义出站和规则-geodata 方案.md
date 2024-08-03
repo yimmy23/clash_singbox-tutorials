@@ -5,21 +5,27 @@
 2. 自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 3. 本教程**仅适合白名单模式**（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 4. 本教程最终效果媲美《[生成带有自定义出站和规则的 sing-box 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BA%E7%AB%99%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》（出站分组更直观，操作更方便），但不依赖于网络
-5. 代理集合 outbound_providers.json、出站 outbounds.json 和规则 route.json 为合并模式（在基础配置上新增）
-6. `outbound_providers` 代理集合配置 `path` 路径后，若路径中含有文件夹如：*./providers/airport.yaml*，需要手动新建此文件夹 *providers* 才能使 .yaml 文件保存到本地，否则将保存到内存中（ 每次启动服务都要重新下载），而在 ShellCrash 中可以连接 SSH 后执行命令 `mkdir -p $CRASHDIR/providers/` 来新建文件夹 *providers*
+5. 若仅配置自定义出站和规则，可直接跳过第《二》步
+6. 代理集合 outbound_providers.json、出站 outbounds.json 和规则 route.json 为合并模式（在基础配置上新增）
 7. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
 8. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
 ---
 # 一、 导入 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box)和路由规则文件
 可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》里的步骤《一、二》进行操作
 # 二、 导入配置文件
-1. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 singbox 配置文件 -> 4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）
+1. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 singbox 配置文件 -> 4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/70e60a4d-6819-43aa-9f6c-0a0ab4384db6" width="60%"/>
 
 2. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 singbox 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义出站和规则
 ## 1. 自定义代理集合 outbound_providers.json（用于添加自定义出站提供者）
-连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
+<details>
+<summary>展开/收起</summary>
+
+① 连接 SSH 后执行命令 `mkdir -p $CRASHDIR/providers/`  
+- 注：因 `outbound_providers` 代理集合配置的 `path` 路径中含有文件夹“*providers*”，须手动新建此文件夹才能使 .yaml 订阅文件保存到本地，否则将保存到内存中（每次启动服务都要重新下载）
+
+② 继续执行命令 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
   // 代理集合（获取机场订阅链接内的所有节点）
@@ -55,7 +61,12 @@
 }
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 2. 自定义出站 outbounds.json（用于添加自定义出站）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbounds.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：  
 ```
 {
@@ -99,7 +110,12 @@
 }
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 3. 自定义规则 route.json（用于添加自定义路由和规则）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
@@ -135,19 +151,23 @@
   }
 }
 ```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车  
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 出站，而该出站是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/e04a650c-5c88-4852-bbaa-38cc85ec5036" width="60%"/>
 
 # 四、 修改出站或规则
-**举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
-① 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“netflix”  
-② 输入“netflix”可以搜索到“geo/geosite/netflix”和“geo/geoip/netflix”，那么就可以进行如下操作：  
+**举例：我想添加一个规则，使奈飞走日本和新加坡节点**
+1. 进入 [MetaCubeX/meta-rules-dat/sing/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/sing/geo) 后在左侧“Go to file”搜索框内分别搜索“netflix”  
+2. 输入“netflix”可以搜索到“geo/geosite/netflix”和“geo/geoip/netflix”，那么就可以进行如下操作：  
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
 
-## 1. 修改 outbounds.json 文件
+<details>
+<summary>① 修改 outbounds.json 文件</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbounds.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
@@ -159,7 +179,10 @@
 }
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 2. 修改 route.json 文件
+</details>
+<details>
+<summary>② 修改 route.json 文件</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），**优先在最上方**编辑如下内容并粘贴：
 ```
 {
@@ -175,6 +198,8 @@
 }
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 # 五、 添加小规则
 仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），在**最上方**编辑如下内容并粘贴：  
 注：

@@ -4,13 +4,13 @@
 
 ---
 # 前言
-1. 本教程基于 Redmi AX6000 [官方固件](https://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellCrash](https://github.com/juewuy/ShellCrash) v1.9.1 版，[AdGuardHome](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
-2. 恢复 SSH，安装 ShellCrash 和 AdGuardHome 的方法也适用于其它已解锁 SSH 的路由器
-3. 安装 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building) 内核和 AdGuardHome 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
+1. 本教程基于 Redmi AX6000 [官方固件](https://www1.miwifi.com/miwifi_download.html) v1.0.70 版，[ShellCrash](https://github.com/juewuy/ShellCrash) v1.9.1 版，[AdGuard Home](https://github.com/AdguardTeam/AdGuardHome) v0.108.0 版编写
+2. 恢复 SSH，安装 ShellCrash 和 AdGuard Home 的方法也适用于其它已解锁 SSH 的路由器
+3. 安装 [sing-box PuerNya 版内核](https://github.com/PuerNya/sing-box/tree/building) 内核和 AdGuard Home 时须注意路由器 CPU 架构，查看 CPU 架构可连接 SSH 后执行如下命令：  
 `uname -ms`  
-若执行结果是“linux aarch64”，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
-4. ShellCrash 和 AdGuardHome 中所有没有提到的配置保持默认即可
-5. ShellCrash 和 AdGuardHome 快速安装方法请看《[ShellCrash 和 AdGuardHome 快速安装教程](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellCrash%20%E5%92%8C%20AdGuardHome%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
+若执行结果是 `linux aarch64`，就下载 armv8 或 arm64 版安装包；若是其它架构请下载相匹配的安装包
+1. ShellCrash 和 AdGuard Home 中所有没有提到的配置保持默认即可
+2. ShellCrash 和 AdGuard Home 快速安装方法请看《[ShellCrash 和 AdGuard Home 快速安装教程](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/ShellCrash%20%E5%92%8C%20AdGuard%20Home%20%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B.md)》
 ---
 # 一、 资源下载
 打包下载：https://dustinwinvip.lanzoum.com/b01qd6p3a  
@@ -26,7 +26,7 @@
 第三方下载：https://github.com/DustinWin/clash_singbox-tools/blob/main/sing-box-puernya/sing-box-linux-armv8.tar.gz
 ## 3. Termius
 官方下载：https://autoupdate.termius.com/windows/Termius.exe
-## 4. AdGuardHome
+## 4. AdGuard Home
 官方下载：https://github.com/AdguardTeam/AdGuardHome/releases  
 下载 AdGuardHome_linux_arm64.tar.gz 文件
 ## 5. UPX
@@ -42,37 +42,37 @@
 进入路由器管理页面 http://192.168.31.1 ，登录后复制地址栏中的 stok 值  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/4951fb74-87c7-4eb6-a2e4-cb80a78587fe" width="60%"/>
 ## 2. 开启调试模式
-将复制的 stok 值替换如下网址的{stok}并访问：
+将复制的 stok 值替换如下网址的 `{stok}` 并访问：
 ```
 http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone=%20%27%20%3B%20zz%3D%24%28dd%20if%3D%2Fdev%2Fzero%20bs%3D1%20count%3D2%202%3E%2Fdev%2Fnull%29%20%3B%20printf%20%27%A5%5A%25c%25c%27%20%24zz%20%24zz%20%7C%20mtd%20write%20-%20crash%20%3B%20
 ```
-网页内容显示{"code":0}表示成功开启调试模式
+网页内容显示 `{"code":0}` 表示成功开启调试模式
 ## 3. 通过浏览器请求重启路由器
-继续将复制的 stok 值替换如下网址的{stok}并访问：
+继续将复制的 stok 值替换如下网址的 `{stok}` 并访问：
 ```
 http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone=%20%27%20%3b%20reboot%20%3b%20
 ```
-网页内容显示{"code":0}，此时路由器会重启
+网页内容显示 `{"code":0}`，此时路由器会重启
 ## 4. 再次复制 stok 值
 重启完成后进入路由器管理页面并登录，再次复制 stok 值
 ## 5. 设置 Bdata 永久开启 Telnet
-将复制的 stok 值替换如下网址的{stok}并访问：
+将复制的 stok 值替换如下网址的 `{stok}` 并访问：
 ```
 http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone=%20%27%20%3B%20bdata%20set%20telnet_en%3D1%20%3B%20bdata%20set%20ssh_en%3D1%20%3B%20bdata%20set%20uart_en%3D1%20%3B%20bdata%20commit%20%3B%20
 ```
-网页内容显示{"code":0}表示成功设置 Bdata 永久开启 Telnet
+网页内容显示 `{"code":0}` 表示成功设置 Bdata 永久开启 Telnet
 ## 6. 再次通过浏览器请求重启路由器
-继续将复制的 stok 值替换如下网址的{stok}并访问：
+继续将复制的 stok 值替换如下网址的 `{stok}` 并访问：
 ```
 http://192.168.31.1/cgi-bin/luci/;stok={stok}/api/misystem/set_sys_time?timezone=%20%27%20%3b%20reboot%20%3b%20
 ```
-网页内容显示{"code":0}，此时路由器会再次重启
+网页内容显示 `{"code":0}`，此时路由器会再次重启
 ## 7. 连接 Telnet
 显示“ARE U OK”表示成功解锁 SSH  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/65862548-dd4a-4ffb-81ec-39fbeea60125" width="60%"/>
 ## 8. 永久开启并固化 SSH
 直接粘贴如下所有命令：
-- 注：第一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
+- 注：第一行命令是将 Telnet 或 SSH 登录密码设置为 `12345678`，可自定义
 
 ```
 echo -e '12345678\n12345678' | passwd root
@@ -95,7 +95,7 @@ reboot
 ```
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/6b3af81b-94ac-4905-b05b-b6fd98a513a2" width="60%"/>
 
-最后一行 reboot 命令需要手动回车（下同），回车后路由器会重启  
+最后一行 `reboot` 命令需要手动回车（下同），回车后路由器会重启  
 **SSH 解锁成功！**
 # 三、 恢复 SSH
 若已解锁并固化过 SSH 的路由器在升级固件或恢复出厂设置后 SSH 丢失，可快速再次解锁 SSH
@@ -103,10 +103,10 @@ reboot
 打开网站 https://miwifi.dev/ssh ，在 SN 处输入路由器背面的 SN 号，点击“Calc”按钮  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/43143002-75a2-4f23-a5c4-a120fbb8875f" width="60%"/>
 ## 2. 连接 Telnet
-用户名为：root，密码为第 1 步中计算出的 Telnet 登录密码  
+用户名为：`root`，密码为第 1 步中计算出的 Telnet 登录密码  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/e1694432-ec7f-46bf-b1b0-7a2fbd6ff019" width="60%"/>  
 直接粘贴如下所有命令：
-- 注：最后一行命令是将 Telnet 或 SSH 登录密码设置为“12345678”，可自定义
+- 注：最后一行命令是将 Telnet 或 SSH 登录密码设置为 `12345678`，可自定义
 
 ```
 mkdir -p /data/auto_ssh
@@ -120,10 +120,13 @@ echo -e '12345678\n12345678' | passwd root
 ```
 passwd root
 ```
-输入密码如：12341234，回车后输入同样的密码，再次回车即可  
+输入密码如：`12341234`，回车后输入同样的密码，再次回车即可  
 **SSH 恢复成功！**
 # 四、 连接 SSH
 ## 1. 给 Windows 操作系统添加 SSH 支持（任选一）
+<details>
+<summary>展开/收起</summary>
+
 ① 启用 Telnet 客户端  
 进入控制面板 -> 程序和功能 -> 启用或关闭 Windows 功能，勾选“Telnet 客户端”  
 <img src="https://user-images.githubusercontent.com/45238096/224110758-b3f85378-39dc-407d-82ba-7b1faaf12753.png" width="60%"/>  
@@ -151,7 +154,12 @@ ssh root@192.168.31.1
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/9db9d0e3-759e-442d-9c96-76c2f454a047" width="60%"/>  
 显示“ARE U OK”表示成功登录 SSH  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/0bcf1d7b-9923-4b75-9313-c86e8ff68122" width="60%"/>
+</details>
+
 ## 2. 通过 SSH 工具添加 SSH 支持（任选一）
+<details>
+<summary>展开/收起</summary>
+
 ① 打开 Termius  
 安装 Termius 并打开（登录后可一直免费试用），现暂时点击“l don't want a free trial”  
 <img src="https://user-images.githubusercontent.com/45238096/231961082-1fb3b895-e42d-46d5-98a6-e7a15cdaa2cc.png" width="60%"/>  
@@ -174,6 +182,8 @@ ssh root@192.168.31.1
 
 显示“ARE U OK”表示成功登录 SSH  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/6f5ba51e-9291-4332-aea5-967a91c2b70e" width="60%"/>
+</details>
+
 ## 3. 通过 WinSCP 连接路由器文件管理
 将下载的 WinSCP-xxx-Portable.zip 文件解压，路径随意，打开 WinSCP，“文件协议”选择“SCP”，其它按图输入，“密码”为 SSH 登录密码，完成后点击登录  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/04f0611b-f4dd-4e49-8342-8ef873d8e286" width="60%"/>  
@@ -214,7 +224,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 进入 4 DNS 进阶设置，选择 7 禁用 DNS 劫持  
 注：
 - 1. 若单独使用 ShellCrash，请不要禁用 DNS 劫持
-- 2. 推荐设置 DNS 分流（单独使用 ShellCrash 以及 ShellCrash 搭配 AdGuardHome 都适用），请看《[ShellCrash 使用 sing-box PuerNya 版内核进行 DNS 分流教程-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20sing-box%20PuerNya%20%E7%89%88%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geodata%20%E6%96%B9%E6%A1%88.md)》或《[ShellCrash 使用 sing-box PuerNya 版内核进行 DNS 分流教程-ruleset方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20sing-box%20PuerNya%20%E7%89%88%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%E6%96%B9%E6%A1%88.md)》
+- 2. 推荐设置 DNS 分流（单独使用 ShellCrash 以及 ShellCrash 搭配 AdGuard Home 都适用），请看《[ShellCrash 使用 sing-box PuerNya 版内核进行 DNS 分流教程-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20sing-box%20PuerNya%20%E7%89%88%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-geodata%20%E6%96%B9%E6%A1%88.md)》或《[ShellCrash 使用 sing-box PuerNya 版内核进行 DNS 分流教程-ruleset方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E8%BF%9B%E9%98%B6%E7%AF%87/ShellCrash%20%E4%BD%BF%E7%94%A8%20sing-box%20PuerNya%20%E7%89%88%E5%86%85%E6%A0%B8%E8%BF%9B%E8%A1%8C%20DNS%20%E5%88%86%E6%B5%81%E6%95%99%E7%A8%8B-ruleset%E6%96%B9%E6%A1%88.md)》
 
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/5c929cdb-c8cd-4020-9a9f-c73b899e1857" width="60%"/>
 
@@ -230,7 +240,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/f0b7b76a-ead0-49ce-9e7a-56cded971b37" width="60%"/>
 
-⑦ 进入主菜单-> 6 导入配置文件  
+⑦ 进入主菜单 -> 6 导入配置文件  
 注：
 - 1. 选择 1 在线生成 singboxp 配置文件，粘贴你的订阅链接并回车，输入“1”并再次回车即可
 - 2. 选择 2 在线获取完整配置文件，需要一定的 sing-box 知识储备，请查看《[生成带有自定义策略组和规则的 sing-box 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BA%E7%AB%99%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》或《[生成带有自定义策略组和规则的 sing-box 配置文件直链-ruleset 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/sing-box/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BA%E7%AB%99%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20sing-box%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-ruleset%20%E6%96%B9%E6%A1%88.md)》
@@ -238,8 +248,9 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 导入配置文件完成后，选择 1 启动/重启服务  
 **ShellCrash 配置成功！**  
 
-**拓展：**  
-ShellCrash 常用命令
+<details>
+<summary><b>ShellCrash 常用命令</b></summary>
+
 - 1. 打开配置：
 ```
 crash
@@ -264,6 +275,8 @@ $CRASHDIR/start.sh update_config
 ```
 crash -h
 ```
+</details>
+
 ## 3. ShellCrash 升级
 进入主菜单 -> 9 更新/卸载，查看“管理脚本”、“内核文件”和“数据库文件”有无新版本，有则选择对应的数字进行升级即可  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/27c492a9-160d-45e9-92a1-5ea6d056d808" width="60%"/>
@@ -275,8 +288,8 @@ $CRASHDIR/start.sh stop && crash -u
 ```
 ② 通过 ShellCrash 配置进行卸载（任选一）  
 进入主菜单 -> 9 更新/卸载，选择 9 卸载 ShellCrash
-# 六 、 AdGuardHome 安装和配置
-## 1. AdGuardHome 安装
+# 六 、 AdGuard Home 安装和配置
+## 1. AdGuard Home 安装
 ① 将下载的 upx-xxx-win64.zip 文件解压到桌面，目录结构为 *C:\Users\\[用户名]\Desktop\upx*  
 ② 将下载的 AdGuardHome_linux_arm64.tar.gz 文件复制到桌面，以管理员身份运行 PowerShell，依次执行如下命令：
 ```
@@ -304,7 +317,7 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/a5057b0f-4cc7-4c23-81e6-913e1bc856b5" width="60%"/>  
 ⑥ 在最下方添加如下内容并保存：
 注：
-- 1. AdGuardHome 的“DNS 服务器端口”须设置为“5353”
+- 1. AdGuard Home 的“DNS 服务器端口”须设置为“5353”
 - 2. 保留首尾的空行
 
 ```
@@ -318,7 +331,7 @@ ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 
 ```
 ⑦ 连接 SSH，直接粘贴如下所有命令：
-- 注：AdGuardHome 的“DNS 服务器端口”须设置为“5353”
+- 注：AdGuard Home 的“DNS 服务器端口”须设置为“5353”
 ```
 chmod +x /data/AdGuardHome/AdGuardHome
 /data/AdGuardHome/AdGuardHome -s install
@@ -328,12 +341,12 @@ iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ```
-**AdGuardHome 安装成功！**
-## 2. AdGuardHome 配置
+**AdGuard Home 安装成功！**
+## 2. AdGuard Home 配置
 ① 打开网页 http://192.168.31.1:3000  
 点击“开始配置”，**“网页管理界面端口”输入“3000”，“DNS 服务器端口”输入“5353”**  
 “身份认证”设置用户名和密码  
-② 点击“打开仪表盘”后输入刚才设置的用户名和密码“登入”，就可以进入 AdGuardHome 管理页面  
+② 点击“打开仪表盘”后输入刚才设置的用户名和密码“登入”，就可以进入 AdGuard Home 管理页面  
 ③ 进入设置 -> 常规设置  
 取消勾选“启用日志”并点击“保存”（日志非常占用空间）  
 ④ 进入设置 -> DNS 设置  
@@ -374,10 +387,11 @@ https://223.5.5.5/dns-query
 添加成功  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/7afe4816-93d6-426f-9e5a-82ace37e4b91" width="60%"/>
 
-**AdGuardHome 配置成功！**  
+**AdGuard Home 配置成功！**  
 
-**拓展：**  
-AdGuardHome 常用命令
+<details>
+<summary><b>AdGuard Home 常用命令</b></summary>
+
 - 1. 启动服务：
 ```
 /data/AdGuardHome/AdGuardHome -s start
@@ -394,14 +408,16 @@ AdGuardHome 常用命令
 ```
 /data/AdGuardHome/AdGuardHome -s status
 ```
-## 3. AdGuardHome 升级
+</details>
+
+## 3. AdGuard Home 升级
 为了节约路由器内存，请按照如下步骤进行操作：  
 ① 执行《六、 1. ① ② ③ ④ ⑤（替换）》的操作步骤  
 ② 连接 SSH，直接粘贴如下所有命令：
 ```
 chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s restart
 ```
-## 4. AdGuardHome 卸载
+## 4. AdGuard Home 卸载
 ① 删除开机启动项  
 执行《六、 1. ⑥》的操作步骤，删除添加的内容：
 ```
@@ -413,7 +429,7 @@ ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
 ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5353
 ```
 并保存  
-② 卸载 AdGuardHome  
+② 卸载 AdGuard Home  
 连接 SSH，直接粘贴如下所有命令：
 ```
 /data/AdGuardHome/AdGuardHome -s stop && /data/AdGuardHome/AdGuardHome -s uninstall && rm -rf /data/AdGuardHome
@@ -432,5 +448,5 @@ UDP 连接正常，使用的是移动 500M 带宽
 ## 3. ShellCrash 效果
 使用的是移动 300M 带宽  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/695f0f5d-7757-4b65-ac30-535544c5c440" width="100%"/>
-## 4. AdGuardHome 效果
+## 4. AdGuard Home 效果
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/b2b322e4-2ac9-4d94-bb14-21eb9e3dc7dd" width="100%"/>

@@ -1,5 +1,5 @@
 # [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev)（Windows 端）配置-ruleset 方案
-- 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
+- 注：此方案适用于 Clash，采用 `RULE-SET` 规则搭配 `rule-providers` 配置项
 ---
 # 一、 导入配置
 ## 1. 导入配置文件
@@ -37,8 +37,8 @@ dns:
     - "+.lan"
     - "+.local"
   nameserver:
-    - quic://dns.alidns.com:853
     - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
 ```
 # 二、 启动 Clash
 1. 进入 Clash Verge -> 设置 -> 系统设置 -> 服务模式，点击右边的盾牌图标，点击“安装”，完成后启用“服务模式”

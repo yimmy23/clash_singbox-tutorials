@@ -1,22 +1,26 @@
 # [ShellCrash](https://github.com/juewuy/ShellCrash) 本地配置自定义策略组和规则-geodata 方案
-- 注：此方案适用于 [Clash](https://github.com/Dreamacro/clash)，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
+- 注：此方案适用于 Clash，采用 `GEOSITE` 和 `GEOIP` 规则搭配 geosite.dat 和 geoip.dat（或 Country.mmdb）[路由规则文件](https://github.com/MetaCubeX/meta-rules-dat)
 # 前言：
 1. 本教程只适用于 ShellCrash
 2. 自定义规则参考 [MetaCubeX/meta-rules-dat](https://github.com/MetaCubeX/meta-rules-dat)
 3. 本教程**仅适合白名单模式**（没有命中规则的网络流量统统使用代理，适用于服务器线路网络质量稳定、快速，不缺服务器流量的用户）
 4. 本教程最终效果媲美《[生成带有自定义策略组和规则的 Clash 配置文件直链-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/%E7%94%9F%E6%88%90%E5%B8%A6%E6%9C%89%E8%87%AA%E5%AE%9A%E4%B9%89%E7%AD%96%E7%95%A5%E7%BB%84%E5%92%8C%E8%A7%84%E5%88%99%E7%9A%84%20Clash%20%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9B%B4%E9%93%BE-geodata%20%E6%96%B9%E6%A1%88.md)》（策略组更直观，操作更方便），但不依赖于网络
-5. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
-6. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
+5. 若仅配置自定义策略组和规则，可直接跳过第《二》步
+6. 所有步骤完成后，请连接 SSH 执行命令 `$CRASHDIR/start.sh restart` 后生效
+7. 推荐使用 [Visual Studio Code](https://code.visualstudio.com/Download) 等专业编辑器来修改配置文件
 ---
 # 一、 导入 [mihomo 内核](https://github.com/MetaCubeX/mihomo)和路由规则文件
 可参考《[ShellCrash 配置-geodata 方案](https://github.com/DustinWin/clash_singbox-tutorials/blob/main/%E6%95%99%E7%A8%8B%E5%90%88%E9%9B%86/Clash/%E5%9F%BA%E7%A1%80%E7%AF%87/ShellCrash%20%E9%85%8D%E7%BD%AE-geodata%20%E6%96%B9%E6%A1%88.md)》里的步骤《一、二》进行操作
 # 二、 导入配置文件
 1. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 meta 配置文件 -> 4 选取在线配置规则模版，选择 4 [ACL4SSR](https://acl4ssr-sub.github.io) 极简版（适合自建节点）  
-<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>  
+<img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/88b58a87-76b8-4004-b005-133d6a2bb71f" width="60%"/>
 
 2. 进入 ShellCrash -> 6 导入配置文件 -> 1 在线生成 meta 配置文件，输入订阅链接后回车，再输入“1”并回车即可
 # 三、 自定义策略组和规则
 ## 1. 自定义 others.yaml（用于编写自定义的锚点、入站、`proxy-providers`、`sub-rules`、`rule-set`、script 等功能）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/others.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 代理集合（获取机场订阅链接内的所有节点）
@@ -49,7 +53,12 @@ proxy-providers:
       interval: 600
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 2. 自定义 proxies.yaml（用于添加自定义出站代理）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxies.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：  
 注：
 - 1. 此处以“vless”节点类型为例，其它节点类型写法可参考[通用字段](https://wiki.metacubex.one/config/proxies)
@@ -74,7 +83,12 @@ proxy-providers:
       host: example.com
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 3. 自定义 proxy-groups.yaml（用于添加自定义策略组）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
@@ -198,7 +212,12 @@ proxy-providers:
   filter: "(?i)美|us|unitedstates|united states"
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 ## 4. 自定义 rules.yaml（用于添加自定义规则）
+<details>
+<summary>展开/收起</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 规则
@@ -217,19 +236,23 @@ proxy-providers:
 - GEOIP,private,🔒 私有网络,no-resolve
 - GEOIP,cn,🇨🇳 直连 IP
 ```
-按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车  
+按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 **贴一张面板效果图（举个例子：我手动选择 `🇹🇼 台湾节点` 策略组，而该策略组是将机场内所有台湾节点按照 url 测试结果自动选择延迟最低的台湾节点）：**  
 <img src="https://github.com/DustinWin/clash-tutorials/assets/45238096/13d52f81-9e84-460a-99c6-a2d1ea05750c" width="60%"/>
 
 # 四、 修改策略组或规则
-**举例：我想添加一个规则，使奈飞走日本和新加坡节点**  
-① 进入 [MetaCubeX/meta-rules-dat/meta/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/meta/geo) 后在左侧“Go to file”搜索框内搜索“netflix”  
-② 输入“netflix”可以搜索到“geo/geosite/netflix”和“geo/geoip/netflix”，那么就可以进行如下操作：  
+**举例：我想添加一个规则，使奈飞走日本和新加坡节点**
+1. 进入 [MetaCubeX/meta-rules-dat/meta/geo](https://github.com/MetaCubeX/meta-rules-dat/tree/meta/geo) 后在左侧“Go to file”搜索框内搜索“netflix”  
+2. 输入“netflix”可以搜索到“geo/geosite/netflix”和“geo/geoip/netflix”，那么就可以进行如下操作：  
 注：
 - 1. **一定要保证缩进对齐！一定要保证缩进对齐！一定要保证缩进对齐！**
 - 2. 以下只是节选，请酌情套用
 
-## 1. 修改 proxy-groups.yaml 文件
+<details>
+<summary>① 修改 proxy-groups.yaml 文件</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/proxy-groups.yaml`，按一下 Ins 键（Insert 键），粘贴如下内容：
 ```
 # 策略组
@@ -242,7 +265,11 @@ proxy-providers:
   filter: "(?i)日本|jp|japan|新|sg|singapore"
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
-## 2. 修改 rules.yaml 文件
+</details>
+
+<details>
+<summary>② 修改 rules.yaml 文件</summary>
+
 连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），**优先在最上方**粘贴如下内容：
 ```
 # 规则
@@ -252,6 +279,8 @@ proxy-providers:
 - GEOIP,netflix,🎥 奈飞视频,no-resolve
 ```
 按一下 Esc 键（退出键），输入英文冒号 `:`，继续输入 `wq` 并回车
+</details>
+
 # 五、 添加小规则
 仅添加特定网址走直连或走代理，连接 SSH 后执行命令 `vi $CRASHDIR/yamls/rules.yaml`，按一下 Ins 键（Insert 键），在**最上方**粘贴如下内容：  
 注：
