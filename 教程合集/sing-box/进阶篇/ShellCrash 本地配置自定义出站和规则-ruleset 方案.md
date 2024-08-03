@@ -25,7 +25,7 @@
 ① 连接 SSH 后执行命令 `mkdir -p $CRASHDIR/providers/`
 - 注：因 `outbound_providers` 代理集合配置的 `path` 路径中含有文件夹“*providers*”，须手动新建此文件夹才能使 .yaml 订阅文件保存到本地，否则将保存到内存中（每次启动服务都要重新下载）
 
-② 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
+② 继续执行命令 `vi $CRASHDIR/jsons/outbound_providers.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
   // 代理集合（获取机场订阅链接内的所有节点）
@@ -120,7 +120,7 @@
 ① 连接 SSH 后执行命令 `mkdir -p $CRASHDIR/ruleset/`
 - 注：因 `route.rule_set` 代理集合配置的 `path` 路径中含有文件夹“*ruleset*”，须手动新建此文件夹才能使 .srs 规则集文件保存到本地，否则将保存到内存中（每次启动服务都要重新下载）
 
-② 连接 SSH 后执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
+② 继续执行命令 `vi $CRASHDIR/jsons/route.json`，按一下 Ins 键（Insert 键），编辑如下内容并粘贴：
 ```
 {
   // 路由
