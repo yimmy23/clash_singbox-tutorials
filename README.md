@@ -2,7 +2,8 @@
 1. 修改 sing-box 进阶篇，优化《sing-box PuerNya 版内核配置 DNS 不泄露教程》，提高兼容性，强烈推荐
 2. 修改 Clash 和 sing-box 教程，`dns` 中，将 `cn` 和 `proxy`（或 `geolocation-!cn`）对调，提高兼容性
 3. 修改 Clash 和 sing-box 分享篇，定时任务里的链接添加代理加速，以解决定时任务不生效（无法下载）的问题
-4. 排版优化；修改大量错误
+4. 修改 sing-box 教程，将“新建文件夹”的提示改为步骤
+5. 排版优化，修改大量错误
 
 **更新日志（2024-07-16）：** 
 1. 修改 Clash 教程，适配新版 Clash Verge，精简流程
