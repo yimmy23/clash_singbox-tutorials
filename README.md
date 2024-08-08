@@ -1,11 +1,12 @@
-**更新日志（2024-08-05）：** 
+**更新日志（2024-08-08）：** 
 1. 修改 sing-box 进阶篇，优化《sing-box PuerNya 版内核配置 DNS 不泄露教程》，提高兼容性，强烈推荐
 2. 修改 Clash 和 sing-box 教程，`dns` 中，将 `cn` 和 `proxy`（或 `geolocation-!cn`）对调，提高兼容性
 3. 修改 Clash 和 sing-box 分享篇，定时任务里的链接添加代理加速，以解决定时任务不生效（无法下载）的问题
 4. 修改 sing-box 教程，将“新建文件夹”的提示改为步骤
 5. 修改 Clash 教程，ruleset 方案中的规则集文件采用新格式 `mrs`（`format: mrs`）
 6. **规则集项目中 ruleset 下载地址改变；插件下载地址改变**（添加到 Releases 中，可以使用 github.com 地址了）
-7. 排版优化，修改大量错误
+7. 修改 ShellCrash 搭配 AdGuard Home 的教程，AdGuard Home 自启动添加延时较 ShellCrash +10s，以解决重启路由器后 iptables 出现问题导致无法代理的情况
+8. 排版优化，修改大量错误
 
 **更新日志（2024-07-16）：** 
 1. 修改 Clash 教程，适配新版 Clash Verge，精简流程

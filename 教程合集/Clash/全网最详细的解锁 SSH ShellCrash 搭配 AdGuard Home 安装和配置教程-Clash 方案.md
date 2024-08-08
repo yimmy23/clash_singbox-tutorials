@@ -253,7 +253,7 @@ mkdir -p /tmp/SC_tmp && tar -zxf '/tmp/ShellCrash.tar.gz' -C /tmp/SC_tmp/ && sou
 返回到 2 内核功能设置，根据自身需要开启 8 CN_IP 绕过内核  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/689c9b6e-cab5-401a-9b8b-e9ce5f2f27d0" width="60%"/>
 
-⑤ 进入主菜单 -> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒）  
+⑤ 进入主菜单 -> 4 内核启动设置，选择 1 允许 ShellCrash 开机启动（若重启路由器后服务没有自动运行，可“设置自启延时”为 30 秒，然后在第《六、 1. ⑥》，将 `sleep 10s` 改为 `sleep 40s`）  
 ⑥ 进入主菜单 -> 7 内核进阶设置，选择 4 启用域名嗅探  
 ⑦ 进入主菜单 -> 9 更新/卸载 -> 7 切换安装源及安装版本，选择 b 切换至公测版-master -> 1 Jsdelivr_CDN源，追求新版可选择 c 切换至开发版（可能不稳定）  
 <img src="https://github.com/DustinWin/clash_singbox-tutorials/assets/45238096/d58f1ac5-1da4-4655-b0ce-535d779642be" width="60%"/>
@@ -346,10 +346,12 @@ chmod +x /data/auto_ssh && chmod +x /data/auto_ssh/auto_ssh.sh
 ⑥ 在最下方添加如下内容并保存：
 注：
 - 1. AdGuard Home 的“DNS 服务器端口”须设置为“5353”
-- 2. 保留首尾的空行
+- 2. 若 ShellCrash 设置了自启延时如 30 秒，须将 `sleep 10s` 修改为 `sleep 40s`（即 +10s）
+- 3. 保留首尾的空行
 
 ```
 
+sleep 10s
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
 iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
@@ -452,6 +454,7 @@ chmod +x /data/AdGuardHome/AdGuardHome && /data/AdGuardHome/AdGuardHome -s resta
 ① 删除开机启动项  
 执行《六、 1. ⑥》的操作步骤，删除添加的内容：
 ```
+sleep 10s
 /data/AdGuardHome/AdGuardHome -s install
 /data/AdGuardHome/AdGuardHome -s start
 iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5353
